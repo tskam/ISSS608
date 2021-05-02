@@ -1,0 +1,70 @@
+---
+title: "Lesson 1: Outline"
+description: " "
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
+* Course Overview
+* Motivation of Visual Analytics
+* What Visual Analytics is
+* Visual Analytics in History
+* Intents of Visual Analytics Applications
+* Visual Analytics Techniques: basic graphical methods
+* Visual Analytics Tools
+
+
+## Webinars
+
+### Highly Recommended TED Talk
+* [The best Hans Rosling talks you’ve ever seen](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen?referrer=playlist-the_best_hans_rosling_talks_yo).
+
+### Others
+* [VIVA – What is Visual Analytics?](https://www.youtube.com/watch?v=LYKO_6KPZCM/)
+* [Why Visual Analytics](https://www.youtube.com/watch?v=5uGRGqCFryg/) 
+* [Visual Analytics - Mastering the Information Age](https://www.youtube.com/watch?v=5i3xbitEVfs/)
+ 
+
+## Readings
+* Thomas, J.J. & Cook, K.A. (2006) "[A Visual Analytics Agenda](https://www-computer-org.libproxy.smu.edu.sg/csdl/magazine/cg/2006/01/mcg2006010010/13rRUxBa5ej)", ''IEEE Computer Graphics and Applications'', January 2006, Vol.26(1), pp.10-13
+* Chabot, C (2009) "[Demystifying Visual Analytics](https://www-computer-org.libproxy.smu.edu.sg/csdl/magazine/cg/2009/02/mcg2009020084/13rRUy3gn3z)", ''IEEE Computer Graphics and Applications'', March 2009, Vol.29(2), pp.84-87. 
+* [The 5 Most Influential Data Visualizations of All Time](https://www.tableau.com/sites/default/files/whitepapers/the_5_most_influential_data_visualizations_of_all_time.pdf)
+* J.J. Thomas and K.A. Cook, eds. (2005) [Illuminating the Path: The Research and Development Agenda for Visual Analytics](https://ils.unc.edu/courses/2017_fall/inls641_001/books/RD_Agenda_VisualAnalytics.pdf), IEEE CS Press.
+
+
+## Trellis Display
+
+* [The Visual Design and Control of Trellis Display](https://www-jstor-org.libproxy.smu.edu.sg/stable/1390777?seq=1#metadata_info_tab_contents)
+* [Trellis display](https://onlinelibrary-wiley-com.libproxy.smu.edu.sg/doi/full/10.1002/wics.121)
+* [Trellis Displays vs. Interactive Graphics](https://www.researchgate.net/publication/2671674_Trellis_Displays_vs_Interactive_Graphics)
+
+
+## All About Tableau
+
+### Things about Tableau you must know!
+ 
+* [Polaris: A System for Query, Analysis,and Visualization of Multidimensional Relational Databases](https://graphics.stanford.edu/papers/polaris_extended/polaris.pdf)
+* [Tableau Technology](https://www.tableau.com/products/technology)
+* [Show Me: Automatic Presentation for Visual Analysis](https://www.tableau.com/sites/default/files/whitepapers/081027-infovis-showme-vfinal-fix.pdf)
+* [Whitepaper: Visual Analysis for Everyone](https://www.tableau.com/sites/default/files/whitepapers/TS_WP_VA_F2_new_temp_0.pdf)
+* [Analytics Best Practices in Tableau](https://help.tableau.com/current/blueprint/en-us/bp_analytics_best_practices_in_tableau.htm)
+
+### Learning Tableau
+
+* [Getting Started](https://www.tableau.com/learn/tutorials/on-demand/getting-started)
+* [Tableau Interface](http://www.tableau.com/learn/tutorials/on-demand/tableau-interface)
+* [Getting Started with Visual Analytics](https://www.tableau.com/learn/tutorials/on-demand/getting-started-visual-analytics)
+* [Formatting](https://www.tableau.com/learn/tutorials/on-demand/formatting) 
+* [The Formatting Pane](https://www.tableau.com/learn/tutorials/on-demand/formatting-pane)
+* [Reference lines](https://www.tableau.com/learn/tutorials/on-demand/reference-lines)
+* [Getting Started with Data](https://www.tableau.com/learn/tutorials/on-demand/getting-started-data) also self-learn the remaining videos under '''Connecting to Data'''
+* [Getting Started with Tableau Prep Builder](https://www.tableau.com/learn/tutorials/on-demand/getting-started-tableau-prep).  This is a brand-new product from Tableau designed to help everyone quickly and confidently combine, shape, and clean their data for analysis.  You can learn more about Tableau Data Prep [here](https://www.tableau.com/about/blog/2018/3/tableau-prep-project-maestro-here-redefining-your-data-prep-experience-84620).  You are encouraged to view all the 12 videos under '''Tableau Prep'''.
