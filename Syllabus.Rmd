@@ -1,0 +1,154 @@
+---
+title: "Syllabus"
+description: ""
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Synopsis
+
+In this competitive global environment, the ability to explore visual representation of business data interactively and to detect meaningful patterns, trends and exceptions from these data are increasingly becoming an important skill for data analysts and business practitioners.  Drawing from research and practice on Data Visualisation, Human-Computer Interaction, Data Analytics, Data Mining and Usability Engineering, this course aims to share with you how visual analytics techniques can be used to interact with data from various sources and formats, explore relationship, '''detect the expected and discover the unexpected''' without having to deal with complex statistical formulas and programming.  
+
+The goals of this course are:
+
+- To share with you the principles, best practices and methods of visual analytics
+- To provide you hands-on experiences in using commercial-off-the-shelf visual analytics software and programming tools to design visual analytics applications
+
+## Learning Objectives
+
+Upon successful completion of the course, students will be able to:
+
+- Understand the basic concepts, theories and methodologies of visual analytics. 
+- Analyse data using appropriate visual thinking and visual analytics techniques.
+- Present data using appropriate visual communication and graphical methods.
+- Design and implement cutting-edge visual analytics system for supporting decision making.
+
+
+### Competencies 
+
+- Explaining the concepts and principles of Visual Analytics.
+- Describing the differences between Visual Analytics, Data Visualisation, Statistical Graphs and Infographics.
+- Explaining the basic concept of visual variables and applying these concepts and best practice in designing data-driven static graphs.
+- Explaining interactive techniques and best practice, and applying these techniques in designing interactive data visualisation.
+- Understanding the data characteristics of numerical data and building data visualisation by using appropriate visually driven univariate and bivariate data analytics methods.
+- Understanding the characteristics of multivariate data and building data visualisation by using appropriate multivariate visualisation methods. 
+- Understanding the characteristics of time-series data and building data visualisation by using appropriate time-series visualisation methods. 
+- Understanding the characteristics of geographical data and building data visualisation by using appropriate geovisualisation methods. 
+- Understanding the characteristics of network data and building data visualisation by using appropriate network graph visualisation methods. 
+- Explain the concepts and principles of Information Dashboard.
+- Building analytical dashboard by using Commercial off-the-shelf (COTS) software.
+- Designing visual analytics application programmatically by using free and open source software and packages. 
+
+## Basic Modules
+
+This course comprises ten integrated components as shown below:
+
+![](img/VAA_framework.jpg)
+
+## Prerequisites
+
+There are no prerequisites for the class.  However, students taking this course must be willing to learn R programming framework. For students who are new to R, you are encouraged to consult the following resources prior to the lesson starts:
+
+- Garrett Grolemund  & Hadley Wickham (2020) [R for Data Science](https://r4ds.had.co.nz/).  This book is highly recommended to anybody who are interested to understand how to do '''Modern Data Science''' by using '''tidyverse''' principles and methods.   
+- 王敏杰 [数据科学中的 R 语言](https://bookdown.org/wangminjie/R4DS/).
+
+You don't have to finish reading either one of them before lesson starts.  Take your time, review them from time to time.  You will find yourself learning something new each time you revisit the book.
+
+
+## Course Assessment
+
+The assessment of this course consists of four major components, namely: 
+
+- In-class Hands-on exercise and class participation,
+- DataViz Makeover 
+- Individual assignments, 
+- Visual Analytics Project. 
+
+There will be no mid-term test or final examination for this course.  
+
+
+### In-class Exercise and Class Participation
+
+A strict requirement for each class meeting is to complete the assigned readings and to try out the hands-on exercises before coming to class.  Readings will be provided from the textbook on technical information and from provided documents and articles on business applications of Visual Analytics.  Students are required to review the recommended readings and class exercises before coming to class.  Without preparation, the learning and discussions would not be as meaningful.  Student sharing of insights from readings and hands-on exercises of assigned materials in class participation will form a large part of the learning in this course.
+
+During lesson, students are required to complete a series of hands-on exercises using either Tableau or R.  In general, these exercises are guided if Tableau is used.  For R programming session, hands-on guides will be shared on RPubs before lesson starts.  By the end of each lesson, students are required to upload their in-class exercise onto eLearn for reviewing.  The exercises will be briefly reviewed after collection. Students will be given 10 points for correctly completing the exercise, 7-9 points for partially completed and correct work, and 0 points if absent. Up to 100 points can be accumulated during the term.
+  
+
+### DataViz Makeover
+
+Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
+
+The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
+
+The write-up of the DataViz Makeover must be in [distill](https://rstudio.github.io/distill/website.html) format. You are required to publish the write-up on [netlify](https://www.netlify.com/).  If Tableau is used to complete the DataViz Makeover, students are require to upload their Tableau workbook onto [Tableau Public](https://public.tableau.com/en-us/s/).  
+
+All DataViz Makeover have to be completed by **Friday before mid-night 11.59pm**.  Students are required to provide the URL links on eLearn (i.e. DataViz Makeover 1).
+ 
+
+### Individual Assignments
+
+There is one assignment that is due throughout the term.  The assignment must be completed using R.  The write-up of the assignment must be in [distill](https://rstudio.github.io/distill/website.html) format. You are required to publish the write-up on [netlify](https://www.netlify.com/).  Assignment due is to be uploaded onto eLearn strictly before the official due dates.  Late work will be severely penalised.  Students must check and confirm on course webpage the assignment due dates.
+
+The assignment will be graded on a scale from 0 to 100.  Scores of 70 and 80 are given when the assignment is essentially done completely and correctly.  Scores 80 and 90 are reserved for complete and correct homework where extra initiative or innovation clearly sets the completed work above the simple, perfunctory and satisfactory completion of the mini-assignment.  
+
+
+### Visual Analytics Project
+
+The purpose of the project is to provide students first hand experience on collecting, processing and analysing large business data using real world data.  A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains.  Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment.  Students are encouraged to focus on research topics that are relevant to their field of study.  It should address a concrete visual analytics problem and should propose a novel and creative solution.   
+
+For more details please refer to [[VAProject|Visual Analytics Project page]]
+
+
+## Grading Summary
+
+The grading distribution of this course is as follows:
+
+- In-class Exercise and Class Participation 20%
+- DataViz Makeover 30%
+- Assignment 20%
+- Visual Analytics Project 30%
+    - Project blog 15%
+    - Poster 15%
+    - Workshop 20%
+    - Practice research paper 25%
+    - Artifact 25%  
+
+There will be no mid-term test and final examination for this course.
+
+
+## Core Readings
+
+Claus. O. Wilke (2019) [**Fundamentals of Data Visualisation**](https://clauswilke.com/dataviz/), O'Reilly. USA
+
+Cairo, Alberto (2013) **The Functional Art: An Introduction to Information Graphics and Visualization**, New Riders, Berkeley, CA.
+
+Few, Stephen (2004) **Show Me the Numbers: Designing Tables and Graphs to Enlighten**, Analytics Press, Oakland, USA.
+
+Few, Stephen (2009) **Now You See It: Simple Visualization Techniques for Quantitative Analysis**, Analytics Press, Oakland, USA.
+ 
+
+## Other Important Information
+
+### Academic Integrity
+
+All acts of academic dishonesty (including, but not limited to, plagiarism, cheating, fabrication, facilitation of acts of academic dishonesty by others, unauthorized possession of exam questions, or tampering with the academic work of other students) are serious offences. All work (whether oral or written) submitted for purposes of assessment must be the student’s own work. Penalties for violation of the policy range from zero marks for the component assessment to expulsion, depending on the nature of the offense. When in doubt, students should consult the instructors of the course. Details on the SMU Code of Academic Integrity may be accessed at http://www.smuscd.org/resources.html
+
+### Accessibility and Accommodations
+
+SMU strives to make learning experiences accessible for all. If you anticipate or experience physical or academic barriers due to disability, please let the instructor know immediately. You are also welcome to contact the university's disability support team if you have questions or concerns about academic accommodations: included@smu.edu.sg 
+Please be aware that the accessible tables in our seminar room should remain available for students who require them.
+
+### Emergency Preparedness for Teaching and Learning (EPTL)
+
+As part of emergency preparedness, Instructors may conduct lessons online via the WebEx platform during the term, to prepare students for online learning. During an actual emergency, students will be notified to access the WebEx platform for their online lessons. The class schedule will mirror the current face-to-face class timetable unless otherwise stated.
+
+
+
+
+

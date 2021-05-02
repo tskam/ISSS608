@@ -1,0 +1,158 @@
+---
+title: "R Resources"
+description: |
+  This page provides links to useful R packages and references.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Getting Started with R
+
+* [R for Data Science](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham.
+* [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by Bruno Rodrigues. [Chapter 2](https://b-rodrigues.github.io/modern_R/objects-types-and-useful-r-functions-to-get-started.html) provides a detail discussion on R data objects.
+* Brendan R. E. Ansell [Introduction to R - tidyverse](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/) 
+* [The Comprehensive Guide to Installing R Packages from CRAN, Bioconductor, GitHub and Co.](https://thomasadventure.blog/posts/install-r-packages/).  This article provides useful tips on how to install R packages from different sources.  
+
+## ggplot2
+
+### ggplot2 Core
+* [ggplot2](https://ggplot2.tidyverse.org//)
+* [ggplot2 – The R graph Gallery](http://www.r-graph-gallery.com/portfolio/ggplot2-package/)
+* [Introduction to R Graphics with ggplot2](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html#org93999d8)
+* [ggplot2 - A Short Tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html)
+* [ggplot2 介紹](https://bookdown.org/tpemartin/minicourse_ggplot2/)
+
+### Books
+* Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen (2020)[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) (3rd Edition, online version).
+* Kieran Healy (2019) [Data Visualization: A practical introduction](https://socviz.co/).  This is the online version.
+* Aravind Hebbali (2020) [Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/index.html)
+* Winston Chang (2020) [R Graphics Cookbook](https://r-graphics.org/) (2nd edition, online version)
+* Rob Kabacoff (2020) [Data Visualization with R](https://rkabacoff.github.io/datavis/)
+* Zuguang Gu [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/). Last visit: 27/12/2020.
+* Zach Bogart & Joyce Robbins (2020) [Exploratory Data Analysis & Visualization](https://edav.info/)
+* [BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/)
+
+### Articles/Blog posts
+* [How to make any plot in ggplot2?](http://r-statistics.co/ggplot2-Tutorial-With-R.html)
+* [The Complete ggplot2 Tutorial - Part1 | Introduction To ggplot2 (Full R code)](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)
+* [The Complete ggplot2 Tutorial - Part 2 | How To Customize ggplot2 (Full R code)](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html)
+* [Top 50 ggplot2 Visualizations - The Master List (With Full R Code)](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+* [ggplot2 Quickref](http://r-statistics.co/ggplot2-cheatsheet.html)
+* [Data visualization with ggplot2](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)
+
+### Webminers
+
+* [ggplot2 workshop part 1](https://www.youtube.com/watch?v=h29g21z0a68)
+* [ggplot2 workshop part 2](https://www.youtube.com/watch?v=0m4yywqNPVY )
+* [Make Beautiful Graphs in R: 5 Quick Ways to Improve ggplot2 Graphs](https://www.youtube.com/watch?v=qnw1xDnt_Ec)
+
+### ggplots Extension
+* ggVis
+* ggmap
+* [ggtern](http://www.ggtern.com/), an extension to ggplot2 specifically for the plotting of ternary diagrams.
+* [ggExtra](https://github.com/daattali/ggExtra), a collection of functions and layers to enhance ggplot2. The main function is ggMarginal, which can be used to add marginal histograms/boxplots/density plots to ggplot2 scatterplots.
+* [ggthemes](https://cran.r-project.org/web/packages/ggthemes/index.html), some extra themes, geoms, and scales for 'ggplot2'. Provides 'ggplot2' themes and scales that replicate the look of plots by Edward Tufte, Stephen Few, 'Fivethirtyeight', 'The Economist', 'Stata', 'Excel', and 'The Wall Street Journal', among others. Provides 'geoms' for Tufte's box plot and range frame. 
+* [GGally](http://ggobi.github.io/ggally/) extends 'ggplot2' by adding several functions to reduce the complexity of combining geometric objects with transformed data. Some of these functions include a pairwise plot matrix, a two group pairwise plot matrix, a parallel coordinates plot, a survival plot, and several functions to plot networks. 
+* [sjPlot](http://www.strengejacke.de/sjPlot/):Data Visualization for Statistics in Social Science 
+* [ggstatsplot](https://indrajeetpatil.github.io/ggstatsplot/) is an extension of ggplot2 package for creating graphics with details from statistical tests included in the plots themselves and targeted primarily at behavioral sciences community to provide a one-line code to produce information-rich plots.
+
+## Interactive Data Visualisation with R
+### plotly R
+* [plotly](https://cran.r-project.org/web/packages/plotly/index.html): Create Interactive Web Graphics via 'plotly.js'
+* [Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/)
+* [Plotly R Open Source Graphing Library](https://plot.ly/r/)
+* [Getting Started with Plotly and ggplot2](https://plot.ly/ggplot2/getting-started/)
+
+### ggigraph
+
+* [ggigraph](https://cran.r-project.org/web/packages/ggiraph/vignettes/an_introduction.html) lets R users to make ggplot interactive.
+
+## Other R graphics packages
+* [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html). A graphical display of a correlation matrix or general matrix. It also contains some algorithms to do matrix reordering. In addition, corrplot is good at details, including choosing color, text labels, color labels, layout, etc. 
+* [corrgram](https://cran.r-project.org/web/packages/corrgram/index.html) calculates correlation of variables and displays the results graphically. Included panel functions can display points, shading, ellipses, and correlation values with confidence intervals. [https://cran.r-project.org/web/packages/corrgram/index.html]
+* [vcd](https://cran.r-project.org/web/packages/vcd/index.html), Visualization techniques, data sets, summary and inference procedures aimed particularly at categorical data. Special emphasis is given to highly extensible grid graphics. 
+* [tmap](https://cran.r-project.org/web/packages/tmap/index.html) offers a flexible, layer-based, and easy to use approach to create thematic maps, such as choropleths and bubble maps.
+
+
+## Shiny: Web-based Visual Analytics Development tool in R
+
+### Getting Started
+
+* Hadley Wickham (2020) [Mastering Shiny](https://mastering-shiny.org/).  Everything you need to know about Shiny can be found here.  It is not an easy to read book but worth investing time and effort to read. 
+* [Shiny from R Studio](https://shiny.rstudio.com/)
+* [Learn Shiny](https://shiny.rstudio.com/tutorial/)
+* [Function reference](http://shiny.rstudio.com/reference/shiny/latest/)
+* [The Shiny Cheat sheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
+* Colin Fay, Sébastien Rochette, Vincent Guyader, Cervan Girard (2020) [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/)
+* David Granjon (2020) [Outstanding User Interfaces with Shiny](https://divadnojnarg.github.io/outstanding-shiny-ui/index.html)
+* [How to Build a Shiny Application from Scratch](https://bookdown.org/hadrien/how_to_build_a_shiny_app_from_scratch/) 
+* [Shiny 入門](https://bookdown.org/tpemartin/shiny_intro/shiny-part-i.html)
+
+
+### Shiny Applications
+
+* [Gallery](https://shiny.rstudio.com/gallery/)
+* [Shiny Contest Winners 2019 - Full List](https://community.rstudio.com/t/shiny-contest-winners-2019-full-list/36347)
+* [Fifteen New Zealand government Shiny web apps](http://freerangestats.info/blog/2018/05/13/nz-govt-shinyapps)
+* [Introducing the New Zealand Trade Intelligence Dashboard](https://nzprimarysectortrade.w ordpress.com/2018/10/15/introducing-the-new-zealand-trade-intelligence-dashboard/)
+
+## R Markdown
+
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/). Highly recommended to beginners.
+* [Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html R)
+* [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+* [RMarkdown for Scientists](https://rmd4sci.njtierney.com/)
+* [Ten awesome R Markdown tricks](https://towardsdatascience.com/ten-awesome-r-markdown-tricks-56ef6d41098)
+
+## Creating coursework blog
+### Distill
+
+* [Distill for R Markdown](https://rstudio.github.io/distill/) 
+* [distill for R Markdown] pkgs (https://pkgs.rstudio.com/distill/index.html)
+* [Example websites](https://pkgs.rstudio.com/distill/articles/examples.html)
+* [(Re-)introducing Distill for R Markdown](https://blog.rstudio.com/2020/12/07/distill/)
+* [Creating a Blog](https://rstudio.github.io/distill/blog.html)
+* [Blog Post Workflow](https://rstudio.github.io/distill/blog_workflow.html)
+* [Publishing Websites](https://rstudio.github.io/distill/publish_website.html)
+
+ 
+### Blogdown
+
+#### Book
+
+* [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/). Highly recommended to beginners.
+* [blogdown](https://github.com/rstudio/blogdown)
+* [3.1 Netlify](https://bookdown.org/yihui/blogdown/netlify.html)
+
+#### blog articles
+
+* [Up & Running with blogdown](https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/)
+* [A Spoonful of Hugo: The netlify.toml File](https://alison.rbind.io/post/2019-02-19-hugo-netlify-toml/)
+* [A Spoonful of Hugo: Archetypes](https://alison.rbind.io/post/2019-02-19-hugo-archetypes/)
+* [A Spoonful of Hugo: Page Bundles](https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/)
+* [A Spoonful of Hugo: Troubleshooting Your Build](https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/)
+* [A Spoonful of Hugo: How much Hugo do I need to know?](https://alison.rbind.io/post/2020-12-12-how-much-hugo/)
+* [How to build a website with Blogdown in R](https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/)
+* [Setting up our blog with RStudio and blogdown I: Creating the blog](http://estebanmoro.org/post/2019-02-02-setting-up-your-blog-with-rstudio-and-blogdown-i-creating-the-blog/)
+* [Setting up your blog with RStudio and blogdown II: Workflow](http://estebanmoro.org/post/2019-02-01-setting-up-your-blog-with-rstudio-and-blogdown/)
+* [Setting up your blog with RStudio and blogdown III: modify your theme](http://estebanmoro.org/post/2019-02-04-setting-up-your-blog-with-rstudio-and-blogdown-iii-modify-your-theme/)
+
+## github
+
+* [ Happy Git and GitHub for the useR](https://happygitwithr.com/). Highly recommended to beginners.
+* [GitHub and RStudio](https://resources.github.com/whitepapers/github-and-rstudio/)
+* [Getting starting with git and GitHub using RStudio](https://nceas.github.io/training-git-intro/getting-started-with-git-rstudio.html)
+* [Using Git within RStudio](https://cfss.uchicago.edu/setup/git-with-rstudio/)
+* [github doc](https://docs.github.com/en)
+* [Transform a folder as git project synchronized on Github or Gitlab](https://rtask.thinkr.fr/transform-a-folder-as-git-project-synchronized-on-github-or-gitlab/)
+
+
+
+

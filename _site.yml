@@ -1,0 +1,27 @@
+name: "ISSS608"
+title: "ISSS608"
+description: |
+  ISSS608
+output_dir: "_site"
+navbar:
+  left:
+    - text: "Syllabus"
+      href: syllabus.html
+    - text: "Lesson Plan"
+      href: lesson.html
+    - text: "DataViz Makeover"
+      href: DataViz.html
+    - text: "Assignment"
+      href: assignment.html
+    - text: "Visual Analytics Project"
+      href: VAproject.html
+      
+  right:
+    - text: "Tableau Resources"
+      href: Tableau.html
+    - text: "R Resouces"
+      href: R.html      
+    - text: "Home"
+      href: index.html
+    
+output: distill::distill_article

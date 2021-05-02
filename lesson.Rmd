@@ -1,0 +1,129 @@
+---
+title: "Lesson Plan"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Lesson 1: Introduction to Visual Analytics
+
+Date: 8/5/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+
+### Lesson 2: Designing Graphs to Enlighten 	
+
+Date: 15/5/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 3: Interactivity in Visual Analytics: Principles and Methods
+
+Date: 22/5/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 4: Fundamentals of Visual Analytics 	
+
+Date: 29/5/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 5: Visualising and Analysing Time-Oriented Data 	
+
+Date: 5/6/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 6: Visualising and Analysing Geographical Data
+
+Date: 12/6/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 7: Programming Data Visualisation in R
+
+Date: 26/6/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 8: Introducing Shiny 	
+
+Date: 3/July/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 9: Visually Driven Data Analytics Packages in R
+
+Date: 10/7/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 10: Programming GeoVisual Analytics with R
+
+Date: 17/6/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 11: Network Data Visualisation and Analysis
+
+Date: 24/7/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 12: Advanced Shiny Methods
+
+Date: 31/7/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 13: The Epilogue
+
+Date: 7/8/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+### Lesson 14: Visual Analytics Workshop and Poster
+
+Date: 14/8/2021
+
+<p class="nospace">Materials:</p>
+- [Lesson slides](slides/introduction.html)  
+- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+
+
+

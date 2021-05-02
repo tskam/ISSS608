@@ -1,0 +1,24 @@
+---
+title: "ISSS608"
+description: |
+  Visual Analytics and Applications
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+```
+
+Welcome to the home page for **ISSS608 Visual Analytics and Applications**. All course materials will be posted on this site.
+
+Instructor: [Dr. Kam Tin Seong](https://www.smu.edu.sg/faculty/profile/9618/KAM-Tin-Seong)  
+Lesson day and times: Every Saturday. G1 9:00am to 12:3pm and G2 2.00pm to 5:30pm
+Venue: SCIS Seminar Rm B1-1  
+Syllabus: [click here](syllabus.html)  
+Upcoming lectures and assignments: [click here](schedule.html)
+
+

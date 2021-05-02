@@ -1,0 +1,51 @@
+---
+title: "Tableau Resources"
+description: |
+  This page provided useful links to Tableau resources.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## All About Tableau
+
+* [Tableau home page](http://www.tableausoftware.com/)
+* [Training and Tutorials](http://www.tableausoftware.com/learn/training)
+* [Tableau Desktop User Guide](https://help.tableau.com/current/pro/desktop/en-us/default.htm)
+* [Tableau Prep Builder User Guide](https://help.tableau.com/current/prep/en-us/prep_welcome.htm)
+* [Visual Gallery](http://www.tableausoftware.com/learn/gallery)
+* [Tableau Public](https://public.tableau.com/en-us/s/)
+
+## White papers
+
+* [10 Best Practices for Building Effective Dashboards](https://www.tableau.com/learn/whitepapers/10-best-practices-building-effective-dashboards)
+* [Tips for creating effective, engaging data visualizations](https://www.tableau.com/learn/articles/data-visualization-tips)
+
+## Blogs that inspired
+* [The Information Lab](http://www.theinformationlab.co.uk/blog/)
+* [DataRemixed](http://dataremixed.com/)
+* [PlayfairData](https://playfairdata.com/blog/)
+* Data Revelations, especially [Visualizing Survey Data](https://www.datarevelations.com/visualizing-survey-data/) and [Steven's Blog](https://www.datarevelations.com/resources/)
+
+## From data to tada
+
+* [Using data visualization to make better decisions—faster](https://www.tableau.com/learn/webinars/using-data-visualization-make-better-decisions-faster)
+* [17 key traits of data literacy](https://www.tableau.com/learn/webinars/breaking-down-17-key-traits-data-literacy Breaking down)
+* [Inspiring change with data visualization](https://www.tableau.com/learn/webinars/inspiring-change-data-visualization) 
+* [5 important elements of dashboard design](https://www.tableau.com/learn/webinars/5-important-elements-dashboard-design)
+
+## Tableau Tips and Tricks
+
+* [Relationships, Joins and Unions in Tableau 2020.2](https://www.youtube.com/watch?v=EL1m1akHhC4), this Youtube video explains selected data management features introduced in Tableau 2020.2. (updated on 8th Feb 2021).
+
+
+
+
+
+
