@@ -1,0 +1,13 @@
+.title-slide {
+  background-color: #F7F8FA;
+  background-size: cover;
+}
+
+h1, h2, h3 {
+  margin-bottom: -10px;
+}
+
+.blue { color: blue; }
+.vlarge { font-size: 150% }
+.large { font-size: 125% }
+.small { font-size: 70% }

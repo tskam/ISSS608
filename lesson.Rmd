@@ -18,7 +18,7 @@ Date: 8/5/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson01_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- [Lesson slides](lesson/Lesson01/Lesson01-Introduction_to_VAA.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 
