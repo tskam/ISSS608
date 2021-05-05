@@ -1,0 +1,85 @@
+---
+title: "Lesson 4: Fundamentals of Visual Analytics"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Lesson Outline
+
+- Visualising Amounts
+    - Bar chart
+    - Pareto chart
+    - Grouped and stacked bars
+    - Dot plot
+- Visualising Distribution
+    - Histogram
+    - Density plot
+    - Boxplot
+    - Notched boxplot
+    - Violin plot
+    - Q-Q plot
+- Visualising Relationships Among Two Continuous Variables
+    - Scatter plot
+- Visualising Associations Among Two Categorical Variables
+    - Mosaic plot
+- Visualising Uncertainty
+    - Why Visualising Uncertainty?
+    - Basic Statistical Concepts Related to Uncertainty
+    - Univariate Graphical Methods for Visualising Uncertainty
+        - Error bars
+        - Confidence strips
+        - Ridge plot
+    - Bivariate Graphical Methods for Visuaising Uncertainty
+
+## Core Readings
+- Claus O. Wilke [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). Chapter 6-12 and 16. 
+
+## Readings on Statistical Graphics
+### Boxplot
+- [Understanding Boxplots](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51)
+
+### Violin Plots
+- [Violin Plot-wikipedia](https://en.wikipedia.org/wiki/Violin_plot)
+- Hintze, Jerry L.; Nelson, Ray D. (1998). "[Violin Plots: A Box Plot-Density Trace Synergism](https://search.proquest.com/openview/dcd68eb137d2d6b08aa23f37e34e0b01/1?pq-origsite=gscholar)". *The American Statistician*. 52 (2): 181–4
+
+### Notched Box Plots
+- [Notched Box Plots](https://sites.google.com/site/davidsstatistics/home/notched-box-plots)
+
+### Dot Plots
+- [Dot plots](https://search-proquest-com.libproxy.smu.edu.sg/docview/228429978?rfr_id=info%3Axri%2Fsid%3Aprimo)
+- [Dot Plots: A Useful Alternative to Bar Charts](http://www.b-eye-network.com/view/2468)
+- [ The dot plot: A graphical tool for data analysis and presentation](https://d-nb.info/1151959243/34)
+
+## Readings on Visualising Uncertainty
+- [Why It’s So Hard for Us to Visualize Uncertainty](https://hbr.org/2016/11/why-its-so-hard-for-us-to-visualize-uncertainty)
+- [Visualizing the Uncertainty in Data](https://flowingdata.com/2018/01/08/visualizing-the-uncertainty-in-data/)
+- [Uncertainty + Visualization, Explained](https://medium.com/multiple-views-visualization-research-explained/uncertainty-visualization-explained-67e7a73f031b)
+
+### Error Plots
+- [Error bar](https://en.wikipedia.org/wiki/Error_bar)
+
+
+### Funnel Plots
+- [Variation and Its Discontents: Funnel Plots for Fair Comparisons](https://www.perceptualedge.com/articles/visual_business_intelligence/variation_and_its_discontents.pdf)
+- [What are the chances of successful fertility treatment?](https://understandinguncertainty.org/fertility)
+- [Three-fold variation in UK bowel cancer death rates(?)](https://understandinguncertainty.org/three-fold-variation-uk-bowel-cancer-death-rates)
+- [Using funnel plots in public health surveillance](https://pophealthmetrics.biomedcentral.com/articles/10.1186/1478-7954-9-58)
+- [Graph Makeover: Where same-sex couples live in the US](https://community.jmp.com/t5/JMP-Blog/Graph-Makeover-Where-same-sex-couples-live-in-the-US/ba-p/30616)
+- [Using maps and funnel plots to explore variation in place of death from cancer within London, 2002–2007](https://pdfs.semanticscholar.org/516b/afaccbd9b9bf82c9afdf507121f1a52e3093.pdf)
+
+## All About Tableau
+###Visualising Uncertainty
+- [Showing uncertainty in survey results](https://www.datarevelations.com/showing-uncertainty.html)
+- [Not a funnel cake, nor funnel charts, it’s funnel plots!](http://drawingwithnumbers.artisart.org/?s=Not+a+funnel+cake)
+- [Funnel Plot in Tableau](https://www.youtube.com/watch?v=HgYzplb5XAU)
+- [Creating Error Bars or CI Bars](https://kb.tableau.com/articles/howto/creating-error-bars)
+- [Standard errors and confidence intervals in Tableau](https://www.theinformationlab.co.uk/2019/10/25/standard-errors-and-confidence-intervals-in-tableau/)
+
