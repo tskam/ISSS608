@@ -1,0 +1,113 @@
+---
+title: "Lesson 2: Designing Graphs to Enlighten "
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
+- Human perception and information processing
+- Perceptual and design principles for effective visual analytics
+- Principles of Graphic Design
+    - Rules for Encoding Values in Graph
+    - JunkCharts
+    - Practical Guides for Using Colour in Charts
+    - Data-ink
+
+## Readings
+### Core Readings
+
+- Claus O. Wilke [Fundamentals of Data Visualisation](https://clauswilke.com/dataviz/), Chapter 1-5, 17-26.
+- [Data Visualization: Clarity or Aesthetics?](http://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/)
+- [Clarity or Aesthetics? Part 2 – A Tale of Four Quadrants](http://dataremixed.com/2012/05/clarity-or-aesthetics-part-2-a-tale-of-four-quadrants/) 
+- [Clarity or Aesthetics? Part 3 – Tips for Achieving Both](http://dataremixed.com/2012/06/clarity-or-aesthetics-part-3-tips-for-achieving-both/)
+
+### Optional Readings
+
+- [Junk Charts Trifecta Checkup: The Definitive Guide](http://junkcharts.typepad.com/junk_charts/junk-charts-trifecta-checkup-the-definitive-guide.html)
+- [7 Basic Rules for Making Charts and Graphs](http://flowingdata.com/2010/07/22/7-basic-rules-for-making-charts-and-graphs/)
+- [Quantitative Literacy Across the Curriculum](http://www.perceptualedge.com/articles/visual_business_intelligence/quantitative_literacy_across_curriculum.pdf)
+- [Tapping the Power of Visual Perception](http://www.perceptualedge.com/articles/ie/visual_perception.pdf) 
+- [Sometimes We Must Raise Our Voices](http://www.perceptualedge.com/articles/visual_business_intelligence/sometimes_we_must_raise_our_voices.pdf)
+- [Best Practices for Understanding Quantitative Data](http://www.perceptualedge.com/articles/b-eye/quantitative_data.pdf)
+- [Data Visualization: Rules for Encoding Values in Graph](http://www.perceptualedge.com/articles/b-eye/encoding_values_in_graph.pdf)
+- [Choosing Colors for Data Visualization](http://www.perceptualedge.com/articles/b-eye/choosing_colors.pdf)
+- [Line Graphs and Irregular Intervals: An Incompatible Partnership](http://www.perceptualedge.com/articles/visual_business_intelligence/line_graphs_and_irregular_intervals.pdf)
+ 
+## Learning from Examples
+
+- [Mistakes, we’ve drawn a few](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368)
+- [FT stories through charts and graphics](https://www.ft.com/graphics)
+- [Three Steps to Make Your Data Clearer](https://www.tableau.com/sites/default/files/whitepapers/three_steps_to_make_your_data_clearer_the_gi_tableau_guide.pdf)
+- [When your own data contradicts your headline](http://www.thefunctionalart.com/2019/03/when-your-own-data-contradicts-your.html)
+
+## All About Tableau
+### White Paper
+
+- [Which chart or graphis right for you?](https://www.tableau.com/sites/default/files/whitepapers/which_chart_or_graph_v2.pdf)
+- [Good Enough to Great: A Quick Guide for Better Data Visualizations](https://www.tableau.com/sites/default/files/whitepapers/goodenoughtogreat.pdf)
+
+### Tutorial
+
+* [Getting Started with Dashboards and Stories](https://www.tableau.com/learn/tutorials/on-demand/getting-started-dashboards-and-stories)
+
+- [Getting Started with Calculation](https://www.tableau.com/learn/tutorials/on-demand/getting-started-calculations)
+
+- [Calculation Syntax](https://www.tableau.com/learn/tutorials/on-demand/calculation-syntax)
+
+- [Introduction to LOD Expressions](https://www.tableau.com/learn/tutorials/on-demand/introduction-lod-expressions)
+
+- [Intro to Table Calculations](https://www.tableau.com/learn/tutorials/on-demand/intro-table-calculations)
+
+- [Modifying Table Calculations](https://www.tableau.com/learn/tutorials/on-demand/modifying-table-calculations)
+
+- [Aggregate Calculations](https://www.tableau.com/learn/tutorials/on-demand/aggregate-calculations)
+
+- [Date Calculations](https://www.tableau.com/learn/tutorials/on-demand/date-calculations)
+
+- [Logic Calculation](https://www.tableau.com/learn/tutorials/on-demand/logic-calculations)
+
+- [String Calculation](https://www.tableau.com/learn/tutorials/on-demand/string-calculations)
+
+- [Number Calculation](https://www.tableau.com/learn/tutorials/on-demand/number-calculations)
+
+- [Type Calculation](https://www.tableau.com/learn/tutorials/on-demand/type-calculations)
+
+- [Conceptual Topics with LOD Expressions](https://www.tableau.com/learn/tutorials/on-demand/conceptual-topics-lod-expressions)
+
+- [Aggregation and Replication with LOD Expressions](https://www.tableau.com/learn/tutorials/on-demand/aggregation-and-replication-lod-expressions)
+
+- [Nested LOD Expressions](https://www.tableau.com/learn/tutorials/on-demand/nested-lod-expressions)
+
+
+## Visual Analytics Method(s) of the Week
+### Age-sex Pyramid
+
+- [Population pyramid](https://en.wikipedia.org/wiki/Population_pyramid)
+- [Age-Sex and Population Pyramids: The Most Useful Graphs in Population Geography](https://www.thoughtco.com/age-sex-pyramids-and-population-pyramids-1435272)
+- [Population Pyramid Singapore](https://www.populationpyramid.net/singapore/2017/)
+
+### Pareto Chart
+- [Pareto chart](https://en.wikipedia.org/wiki/Pareto_chart)
+- [Revising the Pareto Chart](https://www-tandfonline-com.libproxy.smu.edu.sg/doi/abs/10.1198/000313006X152243)
+
+### Diverging Stacked Bar Chart
+- [Design of Diverging Stacked Bar Charts for Likert Scales and Other Applications](https://www.jstatsoft.org/article/view/v057i05)
+- [When Are 100% Stacked Bar Graphs Useful?](https://www.perceptualedge.com/blog/?p=2239)
+- [The case against diverging stacked bars](https://blog.datawrapper.de/divergingbars/)
+- [Are diverging 100% stacked bars useless?](https://www.linkedin.com/pulse/diverging-100-stacked-bars-useless-daniel-zvinca/?published=t)
+- [Rethinking the divergent stacked bar chart — placing the stronger views in the center](https://www.datarevelations.com/rethinkingdivergent.html)
+
+### Packed Bars
+- [Introducing packed bars, a new chart form](https://community.jmp.com/t5/JMP-Blog/Introducing-packed-bars-a-new-chart-form/ba-p/39972#)
+- [rPackedBar: Packed Bar Charts with 'plotly'](https://cran.r-project.org/web/packages/rPackedBar/index.html)
+
+

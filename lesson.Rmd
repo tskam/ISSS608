@@ -27,6 +27,7 @@ Date: 8/5/2021
 Date: 15/5/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson02_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -35,6 +36,7 @@ Date: 15/5/2021
 Date: 22/5/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson03_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -43,6 +45,7 @@ Date: 22/5/2021
 Date: 29/5/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson04_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -51,6 +54,7 @@ Date: 29/5/2021
 Date: 5/6/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson05_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -59,6 +63,7 @@ Date: 5/6/2021
 Date: 12/6/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson06_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -67,6 +72,7 @@ Date: 12/6/2021
 Date: 26/6/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson07_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -75,6 +81,7 @@ Date: 26/6/2021
 Date: 3/July/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson08_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -83,6 +90,7 @@ Date: 3/July/2021
 Date: 10/7/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson09_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -91,6 +99,7 @@ Date: 10/7/2021
 Date: 17/6/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson10_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -99,6 +108,7 @@ Date: 17/6/2021
 Date: 24/7/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson11_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -107,6 +117,7 @@ Date: 24/7/2021
 Date: 31/7/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson12_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
@@ -115,6 +126,7 @@ Date: 31/7/2021
 Date: 7/8/2021
 
 <p class="nospace">Materials:</p>
+- [Lesson Outline](outline/Lesson13_outline.html)
 - [Lesson slides](slides/introduction.html)  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
