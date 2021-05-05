@@ -1,0 +1,69 @@
+---
+title: "Lesson 3: Interactivity in Visual Analytics: Principles and Methods"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Content
+
+- Different types of interaction techniquee
+- The role of Interaction in visual analytics
+- The concept of linked multiple views
+- Interactive analytics best practices
+
+## Readings
+### Core readings
+
+- [Dynamics for Visual Analysis](https://idl.cs.washington.edu/files/2012-InteractiveDynamics-CACM.pdf)
+- [Animated Transitions in Statistical Data Graphics](https://idl.cs.washington.edu/files/2007-AnimatedTransitions-InfoVis.pdf), *IEEE Transactions on Visualization and Computer Graphics*, Vol. 13, No. 6, 1240-1247 and the [video](https://www.youtube.com/watch?v=vLk7mlAtEXI) 
+- [Coordinated Highlighting in Context](http://www.perceptualedge.com/articles/visual_business_intelligence/coordinated_highlighting_in_context.pdf)
+- [Cartographic Interaction Primitive: Framework and Synthesis](https://web-a-ebscohost-com.libproxy.smu.edu.sg/ehost/pdfviewer/pdfviewer?vid=1&sid=16eab3bc-b4a2-47b5-9a03-2619822e5ddb%40sessionmgr4007)
+
+## Optional readings
+- [Enhancing Visual Analysis by Linking Multiple Views of Data](http://www.tableausoftware.com/whitepapers/enhancing-visual-analysis-linking-multiple-views-data)
+- [The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations](https://www.cs.umd.edu/~ben/papers/Shneiderman1996eyes.pdf)
+- [The Sunrest Path to Visual Discovery](http://www.perceptualedge.com/articles/b-eye/path_to_visual_discovery.pdf)
+- [Toward a Deeper Understanding of the Role of Interaction in Information Visualization](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.7908&rep=rep1&type=pdf)
+- [Snap-together visualization: can users construct and operate coordinated visualizations?](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.25.1333&rep=rep1&type=pdf)
+- [Generalized Selection via Interactive Query Relaxation](http://hci.stanford.edu/courses/cs448b/papers/Heer-GeneralizedSelection.pdf)
+- [Brushing](http://onlinelibrary.wiley.com.libproxy.smu.edu.sg/doi/10.1002/wics.132/pdf)
+
+## All About Tableau
+
+- [Sorting](https://www.tableau.com/learn/tutorials/on-demand/sorting)
+- [Drill Down and Hierarchies](https://www.tableau.com/learn/tutorials/on-demand/drill-down-and-hierarchies)
+- [Ways to Filter](https://www.tableau.com/learn/tutorials/on-demand/ways-filter)
+- [Using the Filter Shelf](https://www.tableau.com/learn/tutorials/on-demand/using-filter-shelf)
+- [Interactive Filters](https://www.tableau.com/learn/tutorials/on-demand/interactive-filters)
+- [Where Tableau Filters](https://www.tableau.com/learn/tutorials/on-demand/where-tableau-filters)
+- [Additional Filtering Topics](https://www.tableau.com/learn/tutorials/on-demand/additional-filtering-topics)
+- [Parameters](https://www.tableau.com/learn/tutorials/on-demand/parameters)
+- [Parameter Actions](https://www.tableau.com/learn/tutorials/on-demand/parameter-actions)
+- [Basic Tooltips](https://www.tableau.com/learn/tutorials/on-demand/tooltips)
+- [Viz in Tooltip](https://www.tableau.com/learn/tutorials/on-demand/viz-tooltip)
+- [Dashboard Interactivity Using Actions](https://www.tableau.com/learn/tutorials/on-demand/dashboard-interactivity-using-actions)
+- [Create data that moves you with viz animations](https://www.tableau.com/about/blog/2020/2/bring-your-data-life-viz-animations)
+- [The benefits of animating your data visualisations](https://www.tableau.com/about/blog/2020/3/benefits-animating-your-data-visualisations)
+- [Tableau in Motion: Tableau’s New Native Viz Animations](https://www.youtube.com/watch?v=wYkP51pO11E)
+- [How to use Animations in Tableau 2020.1](https://www.youtube.com/watch?v=fxbARiWgZBY)
+
+## Visual Analytics Method(s) of the Week
+### Scatterplot with marginal Distribution
+
+- [Scatter Plots with Marginal Densities – An Example for Doing Exploratory Data Analysis with Tableau and R](https://things-about-r.tumblr.com/post/124004085689/scatter-plots-with-marginal-densities-an-example)
+- [Got a Scatter Plot? Learn How to Add Marginal Histograms](https://www.tableau.com/about/blog/2015/11/how-make-scatterplot-marginal-histograms-45811)
+- [How to Make Marginal Histograms and Bar Charts in Tableau](https://playfairdata.com/how-to-make-marginal-histograms-and-bar-charts-in-tableau/)
+- [Marginal Histograms — They’re Not Just for Scatterplots](https://www.datarevelations.com/marginal-histograms.html)
+
+
+
+
+
