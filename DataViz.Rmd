@@ -38,9 +38,9 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
     - [Webinars](https://www.makeovermonday.co.uk/webinars/)
     - [blog](https://www.makeovermonday.co.uk/blog/)
 
-### [Story Telling with Data](http://www.storytellingwithdata.com/), especially:
-- [Community](https://community.storytellingwithdata.com/)
-- [Blog](http://www.storytellingwithdata.com/blog)
+- [Story Telling with Data](http://www.storytellingwithdata.com/), especially:
+    - [Community](https://community.storytellingwithdata.com/)
+    - [Blog](http://www.storytellingwithdata.com/blog)
 
 ## DataViz Makeover Blog Link
 
