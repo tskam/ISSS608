@@ -9,6 +9,15 @@
       "last_modified": "2021-05-02T19:45:44+08:00"
     },
     {
+      "path": "DataViz.html",
+      "title": "DataViz Makeover",
+      "description": "Explore different perspectives and approaches to create more truthful and enlightening data visualisation\n",
+      "author": [],
+      "date": "`r Sys.Date()`",
+      "contents": "\r\n\r\nContents\r\nOverview\r\nSubmission Instructions\r\nFor your reference\r\nFrom seniors\r\nFrom external sources\r\nStory Telling with Data, especially:\r\n\r\nDataViz Makeover Blog Link\r\n\r\nOverview\r\nEach fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.\r\nThe purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!\r\nSubmission Instructions\r\nThe write-up of the DataViz Makeover must be in distill format. You are required to publish the write-up on Netfily.\r\nThe DataViz Makeover must be prepared using Tableau. The final workbook must be uploaded onto Tableau Public.\r\nAll DataViz Makeover have to be completed by Sunday before mid-night 11.59pm. Students are required to upload the artefacts onto eLearn (i.e. DataViz Makeover section).\r\nTo encourage peer-learning, students must also provide the link to the blog your prepared for the DataViz Makeover eLearn.\r\nFor your reference\r\nFrom seniors\r\nDataViz Makeover Blog Link AY2020-2021 Term 2\r\nFrom external sources\r\nMakeover Monday, especially:\r\nGallery\r\nOur Makeover\r\nWebinars\r\nblog\r\n\r\nStory Telling with Data, especially:\r\nCommunity\r\nBlog\r\nDataViz Makeover Blog Link\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-05-06T21:54:10+08:00"
+    },
+    {
       "path": "index.html",
       "title": "ISSS608",
       "description": "Visual Analytics and Applications\n",

@@ -1,0 +1,50 @@
+---
+title: "DataViz Makeover"
+description: |
+  Explore different perspectives and approaches to create more truthful and enlightening data visualisation
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
+
+The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
+
+## Submission Instructions
+
+- The write-up of the DataViz Makeover must be in [**distill**](https://rstudio.github.io/distill/) format. You are required to publish the write-up on [**Netfily**](https://www.netlify.com/). 
+- The DataViz Makeover must be prepared using Tableau.  The final workbook must be uploaded onto [Tableau Public](https://public.tableau.com/en-us/s/).
+- All DataViz Makeover have to be completed by Sunday before mid-night 11.59pm. Students are required to upload the artefacts onto eLearn (i.e. DataViz Makeover section).
+- To encourage peer-learning, students must also provide the link to the blog your prepared for the DataViz Makeover eLearn. 
+
+## For your reference
+
+### From seniors
+- DataViz Makeover Blog Link [AY2020-2021 Term 2](https://wiki.smu.edu.sg/2021t2isss608/DataViz#DataViz_Makeover_Blog_Link)
+
+### From external sources
+- [Makeover Monday](https://www.makeovermonday.co.uk/), especially:
+    - [Gallery](https://www.makeovermonday.co.uk/gallery/)
+    - [Our Makeover](https://www.makeovermonday.co.uk/makeovers/)
+    - [Webinars](https://www.makeovermonday.co.uk/webinars/)
+    - [blog](https://www.makeovermonday.co.uk/blog/)
+
+### [Story Telling with Data](http://www.storytellingwithdata.com/), especially:
+- [Community](https://community.storytellingwithdata.com/)
+- [Blog](http://www.storytellingwithdata.com/blog)
+
+## DataViz Makeover Blog Link
+
+
+
+
+

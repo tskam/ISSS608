@@ -76,7 +76,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - [Using maps and funnel plots to explore variation in place of death from cancer within London, 2002–2007](https://pdfs.semanticscholar.org/516b/afaccbd9b9bf82c9afdf507121f1a52e3093.pdf)
 
 ## All About Tableau
-###Visualising Uncertainty
+### Visualising Uncertainty
 - [Showing uncertainty in survey results](https://www.datarevelations.com/showing-uncertainty.html)
 - [Not a funnel cake, nor funnel charts, it’s funnel plots!](http://drawingwithnumbers.artisart.org/?s=Not+a+funnel+cake)
 - [Funnel Plot in Tableau](https://www.youtube.com/watch?v=HgYzplb5XAU)
