@@ -88,7 +88,7 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
 
 The write-up of the DataViz Makeover must be in [distill](https://rstudio.github.io/distill/website.html) format. You are required to publish the write-up on [netlify](https://www.netlify.com/).  If Tableau is used to complete the DataViz Makeover, students are require to upload their Tableau workbook onto [Tableau Public](https://public.tableau.com/en-us/s/).  
 
-All DataViz Makeover have to be completed by **Friday before mid-night 11.59pm**.  Students are required to provide the URL links on eLearn (i.e. DataViz Makeover 1).
+All DataViz Makeover have to be completed by **Sunday before mid-night 11.59pm**.  Students are required to provide the URL links on eLearn (i.e. DataViz Makeover).
  
 
 ### Individual Assignments
@@ -114,10 +114,9 @@ The grading distribution of this course is as follows:
 - Assignment 20%
 - Visual Analytics Project 30%
     - Project blog 15%
-    - Poster 15%
-    - Workshop 20%
+    - Poster 10%
     - Practice research paper 25%
-    - Artifact 25%  
+    - Artifact 50%  
 
 There will be no mid-term test and final examination for this course.
 

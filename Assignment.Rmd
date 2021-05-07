@@ -1,0 +1,83 @@
+---
+title: "Assignment"
+description: To be a Visual Detective
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+The assignments require you to put the concepts, methods and techniques you had learned in class to solve real world problem using visual analytics techniques.  Students should also use the assignments to gain hands-on experience on using R data visualisation and data analysis packages to complete the assignment.
+
+## The Case
+
+The assignment topics are based on [VAST Challenge 2021](https://vast-challenge.github.io/2021/).  You are required to choose one of the challenge topic provided below and work out the solution.
+
+In the roughly twenty years that Tethys-based GAStech has been operating a natural gas production site in the island country of Kronos, it has produced remarkable profits and developed strong relationships with the government of Kronos. However, GAStech has not been as successful in demonstrating environmental stewardship.
+
+In January, 2014, the leaders of GAStech are celebrating their new-found fortune as a result of the initial public offering of their very successful company. In the midst of this celebration, several employees of GAStech go missing. An organization known as the Protectors of Kronos (POK) is suspected in the disappearance, but things may not be what they seem.
+
+As an expert in visual analytics, you are called in to help law enforcement from Kronos and Tethys.
+
+### Mini-Challenge 1
+
+Mini-Challenge 1 looks at the relationships and conditions that led up to the kidnapping. As an analyst, you have a set of current and historical news reports at your disposal, as well as resumes of numerous GAStech employees and email headers from two weeks of internal GAStech company email. Can you identify the complex relationships among all of these people and organizations?
+
+Please visit [VAST Challenge 2021: Mini-Challenge 1](https://vast-challenge.github.io/2021/MC1.html) for more information and to download the data.
+
+### Mini-Challenge 2
+
+Mini-Challenge 2 asks you to analyze movement and tracking data. GAStech provides many of their employees with company cars for their personal and professional use, but unbeknownst to the employees, the cars are equipped with GPS tracking devices. You are given tracking data for the two weeks leading up to the disappearance, as well as credit card transactions and loyalty card usage data. From this data, can you identify anomalies and suspicious behaviors? Can you identify which people use which credit and loyalty cards?
+
+Please visit [VAST Challenge 2021: Mini-Challenge 2](https://vast-challenge.github.io/2021/MC2.html) for more information and to download the data.
+
+### Mini-Challenge 3
+
+Mini-Challenge 3 poses a social media and text analysis challenge. You will be given a collection of microblogs and emergency calls from the days surrounding the disappearance. Can evaluate the changing levels of risk to the public and recommend actions?
+
+Please visit [VAST Challenge 2021: Mini-Challenge 3](https://vast-challenge.github.io/2021/MC3.html) for more information and to download the data.
+
+## The Task 
+
+- Conducting literature review on how the analysis were performed before.  The focus should be on identifying gaps whereby interactive visual analytics approach can be used to enhance user experience on using the analysis techniques. 
+- Extracting, wrangling and preparing the input data required to perform the analysis.  The focus should be on exploring appropriate tidyverse methods
+- Using appropriate **visually driven data analysis techniques** to answer the questions asked.
+
+## Submission Instructions 
+
+- This is an individual assignment. You are required to work on the assignment and prepare submission individually. 
+
+* The assignment report must be written by using R Markdown.  It can be in either [Distill](https://rstudio.github.io/distill/) or [blogdown](https://github.com/rstudio/blogdown) format. You are required to publish the assignment report on [Netlify](https://www.netlify.com/) and provide the link on the assignment submission page on elearn. 
+- Upload the R Markdown document, web report and data to your team Visual Analytics Project Github repository and provide the link on the assignment submission page on eLearn.
+ 
+## Submission date 
+ 
+Your completed assignment is due on 11th April 2021 (Sunday), mid-night 11:59pm.
+
+## Reference
+### Past Assignment Page
+
+- [AY2015-16 Term 3](https://wiki.smu.edu.sg/1617t3isss608g1/Assignment_Dropbox AY2016-17 Term 3 Assignment)
+- [AY2017-18 Term 3 Assignment](https://wiki.smu.edu.sg/1718t3isss608/Assignments)
+- [AY2018-19 Term 1 Assignment](https://wiki.smu.edu.sg/18191isss608g1/Assignment)
+
+### Specially mentioned
+- [Dino Holmes Series](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Assign3_Ong_Han_Ying)
+- [Mystery at the Wildlife Preserve](https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Assign_GUAN_YIFEI)
+- [VAST Challenge 2017 MC3](https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Assign_ZHANG_YANRONG)
+- [Sickness in SmartPolis](https://wiki.smu.edu.sg/1718t1isss608g1/ISSS608_2017-18_T1_Assign_RACHEL_TONG)
+- [Suspense at the Wildlife Preserve](https://wiki.smu.edu.sg/1718t3isss608/ISSS608_2017-18_T3_Assign_Tan_Yong_Ying)
+- [Unmask Air Pollution in Sofia City](https://wiki.smu.edu.sg/18191isss608g1/ISSS608_2018-19_T1_Assign_Pu_Yiran)
+
+## Assignment Blog Link
+
+
+
+
