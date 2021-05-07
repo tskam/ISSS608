@@ -59,7 +59,7 @@ Please visit [VAST Challenge 2021: Mini-Challenge 3](https://vast-challenge.gith
  
 ## Submission date 
  
-Your completed assignment is due on 11th April 2021 (Sunday), mid-night 11:59pm.
+Your completed assignment is due on **18th July 2021 (Sunday), mid-night 11:59pm**.
 
 ## Reference
 ### Past Assignment Page
@@ -67,6 +67,10 @@ Your completed assignment is due on 11th April 2021 (Sunday), mid-night 11:59pm.
 - [AY2015-16 Term 3](https://wiki.smu.edu.sg/1617t3isss608g1/Assignment_Dropbox AY2016-17 Term 3 Assignment)
 - [AY2017-18 Term 3 Assignment](https://wiki.smu.edu.sg/1718t3isss608/Assignments)
 - [AY2018-19 Term 1 Assignment](https://wiki.smu.edu.sg/18191isss608g1/Assignment)
+- [AY2018-2019 Term 3](https://wiki.smu.edu.sg/1819t3isss608/Assignment_Dropbox_G1)
+- [AY2019-2020 Term 2](https://wiki.smu.edu.sg/1920t2isss608/Assignment_Dropbox)
+- [AY2020-2021 Term 2](https://wiki.smu.edu.sg/2021t2isss608/Assignment)
+
 
 ### Specially mentioned
 - [Dino Holmes Series](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Assign3_Ong_Han_Ying)

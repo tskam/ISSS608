@@ -1,0 +1,164 @@
+---
+title: "Visual Analytics Project"
+description: |
+  Building visually driven analytical Shiny application for emocraticing data and analysis.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview 
+
+The purpose of the project is to provide students first hand experience on collecting, processing and analysing large business data using real world data.  A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains.  Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment.  Students are encouraged to focus on research topics that are relevant to their field of study.  It should address a concrete visual analytics problem and should propose a novel and creative solution.   
+
+The project is team work.  Students are required to form a project team of **2-3** members by the first week of the academic term.  Each project teams must start thinking about their project ideas after the first lesson.  They are expected to discuss their project topic and scope of works with the instructor before the end of **Week 6**.  A project proposal in the form website edited using either [**blogdown**](https://github.com/rstudio/blogdown) or [**distill for RMarkdown**](https://rstudio.github.io/distill/) on [**Netfily**](https://www.netlify.com/) will be prepared and the link must be provided on eLearn by the end of **Week 7**.    
+
+The project proposal should describe the motivation of the project, problems or issues that the project will address, the relevant related work, the approach the team plans to take to solve the problem, and early prototypes or storyboards.  The project teams should take advantage of this proposal as a chance to get feedback on the direction of the project from their peers.
+
+Students are required to update their project websites with all the details including the final application, user guide, poster, practice research paper by **the end of week 14**.    
+
+## Project Milestone
+ 
+- Brainstorming project ideas and consulting with course instructor between **Week 2 to Week 6**. 
+- Editing and publishing project proposal by the end of **Week 7**.
+- Submission of final application, user guide, project poster, practice research paper and artifacts: **15th August 2021 by 11:59pm (mid-night)**
+
+
+## Project Deliverables
+### Project Website
+
+#### Project Github
+
+At the beginning of the project, project teams are required to create a project Github.  The project Github should include all the materials used to develop the project and the written materials such as proposal, poster and practice research paper.  It must be used to maintain a complete project versioning including the application and project documents.  The Github link must be included in the project proposal.  By the end of the project, the project team must pack the final version of the Github repository and upload onto eLearn for final submission.  The Github link also must be provided on eLearn.  
+
+#### Project Website
+Each project team are required to create the project website by using either [blogdown](https://pkgs.rstudio.com/blogdown/) or [distill for RMarkdown](https://rstudio.github.io/distill/). It will be disseminated by using webserver such as [Netfity](https://www.netlify.com/).
+
+As a first step, you should create a project summary at the course wiki that includes:
+
+- The title of your project,
+- A short description of not more than 350 word summarising the motivation, objectives, main features of the application your team are going to build, and
+- The project proposal.  This should in a webblog page (remember to provide a link at the wiki).
+
+
+### Poster
+The project poster should provide an overview of your project.  It should include, but not limited to the following information: 
+
+- Issues and problems - A clear statement of the issues or/and problems your project addresses. 
+
+- Motivation - An explanation of why the issues and/or problems are interesting and what make them difficult to solve. 
+
+- Approach - A description of the techniques or algorithms you used to solve the problem. 
+
+- Results - Screenshots and a working demo of the system you built. 
+
+- Future Work - An explanation of how the work could be extended. 
+
+The dimensions for the poster must conform to the International Standards Organization (ISO) poster size format (A1). 
+
+- Size = ISO A1 (594 × 841mm or 23.39 × 33.11inci)
+- Resolution = 300dpi or above
+- File format = jpeg or pdf
+
+Please ensure that the poster is in high resolution. 
+
+Project teams are encouraged to use [posterdown](https://github.com/brentthorne/posterdown/wiki) to design your poster.
+
+**Note:** The poster will be considered a final deliverable, so don't forget to apply good visual design and data visualisation principles and best practice to your poster.
+
+
+### Visual Analytics Practice Research Paper
+
+The research paper should be in the form of Visual Analytics Application practice and research.  In particular it should contain the followings: 
+
+- Motivation of the application
+- Review and critic on past works 
+- Design framework - A detail description of the design principles used and data visualisation elements built (Refer to Section IV: Interface of this [paper](https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=2760&context=sis_research). 
+- Demonstration - Use case
+- Discussion - What has the audience learned from your work? What new insights or practices has your system enabled? A full blown user study is not expected, but informal observations of use that help evaluate your system are encouraged. 
+- Future Work - A description of how your system could be extended or refined.
+
+The research paper should include an abstract of **not more than 300 words**.  The actual research paper itself should **not more than 6 pages** excluding figures, tables, formula and references.  The practice research paper must be edited by using **R Markdown** and the **ACM: Association for Computing Machinery** template of [**rticle**](https://github.com/rstudio/rticles) should be used.
+
+
+#### Sample practice research papers
+
+- [DIVAD: A Dynamic and Interactive Visual Analytical Dashboard for Exploring and Analyzing Transport Data](https://ink.library.smu.edu.sg/sis_research/1761/)
+- [MEPHAS: an interactive graphical user interface for medical and pharmaceutical statistical analysis with R and Shiny](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-3494-x) 
+- [SpatialEpiApp: A Shiny Web Application for the Analysis of Spatial and Spatio-Temporal Disease Data](https://iopscience.iop.org/article/10.1088/1755-1315/20/1/012014) 
+- [Developing web-based data analysis tools for precision farming using R and Shiny](https://cran.r-project.org/web/packages/SpatialEpiApp/vignettes/manual.pdf)
+- [EHDViz: clinical dashboard development using open-source technologies](https://www.ncbi.nlm.nih.gov/pubmed/27013597)
+- [Health Equity Assessment Toolkit](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-016-0229-9)  
+- [Interactive Pharmacometric Applications Using R and the Shiny Package](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394611/)
+
+### Final Deliverables
+
+The final deliverable will include: 
+
+- artifact including the ShinyApp, data and all r modules.   
+- User Guide - Step-by-step guide on how to use the data visualisation functions designed. 
+    - [Sample UserGuide 1](https://wiki.smu.edu.sg/1920t2isss608/Group11_user_guide)
+    - [Sample UserGuide 2](https://wiki.smu.edu.sg/1920t2isss608/img_auth.php/0/02/ISSS608_Group02_UserGuide.pdf)
+- project poster
+- a practice research paper
+
+The final deliverable must be uploaded into the Dropbox of e-Learn (e.g. LMS).  It must in a **single zip** file format.
+
+## Grading
+
+The visual analytics project will account for 30% of your final grade in the course.  The distribution of marks for each stage of the project are as follows:
+
+- Project website 15%
+- Poster 10%
+- Practice Research Paper 25% 
+- ShinyApp 50%
+ 
+The course instructor will consider strongly the novelty of the idea (If it has never been done before, you will get lots of credit!), how it addresses the problem at hand, the methodology you employ in doing the research, and your technical skill in implementing the idea. 
+
+In small group projects, each person will be graded individually.  A good group project is a system consisting of a collection of well defined subsystems.  Each subsystem should be the responsibility of one person and be clearly identified as their project.  A good criteria for whether you should work in a group is whether the system as a whole is greater than the sum of its parts!
+
+### Grading criteria for poster
+
+The poster will be graded based on the following criteria:
+- Clear communication of key aspects of solution
+- Clear communication of design approaches
+- Clear communication of arguments for proposed solution
+- Craft quality of the solution
+
+## Sample Projects
+Note that the following examples are for references purposes.  You are urge to use your own creativity and innovation to design the application
+
+### MITB (Analytics) 
+- [ISSS608 Year 2013-14 Term 3B](https://wiki.smu.edu.sg/1314t3bisss606/Project_Groups)
+- [ISSS608 Year 2014-15 Term 3B](https://wiki.smu.edu.sg/1516t3isss608g1/Project_Groups)
+- [ISSS608 Year 2015-16 Term 1](https://wiki.smu.edu.sg/1516t1isss608g1/Project_Groups)
+    - [Oooh Shiny!](https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group1_Proposal)
+    - [Kong Simi - A visual earpiece into the Singapore Parliament](https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group2_Proposal)
+- [ISSS608 Year 2016-17 Term 1](https://wiki.smu.edu.sg/1617t1ISSS608g1/Project_Groups)
+    - [Project A - The Non-Conventional Sales Dashboard for Company A](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Project_Team_11)
+    - [DashboardViz](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016_17T1_Group5_Report)
+- [ISSS608 Year 2016-17 Term 3](https://wiki.smu.edu.sg/1617t3isss608g1/Project_Groups)
+    - [VRshiny: An Application for better business decision making - Visualizing Association Rules with Network Diagram in Shiny](https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Group8_Arules_Project_Proposal) 
+- [ISSS608 Year 2017-18 Term 1](https://wiki.smu.edu.sg/1718t1isss608g1/Project_Groups)
+- [ISSS608 Year 2017-18 Term 3](https://wiki.smu.edu.sg/1718t3isss608/Project_Groups)
+    - [Singapore Property Market Watch - Your new tool to visualize SG Property Trend](https://wiki.smu.edu.sg/1718t3isss608/Group07_Overview)
+- [ISSS608 Year 2018-19 Term 1](https://wiki.smu.edu.sg/18191isss608g1/Project_Groups)
+    - [Corn: The A-maize-ing Crop](https://wiki.smu.edu.sg/18191isss608g1/ISSS608_Group07_Proposal) 
+- [ISSS608 Year 2018-19 Term 3](https://wiki.smu.edu.sg/1819t3isss608/Project_Groups)
+    - [How healthy is your neighbourhood?](https://sindhu-ramesh.shinyapps.io/Visual_Analytics_project1/)
+    - [An Interactive Shiny web Application to study the past trends and forecast of tourists to Singapore](https://wiki.smu.edu.sg/1819t3isss608/Group03_Overview)
+- [ISSS608 Year 2019-20 Term 2](https://wiki.smu.edu.sg/1920t2isss608/Project_Groups)
+    - [SGSAS: Simple Geo-Spatial Analysis using R-Shiny](https://wiki.smu.edu.sg/1920t2isss608/Group11_proposal)
+    - [A Visual Exploration of Media Consumption in Singapore](https://wiki.smu.edu.sg/1920t2isss608/Group02_proposal)
+
+
+
+
+
+
