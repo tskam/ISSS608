@@ -84,7 +84,7 @@ The research paper should be in the form of Visual Analytics Application practic
 - Discussion - What has the audience learned from your work? What new insights or practices has your system enabled? A full blown user study is not expected, but informal observations of use that help evaluate your system are encouraged. 
 - Future Work - A description of how your system could be extended or refined.
 
-The research paper should include an abstract of **not more than 300 words**.  The actual research paper itself should **not more than 6 pages** excluding figures, tables, formula and references.  The practice research paper must be edited by using **R Markdown** and the **ACM: Association for Computing Machinery** template of [**rticle**](https://github.com/rstudio/rticles) should be used.
+The research paper should include an abstract of **not more than 300 words**.  The actual research paper itself should **not more than 6 pages** excluding figures, tables, formula and references.  The practice research paper must be edited by using **R Markdown** and the **ACM: Association for Computing Machinery** template of [**rticles**](https://github.com/rstudio/rticles) should be used.
 
 
 #### Sample practice research papers
@@ -126,6 +126,7 @@ In small group projects, each person will be graded individually.  A good group 
 ### Grading criteria for poster
 
 The poster will be graded based on the following criteria:
+
 - Clear communication of key aspects of solution
 - Clear communication of design approaches
 - Clear communication of arguments for proposed solution
@@ -157,7 +158,10 @@ Note that the following examples are for references purposes.  You are urge to u
     - [SGSAS: Simple Geo-Spatial Analysis using R-Shiny](https://wiki.smu.edu.sg/1920t2isss608/Group11_proposal)
     - [A Visual Exploration of Media Consumption in Singapore](https://wiki.smu.edu.sg/1920t2isss608/Group02_proposal)
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/VAProject.html")
+```
 
 
 
