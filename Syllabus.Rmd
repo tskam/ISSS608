@@ -125,7 +125,7 @@ There will be no mid-term test and final examination for this course.
 
 Claus. O. Wilke (2019) [**Fundamentals of Data Visualisation**](https://clauswilke.com/dataviz/), O'Reilly. USA
 
-Cairo, Alberto (2013) **The Functional Art: An Introduction to Information Graphics and Visualization**, New Riders, Berkeley, CA.
+Cairo, Alberto (2013) **The Functional Art: An Introduction to Information Graphics and Visualization**, New Riders, Berkeley, CA.  This book is available at SMU eLibrary.
 
 Few, Stephen (2004) **Show Me the Numbers: Designing Tables and Graphs to Enlighten**, Analytics Press, Oakland, USA.
 
