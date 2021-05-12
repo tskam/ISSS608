@@ -1,0 +1,733 @@
+---
+title: "Lesson 2: Designing Graphs to Enlighten: Principles and Best Practices"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Information Systems,<br/>Singapore Management University"
+date: "2019-04-28 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# What will you learn from this lesson?
+
+.vlarge[
+- Human perception and information processing
+- Perceptual and design principles for effective visual analytics
+- Principles of Graphic Design
+    - Rules for Encoding Values in Graph
+    - JunkCharts
+    - Practical Guides for Using Colour in Charts
+    - Data-ink
+]
+
+---
+## Building Block of Visual Analytics
+
+.center[
+![:scale 65%](img/image2-1.png)
+]
+
+---
+# Data visualisation design process
+
+.vlarge[
+- Start with a clear message
+- Search for appropriate data
+- Prepare the data
+- Use the right graph type
+- Express and explain
+- Review and seek feedback from experts and casual readers
+]
+
+---
+# DataViz design process
+
+![:scale 80%](img/image2-2.png)
+
+---
+# The Devil is in the Data
+    
+![:scale 75%](img/image2-3.png)    
+
+---
+## Numbers Worth Knowing
+
+.vlarge[
+- Categorical data: numbers that summarise (i.e. sex, property type, planning region)
+    - nominal, ordinal, interval, hierarchical
+    - time series
+- Continuous data: numbers that measure (i.e. unit price, age, monthly salary)
+    - ranking, ratio
+]
+
+---
+## Data Understanding
+.large[
+- Avoid garbage in, garbage out problem.  For example, display size should be classified as categorical instead of continuous.]
+
+.center[
+![:scale 60%](img/image2-4.png)
+]
+
+---
+## Graphical Integrity: Show Me the Truth
+.large[
+- Don't lie to yourself (or to others) with charts]
+
+.center[
+![:scale 50%](img/image2-5.png)
+]
+
+
+---
+## Graphical Integrity: Show Me the Truth
+.large[
+- Snapshot can be misleading!]
+
+.pull-left[
+![:scale 80%](img/image2-5a.png)
+]
+
+--
+.pull-right[
+![](img/image2-5b.png)
+]
+
+---
+## Graphical Integrity: Show Me the Truth
+
+.vlarge[
+- Do not miss-out what had happened in between.]
+
+.pull-left[
+![:scale 85%](img/image2-6a.png)
+]
+
+--
+.pull-right[
+![](img/image2-6b.png)
+]
+
+
+---
+## Graphical Integrity: Show Me the Truth
+
+.vlarge[
+- Sometimes, data need to be transformed.]
+
+![](img/image2-7.png)
+
+---
+## Graphical Integrity: Show me the truth
+
+.vlarge[Designing graph to enlighten people – not to entertain them
+]
+
+.center[
+![:scale 80%](img/image2-7b.png)
+]
+
+---
+# Human Perception and Information Processing
+
+.center[
+![:scale 80%](img/image2-8.png)
+]
+
+---
+## Pre-attentive Processing
+
+.vlarge[
+- A limited set of visual properties are processed preattentively (without need for focusing attention).
+
+- This is important for design of visualizations
+    - What can be perceived immediately?
+    - Which properties are good discriminators?
+    - What can mislead viewers?
+]
+
+---
+## How Visual Sensing Works?
+.vlarge[Fact 1: We see what we know and expect.]
+
+.center[
+![:scale 50%](img/image2-10.png)]
+
+---
+## How Visual Sensing Works?
+.vlarge[Fact 2: We do not attend to everything we see.]
+
+.center[
+![:scale 70%](img/image2-9.png)
+]
+
+---
+## How Visual Sensing Works?
+.vlarge[Fact 3: We don’t remember everything we see]
+
+.center[
+![:scale 55%](img/image2-11.png)
+]
+
+---
+## How Visual Sensing Works?
+.vlarge[Fact 3: We don’t remember everything we see]
+
+.center[
+![:scale 55%](img/image2-12.png)
+]
+
+---
+## QW
+.vlarge[How Many 3’s?]
+
+![](img/image2-13.png)
+
+---
+## QW
+.vlarge[How Many 3’s?]
+
+![](img/image2-14.png)
+
+---
+# Components of a graph
+
+.center[
+![:scale 90%](img/image2-15.png)
+]
+
+---
+## Bertin’s Semiology of graphics
+
+.center[
+![:scale 90%](img/image2-18.png)
+]
+
+---
+## Grammar of a language
+
+.pull-left[
+.vlarge[
+- Grammar of a language defines the rules of structuring words and phrases into meaningful expressions.]
+]
+
+.pull-right[
+.center[
+### The quick brown fox jumps over the lazy dog
+
+![:scale 55%](img/image2-16.png)
+]]
+
+---
+## The Grammar of Graphics
+
+.pull-left[
+.large[
+- The grammar of graphics is an answer to a question: What is a statistical graphic?
+- Grammar of graphics defines the rules of structuring mathematic and aesthetic elements into a meaningful graph.
+- Two principles:
+    - Graphics = distinct layers of grammatical elements
+    - Meaningful plots through aesthetic mapping
+]]
+
+.pull-right[
+![](img/image2-17.png)
+]
+
+---
+## A Layered Grammar of Graphics
+
+.center[
+### Design principles of ggplot2 r package]
+
+.pull-left[
+![](img/image2-17b.png)
+]
+
+.pull-right[
+![:scale 45%](img/image2-17a.png)
+]
+
+---
+# Design principles for effective visual presentation
+
+.vlarge[
+* Rules for Encoding Values in Graph
+* JunkCharts
+* Practical Guides for Using Colour in Charts
+* Data-ink
+]
+
+---
+# Design principles for effective visual presentation
+
+.vlarge[
+- **Rules for Encoding Values in Graph**
+- JunkCharts
+- Practical Guides for Using Colour in Charts
+- Data-ink
+]
+
+---
+## Rules for Encoding Values in Graph
+.vlarge[
+Rule 1:  Avoid using point alone to display time-series data]
+
+.center[
+![](img/image2-20.png)
+]
+
+---
+## Rules for Encoding Values in Graph
+.vlarge[
+Rule 2:  Avoid using points to represent discrete values]
+
+.center[
+![:scale 70%](img/image2-21.png)
+]
+
+---
+## Rules for Encoding Values in Graph
+.vlarge[
+Rule 3:  Bars don’t work unless the quantative scale begins at zero]
+
+.center[
+![](img/image2-22.png)
+]
+
+---
+## Rule for Encoding Values in Graph
+.vlarge[
+Rule 4:  Avoid pie chart if possible because our eyes are not good in reading areas]
+
+.center[
+![:scale 80%](img/image2-23.png)
+]
+
+.small[
+Reference: http://junkcharts.typepad.com/junk_charts/2015/09/a-not-so-satisfying-rose.html] 
+
+---
+## Rule for Encoding Values in Graph
+.vlarge[
+Rule 5:  Avoid pie chart if you are comparing changes over time]
+
+.pull-left[
+![](img/image2-24a.png)
+]
+
+.pull-right[
+![:scale 80%](img/image2-24b.png)
+]
+
+---
+# Design principles for effective visual presentation
+
+.vlarge[
+* Rules for Encoding Values in Graph
+* **JunkCharts**
+* Practical Guides for Using Colour in Charts
+* Data-ink
+]
+
+---
+# What is ChartJunk?
+
+.vlarge[
+- Chartjunk refers to all visual elements in charts and graphs that are not necessary to comprehend the information represented on the graph, or that distract the viewer from this information.
+- It was first introduced by Edward Tufte in his 1983 book *The Visual Display of Quantitative Information*.
+- There is an interesting blog called [Junk Charts](http://junkcharts.typepad.com/junk_charts/) by Kaiser Fung.
+]
+
+---
+## ChartJunk I
+.vlarge[
+- Avoid using unnecessary colour shading for the bar]
+
+.center[
+![](img/image2-25.png)
+]
+
+---
+## ChartJunk II
+.vlarge[
+Avoid colourful or wallpaper background]
+
+.center[
+![:scale 60%](img/image2-26.png)
+]
+
+---
+## ChartJunk III
+.vlarge[
+Avoid using 3D effects in graphics]
+
+![](img/image2-27.png)
+
+---
+## ChartJunk IV
+.vlarge[
+Avoid using misleading graphical representation]
+
+.center[
+![](img/image2-28.png)
+]
+
+---
+## ChartJunk V
+.vlarge[
+Avoid using artistic design which is difficult to visualise]
+
+.center[
+![:scale 50%](img/image2-29.png)]
+
+---
+# Design principles for effective visual presentation
+
+.vlarge[
+* Rules for Encoding Values in Graph
+* JunkCharts
+* **Practical Guides for Using Colour in Charts**
+* Data-ink
+]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 1:  If you want different objects of the same colour in a graph to look the same, make sure that the background- the colour that surrounds them – is consistent.]
+
+.center[
+![:scale 50%](img/image2-30.png)
+]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 2:  If you want objects in a graph to be easily seen, use a background colour that constracts sufficiently with the object.]
+
+.center[
+![:scale 45%](img/image2-31.png)]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 3:  Use color only when needed to serve a particular communication goal.]
+
+.center[
+![:scale 40%](img/image2-32.png)]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 4:  Use different colours when they correspond to differences of meaning in the data.]
+
+.center[
+![](img/image2-33.png)
+]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 5:  Use soft, natural colours to display most information and bright and/or dark colours to highlight information that requires greater attention.]
+
+.center[
+![:scale 50%](img/image2-34.png)]
+
+---
+## Practical Guides for Using Colour in Charts
+.large[
+Rule 6:  When using colour to encode a sequential range of quantitative values, stick with a single hue (or a small set of closely related hues) and vary intensity from pale colours for low values to increasingly darker and brighter colours for high values.]
+
+.center[
+![:scale 65%](img/image2-35.png)]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 7:  Non-data components of a graph should be displayed just visibly enough to perform their role, but not more so, for excessive salience could cause them to distract attention from the data.]
+
+.center[
+![:scale 65%](img/image2-36.png)]
+
+---
+## Practical Guides for Using Colour in Charts
+.vlarge[
+Rule 8:  To guarantee that most people who are colourblind can distinguish groups of data that are colour coded, avoid using a combination of red and green in the same display.]
+
+.center[
+![:scale 60%](img/image2-37.png)]
+
+---
+# Design principles for effective visual presentation
+
+.vlarge[
+* Rules for Encoding Values in Graph
+* JunkCharts
+* Practical Guides for Using Colour in Charts
+* **Data-ink**
+]
+
+---
+# Data-ink
+
+.pull-left[
+.vlarge[
+- Reduce the non data-ink
+    - Removed unnecessary non data-ink
+    - De-emphasise or regularise the remaining non data-ink
+
+- Enhance the data-ink
+    - Remove unnecessary data-ink
+    - Emphasise the remaining data-ink
+]]
+
+.pull-right[
+![:scale 65%](img/image2-38.png)]
+
+---
+## Practical used of data-ink
+### Shouting to emphasize what’s interesting
+
+.center[
+![:scale 50%](img/image2-39.png)]
+
+---
+## What should the relative lengths of the axis be?
+.large[
+- Should not manipulate the aspect ratio to intentionally exaggerate or downplay the rate of change.
+- Stick to the convention of making your graphs wider than being tall.]
+
+.center[
+![](img/image2-40.png)]
+
+---
+## When can you eliminate tick mark?
+### Tick marks are superfluous on categorical scale.
+
+.center[
+![:scale 75%](img/image2-41.png)]
+
+---
+## When you shouldn’t eliminate tick mark?
+### Tick marks are necessary on continuous scale.
+
+.center[
+![:scale 80%](img/image2-42.png)]
+
+---
+## How many tick marks should you use?
+.vlarge[
+- There is no exact number that works best in all circumstances, and the size of the graph is a factor that must considered: the longer the scale line, the more tick marks it should contain.] 
+
+.center[
+![:scale 80%](img/image2-43.png)]
+
+---
+## When can you eliminate legends?
+
+.pull-left[
+.vlarge[
+- In this graph, a legend is used to indicate product types.]
+
+![](img/image2-44a.png)]
+
+
+.pull-right[
+.vlarge[
+- In this graph, product types are labeled directly.
+]
+
+![:scale 88%](img/image2-44b.png)
+]
+
+---
+## An enligthening data visualisation will be incomplete without a well worded title
+
+.center[
+![:scale 50%](img/image2-61.jpg)
+]
+.small[
+Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3cac-11ea-b232-000f4477fbca), Financail Times, January 23 2020.]
+
+- More example can be found [here](https://www.ft.com/graphics) 
+
+---
+## Using Annotation to tell data story
+.center[
+![:scale 75%](img/image2-62.jpg)
+]
+
+.small[
+Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3cac-11ea-b232-000f4477fbca), Financail Times, January 23 2020.]
+
+---
+# Graph typography
+### Avoid using artistic fonts
+
+.center[
+![:scale 65%](img/image2-45.png)]
+
+---
+## Graph Labeling
+### Orientation of label should be reader friendly
+
+.center[
+![:scale 85%](img/image2-46.png)]
+
+---
+## When should you use other text?
+
+.center[
+![:scale 60%](img/image2-47.png)]
+
+---
+# Data Visualization: Clarity or Aesthetics?
+
+.pull-left[
+![](img/image2-48a.png)
+]
+
+.pull-right[
+![:scale 80%](img/image2-48b.png)
+]
+
+.small[Source: http://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/]
+
+---
+## A Tale of Four Quadrants
+
+.center[
+![:scale 45%](img/image2-49.png)]
+
+---
+## Quadrant IV – Confusing yet Beautiful
+
+.pull-left[
+.large[
+- Why is it “beautiful”?
+    - Well placed & aligned title & lead-in
+    - Attention to detail with font selection
+    - Inclusion of image
+
+- Why is it “confusing”?
+    - Y-axis starts at 10K (column height misleading)
+    - 3D effect makes it difficult to gage heights
+    - Title & lead-in aren’t helpful]
+]
+
+.pull-right[
+![](img/image2-50.png)]
+
+---
+
+## Quadrant III – Confusing and Ugly
+
+.pull-left[
+.large[
+- Why is it “ugly”?
+    - Horrible font & color choice
+    - Grid lines are too dark & distracting
+    - Format of axes (vertical x-axis labels, number format of y-axis)
+
+- Why is it “confusing”?
+    - Y-axis starts at 10K (column height misleading)
+    - 3D effect makes it difficult to gage heights
+    - No lead-in or call-outs to provide context
+]]
+
+.pull-right[
+![](img/image2-51.png)]
+
+---
+
+## Quadrant II – Clear but Ugly
+
+.pull-left[
+.large[
+- Why is it “ugly”?
+    - Poor color (puke yellow?) and font (Comic Sans?) choices
+    - Slightly pixelated – poor attention to image quality detail
+    - Chart details – axis orientation, grid lines, outline
+    
+- Why is it “clear”?
+    - The y-axis starts at 0 and the 2D columns are easy to gage
+    - For the first time, we see call-outs of relevant events on the timeline
+    - This time the lead-in paragraph is actually informative]]
+
+.pull-right[
+![](img/image2-52.png)]
+
+---
+## Quadrant I – Clear and Beautiful
+
+.pull-left[
+- Why is it “beautiful”?
+    - Good font & color choices throughout
+    - Soft gridlines don’t distract
+    - All elements well aligned and spaced
+    - High res images are “useful” chartjunk
+
+- Why is it “clear”?
+    - The y-axis starts at 0 and the 2D columns are easy to gage
+    - Call-outs with images aid cognition
+    - Improved title & lead-in verbiage provide further elucidation
+    - For the first time, a photo credit and data source are included
+]
+
+.pull-right[
+![](img/image2-53.png)]
+
+---
+# References
+
+Claus O. Wilke (2019) [Fundamentals of Data Visuaization](https://clauswilke.com/dataviz/). O'Reilly, USA. 
+
+Few, Stephen (2012) (2nd edition) **Show Me the Numbers: Designing Tables and Graphs to Enlighten**, Analytics Press, Oakland, USA
+
+Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA.
+
+Robbins, Naomi B. (2005) **Creating More Effective Graphs**, John Wiley & Sons, New Jersey, USA
+
+Wong, Dona M. (2010) **The Wall Street Journal Guide to Information Graphics**, W. W. Norton & Company, Inc. New York.
+
+Tufte, Edward (2nd Edition) **The Visual Display of Quantitative Information**, Graphics Press LLC, Connecticut, USA.
+
+---
+# Highly recommended blog
+
+Junk Charts (http://junkcharts.typepad.com/junk_charts/)
+
+Perceptual Edge (http://www.perceptualedge.com/blog/)
+
+Statistical Graphics and more (http://www.theusrus.de/blog/) 
+
+EagerEyes (http://eagereyes.org/)
+
+The Functional Art (http://www.thefunctionalart.com/) 
+
+Visualizing data (http://www.visualisingdata.com/) 
+DataViz (http://www.improving-visualisation.org/) 
+
+Visualizing Economics (http://visualizingeconomics.com/)
+
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Lesson02-Designing-Graphs-to-Enlighten.html")
+```
+
+
+
