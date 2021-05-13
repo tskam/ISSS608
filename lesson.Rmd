@@ -45,7 +45,7 @@ Date: 29/5/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson04_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 5: Visualising and Analysing Time-Oriented Data 	
@@ -54,7 +54,7 @@ Date: 5/6/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson05_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 6: Visualising and Analysing Geographical Data
@@ -63,7 +63,7 @@ Date: 12/6/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson06_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 7: Programming Data Visualisation in R
@@ -72,7 +72,7 @@ Date: 26/6/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson07_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 8: Introducing Shiny 	
@@ -81,7 +81,7 @@ Date: 3/July/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson08_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 9: Visually Driven Data Analytics Packages in R
@@ -90,7 +90,7 @@ Date: 10/7/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson09_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 10: Programming GeoVisual Analytics with R
@@ -99,7 +99,7 @@ Date: 17/6/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson10_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 11: Network Data Visualisation and Analysis
@@ -108,7 +108,7 @@ Date: 24/7/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson11_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 12: Advanced Shiny Methods
@@ -117,7 +117,7 @@ Date: 31/7/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson12_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 13: The Epilogue
@@ -126,7 +126,7 @@ Date: 7/8/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson13_outline.html)
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 ### Lesson 14: Visual Analytics Workshop and Poster
@@ -134,7 +134,7 @@ Date: 7/8/2021
 Date: 14/8/2021
 
 <p class="nospace">Materials:</p>
-- [Lesson slides](slides/introduction.html)  
+- Lesson slides in [html]() and in [pdf]() formats.  
 - [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
 
 

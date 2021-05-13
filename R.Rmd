@@ -62,6 +62,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * [GGally](http://ggobi.github.io/ggally/) extends 'ggplot2' by adding several functions to reduce the complexity of combining geometric objects with transformed data. Some of these functions include a pairwise plot matrix, a two group pairwise plot matrix, a parallel coordinates plot, a survival plot, and several functions to plot networks. 
 * [sjPlot](http://www.strengejacke.de/sjPlot/):Data Visualization for Statistics in Social Science 
 * [ggstatsplot](https://indrajeetpatil.github.io/ggstatsplot/) is an extension of ggplot2 package for creating graphics with details from statistical tests included in the plots themselves and targeted primarily at behavioral sciences community to provide a one-line code to produce information-rich plots.
+* [ggside](https://cran.r-project.org/web/packages/ggside/index.html) allows the user to add graphical information about one of the main panel’s axis. This is particularly useful for metadata for discrete axis, or summary graphics on a continuous axis such as a boxplot or a density distribution.  These [vignette](https://cran.r-project.org/web/packages/ggside/vignettes/ggside_basic_usage.html) and [article](https://finnstats.com/index.php/2021/05/12/visualization-graphs/) provide useful introduction.  
 
 ## Interactive Data Visualisation with R
 ### plotly R
@@ -114,8 +115,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Creating coursework blog
 ### Distill
 
-* [Distill for R Markdown](https://rstudio.github.io/distill/) 
-* [distill for R Markdown] pkgs (https://pkgs.rstudio.com/distill/index.html)
+* [distill for R Markdown](https://pkgs.rstudio.com/distill/index.html) 
+* The [distill for R Markdown](https://rstudio.github.io/distill/) website gives a live demonstration of the usage of distill's features and functions.
 * [Example websites](https://pkgs.rstudio.com/distill/articles/examples.html)
 * [(Re-)introducing Distill for R Markdown](https://blog.rstudio.com/2020/12/07/distill/)
 * [Creating a Blog](https://rstudio.github.io/distill/blog.html)
