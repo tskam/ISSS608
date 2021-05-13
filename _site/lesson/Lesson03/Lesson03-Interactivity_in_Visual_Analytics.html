@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 3: Interactivity in Visual Analytics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems (Practice)" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 3: Interactivity in Visual Analytics
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems (Practice)
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2020/02/1 (updated: 2021-05-13)
+
+---
+
+
+
+
+# What will you learn from this lesson?
+
+.vlarge[
+- Different types of interaction techniques
+
+- The role of Interaction in visual analytics
+
+- The concept of linked multiple views
+
+- Interactive analytics best practices
+]
+
+---
+# Building Block of Visual Analytics
+
+.center[
+![:scale 65%](img/image3-1.jpg)]
+
+---
+# Revisiting Visual Analytics Framework
+
+.center[
+![:scale 65%](img/image3-2.jpg)]
+
+---
+# Taxonomy of Interactive Dynamics 
+
+.center[
+![:scale 85%](img/image3-4.jpg)]
+
+.small[
+Source: Heer, J. &amp; Shneiderman, B. (2012) "[Interactive Dynamics for Visual Analytics](https://queue.acm.org/detail.cfm?id=2146416)" ***ACM Queue***, Vol. 55, No. 4, pp 45-54.]
+
+---
+## Data &amp; view specification
+- **Visualise** data by choosing visual encodings.
+- **Polaris** of Tableau
+
+.center[
+![:scale 45%](img/image3-5.jpg)]
+
+---
+## Data &amp; view specification
+- **Filter** out data to focus on relevant items.
+
+.center[
+![:scale 70%](img/image3-6.jpg)]
+
+---
+## Data &amp; view specification
+- **Slicer** is an axis-parallel selection tool, which selects a range along an axis, where the end-point of the interval can be modified dynamically.
+
+.center[
+![:scale 60%](img/image3-10.jpg)]
+.small[Source: https://square.github.io/crossfilter/]
+
+---
+## Data &amp; view specification
+- **Sort** items to expose patterns.
+
+.center[
+![:scale 60%](img/image3-7.jpg)]
+
+---
+## Data &amp; view specification
+- Hierarchical sorting
+
+.center[
+![:scale 60%](img/image3-8.jpg)]
+
+---
+## Data &amp; view specification
+- **Derive** values or models from source data.
+
+.center[
+![:scale 80%](img/image3-9.jpg)]
+
+---
+## View Manipulation
+### Selection functions
+- **Pointer** selects a single object in a plot.
+.center[
+![:scale 50%](img/image3-11.jpg)]
+
+---
+## View Manipulation
+### Selection functions
+- **Drag-box** selects a rectangular region in a box.
+
+.center[
+![:scale 70%](img/image3-12.jpg)]
+
+---
+## View Manipulation
+### Selection functions
+.pull-left[
+- **Brush** is a generalisation of the drag-box.  Once a rectangular region is define, the brush allows users to move that region across a plot and thus dynamically change the selected subset.
+]
+
+.pull-right[
+![:scale 50%](img/image3-13.jpg)]
+
+---
+## View Manipulation
+### Selection functions
+- **Lasso** allows users to define an arbitrary contiguous shape to select data.
+
+.center[
+![:scale 40%](img/image3-14.jpg)]
+
+---
+## View Manipulation
+### Selection modes
+
+.center[
+![:scale 55%](img/image3-15.jpg)]
+.small[
+Reference: http://www.theusrus.de/Mondrian/]
+
+---
+## View Manipulation
+### Highlighting
+- Selected records are highlighted.
+
+.center[
+![:scale 55%](img/image3-16.jpg)]
+
+---
+## View Manipulation
+- **Navigate** to examine high-level patterns and low-level detail.
+- Shneiderman’s mantra
+
+.center[
+![:scale 70%](img/image3-3.jpg)]
+
+---
+## View Manipulation
+- The scatter plot provides an overview and the bar and line graphs provide detail sales and profits trends overtime.
+
+.center[
+![:scale 80%](img/image3-17.jpg)]
+
+---
+## View Manipulation
+- **Coordinate** views for linked, multi-dimensional exploration
+
+.center[
+![:scale 35%](img/image3-18.jpg)
+]
+
+.center[
+Scatterplot with marginal boxplot]
+
+---
+## View Manipulation
+- **Organise** multiple windows and workspaces
+
+.center[
+![:scale 40%](img/image3-19.jpg)]
+
+.small[
+Source:https://public.tableau.com/profile/yifei2012#!/vizhome/Updated1/VASTChallenge2017MC1]
+
+---
+## View Manipulation
+### Rotating
+- Touring view with JMP’s 3D scatterplot
+
+.center[
+![:scale 35%](img/image3-20.jpg)]
+
+---
+# Interactive Design Primitive
+
+A framework for effective interactive design in visual analytics application.
+
+.center[
+![:scale 40%](img/image3-21.jpg)
+]
+
+.small[
+Source: Roth, R.E. (2012) “Cartographic Interaction Primitive: Framework and Synthesis”. The Cartographic Journal, Vol. 49, No. 4 pp. 376-395.
+]
+
+---
+# Interactive Design Primitive
+
+.pull-left[
+### Visual Analytics Objective Primitives
+
+![](img/image3-22.jpg)
+]
+
+.pull-right[
+### Interactive Analytics Operator Primitives
+
+![:scale 55%](img/image3-23.jpg)
+]
+
+---
+# Interactive Design Primitive
+
+.center[
+![:scale 80%](img/image3-24.jpg)
+]
+
+---
+# Animation in Visual Analytics
+
+.pull-left[
+.large[
+- The purpose of animation is to facilitate perception of changes when transitioning between related data graphics
+
+- Do not confine to time-series data only
+]
+]
+
+.pull-right[
+![](img/image3-25.jpg)
+.small[Source: http://worrydream.com/HowManyHouseholds/] 
+]
+
+---
+## Why using Animation in Visual Analytics
+
+.vlarge[
+- Motion is highly effective at attracting attention.
+
+- Animation facilitates object constancy for changing objects.
+
+- Animated behaviours can give rise to perceptions of causality and intentionality, communicating cause-and-effect relationships and establishing narrative.
+
+- Animation can be emotionally engaging, engendering increased interest or enjoyment.
+]
+
+---
+## Principles of Animation
+
+.pull-left[
+- ***Congruence*** principle states that the structure and content of the external representation should correspond to the desired and content of the internal representation.
+
+- Maintain valid data graphics during transitions
+
+- Use consistent semantic-syntactic mappings
+
+- Respect semantic correspondence
+
+- Avoid ambiguity
+]
+
+.pull-right[
+- ***Apprehension*** principle states that the structure and content of the external representation should be readily and accurately perceived and comprehended.
+
+- Group similar transitions
+
+- Minimise occlusion
+
+- Maximise predictability
+
+- Use simple transitions
+
+- Use staging for complex transitions
+
+- Make transitions as long as needed, but no longer
+]
+
+.small[Source: Heer, J and Robertson G. (2007) [Animated Transitions in Statistical data Graphics](https://idl.cs.washington.edu/files/2007-AnimatedTransitions-InfoVis.pdf), IEEE Transactions on Visualization and Computer Graphics, Vol. 13, No. 6, 1240-1247 and the [video](https://www.youtube.com/watch?v=vLk7mlAtEXI).
+]
+
+---
+## Animation in Action
+
+.pull-left[
+### Stacked-to-Grouped Bars
+
+![](img/image3-26.jpg)
+.small[Source:
+https://observablehq.com/@d3/stacked-to-grouped-bars
+]
+]
+
+.pull-right[
+### Animated Co-occurrence matrix
+
+![:scale 80%](img/image3-27.jpg)
+.small[Source: https://bost.ocks.org/mike/miserables/ 
+]
+]
+
+---
+# References
+
+- [Dynamics for Visual Analysis](https://idl.cs.washington.edu/files/2012-InteractiveDynamics-CACM.pdf)
+
+- [Animated Transitions in Statistical Data Graphics](https://idl.cs.washington.edu/files/2007-AnimatedTransitions-InfoVis.pdf), IEEE Transactions on Visualization and Computer Graphics, Vol. 13, No. 6, 1240-1247 and the [video](https://www.youtube.com/watch?v=vLk7mlAtEXI) 
+- [Coordinated Highlighting in Context](http://www.perceptualedge.com/articles/visual_business_intelligence/coordinated_highlighting_in_context.pdf)
+
+- [Cartographic Interaction Primitive: Framework and Synthesis](https://web-a-ebscohost-com.libproxy.smu.edu.sg/ehost/pdfviewer/pdfviewer?vid=1&amp;sid=16eab3bc-b4a2-47b5-9a03-2619822e5ddb%40sessionmgr4007)
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
