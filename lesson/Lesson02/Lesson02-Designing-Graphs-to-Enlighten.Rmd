@@ -738,22 +738,17 @@ Tufte, Edward (2nd Edition) **The Visual Display of Quantitative Information**, 
 ---
 # Highly recommended blog
 
-Junk Charts (http://junkcharts.typepad.com/junk_charts/)
+.large[
 
-Perceptual Edge (http://www.perceptualedge.com/blog/)
+- [The Functional Art](http://www.thefunctionalart.com/)
+- [Junk Charts](http://junkcharts.typepad.com/junk_charts/)
+- [Perceptual Edge](http://www.perceptualedge.com/blog/)
+- [EagerEyes](http://eagereyes.org/)
+- [Statistical Graphics and more](http://www.theusrus.de/blog/) 
+- [Visualizing data](http://www.visualisingdata.com/)
+- [Visualizing Economics](http://visualizingeconomics.com/)
 
-Statistical Graphics and more (http://www.theusrus.de/blog/) 
-
-EagerEyes (http://eagereyes.org/)
-
-The Functional Art (http://www.thefunctionalart.com/) 
-
-Visualizing data (http://www.visualisingdata.com/) 
-DataViz (http://www.improving-visualisation.org/) 
-
-Visualizing Economics (http://visualizingeconomics.com/)
-
-
+]
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
