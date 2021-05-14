@@ -30,6 +30,7 @@ knitr::opts_chunk$set(echo = FALSE)
     - JunkCharts
     - Practical Guides for Using Colour in Charts
     - Data-ink
+- Storytelling with Charts
 ]
 
 ---
@@ -688,6 +689,22 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 
 .pull-right[
 ![](img/image2-53.png)]
+
+---
+# Three Bugs of Charts Interpretation
+
+.vlarge[
+- The Patternicity bug
+- The Storytelling bug
+- The Confirmation bug
+]
+
+---
+## Mind Bug I: Patternicity
+
+
+
+
 
 ---
 # References
