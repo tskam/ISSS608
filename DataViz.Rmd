@@ -30,6 +30,7 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
 
 ### From seniors
 - DataViz Makeover Blog Link [AY2020-2021 Term 2](https://wiki.smu.edu.sg/2021t2isss608/DataViz#DataViz_Makeover_Blog_Link)
+    - [DataViz Makeover 1 handout](others/ISSS608_AY2020-21T2_DataViz1.pdf), [sample web article](https://kaichinlim.netlify.app/posts/2021-01-24-dataviz-makeover-1/) and [Tableau Public](https://public.tableau.com/profile/kai.chin#!/vizhome/DataViz1_16113674336320/Sheet1?publish=yes) submission. 
 
 ### From external sources
 - [Makeover Monday](https://www.makeovermonday.co.uk/), especially:
