@@ -557,7 +557,7 @@ Rule 8:  To guarantee that most people who are colourblind can distinguish group
 ## An enligthening data visualisation will be incomplete without a well worded title
 
 .center[
-![:scale 50%](img/image2-61.jpg)
+![:scale 50%](img/image2-54.jpg)
 ]
 .small[
 Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3cac-11ea-b232-000f4477fbca), Financail Times, January 23 2020.]
@@ -567,7 +567,7 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 ---
 ## Using Annotation to tell data story
 .center[
-![:scale 75%](img/image2-62.jpg)
+![:scale 75%](img/image2-55.jpg)
 ]
 
 .small[
@@ -694,15 +694,29 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 # Three Bugs of Charts Interpretation
 
 .vlarge[
-- The Patternicity bug
-- The Storytelling bug
-- The Confirmation bug
+- The **Patternicity** bug: We detect interating patterns, regardless of whether or not they are real.
+- The **Storytelling** bug: We immediately come up with a coherent explanation for those patterns.
+- The **Confirmation** bug: We start seeing all further information we receive, even the one that conflicts with our explanation, in a way that confirmed it.  We refuse to give our explanation up, no matter what.
 ]
 
 ---
-## Mind Bug I: Patternicity
+## Three Bugs example
 
+![](img/image2-56.jpeg)
 
+.small[
+Source: [Spurious Correlation](https://www.tylervigen.com/spurious-correlations)
+]
+
+---
+## Stop the Fallacy of Visual Storytelling 
+
+![:scale 50%](img/image2-57.jpg)
+
+.small[
+Source: [Chocolate Consumption, Cognitive Function,
+and Nobel Laureates](https://www.nejm.org/doi/full/10.1056/NEJMon1211064)
+]
 
 
 
