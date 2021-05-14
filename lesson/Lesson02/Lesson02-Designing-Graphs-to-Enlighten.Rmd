@@ -714,8 +714,8 @@ Source: [Spurious Correlation](https://www.tylervigen.com/spurious-correlations)
 ![:scale 50%](img/image2-57.jpg)
 
 .small[
-Source: [Chocolate Consumption, Cognitive Function,
-and Nobel Laureates](https://www.nejm.org/doi/full/10.1056/NEJMon1211064)
+Source: [Franz H. Messerli (2012)Chocolate Consumption, Cognitive Function,
+and Nobel Laureates](https://www.nejm.org/doi/full/10.1056/NEJMon1211064), *The New England Journal of Medicine*.
 ]
 
 
