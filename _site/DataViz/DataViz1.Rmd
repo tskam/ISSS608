@@ -1,0 +1,40 @@
+---
+title: "DataViz Makeover 1"
+description: |
+  Explore different perspectives and approaches to design more truthful and enlightening data visualisation
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The Data Visualisation
+
+![](img/image1.png)
+
+## Data Source
+The data visualisation above is created by using data provided by Department of Statistics, Singapore (DOS).  The data are available under the sub-section of [Merchandise Trade by Region/Market](https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data).  For the purpose of the makeover exercise, you should download the data by clicking on the link **Download all in Excel** on the same webpage.   
+
+
+## The Task
+1.	Critic the graph from both its clarity and aesthetics.  At least three from each evaluation criterion. (15 marks)
+2.	With reference to the critics above, suggest alternative graphical presentation to improve the current design.  The proposed alternative data visualisation must be in static form. Sketch out the proposed design.  Support your design by describing the advantages or which part of the issue(s) your alternative design try to overcome. (15 marks)
+3.	Using Tableau, design the proposed data visualization. (25 marks)
+4.	Provide step-by-step description on how the data visualization was prepared. (30 marks)
+5.	Describe three major observations revealed by the data visualisation prepared.(15 marks)
+
+## Deliverable
+- The write-up of the DataViz Makeover must be in [**distill**](https://rstudio.github.io/distill/) or [**blogdown**](https://github.com/rstudio/blogdown) format. You are required to publish the write-up on [**Netlify**](https://www.netlify.com/). 
+- The DataViz Makeover must be prepared using **Tableau Desktop**.  The final workbook must be uploaded onto [Tableau Public](https://public.tableau.com/en-us/s/).
+- All DataViz Makeover have to be completed by **Sunday before mid-night 11.59pm**. Students are required to upload the artefacts onto eLearn (i.e. DataViz Makeover section).
+- To encourage peer-learning, students must also provide the link to the blog your prepared for the DataViz Makeover eLearn.
+
+## Submission date
+Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
+
+
+
+
+

@@ -14,10 +14,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Overview
-
 Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
 
 The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
+
+## DataViz Makeover Topics
+- [DataViz Makeover 1](DataViz/DataViz1.html)
+- DataViz Makeover 2
+- DataViz Makeover 3
 
 ## Submission Instructions
 
