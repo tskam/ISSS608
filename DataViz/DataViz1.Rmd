@@ -20,7 +20,7 @@ The data visualisation above is created by using data provided by Department of 
 
 ## The Task
 1.	Critic the graph from both its clarity and aesthetics.  At least three from each evaluation criterion. (15 marks)
-2.	With reference to the critics above, suggest alternative graphical presentation to improve the current design.  The proposed alternative data visualisation must be in static form. Sketch out the proposed design.  Support your design by describing the advantages or which part of the issue(s) your alternative design try to overcome. (15 marks)
+2.	With reference to the critics above, suggest alternative graphical presentation to improve the current design.  The proposed alternative data visualisation must be in **static** form. Sketch out the proposed design.  Support your design by describing the advantages or which part of the issue(s) your alternative design try to overcome. (15 marks)
 3.	Using Tableau, design the proposed data visualization. (25 marks)
 4.	Provide step-by-step description on how the data visualization was prepared. (30 marks)
 5.	Describe three major observations revealed by the data visualisation prepared.(15 marks)
