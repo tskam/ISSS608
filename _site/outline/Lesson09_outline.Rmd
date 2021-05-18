@@ -1,0 +1,129 @@
+---
+title: "Lesson 9: Visually Driven Data Analytics Packages in R"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
+* Introduction to Visually Driven Data Analytics Packages
+    * The motivation
+    * Basic considerations
+* Visual Statistical Analysis
+    * ggstatsplot
+    * infer
+    * ggridges
+* Visual Categorical Data Analysis
+    * vcd
+* Correlation Matrix
+    * GGally
+    * corrplot
+    * Correlogram
+* Multivariate Data Visualisation
+    * ggtern
+    * Glyphs or Star Plot
+    * heatmaply
+    * parcoords
+* Space-constrained visualization of hierarchies
+    * Treemaps
+    * Sunburst diagram
+
+## Readings
+
+### Core Readings
+
+**Multivariate Methods**
+
+* [An Introduction to Visual Multivariate Analysis](http://www.perceptualedge.com/articles/b-eye/visual_multivariate_analysis.pdf) 
+* [Corrgrams: Exploratory Displays for Correlation Matrices](https://search-proquest-com.libproxy.smu.edu.sg/docview/228501277?rfr_id=info%3Axri%2Fsid%3Aprimo)
+* [Ternary Plot](https://en.wikipedia.org/wiki/Ternary_plot)
+* [Multivariate Data Glyphs](https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.1007%2F978-3-540-33037-0_8.pdf)
+* [Parallel Coordinates](https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.1007%2F978-3-540-33037-0_25.pdf) 
+* [Wikipedia: Heatmap](http://en.wikipedia.org/wiki/Heat_map)
+
+**Treemaps**
+
+* Shneiderman, Ben (2008) [Treemaps for space-constrained visualization of hierarchies](http://www.cs.umd.edu/hcil/treemap-history/)
+* [Extending the Utility of Treemaps with Flexible Hierarchy](http://www.cs.umd.edu/hcil/treemap/FLEXIBLE-HIERARCHY-FINAL.pdf)
+
+### Optional Readings
+
+**Multivariate Methods**
+
+* [The scatter-plot matrix: a great tool](http://junkcharts.typepad.com/junk_charts/2010/06/the-scatterplot-matrix-a-great-tool.html)
+* [A Graphical Display of Large Correlation Matrices](https://search-proquest-com.libproxy.smu.edu.sg/docview/1750838449?rfr_id=info%3Axri%2Fsid%3Aprimo)
+* [Ternary Diagram](https://www.sciencedirect.com/topics/engineering/ternary-diagram)
+* [Reading a Ternary Diagram](http://csmgeo.csm.jmu.edu/geollab/fichter/Sedrx/readternary.html)
+* [Multidimensional Detective](http://www.ifs.tuwien.ac.at/~silvia/wien/vu-infovis/articles/Inselberg-InfoVis97.pdf)
+* [Parallel Coordinates](https://eagereyes.org/techniques/parallel-coordinates)
+* [Multivariate Analysis Using Parallel Coordinates](http://www.perceptualedge.com/articles/b-eye/parallel_coordinates.pdf)
+* [Ghosts on the Radar — Why Radar Charts Are Easily Misread](https://towardsdatascience.com/ghosts-on-the-radar-why-radar-charts-are-easily-misread-dba00fc399ef)
+* [Keep Radar Graphs Below the Radar - Far Below](https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf)
+* [A Critique of Radar Charts](https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html)
+* [Radar: More Evil Than Pie](https://www.darkhorseanalytics.com/blog/radar-more-evil-than-pie)
+
+**Treemaps**
+
+* [Treemaps](http://eagereyes.org/Techniques/Treemaps.html)
+* [Discovering Business Intelligence Using Treemap Visualization](http://www.b-eye-network.com/view/2673)
+* [10 Lessons in Treemap Design](http://www.juiceanalytics.com/writing/10-lessons-treemap-design/)
+* Bederson, Benjamin B.; Shneiderman, Ben; Wattenberg, Martin (2002). [*Ordered and quantum treemaps: Making effective use of 2D space to display hierarchies*](http://delivery.acm.org.libproxy.smu.edu.sg/10.1145/580000/571649/p833-b_bederson.pdf?ip=202.161.43.77&id=571649&acc=ACTIVE%20SERVICE&key=FF6731C4D3E3CFFF%2E39D185EE56A58666%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1538033167_4a6787aed9b15196b9e585b3af4b7031). **ACM Transactions on Graphics**. 21 (4): 833.
+* Bruls, Mark; Huizing, Kees; van Wijk, Jarke J. (2000). [*Squarified treemaps*](http://www.win.tue.nl/~vanwijk/stm.pdf). In de Leeuw, W.; van Liere, R. **Data Visualization 2000: Proc.** Joint Eurographics and IEEE TCVG Symp. on Visualization]
+* [US Economic Census Treemap](http://www.juiceanalytics.com/writing/us-economic-census-treemap/)
+* [TreeCovery: Coordinated dual treemap visualization for exploring the Recovery Act](https://ac-els-cdn-com.libproxy.smu.edu.sg/S0740624X11001055/1-s2.0-S0740624X11001055-main.pdf?_tid=5f3e825d-c9d0-414f-b1d2-3ffbe8e115d1&acdnat=1538033558_64b0c1431092fec2ea12cc5e7ba8e77b) 
+* [Juice's Stimulus Bill Explorer](http://www.juiceanalytics.com/writing/juices-stimulus-bill-explorer/) 
+* [Fundexplorer](http://www.cc.gatech.edu/gvu/ii/fundexplorer/)
+* [Map of the Market](http://www.smartmoney.com/map-of-the-market/)
+* [The HIVE Group](http://www.hivegroup.com/gallery/index.html)
+* [Truck Sales Slip, Tripping Up Chrysler](http://www.nytimes.com/imagepages/2007/02/25/business/20070225_CHRYSLER_GRAPHIC.html) 
+* [Newsmap](http://newsmap.jp/)
+* [Obama’s 2011 Budget Proposal: How It’s Spent](http://www.nytimes.com/interactive/2010/02/01/us/budget.html)
+
+## R Packages
+### Correlation Matrix
+* [ggscatmat](https://ggobi.github.io/ggally/#ggallyggscatmat) and [ggpairs](https://ggobi.github.io/ggally/#ggallyggpairs) of [GGally](https://ggobi.github.io/ggally/index.html). 
+* [corrplot](https://cran.r-project.org/web/packages/corrplot/index.html). A graphical display of a correlation matrix or general matrix. It also contains some algorithms to do matrix reordering. In addition, corrplot is good at details, including choosing color, text labels, color labels, layout, etc. 
+* [corrgram](https://cran.r-project.org/web/packages/corrgram/index.html) calculates correlation of variables and displays the results graphically. Included panel functions can display points, shading, ellipses, and correlation values with confidence intervals. 
+
+### Heatmap
+
+**Static heatmap**
+
+* [heatmap()](https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/heatmap) of R stats package.  It draws a simple heatmap.
+* [heatmap.2()](https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/heatmap.2) of **gplots** R package.  It draws an enhanced heatmap compared to the R base function.
+* [pheatmap()](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap) of [**pheatmap**](https://www.rdocumentation.org/packages/pheatmap) R package.  **pheatmap** package also known as Pretty Heatmap.  The package provides functions to draws pretty heatmaps and provides more control to change the appearance of heatmaps.
+* [**ComplexHeatmap**](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html) package of R/Bioconductor package.  The package draws, annotates and arranges complex heatmaps (very useful for genomic data analysis).  The full reference guide of the package is available [here](https://jokergoo.github.io/ComplexHeatmap-reference/book/).
+* [**superheat**](https://cran.r-project.org/web/packages/superheat/) package: A Graphical Tool for Exploring Complex Datasets Using Heatmaps.  A system for generating extendable and customizable heatmaps for exploring complex datasets, including big data and data with multiple data types.  The full reference guide of the package is available [here](https://rlbarter.github.io/superheat/).
+
+**Interactive Heatmap**
+
+* [heatmaply](https://cran.r-project.org/web/packages/heatmaply/index.html): Make Interactive Cluster Heat Maps Using 'plotly'
+* [d3heatmap](https://cran.r-project.org/web/packages/d3heatmap/index.html): Make Interactive Heat Maps Using 'htmlwidgets' and 'D3.js. 
+* [iheatmapr](https://cran.r-project.org/web/packages/iheatmapr/index.html) makes complex, interactive heatmaps. Detail information are available at [here](https://docs.ropensci.org/iheatmapr/).
+
+### Treemaps
+* [Treemap](https://cran.r-project.org/web/packages/treemap/) package.
+    * [Creating a Treemap in R](https://rpubs.com/brandonkopp/creating-a-treemap-in-r)
+    * [treemap: mapping to color palettes](https://cran.r-project.org/web/packages/treemap/vignettes/treemap-color_mapping.html)
+    * [Simple Steps to Create Treemap in R](https://r-posts.com/simple-steps-to-create-treemap-in-r/)
+* [treemapify: Draw Treemaps in 'ggplot2'](https://cran.r-project.org/web/packages/treemapify/index.html)
+    * [Introduction to treemapify](https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html)
+    * [Interactive visualization with R-Shiny versus with Tableau: Treemaps](https://datascience-enthusiast.com/R/R_shiny_Tableau_treemap.html)
+
+### Sunburst Diagram
+* [sunburstR](https://cran.r-project.org/web/packages/sunburstR/)
+* [Sunburst 2.0.0](https://cran.r-project.org/web/packages/sunburstR/vignettes/sunburst-2-0-0.html)
+* [Create Basic Sunburst Graphs with ggplot2](https://medium.com/optima-blog/create-basic-sunburst-graphs-with-ggplot2-7d7484d92c61)
+
+
+
+
+
