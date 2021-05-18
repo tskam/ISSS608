@@ -1,0 +1,69 @@
+---
+title: "Visualising and Analysing Geographical Data"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Lesson Outline
+
+* Introducing map
+* Properties of geographical data
+* Typology of map
+* Thematic mapping techniques
+    * Proportional symbol map
+    * Choropleth map
+    * Data Classification
+* Alternative mapping techniques
+
+## Readings
+
+### Core Reading
+
+* [The Concept of Map Symbols](https://www.yaaka.cc/unit/the-concept-of-map-symbols/)
+* [Proportional Symbols](https://www.axismaps.com/guide/univariate/proportional-symbols/)
+* [Choropleth map](https://en.wikipedia.org/wiki/Choropleth_map)
+* [Choropleth Maps](https://www.axismaps.com/guide/univariate/choropleth/)
+* [The Basics of Data Classification](https://www.axismaps.com/guide/data/data-classification/)
+
+### Additional Readings
+
+* [Choropleth Maps – A Guide to Data Classification](https://gisgeography.com/choropleth-maps-data-classification/)
+* [Bivariate Choropleth](https://www.axismaps.com/guide/multivariate/bivariate-choropleth/)
+* [Value-by-alpha maps](http://andywoodruff.com/blog/value-by-alpha-maps/)
+* [What to consider when creating choropleth maps](https://blog.datawrapper.de/choroplethmaps/)
+* [Choropleth Mapping with Exploratory Data Analysis](https://www.directionsmag.com/article/3363)
+* [Cartogram Maps: Data Visualization with Exaggeration](https://gisgeography.com/cartogram-maps/)
+* [Cartogram](https://en.wikipedia.org/wiki/Cartogram)
+
+## All About Tableau
+
+### Basic Tutorial
+
+* [Maps and Geographic Data Analysis in Tableau](https://help.tableau.com/current/pro/desktop/en-us/maps.htm).  This chapter from the User Guide of Tableau provide a comprehensive overview of the mapping concepts and Tableau methods.  I strongly recommend you to read the chapter at least once. 
+* [Live Training: Mapping](https://www.tableau.com/learn/webinars/live-training-mapping#video)
+* [Getting Started with Mapping](https://www.tableau.com/learn/tutorials/on-demand/getting-started-mapping?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Maps in Tableau](https://www.tableau.com/learn/tutorials/on-demand/maps-tableau?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Editing Unrecognized Location](https://www.tableau.com/learn/tutorials/on-demand/editing-unrecognized-locations?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Spatial Files](https://www.tableau.com/learn/tutorials/on-demand/spatial-files?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [The Density Mark Type (Heat maps)](https://www.tableau.com/learn/tutorials/on-demand/density-mark-type?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Expanding Tableau's Mapping Capabilities](https://www.tableau.com/learn/tutorials/on-demand/expanding-tableaus-mapping-capabilities?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Custom Geocoding](https://www.tableau.com/learn/tutorials/on-demand/custom-geocoding?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Polygon Maps](https://www.tableau.com/learn/tutorials/on-demand/polygon-maps?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+* [Background Images](https://www.tableau.com/learn/tutorials/on-demand/background-images?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
+
+### Beyond the Basic
+
+* [Advanced Mapping with Tableau](https://www.tableau.com/learn/webinars/advanced-mapping-techniques-tableau)
+* [10 ways to add value to your dashboards with maps](https://www.tableau.com/learn/whitepapers/10-ways-add-value-your-dashboards-maps)
+* [3 Ways to Make Magnificent Maps in Tableau](https://www.ryansleeper.com/3-ways-to-make-magnificent-maps-in-tableau/)
+* [How to Make Trellis / Tile / Small Multiple Maps in Tableau](https://playfairdata.com/how-to-make-trellis-tile-small-multiple-maps-in-tableau//)
+
+
