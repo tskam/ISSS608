@@ -1,0 +1,62 @@
+---
+title: "Lesson 5: Visualising and Analysing Time-Oriented Data"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Lesson Content
+
+* Characteristics of time-series data
+* A short visual history of time-series graphs
+* Time-series patterns
+* Time-series data visualization Methods
+    * Line graph
+    * Control chart
+    * Candlestick chart
+    * Slopegraph
+    * Cycle plot
+    * Horizon graph
+    * Sunburst diagram
+    * Calendar Heatmap
+    * Stream Graph
+* Interactive techniques for time-series data visualisation
+* Animation techniques for time-series visualisation
+
+## Readings
+
+### Core Readings
+
+* [A taxonomy of temporal data visualization techniques](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.122.8704&rep=rep1&type=pdf)
+* [Edward Tufte’s “Slopegraphs”](http://charliepark.org/slopegraphs/)
+* [Introduction to Cycle Plots](http://www.perceptualedge.com/articles/guests/intro_to_cycle_plots.pdf)
+* [Visualizing Change: An Innovation in Time-Series Analysis](http://www.perceptualedge.com/articles/visual_business_intelligence/visualizing_change.pdf)
+* [The Development of the Horizon Graph](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=08076DD0A1346CB0F3AE2A98A5FB17A0?doi=10.1.1.363.5396&rep=rep1&type=pdf)
+* [Candlestick chart](https://en.wikipedia.org/wiki/Candlestick_chart)
+
+### Additional Readings
+
+* [Slopegraph Update](http://charliepark.org/a-slopegraph-update/)
+* [Time on the Horizon](http://www.perceptualedge.com/articles/visual_business_intelligence/time_on_the_horizon.pdf)
+* [TimeSearcher](http://www.cs.umd.edu/hcil/timesearcher/)
+* [Understanding Basic Candlestick Charts](https://www.investopedia.com/trading/candlestick-charting-what-is-it/)
+
+## All About Tableau
+
+* [Slopegraphs in Tableau](http://dataremixed.com/2013/12/slopegraphs-in-tableau/)
+* [Horizon Graph](https://www.tableau.com/learn/tutorials/on-demand/horizon-charts)
+* [Viz Variety Show: When to use heatmap calendars](https://www.tableau.com/about/blog/2017/2/viz-variety-show-heatmaps-66330)
+* [Creating a Candlestick chart](https://kb.tableau.com/articles/howto/creating-a-candlestick-chart)
+* [Candlestick Charts and Bollinger Bands](https://www.tableau.com/learn/tutorials/on-demand/candlestick-charts-and-bollinger-bands)
+
+
+
+
+
