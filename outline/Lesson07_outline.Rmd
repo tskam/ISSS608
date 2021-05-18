@@ -1,0 +1,62 @@
+---
+title: "Lesson 7: Programming Data Visualisation with R"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
+* Why Programming Data Visualisation
+* Introducing The Grammar of Graphics
+* ggplot2, The Layered Grammar of Graphics
+** The Essential Grammatical Elements in ggplot2
+* Designing Analytical Graphics with ggplot2
+* Creating Interactive Graphics with plotly R
+* An Overview of ggplot Extension
+
+## Readings
+
+### Core Readings
+* [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html)
+* [Chapter 3 Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) and [Chapter 7 Exploratory Data Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html) of ['''R for Data Science'''](https://r4ds.had.co.nz/graphics-for-communication.html Chapter 28 Graphics for communication).  
+* [ggplot2](https://ggplot2.tidyverse.org//)
+* [ggplot2 – The R graph Gallery](http://www.r-graph-gallery.com/portfolio/ggplot2-package/)
+* [ggplot2 - A Short Tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html)
+
+### Additional Readings
+
+**Book on ggplot2**
+
+* Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen (2020) [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) (3rd Edition, online version).
+* Kieran Healy (2019) [Data Visualization: A practical introduction](https://socviz.co/).  This is the online version.
+* Aravind Hebbali (2020) [Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/index.html)
+* Winston Chang (2020) [R Graphics Cookbook](https://r-graphics.org/) (2nd edition, online version)
+* Rob Kabacoff (2020) [Data Visualization with R](https://rkabacoff.github.io/datavis/)
+* [ggplot2 介紹](https://bookdown.org/tpemartin/minicourse_ggplot2/)
+* Zach Bogart & Joyce Robbins (2020) [Exploratory Data Analysis & Visualization](https://edav.info/)
+* [BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/)
+
+**Book on plotly R**
+
+* [Plotly R Open Source Graphing Library](https://plot.ly/r/)
+* [Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/index.html)
+* [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+
+## DataCamp Courses
+* Introduction to Data Visualization with ggplot2 
+* Intermedia Data Visualization with ggplot2 
+* Interactive Data Visualization with plotly in R
+* Intermediate Interactive Data Visualization with plotly in R
+
+
+
+
+
