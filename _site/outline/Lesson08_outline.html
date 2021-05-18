@@ -86,7 +86,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Lesson 8: Introduction to Shiny </title>
+  <title>Lesson 8: Visually Driven Data Analytics Packages in R</title>
 
   <meta property="description" itemprop="description" content />
 
@@ -96,21 +96,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="article:created" itemprop="dateCreated" content="2021-05-18" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Lesson 8: Introduction to Shiny " />
+  <meta property="og:title" content="Lesson 8: Visually Driven Data Analytics Packages in R" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content />
   <meta property="og:locale" content="en_US" />
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Lesson 8: Introduction to Shiny " />
+  <meta property="twitter:title" content="Lesson 8: Visually Driven Data Analytics Packages in R" />
   <meta property="twitter:description" content />
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson 8: Introduction to Shiny "]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2021-05-18"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson 8: Visually Driven Data Analytics Packages in R"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2021-05-18"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1454,7 +1454,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lesson 8: Introduction to Shiny ","description":"","authors":[],"publishedDate":"2021-05-18T00:00:00.000+08:00"}
+{"title":"Lesson 8: Visually Driven Data Analytics Packages in R","description":"","authors":[],"publishedDate":"2021-05-18T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1464,7 +1464,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Lesson 8: Introduction to Shiny</h1>
+<h1>Lesson 8: Visually Driven Data Analytics Packages in R</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -1477,58 +1477,146 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#content">Content</a></li>
-<li><a href="#must-do">Must Do!</a></li>
 <li><a href="#readings">Readings</a>
 <ul>
 <li><a href="#core-readings">Core Readings</a></li>
-<li><a href="#additional-references">Additional references</a></li>
+<li><a href="#optional-readings">Optional Readings</a></li>
 </ul></li>
-<li><a href="#datacamp-course">DataCamp Course</a></li>
-<li><a href="#gallery">Gallery</a></li>
+<li><a href="#r-packages">R Packages</a>
+<ul>
+<li><a href="#correlation-matrix">Correlation Matrix</a></li>
+<li><a href="#heatmap">Heatmap</a></li>
+<li><a href="#treemaps">Treemaps</a></li>
+<li><a href="#sunburst-diagram">Sunburst Diagram</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="content">Content</h2>
 <ul>
-<li>Motivation of developing web-enabled applications
+<li>Introduction to Visually Driven Data Analytics Packages
 <ul>
-<li>Basic principles of web applications</li>
+<li>The motivation</li>
+<li>Basic considerations</li>
 </ul></li>
-<li>Introducing Shiny
+<li>Visual Statistical Analysis
 <ul>
-<li>Getting to know Shiny</li>
-<li>Architecture of Shiny</li>
-<li>Building block of Shiny app</li>
+<li>ggstatsplot</li>
+<li>infer</li>
+<li>ggridges</li>
 </ul></li>
-<li>Hands-on Exercise</li>
+<li>Visual Categorical Data Analysis
+<ul>
+<li>vcd</li>
+</ul></li>
+<li>Correlation Matrix
+<ul>
+<li>GGally</li>
+<li>corrplot</li>
+<li>Correlogram</li>
+</ul></li>
+<li>Multivariate Data Visualisation
+<ul>
+<li>ggtern</li>
+<li>Glyphs or Star Plot</li>
+<li>heatmaply</li>
+<li>parcoords</li>
+</ul></li>
+<li>Space-constrained visualization of hierarchies
+<ul>
+<li>Treemaps</li>
+<li>Sunburst diagram</li>
+</ul></li>
 </ul>
-<h2 id="must-do">Must Do!</h2>
-<p>View the three parts series of Shiny Tutorial at this <a href="https://shiny.rstudio.com/tutorial/">link</a>.</p>
 <h2 id="readings">Readings</h2>
 <h3 id="core-readings">Core Readings</h3>
+<p><strong>Multivariate Methods</strong></p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/shiny/shiny.pdf">Shiny reference guide</a> at CRAN.</li>
-<li>Hadley Wickham (2021) <strong>Mastering Shiny</strong>, O’Reilly Media. This is a highly recommended book. You can find the online version with this <a href="https://mastering-shiny.org/index.html">link</a>.</li>
+<li><a href="http://www.perceptualedge.com/articles/b-eye/visual_multivariate_analysis.pdf">An Introduction to Visual Multivariate Analysis</a></li>
+<li><a href="https://search-proquest-com.libproxy.smu.edu.sg/docview/228501277?rfr_id=info%3Axri%2Fsid%3Aprimo">Corrgrams: Exploratory Displays for Correlation Matrices</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_plot">Ternary Plot</a></li>
+<li><a href="https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.1007%2F978-3-540-33037-0_8.pdf">Multivariate Data Glyphs</a></li>
+<li><a href="https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.1007%2F978-3-540-33037-0_25.pdf">Parallel Coordinates</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Heat_map">Wikipedia: Heatmap</a></li>
 </ul>
-<h3 id="additional-references">Additional references</h3>
+<p><strong>Treemaps</strong></p>
 <ul>
-<li>Colin Fay, Sébastien Rochette, Vincent Guyader, Cervan Girard (2020), <strong>Engineering Production-Grade Shiny Apps</strong>, Chapman &amp; Hall. You can find the online version with this <a href="https://engineering-shiny.org/">link</a>.</li>
-<li><a href="https://unleash-shiny.rinterface.com/index.html">Outstanding User Interfaces with Shiny</a>.</li>
-<li><a href="https://bookdown.org/hadrien/how_to_build_a_shiny_app_from_scratch/">How to Build a Shiny Application from Scratch</a>.</li>
+<li>Shneiderman, Ben (2008) <a href="http://www.cs.umd.edu/hcil/treemap-history/">Treemaps for space-constrained visualization of hierarchies</a></li>
+<li><a href="http://www.cs.umd.edu/hcil/treemap/FLEXIBLE-HIERARCHY-FINAL.pdf">Extending the Utility of Treemaps with Flexible Hierarchy</a></li>
 </ul>
-<h2 id="datacamp-course">DataCamp Course</h2>
+<h3 id="optional-readings">Optional Readings</h3>
+<p><strong>Multivariate Methods</strong></p>
 <ul>
-<li><a href="https://learn.datacamp.com/courses/building-web-applications-with-shiny-in-r">Building Web Applications with Shiny in R</a></li>
-<li><a href="https://learn.datacamp.com/courses/case-studies-building-web-applications-with-shiny-in-r">Case Studies: Building Web Applications with Shiny in R</a></li>
-<li><a href="https://learn.datacamp.com/courses/building-dashboards-with-shinydashboard">Building Dashboards with shinydashboard</a></li>
+<li><a href="http://junkcharts.typepad.com/junk_charts/2010/06/the-scatterplot-matrix-a-great-tool.html">The scatter-plot matrix: a great tool</a></li>
+<li><a href="https://search-proquest-com.libproxy.smu.edu.sg/docview/1750838449?rfr_id=info%3Axri%2Fsid%3Aprimo">A Graphical Display of Large Correlation Matrices</a></li>
+<li><a href="https://www.sciencedirect.com/topics/engineering/ternary-diagram">Ternary Diagram</a></li>
+<li><a href="http://csmgeo.csm.jmu.edu/geollab/fichter/Sedrx/readternary.html">Reading a Ternary Diagram</a></li>
+<li><a href="http://www.ifs.tuwien.ac.at/~silvia/wien/vu-infovis/articles/Inselberg-InfoVis97.pdf">Multidimensional Detective</a></li>
+<li><a href="https://eagereyes.org/techniques/parallel-coordinates">Parallel Coordinates</a></li>
+<li><a href="http://www.perceptualedge.com/articles/b-eye/parallel_coordinates.pdf">Multivariate Analysis Using Parallel Coordinates</a></li>
+<li><a href="https://towardsdatascience.com/ghosts-on-the-radar-why-radar-charts-are-easily-misread-dba00fc399ef">Ghosts on the Radar — Why Radar Charts Are Easily Misread</a></li>
+<li><a href="https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf">Keep Radar Graphs Below the Radar - Far Below</a></li>
+<li><a href="https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html">A Critique of Radar Charts</a></li>
+<li><a href="https://www.darkhorseanalytics.com/blog/radar-more-evil-than-pie">Radar: More Evil Than Pie</a></li>
 </ul>
-<h2 id="gallery">Gallery</h2>
+<p><strong>Treemaps</strong></p>
 <ul>
-<li><a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a></li>
-<li><a href="http://freerangestats.info/blog/2018/05/13/nz-govt-shinyapps">Fifteen New Zealand government Shiny web apps</a></li>
-<li><a href="https://shinyapps-recent.appspot.com/recent.html">ShinyApps Gallery</a></li>
-<li><a href="http://shinyapps.dreamrs.fr/">dreamRs shiny gallery</a></li>
-<li><a href="https://r.tquant.eu/">Tools for Teaching Quantitative Thinking</a></li>
+<li><a href="http://eagereyes.org/Techniques/Treemaps.html">Treemaps</a></li>
+<li><a href="http://www.b-eye-network.com/view/2673">Discovering Business Intelligence Using Treemap Visualization</a></li>
+<li><a href="http://www.juiceanalytics.com/writing/10-lessons-treemap-design/">10 Lessons in Treemap Design</a></li>
+<li>Bederson, Benjamin B.; Shneiderman, Ben; Wattenberg, Martin (2002). <a href="http://delivery.acm.org.libproxy.smu.edu.sg/10.1145/580000/571649/p833-b_bederson.pdf?ip=202.161.43.77&amp;id=571649&amp;acc=ACTIVE%20SERVICE&amp;key=FF6731C4D3E3CFFF%2E39D185EE56A58666%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1538033167_4a6787aed9b15196b9e585b3af4b7031"><em>Ordered and quantum treemaps: Making effective use of 2D space to display hierarchies</em></a>. <strong>ACM Transactions on Graphics</strong>. 21 (4): 833.</li>
+<li>Bruls, Mark; Huizing, Kees; van Wijk, Jarke J. (2000). <a href="http://www.win.tue.nl/~vanwijk/stm.pdf"><em>Squarified treemaps</em></a>. In de Leeuw, W.; van Liere, R. <strong>Data Visualization 2000: Proc.</strong> Joint Eurographics and IEEE TCVG Symp. on Visualization]</li>
+<li><a href="http://www.juiceanalytics.com/writing/us-economic-census-treemap/">US Economic Census Treemap</a></li>
+<li><a href="https://ac-els-cdn-com.libproxy.smu.edu.sg/S0740624X11001055/1-s2.0-S0740624X11001055-main.pdf?_tid=5f3e825d-c9d0-414f-b1d2-3ffbe8e115d1&amp;acdnat=1538033558_64b0c1431092fec2ea12cc5e7ba8e77b">TreeCovery: Coordinated dual treemap visualization for exploring the Recovery Act</a></li>
+<li><a href="http://www.juiceanalytics.com/writing/juices-stimulus-bill-explorer/">Juice’s Stimulus Bill Explorer</a></li>
+<li><a href="http://www.cc.gatech.edu/gvu/ii/fundexplorer/">Fundexplorer</a></li>
+<li><a href="http://www.smartmoney.com/map-of-the-market/">Map of the Market</a></li>
+<li><a href="http://www.hivegroup.com/gallery/index.html">The HIVE Group</a></li>
+<li><a href="http://www.nytimes.com/imagepages/2007/02/25/business/20070225_CHRYSLER_GRAPHIC.html">Truck Sales Slip, Tripping Up Chrysler</a></li>
+<li><a href="http://newsmap.jp/">Newsmap</a></li>
+<li><a href="http://www.nytimes.com/interactive/2010/02/01/us/budget.html">Obama’s 2011 Budget Proposal: How It’s Spent</a></li>
+</ul>
+<h2 id="r-packages">R Packages</h2>
+<h3 id="correlation-matrix">Correlation Matrix</h3>
+<ul>
+<li><a href="https://ggobi.github.io/ggally/#ggallyggscatmat">ggscatmat</a> and <a href="https://ggobi.github.io/ggally/#ggallyggpairs">ggpairs</a> of <a href="https://ggobi.github.io/ggally/index.html">GGally</a>.</li>
+<li><a href="https://cran.r-project.org/web/packages/corrplot/index.html">corrplot</a>. A graphical display of a correlation matrix or general matrix. It also contains some algorithms to do matrix reordering. In addition, corrplot is good at details, including choosing color, text labels, color labels, layout, etc.</li>
+<li><a href="https://cran.r-project.org/web/packages/corrgram/index.html">corrgram</a> calculates correlation of variables and displays the results graphically. Included panel functions can display points, shading, ellipses, and correlation values with confidence intervals.</li>
+</ul>
+<h3 id="heatmap">Heatmap</h3>
+<p><strong>Static heatmap</strong></p>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/heatmap">heatmap()</a> of R stats package. It draws a simple heatmap.</li>
+<li><a href="https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/heatmap.2">heatmap.2()</a> of <strong>gplots</strong> R package. It draws an enhanced heatmap compared to the R base function.</li>
+<li><a href="https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap">pheatmap()</a> of <a href="https://www.rdocumentation.org/packages/pheatmap"><strong>pheatmap</strong></a> R package. <strong>pheatmap</strong> package also known as Pretty Heatmap. The package provides functions to draws pretty heatmaps and provides more control to change the appearance of heatmaps.</li>
+<li><a href="https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html"><strong>ComplexHeatmap</strong></a> package of R/Bioconductor package. The package draws, annotates and arranges complex heatmaps (very useful for genomic data analysis). The full reference guide of the package is available <a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/">here</a>.</li>
+<li><a href="https://cran.r-project.org/web/packages/superheat/"><strong>superheat</strong></a> package: A Graphical Tool for Exploring Complex Datasets Using Heatmaps. A system for generating extendable and customizable heatmaps for exploring complex datasets, including big data and data with multiple data types. The full reference guide of the package is available <a href="https://rlbarter.github.io/superheat/">here</a>.</li>
+</ul>
+<p><strong>Interactive Heatmap</strong></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/heatmaply/index.html">heatmaply</a>: Make Interactive Cluster Heat Maps Using ‘plotly’</li>
+<li><a href="https://cran.r-project.org/web/packages/d3heatmap/index.html">d3heatmap</a>: Make Interactive Heat Maps Using ‘htmlwidgets’ and ’D3.js.</li>
+<li><a href="https://cran.r-project.org/web/packages/iheatmapr/index.html">iheatmapr</a> makes complex, interactive heatmaps. Detail information are available at <a href="https://docs.ropensci.org/iheatmapr/">here</a>.</li>
+</ul>
+<h3 id="treemaps">Treemaps</h3>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/treemap/">Treemap</a> package.
+<ul>
+<li><a href="https://rpubs.com/brandonkopp/creating-a-treemap-in-r">Creating a Treemap in R</a></li>
+<li><a href="https://cran.r-project.org/web/packages/treemap/vignettes/treemap-color_mapping.html">treemap: mapping to color palettes</a></li>
+<li><a href="https://r-posts.com/simple-steps-to-create-treemap-in-r/">Simple Steps to Create Treemap in R</a></li>
+</ul></li>
+<li><a href="https://cran.r-project.org/web/packages/treemapify/index.html">treemapify: Draw Treemaps in ‘ggplot2’</a>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html">Introduction to treemapify</a></li>
+<li><a href="https://datascience-enthusiast.com/R/R_shiny_Tableau_treemap.html">Interactive visualization with R-Shiny versus with Tableau: Treemaps</a></li>
+</ul></li>
+</ul>
+<h3 id="sunburst-diagram">Sunburst Diagram</h3>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/sunburstR/">sunburstR</a></li>
+<li><a href="https://cran.r-project.org/web/packages/sunburstR/vignettes/sunburst-2-0-0.html">Sunburst 2.0.0</a></li>
+<li><a href="https://medium.com/optima-blog/create-basic-sunburst-graphs-with-ggplot2-7d7484d92c61">Create Basic Sunburst Graphs with ggplot2</a></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
