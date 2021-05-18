@@ -1,0 +1,60 @@
+---
+title: "Lesson 11: Introduction to Shiny "
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
+* Motivation of developing web-enabled applications
+    * Basic principles of web applications
+* Introducing Shiny
+    * Getting to know Shiny
+    * Architecture of Shiny
+    * Building block of Shiny app
+* Hands-on Exercise
+
+
+## Must Do!
+
+View the three parts series of Shiny Tutorial at this [link](https://shiny.rstudio.com/tutorial/). 
+
+## Readings
+### Core Readings
+
+* [Shiny reference guide](https://cran.r-project.org/web/packages/shiny/shiny.pdf) at CRAN.
+* Hadley Wickham (2021) **Mastering Shiny**,  O’Reilly Media.  This is a highly recommended book.  You can find the online version with this [link](https://mastering-shiny.org/index.html). 
+
+
+### Additional references
+
+* Colin Fay, Sébastien Rochette, Vincent Guyader, Cervan Girard (2020), **Engineering Production-Grade Shiny Apps**, Chapman & Hall.  You can find the online version with this [link](https://engineering-shiny.org/).
+* [Outstanding User Interfaces with Shiny](https://unleash-shiny.rinterface.com/index.html).
+* [How to Build a Shiny Application from Scratch](https://bookdown.org/hadrien/how_to_build_a_shiny_app_from_scratch/).
+
+## DataCamp Course
+
+* [Building Web Applications with Shiny in R](https://learn.datacamp.com/courses/building-web-applications-with-shiny-in-r)
+* [Case Studies: Building Web Applications with Shiny in R](https://learn.datacamp.com/courses/case-studies-building-web-applications-with-shiny-in-r)
+* [Building Dashboards with shinydashboard](https://learn.datacamp.com/courses/building-dashboards-with-shinydashboard)
+
+## Gallery
+* [Shiny Gallery](https://shiny.rstudio.com/gallery/)
+* [Fifteen New Zealand government Shiny web apps](http://freerangestats.info/blog/2018/05/13/nz-govt-shinyapps)
+* [ShinyApps Gallery](https://shinyapps-recent.appspot.com/recent.html)
+* [dreamRs shiny gallery](http://shinyapps.dreamrs.fr/)
+* [Tools for Teaching Quantitative Thinking](https://r.tquant.eu/)
+
+
+
+
+
+
