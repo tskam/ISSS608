@@ -1,0 +1,446 @@
+---
+title: 'Lesson 4: Fundemantal of Visual Analytics'
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-01-20 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# What will you learn from this lesson?
+.vlarge[
+- Visualising count
+- Visualising proportion
+    - Part-whole and ranking analysis 
+- Visualising distribution
+- Visualising deviation
+- Visualising relationships
+    - between two continuous variables
+    - between two categorical variables
+- Visualising relationship between sub-categories
+- Visualising uncertainty
+]
+
+---
+## Visualising Count
+### Bar Chart
+
+- A bar chart is used for plotting categorical data.
+- It can be mapped horizontally or vertically.
+- When displaying data using bar chart, it is a good practice to sort the count or frequency ascendingly or descendingly.   
+
+.center[
+![:scale 60%](img/image3-1.jpg)]
+
+---
+## Visualising Proportion
+### A case for pie chart
+
+.center[
+![:scale 35%](img/image3-19.jpg)]
+
+---
+## Visualising Proportion 
+### A case against pie chart
+
+- Avoid pie chart if the sub-groups are very similar because our eyes are not good in reading areas
+
+![:scale 85%](img/image2-23.png)
+
+---
+## Visualising Proportion 
+### A case against pie chart
+
+- Avoid pie chart if you are comparing changes over time
+
+.pull-left[
+![](img/image3-19a.jpg)]
+
+.pull-right[
+![:scale 90%](img/image3-19b.jpg)]
+
+---
+## Visualising Proportion
+### Side-by-side bar chart 
+
+.pull-left[
+![:scale 75%](img/image3-5.jpg)]
+
+---
+## Visualising Proportion
+### Stacked bar chart 
+
+.center[
+![:scale 85%](img/image3-6.jpg)]
+
+---
+## Comparing Proportion
+### Age-sex pyramid
+
+.pull-left[
+.large[
+- An age-sex pyramid, also popularly know as population pyramid, breaks down a country's or location's population into male and female genders and age cohorts. 
+
+- Usually, you'll find the left side of the pyramid graphing the male population and the right side of the pyramid displaying the female population.
+]]
+
+.pull-right[
+![:scale 90%](img/image3-9.jpg)]
+
+---
+## Part-to-Whole and Ranking Analysis
+### Pareto Chart
+
+.pull-left[
+- A Pareto chart is a special type of bar chart where the values being plotted are arranged in descending order.
+
+- Pareto chart was developed to illustrate the 80-20 Rule - that 80 percent of the problems stem from 20 percent of the various causes.
+
+- In Pareto chart there are two y-axises.  The primary y-axis is used to display the frequency counts of the sub-types and the secondary axis is used to display the cumulative frequency of the subtype.
+
+- The frequency count usually is represented as bar chart and the cumulative frequency is represented as line chart.
+]
+
+.pull-right[
+![](img/image3-4.jpg)]
+
+---
+## Visualising Likert Scale Data
+### Diverging stacked bar chart
+
+.left-column[
+- What is likert scale?
+
+![](img/image5-20a.jpg)
+]
+
+.right-column[
+![:scale 80%](img/image5-20.jpg)]
+
+.small[Reference: 
+- https://en.wikipedia.org/wiki/Likert_scale
+- Heiberger RM, Robbins NB. [Design of diverging stacked bar charts for Likert scales and other applications](https://www.jstatsoft.org/article/view/v057i05/v57i05.pdf). Journal of Statistical Software. 2014;57(5): 1-32. 
+]
+
+---
+## What about line graph?
+### Lorenz curve
+
+.pull-left[
+.vlarge[
+- A graphical representation of the distribution of income or of wealth.
+]]
+
+.pull-right[
+![:scale 85%](img/image3-28.JPG)]
+
+---
+## Visualising Distribution
+### Histogram
+
+.pull-left[
+- A histogram is a graphical display of tabular frequencies, shown as adjacent rectangles.
+
+- Each rectangle is erected over an interval, with an area equal to the frequency of the interval. 
+
+- The height of a rectangle is also equal to the frequency density of the interval, i.e. the frequency divided by the width of the interval. 
+
+- The total area of the histogram is equal to the number of data.]
+
+.pull-right[
+![](img/image3-7.jpg)]
+
+---
+## Visualising Distribution
+### Histogram
+
+- It is important to note that the shape of a histogram can be affected by the number of bins or/and classification methods used.  
+
+.center[
+![:scale 60%](img/image3-8.jpg)]
+
+---
+## Visualising Distribution
+### Density plot
+
+.pull-left[
+- To visualise the underlying probability distribution of the data by drawing an appropriate continuous curve.]
+
+.pull-right[
+![](img/image3-10.jpg)]
+
+
+---
+## Deviation Analysis
+### Boxplot
+
+.pull-left[
+- A convenient way of graphically depicting groups of numerical data through their five-number summaries (the smallest observation, lower quartile (Q1), median (Q2), upper quartile (Q3), and largest observation). 
+
+- A box plot may also indicate which observations, if any, might be considered outliers. 
+]
+
+.pull-right[
+![:scale 115%](img/image3-13.jpg)]
+
+---
+## Visualising Relationship Between Two Continuous Variables
+### Scatterplot 
+
+.pull-left[
+- A scatter plot or scattergraph is a type of mathematical diagram using Cartesian coordinates to display values for two variables for a set of data.
+- The data is displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis.
+- Also known as scatter chart, scattergram, scatter diagram or scatter graph.]
+
+.pull-right[
+![:scale 70%](img/image3-14.jpg)]
+
+---
+## Visualising Relationship Between Two Continuous Variables
+
+.left-column[
+### Interpreting scatterplot
+]
+
+.right-column[
+.center[
+![:scale 60%](img/image3-15.jpg)]]
+
+---
+## Visualising Relatinships
+### Caution: Not all relationships are linear
+
+.pull-left[
+![:scale 85%](img/image3-26.jpg)]
+
+--
+
+.pull-right[
+![:scale 85%](img/image3-26b.jpg)
+]
+
+---
+## Visualising Relationships
+
+.pull-left[
+.vlarge[Warning!]
+
+![](img/image3-24.jpg)
+
+.small[
+Source: Messerli (2012) "Chocolate Consumption, Cognitive Function, and Nobel Laureates", [*The New England Journal of Medicine*]( http://www.biostat.jhsph.edu/courses/bio621/misc/Chocolate%20consumption%20cognitive%20function%20and%20nobel%20laurates%20(NEJM).pdf)
+]] 
+
+--
+.pull-right[
+.vlarge[Correlation does not imply causation]
+
+
+![](img/image3-25.jpg)]
+
+---
+## Visualising Relationship 
+### Quadrat analysis
+
+.center[
+![:scale 55%](img/image3-17.jpg)]
+
+---
+## Visualising Relationship Between Two Categorical Variables
+### Mosaic Plot
+
+.pull-left[
+- A mosaic plot is a graphical display that allows you to examine the relationship among two or more categorical variables.  
+]
+
+.pull-right[
+![](img/image3-16.jpg)]
+
+---
+## Visualising Relationship Between Sub-groups
+### Trellis
+
+- Trellised visualizations enable you to quickly recognize similarities or differences between different categories in the data. 
+- Each individual panel in a trellis visualization displays a subset of the original data table, where the subsets are defined by the categories available in a column or hierarchy.
+
+.center[
+![:scale 60%](img/image3-18.jpg)]
+
+---
+# Visualising Uncertainty
+## Why it is important?
+
+.left-column[
+.large[
+- One of the most challenging aspects of data visualization is the visualization of uncertainty.]] 
+
+.right-column[
+![:scale 90%](img/image5-1.jpg)
+
+.small[Source: Chart 61, LABOUR FORCE IN SINGAPORE 2019, pg. 52]
+]
+
+---
+# Visualising Uncertainty
+## Commend mistake
+
+.pull-left[
+.large[
+- It is not appropriate to displace average values on bars]]
+
+.pull-right[
+.center[
+![:scale 100%](img/image5-2.jpg)]]
+
+---
+## 1-d statistical graphic methods for visualising uncertainty
+### Error bar on a bar chart
+
+.pull-left[
+.large[
+- Each error bar is constructed using a 95% confidence interval of the mean.]]
+
+.pull-right[
+![:scale 100%](img/image5-3.jpg)]
+
+---
+## Back to Statistics 101
+### Population and samples
+
+.pull-left[
+![:scale 80%](img/image5-5.jpg)
+]
+
+.pull-right[
+![:scale 80%](img/image5-6.jpg)]
+
+- When drawing many samples from a population, it is possible to obtain a few with means that greatly differ from the population.
+
+.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+
+
+---
+## A reminder of the standard normal distribution
+
+.center[
+![:scale 50%](img/image5-7.jpg)]
+.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+
+---
+## The standard error
+
+.center[
+![:scale 40%](img/image5-8.jpg)]
+.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+
+---
+## Calculating the confidence interval of a mean
+
+.center[
+![:scale 50%](img/image5-9.jpg)]
+.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+
+---
+## Calculating the confidence interval of a percentage
+
+.center[
+![:scale 75%](img/image5-11.jpg)]
+
+.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+
+---
+## 1-d graphical methods for visualising uncertainty
+
+.pull-left[
+### Error bar on a dot plot
+- Each error bar is constructed using a 95% confidence interval of the percentage.]
+
+.pull-right[
+.center[
+![:scale 100%](img/image5-4.jpg)]]
+
+---
+## Graphical methods for visualising uncertainty
+.center[
+![:scale 60%](img/image5-12.png)]
+.small[Reference: https://serialmentor.com/dataviz/visualizing-uncertainty.html#visualizing-the-uncertainty-of-point-estimates]
+
+---
+## 2-d graphical methods for visualising uncertainty
+
+.pull-left[
+### Scatter plot with 95% confidence ellipse
+
+![:scale 100%](img/image5-13.jpg)]
+
+--
+
+.pull-right[
+### Scatter plot with 95% confidence intervals
+
+![:scale 100%](img/image5-14.jpg)]
+
+---
+## 2-d graphical methods for visualising uncertainty
+
+### Trellis scatter plot with 95% confidence intervals
+
+.pull-left[
+.large[
+Figure on the right reveals that the relationships between english and maths grades for Indians and Other races are relatively less certain than Chinese and Malays.]]
+
+.pull-right[
+![:scale 100%](img/image5-15.jpg)]
+
+---
+# Variation and Its Discontents
+## Random and unfair comparisons
+
+.center[
+![:scale 55%](img/image5-16.jpg)]
+.small[Reference: https://www.perceptualedge.com/articles/visual_business_intelligence/variation_and_its_discontents.pdf]
+
+---
+# Variation and Its Discontents
+## Funnel plots to the rescue
+
+.pull-left[
+.vlarge[Statistical details]
+
+![:scale 125%](img/image5-18.jpg)]
+
+
+.pull-right[
+![:scale 125%](img/image5-17.jpg)]
+
+---
+## Normality assumption
+
+.pull-left[
+.large[- Before plotting the graph, it is important to check if the values are conformed to normal distribution assumption.
+
+- If the raw values are not conformed to normality assumption, they have to be transformed.
+]]
+
+.pull-right[
+![](img/image5-19.jpg)]
+
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Lesson04-Fundamentals_of_Visual_Analytics.html")
+```
