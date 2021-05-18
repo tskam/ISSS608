@@ -73,7 +73,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **vizNetwork**
 
-* [l visNetwork: Network Visualization using 'vis.js' Library](https://cran.r-project.org/web/packages/visNetwork/index.htm)
+* [visNetwork: Network Visualization using 'vis.js' Library](https://cran.r-project.org/web/packages/visNetwork/index.html)
 * [Introduction to visNetwork](https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html)
 * [visNetwork, an R package for interactive network visualization](http://datastorm-open.github.io/visNetwork/)
 
