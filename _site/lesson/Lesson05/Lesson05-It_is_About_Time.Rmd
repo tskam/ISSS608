@@ -216,6 +216,45 @@ The bold line indicates temperature in degrees Fahrenheit. The light solid line 
 
 ---
 ## Line graph design tips
+### Not all line graphs should start at zero!
+
+.pull-left[
+![](img/image5-42a.jpg)
+]
+
+--
+.pull-right[
+![](img/image5-42b.jpg)
+]
+
+---
+## Line graph design tips
+### Multiple lines in a single graph is less effective than trellis line graph
+
+.pull-left[
+![](img/image5-43a.jpg)
+]
+
+--
+.pull-right[
+![](img/image5-43b.jpg)
+]
+
+---
+## Line graph design tips
+### Not a time-series graphs have time on the x-axis
+
+.center[
+![:scale 55%](img/image5-44.jpg)
+]
+
+.small[
+Source: https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly
+]
+
+
+---
+## Line graph design tips
 ### Label line graph instead of using legend
 
 .pull-left[
@@ -227,9 +266,11 @@ The bold line indicates temperature in degrees Fahrenheit. The light solid line 
 ![](img/image5-41b.jpg)
 ]
 
+
+
+
 ---
 ## Time-series data visualization
-
 
 .pull-left[
 ### Line chart without reference line
