@@ -20,15 +20,17 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
 
 ## DataViz Makeover Topics
 - [DataViz Makeover 1](DataViz/DataViz1.html)
-- DataViz Makeover 2
+- [DataViz Makeover 2](DataViz/DataViz2.html)
 - DataViz Makeover 3
 
 ## Submission Instructions
 
-- The write-up of the DataViz Makeover must be in [**distill**](https://rstudio.github.io/distill/) format. You are required to publish the write-up on [**Netfily**](https://www.netlify.com/). 
-- The DataViz Makeover must be prepared using Tableau.  The final workbook must be uploaded onto [Tableau Public](https://public.tableau.com/en-us/s/).
-- All DataViz Makeover have to be completed by Sunday before mid-night 11.59pm. Students are required to upload the artefacts onto eLearn (i.e. DataViz Makeover section).
-- To encourage peer-learning, students must also provide the link to the blog your prepared for the DataViz Makeover eLearn. 
+- The write-up of the DataViz Makeover must be in [**distill**](https://rstudio.github.io/distill/) or [**blogdown**](https://github.com/rstudio/blogdown) format. You are required to publish the write-up on [**Netlify**](https://www.netlify.com/).
+- The R project of the DataViz Makeover must be pushed onto your [Github](https://github.com/) repository.
+- The DataViz Makeover must be prepared by using **Tableau Desktop**.  The final workbook must be uploaded onto [Tableau Public](https://public.tableau.com/en-us/s/).
+- All DataViz Makeover have to be completed by **Sunday before mid-night 11.59pm**. You are required to provide the links to the DataViz Makeover write-up, github repository and Tableau Public onto eLearn (i.e. DataViz Makeover section) as shown in the screenshot below:
+
+![](img/image2.jpg)
 
 ## For your reference
 
