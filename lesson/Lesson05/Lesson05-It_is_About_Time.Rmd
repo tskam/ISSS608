@@ -1,0 +1,513 @@
+---
+title: 'Lesson 5: Visualisation of<br/> Time-Oriented Data'
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management Uniiversity"
+date: "2020/02/17 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# What will you learn from this lesson?
+
+.vlarge[
+- Characteristics of time-series data
+
+- Classic ways of graphing time
+
+- Time-series patterns
+
+- Time-series data visualization
+
+- Interactive techniques for time-series data visualisation
+]
+
+---
+## Characteristics of time-series data
+### A typical time-series data table
+
+.center[
+![:scale 55%](img/image5-1.jpg)]
+
+---
+## Characteristics of time-series data
+### Not so friendly time-series data
+
+.center[
+![:scale 75%](img/image5-2.jpg)]
+
+---
+## Characteristics of time-series data
+### Not so friendly time-series data
+
+.center[
+![:scale 100%](img/image5-3.jpg)]
+
+---
+## Characteristics of time-series data
+### Not so friendly time-series data
+
+.center[
+![:scale 30%](img/image5-4.jpg)]
+
+---
+## A short visual history of time-series graphs
+### Playfair’s Commercial and Political Atlas (1786)
+
+.center[
+![:scale 50%](img/image5-5.jpg)]
+.small[Reference: https://en.wikipedia.org/wiki/William_Playfair]
+
+---
+## A short visual history of time-series graphs
+### Playfair’s Chewing at One View Chart (1821)
+
+.center[
+![:scale 75%](img/image5-6.jpg)]
+.small[Reference: https://wam.fandom.com/wiki/William_Playfair%27s_Price_of_Wheat]
+
+---
+## A short visual history of time-series graphs
+### Bump Chart shows rank of the most populous cities at each census: 1790-1890
+
+.center[
+![:scale 55%](img/image5-7.jpg)]
+.small[An interactive version here http://vallandingham.me/census_bump/]
+
+---
+## A short visual history of time-series graphs
+### Multiple charts showing records of the Weather in New York City for December, 1912. 
+
+.center[
+![:scale 75%](img/image5-8.jpg)]
+
+???
+The bold line indicates temperature in degrees Fahrenheit. The light solid line shows wind velocity in miles per hour.  The dotted line depicts relative humidity in percentage from readings taken at 8 a.m. and 8 p.m.  Arrows portray the prevailing direction of the wind. Initials at the base of the chart show the weather conditions as follows: S, clear; PC, partly cloudy; C, cloudy; R, rain; Sn, snow.
+
+---
+## A short visual history of time-series graphs
+### Scatter Plot of Time-Series
+
+.center[
+![:scale 28%](img/image5-9.jpg)]
+
+.small[Alternative example at http://www.nytimes.com/interactive/2012/09/17/science/driving-safety-in-fits-and-starts.html?_r=0
+]
+
+---
+# Time-series data patterns
+
+.vlarge[
+- Trend
+
+- Variability
+
+- Rate of change
+
+- Co-variation
+
+- Cycles
+
+- Exceptions
+]
+
+---
+## Time-series Patterns: Trend
+
+.left-column[
+.large[
+- The overall or general direction of change in a series of time-series values is called the trend.]]
+
+.right-column[
+.center[
+![:scale 70%](img/image5-10.jpg)]]
+
+---
+## Time-series Patterns: Trend
+
+.left-column[
+.large[
+- An upward trend.]]
+
+.right-column[
+.center[
+![:scale 70%](img/image5-11.jpg)]]
+
+---
+## Time-series Patterns: Trend
+
+.left-column[
+.large[
+- A mixed trends.]]
+
+.right-column[
+.center[
+![:scale 70%](img/image5-12.jpg)]]
+
+---
+## Time-series Patterns: Variability
+
+.large[
+- The average degree of change from one point of time to the next throughout a particular span of time.]
+
+.pull-left[
+
+![:scale 90%](img/image5-13.jpg)]
+
+--
+
+.pull-right[
+
+![:scale 90%](img/image5-14.jpg)]
+
+---
+## Time-series Patterns: Cycles
+
+.left-column[
+.large[
+- Cycles are patterns that repeat at regular intervals.]]
+
+.right-column[
+.center[
+![:scale 65%](img/image5-15.jpg)]]
+
+---
+## Time-series Patterns: Rate of change
+
+.left-column[
+.large[
+- The percentage difference between one value to the next value.]]
+
+.right-column[
+.center[
+![:scale 68%](img/image5-16.jpg)]]
+
+---
+## Time-series Patters: Co-variation
+
+.left-column[
+.large[
+- When two time series relate to one another so that changes in one are reflected as changes in the other, either immediately or later.]]
+
+.right-column[
+.center[
+![:scale 90%](img/image5-17.jpg)]]
+
+---
+## Time-series Patterns: Exceptions
+
+.large[
+- Values that fall outside the norm.]
+
+.center[
+![:scale 60%](img/image5-18.jpg)]
+
+---
+## Line graph design tips
+### Label line graph instead of using legend
+
+.pull-left[
+![](img/image5-41a.jpg)
+]
+
+--
+.pull-right[
+![](img/image5-41b.jpg)
+]
+
+---
+## Time-series data visualization
+
+
+.pull-left[
+### Line chart without reference line
+
+![:scale 100%](img/image5-19.jpg)]
+
+--
+
+.pull-right[
+### Line chart with reference line
+
+![:scale 100%](img/image5-20.jpg)]
+
+---
+## Time-series data visualization
+### Line chart with reference band
+
+.center[
+![:scale 50%](img/image5-21.jpg)]
+
+---
+## Time-series data visualization
+### Control Chart: An analytical line chart 
+
+.center[
+![:scale 65%](img/image5-22.jpg)]
+
+---
+## Time-series data visualization
+
+.left-column[
+.large[
+In this use-case, control chart was used to display numbers of views of a digital news platform.
+]
+]
+
+.right-column[
+.center[
+![:scale 100%](img/image5-23.jpg)]]
+
+---
+## Time-series data visualization
+### Candlestick chart
+
+.left-column[
+.large[
+Candlestick Charts display multiple bits of price information such as the open price, close price, highest price and lowest price through the use of candlestick-like symbols.]]
+
+.right-column[
+.center[
+![:scale 85%](img/image5-24.jpg)]]
+
+---
+## Candlestick chart
+### Interpreting candlestick chart
+
+.left-column[
+.large[
+Candlesticks are usually composed of the body (black or white), and an upper and a lower shadow (wick): the area between the open and the close is called the real body, price excursions above and below the real body are called shadows. 
+]]
+
+.right-column[
+.center[
+![:scale 60%](img/image5-25.jpg)]]
+
+???
+Candlesticks are usually composed of the body (black or white), and an upper and a lower shadow (wick): the area between the open and the close is called the real body, price excursions above and below the real body are called shadows. The wick illustrates the highest and lowest traded prices of a security during the time interval represented. The body illustrates the opening and closing trades. If the security closed higher than it opened, the body is white or unfilled, with the opening price at the bottom of the body and the closing price at the top. If the security closed lower than it opened, the body is black, with the opening price at the top and the closing price at the bottom. A candlestick need not have either a body or a wick.
+
+---
+## Candlestick chart
+### Interpreting candlestick chart
+
+.center[
+![:scale 60%](img/image5-26.jpg)]
+
+???
+To better highlight price movements, modern candlestick charts (especially those displayed digitally) often replace the black or white of the candlestick body with colors such as red (for a lower closing) and blue or green (for a higher closing). In some East Asian countries such as Taiwan, China, Japan, and South Korea, the colouring scheme is reversed (red for higher closing, and green/blue for a lower closing).
+
+---
+### Learning from the Master
+
+This link provides an example of [interactive candlestick](https://public.tableau.com/profile/stanke#!/vizhome/WorkoutWednesday-Week13CanyoucreateadynamicviewofhistoricalDATAstockpricesWorkoutWednesday2019/WorkoutWednesday2019-Week13?:embed=yes&:display_count=yes&:toolbar=no).   
+
+.center[
+![:scale 75%](img/image5-26a.jpg)
+]
+
+Click on this [link](http://www.workout-wednesday.com/2019-week-13/) for more detail.
+
+---
+## Challenge I: Visualising Change between Two Points in Time
+### Bar chart method
+
+.center[
+![:scale 75%](img/image5-27.jpg)]
+
+---
+## Challenge I: Visualising change between two points in time
+
+.left-column[
+### Solution: Slopegraphs
+.large[
+Slopegraphs compare changes usually over time for a list
+of nouns located on an ordinal or interval scale.]]
+
+.right-column[
+.center[
+
+![:scale 55%](img/image5-28.jpg)
+]]
+
+
+.small[Reference: http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003nk] 
+
+---
+### Learning from the Master
+
+Visit [Tableau Public](https://public.tableau.com/views/Slopegraphs/Slopegraphs?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true&%3Alanguage=en&%3Amobile=true&:embed=y&:showVizHome=n&:apiID=host0) to try out the interactive version and visit this [link](https://dataremixed.com/2013/12/slopegraphs-in-tableau/) to learn more.
+
+.center[
+![:scale 70%](img/image5-28b.jpg)
+]
+
+---
+## Challenge II: Visualising cyclical patterns
+### Classic line graph method
+
+.center[
+![:scale 65%](img/image5-29.jpg)]
+
+---
+## Challenge II: Visualising cyclical patterns
+### Solution: Cycle plot
+
+.center[
+![:scale 65%](img/image5-30.jpg)]
+
+.small[Reference: http://www.perceptualedge.com/articles/guests/intro_to_cycle_plots.pdf] 
+
+---
+## Challenge II: Visualising cyclical patterns
+### Solution: Sunburst diagram method
+
+.center[
+![:scale 55%](img/image5-31.jpg)]
+
+---
+## Challenge III: Massive Time-series Data
+### Classic line graph method
+
+.left-column[
+.large[
+Line graph will not be effective to reveal high number of time series lines (for example 50) 
+]
+]
+
+.center[
+![:scale 70%](img/image5-32.jpg)]
+
+---
+## Challenge III: Massive Time-series Data
+### Solution: Horizon graph
+
+.left-column[
+.large[
+By dividing an area chart into consecutive layers, horizon graphs present time-series data in a compact space while preserving resolution. ]]
+
+.right-column[
+.center[
+![:scale 85%](img/image5-33.jpg)
+]]
+
+
+.small[Reference: https://www.perceptualedge.com/articles/visual_business_intelligence/time_on_the_horizon.pdf]
+
+---
+## Solution: Horizon graph
+### The basic construct of a horizon graph
+
+.left-column[
+.large[Figure on the right shows the process of constructing an horizon graph.]
+
+.small[Reference: [The Developmentof the Horizon Graph](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=3556C47AD33B1577060EEA3F409ECD32?doi=10.1.1.363.5396&rep=rep1&type=pdf)]
+]
+
+.right-column[
+.center[
+![:scale 60%](img/image5-34.jpg)
+]]
+
+---
+### Horizon graph in Tableau
+
+.center[
+![:scale 75%](img/image5-40.jpg)]
+
+.small[Source: https://public.tableau.com/en-us/gallery/unemployment-horizon-chart].
+.small[This video https://www.tableau.com/learn/tutorials/on-demand/horizon-charts provides step-by-step explanation on how to create a horizon graph using Tableau].
+
+---
+## Challenge IV: Distribution over time
+
+.pull-left[
+### Line graph method
+
+.center[
+![:scale 100%](img/image5-35.jpg)
+]]
+
+--
+
+.pull-right[
+### Boxplot method
+
+.center[
+![:scale 75%](img/image5-36.jpg)
+]]
+
+---
+## Alternative Time-series Data Visualisation methods
+### Calendar Heatmap
+
+.left-column[
+.large[
+It is a 2-dimensional calendar view that shows a value over time through color coding it, often with warmer colors indicating higher values (hence heatmap).
+]]
+
+.right-column[
+.center[
+![:scale 80%](img/image5-38.jpg)
+]
+
+.small[Source: http://mbostock.github.io/d3/talk/20111018/calendar.html]
+]
+
+---
+## Alternative Time-series Data Visualisation methods
+### Stream Graph (also know as ThemeRiver)
+
+.left-column[
+.large[
+A streamgraph, or stream graph, is a type of stacked area graph which is displaced around a central axis, resulting in a flowing, organic shape.  
+]]
+
+.right-column[
+.center[
+![:scale 75%](img/image5-37.jpg)]
+
+.small[Reference: https://datavizcatalogue.com/methods/stream_graph.html]]
+
+---
+## Visualising Change Over Time
+### Animated bubble plot (or motion chart)
+
+.left-column[
+.large[A motion chart displays changes over time by showing movement within the two-dimensional space and changes in the size and color of the bubbles.
+]]
+  
+.right-column[  
+.center[
+![:scale 70%](img/image5-39.jpg)
+]]
+
+---
+## References
+
+Claus. O. Wilke (2019) **Fundamentals of Data Visualisation**, O’Reilly. USA. [Chapter 13 Visualizing time series and other functions of an independent variable](https://clauswilke.com/dataviz/time-series.html) and [Chapter 14 Visualizing trends](https://clauswilke.com/dataviz/visualizing-trends.html)
+
+[Introduction to Cycle Plots](http://www.perceptualedge.com/articles/guests/intro_to_cycle_plots.pdf) 
+
+[Slopegraphs for comparing gradients: Slopegraph theory and practice](http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003nk) 
+
+[The Development of the Horizon Graph](http://www.stonesc.com/Vis08_Workshop/DVD/Reijner_submission.pdf)
+
+
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Lesson05-It_is_About_Time.html")
+```
