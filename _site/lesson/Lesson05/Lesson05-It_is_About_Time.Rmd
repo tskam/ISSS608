@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 5: Visualisation of<br/> Time-Oriented Data'
+title: "Lesson 5: It's About Time <br/>Visualising and Analysing Time-Oriented Data"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management Uniiversity"
@@ -97,13 +97,14 @@ knitr::opts_chunk$set(echo = FALSE)
 The bold line indicates temperature in degrees Fahrenheit. The light solid line shows wind velocity in miles per hour.  The dotted line depicts relative humidity in percentage from readings taken at 8 a.m. and 8 p.m.  Arrows portray the prevailing direction of the wind. Initials at the base of the chart show the weather conditions as follows: S, clear; PC, partly cloudy; C, cloudy; R, rain; Sn, snow.
 
 ---
-## A short visual history of time-series graphs
-### Scatter Plot of Time-Series
+## Time-series graph that change public understading
+### The Hockey Stick Chart
 
 .center[
-![:scale 28%](img/image5-9.jpg)]
+![:scale 50%](img/image5-45.jpg)]
 
-.small[Alternative example at http://www.nytimes.com/interactive/2012/09/17/science/driving-safety-in-fits-and-starts.html?_r=0
+.small[
+Reference: Michael E. Mann, Raymond S. Bradley, Malcolm K. Hughes (1999) ["Northern hemisphere temperatures during the past millennium: Inferences, uncertainties, and limitations"](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/1999GL900070). *Geophysical Research Letters*, Vol. 26, No. pp. 759-762.
 ]
 
 ---
@@ -242,16 +243,17 @@ The bold line indicates temperature in degrees Fahrenheit. The light solid line 
 
 ---
 ## Line graph design tips
-### Not a time-series graphs have time on the x-axis
+### Not all time-series graphs have time on the x-axis
+
+The **connected scatter plot** below reveals changes over time by joining each time event points on the scatter plot.  The historical trail can be a effective alternative to animation.
 
 .center[
-![:scale 55%](img/image5-44.jpg)
+![:scale 45%](img/image5-44.jpg)
 ]
 
 .small[
 Source: https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly
 ]
-
 
 ---
 ## Line graph design tips
@@ -266,11 +268,8 @@ Source: https://ourworldindata.org/growth-and-structural-transformation-are-emer
 ![](img/image5-41b.jpg)
 ]
 
-
-
-
 ---
-## Time-series data visualization
+## Line graph design tips
 
 .pull-left[
 ### Line chart without reference line
@@ -278,28 +277,27 @@ Source: https://ourworldindata.org/growth-and-structural-transformation-are-emer
 ![:scale 100%](img/image5-19.jpg)]
 
 --
-
 .pull-right[
 ### Line chart with reference line
 
 ![:scale 100%](img/image5-20.jpg)]
 
 ---
-## Time-series data visualization
+## Line graph design tips
 ### Line chart with reference band
 
 .center[
 ![:scale 50%](img/image5-21.jpg)]
 
 ---
-## Time-series data visualization
+## Beyond Line Graph
 ### Control Chart: An analytical line chart 
 
 .center[
 ![:scale 65%](img/image5-22.jpg)]
 
 ---
-## Time-series data visualization
+### Control chart in real world
 
 .left-column[
 .large[
@@ -312,7 +310,7 @@ In this use-case, control chart was used to display numbers of views of a digita
 ![:scale 100%](img/image5-23.jpg)]]
 
 ---
-## Time-series data visualization
+## Beyond Line Graph
 ### Candlestick chart
 
 .left-column[
@@ -324,8 +322,8 @@ Candlestick Charts display multiple bits of price information such as the open p
 ![:scale 85%](img/image5-24.jpg)]]
 
 ---
-## Candlestick chart
-### Interpreting candlestick chart
+### Candlestick chart
+#### Interpreting candlestick chart
 
 .left-column[
 .large[
@@ -340,8 +338,8 @@ Candlesticks are usually composed of the body (black or white), and an upper and
 Candlesticks are usually composed of the body (black or white), and an upper and a lower shadow (wick): the area between the open and the close is called the real body, price excursions above and below the real body are called shadows. The wick illustrates the highest and lowest traded prices of a security during the time interval represented. The body illustrates the opening and closing trades. If the security closed higher than it opened, the body is white or unfilled, with the opening price at the bottom of the body and the closing price at the top. If the security closed lower than it opened, the body is black, with the opening price at the top and the closing price at the bottom. A candlestick need not have either a body or a wick.
 
 ---
-## Candlestick chart
-### Interpreting candlestick chart
+### Candlestick chart
+#### Interpreting candlestick chart
 
 .center[
 ![:scale 60%](img/image5-26.jpg)]
@@ -368,10 +366,9 @@ Click on this [link](http://www.workout-wednesday.com/2019-week-13/) for more de
 ![:scale 75%](img/image5-27.jpg)]
 
 ---
-## Challenge I: Visualising change between two points in time
+## Slopegraphs come to rescue!
 
 .left-column[
-### Solution: Slopegraphs
 .large[
 Slopegraphs compare changes usually over time for a list
 of nouns located on an ordinal or interval scale.]]

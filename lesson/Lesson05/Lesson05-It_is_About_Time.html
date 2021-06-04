@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Lesson 5: Visualisation of  Time-Oriented Data</title>
+    <title>Lesson 5: It’s About Time  Visualising and Analysing Time-Oriented Data</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
     <script src="libs/header-attrs-2.8/header-attrs.js"></script>
@@ -12,10 +12,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Lesson 5: Visualisation of<br/> Time-Oriented Data
+# Lesson 5: It’s About Time <br/>Visualising and Analysing Time-Oriented Data
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management Uniiversity
-### 2020/02/17 (updated: 2021-06-03)
+### 2020/02/17 (updated: 2021-06-04)
 
 ---
 
@@ -99,13 +99,14 @@ class: center, middle, inverse, title-slide
 The bold line indicates temperature in degrees Fahrenheit. The light solid line shows wind velocity in miles per hour.  The dotted line depicts relative humidity in percentage from readings taken at 8 a.m. and 8 p.m.  Arrows portray the prevailing direction of the wind. Initials at the base of the chart show the weather conditions as follows: S, clear; PC, partly cloudy; C, cloudy; R, rain; Sn, snow.
 
 ---
-## A short visual history of time-series graphs
-### Scatter Plot of Time-Series
+## Time-series graph that change public understading
+### The Hockey Stick Chart
 
 .center[
-![:scale 28%](img/image5-9.jpg)]
+![:scale 50%](img/image5-45.jpg)]
 
-.small[Alternative example at http://www.nytimes.com/interactive/2012/09/17/science/driving-safety-in-fits-and-starts.html?_r=0
+.small[
+Reference: Michael E. Mann, Raymond S. Bradley, Malcolm K. Hughes (1999) ["Northern hemisphere temperatures during the past millennium: Inferences, uncertainties, and limitations"](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/1999GL900070). *Geophysical Research Letters*, Vol. 26, No. pp. 759-762.
 ]
 
 ---
@@ -244,16 +245,17 @@ The bold line indicates temperature in degrees Fahrenheit. The light solid line 
 
 ---
 ## Line graph design tips
-### Not a time-series graphs have time on the x-axis
+### Not all time-series graphs have time on the x-axis
+
+The **connected scatter plot** below reveals changes over time by joining each time event points on the scatter plot.  The historical trail can be a effective alternative to animation.
 
 .center[
-![:scale 55%](img/image5-44.jpg)
+![:scale 45%](img/image5-44.jpg)
 ]
 
 .small[
 Source: https://ourworldindata.org/growth-and-structural-transformation-are-emerging-economies-industrializing-too-quickly
 ]
-
 
 ---
 ## Line graph design tips
@@ -268,11 +270,8 @@ Source: https://ourworldindata.org/growth-and-structural-transformation-are-emer
 ![](img/image5-41b.jpg)
 ]
 
-
-
-
 ---
-## Time-series data visualization
+## Line graph design tips
 
 .pull-left[
 ### Line chart without reference line
@@ -280,14 +279,13 @@ Source: https://ourworldindata.org/growth-and-structural-transformation-are-emer
 ![:scale 100%](img/image5-19.jpg)]
 
 --
-
 .pull-right[
 ### Line chart with reference line
 
 ![:scale 100%](img/image5-20.jpg)]
 
 ---
-## Time-series data visualization
+## Line graph design tips
 ### Line chart with reference band
 
 .center[
