@@ -166,7 +166,7 @@ Q1: Is the project a combination of the assignments by the group members? Like i
     
 Q2: Is there any difference in the visualisation requirements of the assignment and the project? Is shiny required for both the assignment and the project? Or we can do the assignment visualisation without the shiny?
 
-> *Prof: For the assignment, RMarkdown should be used to prepare the answers.  For the project, on the other hands, the web application should be used by using Shiny.* 
+> *Prof: For the assignment, RMarkdown should be used to prepare the answers.  For the project, on the other hands, the web application should be builded by using Shiny.* 
 
 Q3: Are we only able to use R and R shiny in the assignment and the project? Can we use other tools in the data cleaning and the analysis?
 
