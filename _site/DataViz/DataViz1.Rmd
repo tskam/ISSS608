@@ -3,7 +3,10 @@ title: "DataViz Makeover 1"
 description: |
   Explore different perspectives and approaches to design more truthful and enlightening data visualisation
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
