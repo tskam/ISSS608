@@ -48,6 +48,16 @@ knitr::opts_chunk$set(echo = FALSE)
 * [TimeSearcher](http://www.cs.umd.edu/hcil/timesearcher/)
 * [Understanding Basic Candlestick Charts](https://www.investopedia.com/trading/candlestick-charting-what-is-it/)
 
+### Newly added
+
+* Donahue, Rafe M.J. [*Fundamental Statistical Concepts in Presenting Data: Principles for Constructing Better Graphics*](https://byuistats.github.io/CSE150/files/FSCPD_Donahue_callcenter.pdf).  This article provide a real world example of building truthful and functional time series graph. 
+
+**The Hockey Stick Chart**
+
+* [Hockey stick graph](https://en.wikipedia.org/wiki/Hockey_stick_graph) at wiki.
+* Michael E. Mann, Raymond S. Bradley, Malcolm K. Hughes (1999) ["Northern hemisphere temperatures during the past millennium: Inferences, uncertainties, and limitations"](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/1999GL900070). *Geophysical Research Letters*, Vol. 26, No. pp. 759-762.
+* The Guardian (2010) ["Hockey stick graph took pride of place in IPCC report, despite doubts"](https://www.theguardian.com/environment/2010/feb/09/hockey-stick-graph-ipcc-report). 
+
 ## All About Tableau
 
 * [Slopegraphs in Tableau](http://dataremixed.com/2013/12/slopegraphs-in-tableau/)
