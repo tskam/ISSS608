@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE)
 A map is a model of real world depict by a collection of cartographic symbols or/and visual abstraction.]  
 
 .center[
-![](img/image7-1.jpg)]
+![](img/image6-1.jpg)]
 
 ---
 # What is a Map?
@@ -49,19 +49,19 @@ A map is a model of real world depict by a collection of cartographic symbols or
 An interface between geographical data and map users.]
 
 .center[
-![](img/image7-1b.jpg)]
+![](img/image6-1b.jpg)]
 
 ---
 ## A Map and Geographical Data
 
 .center[
-![](img/image7-1c.jpg)]
+![](img/image6-1c.jpg)]
 
 ---
 ## Types of geographical data
 
 .center[
-![](img/image7-1d.jpg)]
+![](img/image6-1d.jpg)]
 
 ---
 ## How location information are registered?
@@ -85,7 +85,7 @@ An interface between geographical data and map users.]
 ]
 
 .pull-right[
-![](img/image7-1e.jpg)]
+![](img/image6-1e.jpg)]
 
 ---
 ## How location information are registered?
@@ -98,7 +98,7 @@ An interface between geographical data and map users.]
 - A projected coordinate system is always based on a geographic coordinate system that can use a sphere or spheroid.]]
 
 .pull-right[
-![:scale 100%](img/image7-1f.jpg)]
+![:scale 100%](img/image6-1f.jpg)]
 
 .small[Source: http://en.wikipedia.org/wiki/Map_projection 
 ]
@@ -110,7 +110,7 @@ An interface between geographical data and map users.]
 - To serve as a piece of historical archive]
 
 .center[
-![:scale 55%](img/image7-2.jpg)]
+![:scale 55%](img/image6-2.jpg)]
 .small[Reference: http://en.wikipedia.org/wiki/Battle_of_Singapore]
 
 ???
@@ -123,7 +123,7 @@ A map serves as a record of the physical and cultural environment at a particula
 - To support navigation (i.e. Google Map)]
 
 .center[
-![:scale 60%](img/image7-3.jpg)]
+![:scale 60%](img/image6-3.jpg)]
 
 ---
 # The Purpose of a Map
@@ -131,7 +131,7 @@ A map serves as a record of the physical and cultural environment at a particula
 - To support navigation (i.e. sea chart of Singapore)]
 
 .center[
-![:scale 55%](img/image7-4.jpg)]
+![:scale 55%](img/image6-4.jpg)]
 .small[Source: https://www.mpa.gov.sg/web/portal/home/port-of-singapore/services/charts-tidal-info-atons-and-hydrography/singapore-electronic-navigational-chart]
 
 ---
@@ -141,7 +141,7 @@ A map serves as a record of the physical and cultural environment at a particula
 - To reveal spatial patterns.]
 
 .center[
-![:scale 40%](img/image7-5.jpg)]
+![:scale 40%](img/image6-5.jpg)]
 .small[Reference: https://en.wikipedia.org/wiki/John_Snow]
 
 ---
@@ -151,13 +151,13 @@ A map serves as a record of the physical and cultural environment at a particula
 - To describe spatial relationship.]
 
 .center[
-![](img/image7-5a.jpg)]
+![](img/image6-5a.jpg)]
 
 ---
 # Typology of Maps
 
 .center[
-![](img/image7-6.jpg)]
+![](img/image6-6.jpg)]
 
 ---
 ## Reference maps
@@ -165,7 +165,7 @@ A map serves as a record of the physical and cultural environment at a particula
 - Reference maps emphasize the location of spatial phenomena, such buildings, roads, vegetations, rivers, etc. Some of popular reference maps are **topographical map** and internet map such as Google map.
 
 .center[
-![:scale 65%](img/image7-7.jpg)]
+![:scale 65%](img/image6-7.jpg)]
 
 ???
 Topographic maps are detailed, accurate graphic representations of features that appear on the Earth's surface. These features include:
@@ -190,7 +190,7 @@ Traditionally present in paper printed format.
 ]]
 
 .pull-right[
-![:scale 65%](img/image7-8.jpg)]
+![:scale 65%](img/image6-8.jpg)]
 
 ---
 ## Thematic Mapping
@@ -221,7 +221,7 @@ Traditionally present in paper printed format.
 - Figure on the right for examples of these four ordinal visual variables used each in point, linear and areal symbols.]]
 
 .pull-right[
-![:scale 75%](img/image7-9.jpg)]
+![:scale 75%](img/image6-9.jpg)]
 
 ---
 ## Qualitative Thematic Map
@@ -232,7 +232,7 @@ Traditionally present in paper printed format.
 - Different point symbols are used to represent school types]]  
 
 .pull-right[
-![:scale 135%](img/image7-10.jpg)]
+![:scale 135%](img/image6-10.jpg)]
 
 ---
 ## Qualitative Thematic Map
@@ -244,7 +244,7 @@ Traditionally present in paper printed format.
 
 .pull-right[
 .center[
-![:scale 55%](img/image7-11.jpg)]]
+![:scale 55%](img/image6-11.jpg)]]
 
 ---
 ## Qualitative Thematic Map
@@ -255,7 +255,7 @@ Traditionally present in paper printed format.
 - Land use map below is a good example of a discrete thematic map.  In this map, different colours are use to represent different land use types.]]
 
 .pull-right[
-![:scale 100%](img/image7-12.jpg)]
+![:scale 100%](img/image6-12.jpg)]
 
 ---
 ## Quantitative Thematic Map
@@ -268,14 +268,14 @@ Traditionally present in paper printed format.
 - Figure on the right shows of these four ordinal visual variables used each in point, linear and areal symbols.]
 
 .pull-right[
-![:scale 80%](img/image7-13.jpg)]
+![:scale 80%](img/image6-13.jpg)]
 
 ---
 ### Proportional Symbol Map
 - The proportional symbol technique uses symbols of different sizes to represent data associated with different areas or locations within the map.
 
 .center[
-![:scale 80%](img/image7-14.jpg)]
+![:scale 80%](img/image6-14.jpg)]
 
 ???
 The proportional symbol technique uses symbols of different sizes to represent data associated with different areas or locations within the map. For example, the proportional maps above use circle with different sizes to represent millions of people.
@@ -299,7 +299,7 @@ There are two types of point features that are typically depicted with proportio
 ### Proportional Symbol Map: Pie Chart Map
 
 .center[
-![:scale 70%](img/image7-15.jpg)]
+![:scale 70%](img/image6-15.jpg)]
 
 ???
 One important characteristic of proportional symbols is that they can easily be designed to represent more than one data value per location.  Among the most common example is a “pie chart map” in which a circle is scaled proportionally to some total, and the size of wedges within the circle is scaled to depict a proportion of a total for two or more sub-categories.  The map above uses circle size to depict total sales in each city, and the pie slices then depict proportion of the three shipping modes, namely: delivery truck, express air and regular air.
@@ -308,20 +308,27 @@ One important characteristic of proportional symbols is that they can easily be 
 ### Proportional Symbol Map: Bar Chart Map
 
 .center[
-![:scale 70%](img/image7-16.jpg)]
+![:scale 70%](img/image6-16.jpg)]
 
 ---
 ### Proportional Symbol Map
-#### Avoid Junk Map https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6 
 
 .center[
-![:scale 80%](img/image9-27.jpg)]
+.vlarge[
+Avoiding Junk Map
+]
+
+![:scale 80%](img/image6-16b.jpg)]
+
+.small[
+Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) 
+]
 
 ---
 ### Altertive of Proportional Symbol Map: Bricks Map
 
 .center[
-![:scale 70%](img/image7-17.jpg)]
+![:scale 70%](img/image6-17.jpg)]
 
 .small[Source: http://www.perceptualedge.com/articles/visual_business_intelligence/building_insight_with_bricks.pdf and http://www.encodingpano.com/ 
 ]
@@ -332,7 +339,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - A dot-density map is a type of thematic map that uses dots or other symbols on the map to show the values of one or more numeric data fields. Each dot on a dot-density map represents some amount of data.
 
 .center[
-![:scale 50%](img/image7-18.jpg)]
+![:scale 50%](img/image6-18.jpg)]
 .small[one dot represent 100 households]
 
 ---
@@ -341,7 +348,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - A choropleth map is a type of thematic map in which areas are shaded or patterned in proportion to a statistical variable that represents an aggregate summary of a geographic characteristic within each area, such as population or per-capita income.
 
 .center[
-![:scale 75%](img/image7-19.jpg)]
+![:scale 75%](img/image6-19.jpg)]
 
 ---
 ### Classified choropleth map
@@ -350,7 +357,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - A **classed choropleth map** combines areal units into a smaller number of groups.  Interval levels may vary, but typically 4 to 7 are used in a map.  There is different classification techniques used to divide up the intervals.  
 
 .center[
-![:scale 65%](img/image7-20.jpg)]
+![:scale 65%](img/image6-20.jpg)]
 
 ---
 ### Unclassified choropleth map
@@ -358,7 +365,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - **Unclassified choropleth** maps are similar to classed choropleth maps; however, unclassed choropleth maps do not have an averaged statistic towards each particular colour.  
 
 .center[
-![:scale 70%](img/image7-19.jpg)]
+![:scale 70%](img/image6-19.jpg)]
 
 ---
 ### Choropleth map
@@ -366,7 +373,7 @@ One important characteristic of proportional symbols is that they can easily be 
 .vlarge[Choosing an appropriate number of classes]
 
 .center[
-![:scale 70%](img/image7-21.jpg)]
+![:scale 70%](img/image6-21.jpg)]
 
 ---
 ### Choropleth map
@@ -390,7 +397,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - Same number of features per class.]
 
 .center[
-![:scale 65%](img/image9-23.jpg)]
+![:scale 65%](img/image6-24.jpg)]
 
 ---
 ### Data classification method: Equal interval
@@ -399,7 +406,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - Divides the range of attribute values into equally sized classes.]
 
 .center[
-![:scale 65%](img/image9-25.jpg)]
+![:scale 65%](img/image6-25.jpg)]
 
 ---
 ### Data classification method: Jenks (also known as Natural breaks)
@@ -409,7 +416,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - Finds natural groupings in the data]
 
 .center[
-![:scale 65%](img/image9-24.jpg)]
+![:scale 65%](img/image6-26.jpg)]
 
 ---
 ### Data classification method: Standard deviation 
@@ -419,7 +426,7 @@ One important characteristic of proportional symbols is that they can easily be 
 - Use if the distribution approximates a normal distribution (bell-shaped curve)]
 
 .center[
-![:scale 65%](img/image9-26.jpg)]
+![:scale 65%](img/image6-27.jpg)]
 
 ---
 ### Choropleth map - Colour scheme
@@ -428,11 +435,23 @@ One important characteristic of proportional symbols is that they can easily be 
 [ColorBrewer](http://colorbrewer2.org/) is an online tool designed to help people select good color schemes for maps and other graphics.]
 
 .center[
-![:scale 60%](img/image7-22.jpg)]
+![:scale 60%](img/image6-22.jpg)]
+
+---
+### Colour Scheme Tip
+
+- Avoiding multiple colours in choropleth mapping
+- Stick with a single hue (or a small set of closely related hues) and vary intensity from pale colours for low values to increasingly darker and brighter colours for high values.
+
+.center[
+![:scale 75%](img/image6-23.png)
+]
+
+
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("ISSS608-Lesson06-Visualising-Geospatial-Data.html")
+pagedown::chrome_print("Lesson06-Visualising_Geographical_Data.html")
 ```
 
 

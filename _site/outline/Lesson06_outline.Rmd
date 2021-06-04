@@ -42,6 +42,8 @@ knitr::opts_chunk$set(echo = FALSE)
 * [Choropleth Mapping with Exploratory Data Analysis](https://www.directionsmag.com/article/3363)
 * [Cartogram Maps: Data Visualization with Exaggeration](https://gisgeography.com/cartogram-maps/)
 * [Cartogram](https://en.wikipedia.org/wiki/Cartogram)
+* [When Maps Shouldn’t Be Maps](http://www.ericson.net/content/2011/10/when-maps-shouldnt-be-maps/)
+* [What to consider when creating choropleth maps](https://blog.datawrapper.de/choroplethmaps/)
 
 ## All About Tableau
 
