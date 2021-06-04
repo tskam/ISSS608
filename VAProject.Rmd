@@ -176,6 +176,21 @@ Q4: We chose mini-challenge 3 of the VAST challenge as our final project topic. 
 
 > *Prof: Not true.  Both data are provided in the three csv files for MC3.  Please check the data carefully.*
 
+Q5: I'm a little bit confused about our final project scope. Could you please tell me that does our final project needs to choose from the three mini-challenge from VAST or we need to find the data by ourselves?
+
+> Prof: This term, the visual analytics project must use VAST Challenge 2021 case(s).  You do not have to look for your own data.
+
+Q6: Do we need to find our own dataset? Or do we solely use the data from the mini challenge? 
+
+> Prof: You should use the data sets provided for the mini challenge
+
+Q7: Understand that the project is supposed to be an integration of the assignments we have completed. Can we understand what is the difference between the project and assignment? Do we just simply combine all of the individual assignments? 
+
+> Prof: No, for the assignment you will address the questions using appropriate R packages and RMarkdown and for the Project, you are required to design and build web application using Shiny and R packages.
+
+Q8: Do we have to come out with a draft project proposal before scheduling a consultation? 
+
+> Prof: Yes, you should or else there is nothing to discuss
 
 
 ```{r echo=FALSE, eval=FALSE}
