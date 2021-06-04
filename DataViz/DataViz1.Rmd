@@ -151,7 +151,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 - TAN KAR YEE
     - [DataViz Makeover write-up on Netlify](https://isss608-karyeetan.netlify.app/posts/2021-05-28-isss608-2020-2021-sem-3-dataviz-1/) and [Tableau Public link](https://public.tableau.com/app/profile/tan.kar.yee/viz/DataViz1v4/Sheet1)
 
--WANG QINYU
+- WANG QINYU
     - [DataViz Makeover write-up on Netlify](https://wangqy075.netlify.app/posts/2021-05-22-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/qinyu.wang/viz/DataVizMakeover1_16223598749290/Dashboard1)
 
 - XU DAN
