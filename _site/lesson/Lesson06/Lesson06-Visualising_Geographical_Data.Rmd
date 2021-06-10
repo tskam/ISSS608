@@ -24,14 +24,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 .vlarge[
 - Introducing map
-
 - Properties of geographical data
-
-- Typology of map
-
-- Thematic mapping techniques
-
-- Alternative mapping techniques]
+    - Geographical data models
+    - Map projections
+- Typology of maps
+    - Reference maps
+    - Thematic maps
+- Proportional Symbol Map
+- Choropleth Map]
 
 ---
 # What is a Map?
@@ -271,7 +271,7 @@ Traditionally present in paper printed format.
 ![:scale 80%](img/image6-13.jpg)]
 
 ---
-### Proportional Symbol Map
+## Proportional Symbol Map
 - The proportional symbol technique uses symbols of different sizes to represent data associated with different areas or locations within the map.
 
 .center[
@@ -284,22 +284,30 @@ There are two types of point features that are typically depicted with proportio
 ---
 ### How to size circles incorrectly and correctly?
 
+.large[
+Figure below explains how attribute values are map on circles.  One strategy to overcome this problem is to use square instead of circle.]
+
 .center[
-![:scale 55%](img/image6-16.jpg)
+![:scale 55%](img/image6-16a.jpg)
 ]
 
 ---
 ### How to make proportional symbol maps clearer?
 
+.large[
+When designing a proportional symbol map, one of the important consideration is to avoid the circles blocking each other.  One possible strategy to overcome this problem is to applying opacity (also known as transparency).]
+
 .center[
-![:scale 75%](img/image6-17.jpg)
+![:scale 75%](img/image6-16b.jpg)
 ]
 
 ---
 ### Proportional Symbol Map: Pie Chart Map
 
+One important characteristic of proportional symbols is that they can easily be designed to represent more than one data value per location.  Among the most common example is a **pie chart map** in which a circle is scaled proportionally to some total, and the size of wedges within the circle is scaled to depict a proportion of a total for two or more sub-categories. 
+
 .center[
-![:scale 70%](img/image6-15.jpg)]
+![:scale 60%](img/image6-15.jpg)]
 
 ???
 One important characteristic of proportional symbols is that they can easily be designed to represent more than one data value per location.  Among the most common example is a “pie chart map” in which a circle is scaled proportionally to some total, and the size of wedges within the circle is scaled to depict a proportion of a total for two or more sub-categories.  The map above uses circle size to depict total sales in each city, and the pie slices then depict proportion of the three shipping modes, namely: delivery truck, express air and regular air.
@@ -307,18 +315,18 @@ One important characteristic of proportional symbols is that they can easily be 
 ---
 ### Proportional Symbol Map: Bar Chart Map
 
+**Proportional side-by-side bar map** places side-by-side bar chart on a map based on the location of the observations.  
+
 .center[
 ![:scale 70%](img/image6-16.jpg)]
 
 ---
-### Proportional Symbol Map
+### Proportional Symbol Map - Junk Map
 
-.center[
-.vlarge[
-Avoiding Junk Map
-]
+.large[
+When preparing a proportional symbol map, it is important to ensure that the geographical level used is the same.]
 
-![:scale 80%](img/image6-16b.jpg)]
+![:scale 80%](img/image6-16c.jpg)]
 
 .small[
 Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) 
@@ -327,6 +335,8 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 ---
 ### Altertive of Proportional Symbol Map: Bricks Map
 
+Bricks Map aims to provide better ways to encode quantitative information graphically—ways that can be easily, efficiently, and accurately decoded. 
+
 .center[
 ![:scale 70%](img/image6-17.jpg)]
 
@@ -334,18 +344,38 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 ]
 
 ---
-### Dot Density Map
+### Bricks Map versus Proportional Symbol Map
 
-- A dot-density map is a type of thematic map that uses dots or other symbols on the map to show the values of one or more numeric data fields. Each dot on a dot-density map represents some amount of data.
+.large[
+By plotting a proportional symbol map and a bricks map side-by-side as shown below, it is clear that bubbles of graduated sizes proportional to the value ranges that they represent can be difficult to distinguish than the bricks. 
+]
+
+.pull-left[
+![](img/image6-17a.jpg)
+]
+
+
+.pull-right[
+![](img/image6-17.jpg)
+]
+
+---
+## Dot Density Map
+
+A dot-density map is a type of thematic map that uses dots or other symbols on the map to show the values of one or more numeric data fields. Each dot on a dot-density map represents some amount of data.
 
 .center[
 ![:scale 50%](img/image6-18.jpg)]
 .small[one dot represent 100 households]
 
----
-### Choropleth Map
+.small[
+Reference: [Dot distribution map](https://en.wikipedia.org/wiki/Dot_distribution_map) at wiki and [Dot Density Maps](https://www.axismaps.com/guide/dot-density)
+]
 
-- A choropleth map is a type of thematic map in which areas are shaded or patterned in proportion to a statistical variable that represents an aggregate summary of a geographic characteristic within each area, such as population or per-capita income.
+---
+## Choropleth Map
+
+A choropleth map is a type of thematic map in which areas are shaded or patterned in proportion to a statistical variable that represents an aggregate summary of a geographic characteristic within each area, such as population or per capita income.
 
 .center[
 ![:scale 75%](img/image6-19.jpg)]
@@ -353,7 +383,7 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 ---
 ### Classified choropleth map
 
-- Choropleth maps can be either classified or unclassified.
+- A choropleth map can be either classified or unclassified.
 - A **classed choropleth map** combines areal units into a smaller number of groups.  Interval levels may vary, but typically 4 to 7 are used in a map.  There is different classification techniques used to divide up the intervals.  
 
 .center[
@@ -362,15 +392,34 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 ---
 ### Unclassified choropleth map
 
-- **Unclassified choropleth** maps are similar to classed choropleth maps; however, unclassed choropleth maps do not have an averaged statistic towards each particular colour.  
+- An **unclassified choropleth** map is similar to a classed choropleth map; however, an unclassed choropleth maps do not have an averaged statistic towards each particular colour.  
 
 .center[
 ![:scale 70%](img/image6-19.jpg)]
 
 ---
-### Choropleth map
+### Choropleth mapping technique - Number of classes
 
-.vlarge[Choosing an appropriate number of classes]
+The readability of a choropleth map will be affected by the number of classes used.
+
+.pull-left[
+*  When a small number of classes is used, the spatial distribution reveals will be very limited. 
+
+![](img/image6-21a.jpg)
+]
+
+--
+.pull-right[
+*  When an appropriate number of classes is used, the spatial distribution reveals will be clear. 
+
+![](img/image6-21b.jpg)
+]
+
+
+---
+### Choropleth mapping technique - Number of classes
+
+Figure below provided a mathematical method to determine number of classes used for preparing a choropleth map.
 
 .center[
 ![:scale 70%](img/image6-21.jpg)]
@@ -391,42 +440,44 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 ]
 
 ---
-### Data classification method: Quantitle
-
-.large[
-- Same number of features per class.]
-
-.center[
-![:scale 65%](img/image6-24.jpg)]
-
----
 ### Data classification method: Equal interval
 
 .large[
 - Divides the range of attribute values into equally sized classes.]
 
 .center[
-![:scale 65%](img/image6-25.jpg)]
+![:scale 65%](img/image6-22a.jpg)
+]
+
+---
+### Data classification method: Quantitle
+
+.large[
+- Same number of features per class.]
+
+.center[
+![:scale 65%](img/image6-22b.jpg)
+]
 
 ---
 ### Data classification method: Jenks (also known as Natural breaks)
 
 .large[
-- Default Jenk’s statistical optimization
-- Finds natural groupings in the data]
+- Default Jenk’s statistical optimization by finds natural groupings in the data.]
 
 .center[
-![:scale 65%](img/image6-26.jpg)]
+![:scale 65%](img/image6-22c.jpg)
+]
 
 ---
 ### Data classification method: Standard deviation 
 
 .large[
-- A measure of dispersion.
-- Use if the distribution approximates a normal distribution (bell-shaped curve)]
+- A measure of dispersion. Use if the distribution approximates a normal distribution.]
 
 .center[
-![:scale 65%](img/image6-27.jpg)]
+![:scale 65%](img/image6-22d.jpg)
+]
 
 ---
 ### Choropleth map - Colour scheme
@@ -435,7 +486,8 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 [ColorBrewer](http://colorbrewer2.org/) is an online tool designed to help people select good color schemes for maps and other graphics.]
 
 .center[
-![:scale 60%](img/image6-22.jpg)]
+![:scale 60%](img/image6-23.jpg)
+]
 
 ---
 ### Colour Scheme Tip
@@ -444,9 +496,37 @@ Source: [COVID-19 Dashboard](https://gisanddata.maps.arcgis.com/apps/opsdashboar
 - Stick with a single hue (or a small set of closely related hues) and vary intensity from pale colours for low values to increasingly darker and brighter colours for high values.
 
 .center[
-![:scale 75%](img/image6-23.png)
+![:scale 75%](img/image6-23a.png)
 ]
 
+---
+### Trellis choropleth map
+
+.pull-left[
+.large[
+
+- **Trellis maps** , also known as **small multiple maps**, are composed of many maps arrange side-by-side, and sometimes stacked vertically. 
+- Small multiple maps enable the visualisation of how spatial relationships change with respect to another variable, such as time.
+]]
+
+.pull-right[
+![](img/image6-24.jpg)
+]
+
+---
+# Reference
+
+[Proportional Symbols](https://www.axismaps.com/guide/proportional-symbols)
+
+[Choropleth Maps](https://www.axismaps.com/guide/choropleth)
+
+[Dot Density Maps](https://www.axismaps.com/guide/dot-density)
+
+[The Basics of Data Classification](https://www.axismaps.com/guide/data-classification)
+
+[Should a map be interactive?](https://www.axismaps.com/guide/should-a-map-be-interactive)
+
+[Map interaction](https://www.axismaps.com/guide/map-interaction)
 
 
 ```{r echo=FALSE, eval=FALSE}
