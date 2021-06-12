@@ -318,7 +318,7 @@ One important characteristic of proportional symbols is that they can easily be 
 **Proportional side-by-side bar map** places side-by-side bar chart on a map based on the location of the observations.  
 
 .center[
-![:scale 70%](img/image6-16.jpg)]
+![:scale 60%](img/image6-16.jpg)]
 
 ---
 ### Proportional Symbol Map - Junk Map
