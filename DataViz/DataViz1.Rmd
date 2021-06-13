@@ -261,7 +261,74 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 - ZHONG PING
     - [DataViz Makeover write-up on Netlify](https://makeover1final.netlify.app/posts/welcome/) and [Tableau Public link](https://public.tableau.com/app/profile/zhong.ping/viz/zpmakeover1/MerchandiseTradeofTopSixTraingCountriesRegions2019-2020)
 
+## Peer Learning
 
+### Quality of Critic
 
+- Beside **appropriateness** and **correctness**, a good critic should support with specific examples.
+
+![](img/dataviz1_02.jpg)
+
+- General or/and ambiguous statement like below should be avoided.
+
+![](img/dataviz1_01.jpg)
+
+### Quality of Alternative DataViz Makeover Design
+
+DataViz Makeover aims to improve existing design as much as possible according to the critics provided.  Students should avoid creating a totally new data visualisation.  You should also avoid changing the original content of the original design.  
+
+- For example, the original data visualisation uses monthly merchandise trade values but the proposed design showing quaterly values. 
+
+![](img/dataviz1_03.jpg)
+
+- Beside making over the existing data visualisation, if necessary, you are encouraged to use additional data visualisation to complement and improve the current design.
+
+![](img/dataviz1_04.jpg)
+
+- However, you should ensure that the visual arrangement of the data visualisation as balance.  Avoiding imbalance layout like the figure below.
+
+![](img/dataviz1_05.jpg)
+
+## Level of Tableau Desktop Proficiency
+
+To demonstrate your Tableau Desktop proficiency, students should avoid using default features and functions as much as possible.  When it is appropriate, you should not hesitate to use advanced functions such as calculated field and parameters.
+
+- For example, the reference line in the figure below can be improved by customising the reference line including the label.  Furthermore, the checkbox at the legend pane should be excluded because in this dataviz makaover, only static data visualisation are allowed. 
+
+![](img/dataviz1_06.jpg)
+
+- The data visualisation below demonstrated relatively higher Tableau Desktop proficiency.  In this data visualisation, calculated field is used to ensure the trade surplus or deficit will be shaded using similar colour for both data visualisation.  Furthermore, customised reference lines are used to improve the readability of the data visualisation. 
+
+![](img/dataviz1_07.jpg)
+
+### Quality of Reproducibility
+
+One of the important learning objective of DataViz Makeover is **to embark your the skill in creating reproducible data visualisation**.  This is achieved by requiring students to to prepare complete and comprehensive step-by-step guide on  how the proposed dataviz makeover is created.  
+
+- You should avoid providing providing incomplete and difficult if not impossible to reproduce guide as should in the screenshot below.
+
+![](img/dataviz1_08.jpg)
+
+- This [link](https://kellykkw.netlify.app/posts/2021-05-15-dataviz-makeover-1/#step-by-step-preparation) provides an excellance example of reproducible dataviz makeover.
+
+### Quality of Storytelling
+
+Visual communication plays an important role in a visual analytics process.  No matter how advanced and sophisticated data visualisation technqiues are used, if we failed to tell a compelling story by using the data visualisation designed, all the hardwork and efforts will be wasted.  
+
+- When telling visual story, you should avoid giving general statement without reference to the data visualisation designed.  
+
+![](img/dataviz1_09.jpg)
+
+- A btter version of the visual story is shown in the screenshot below.
+
+![](img/dataviz1_10.jpg)
+
+- Ideally, you might want to support your visual storytelling by using appropriate figure look similar to the screenshot below.
+
+![](img/dataviz1_11.jpg)
+
+- However, it is also important to alert students not to use external reference which only providing partial information like figure below.  The reference source can be found by using this [link](https://www.enterprisesg.gov.sg/-/media/esg/files/media-centre/media-releases/2020/may-2020/monthly-trade-report---apr-2020.pdf?la=enn).
+
+![](img/dataviz1_12.jpg)
 
 
