@@ -265,7 +265,9 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 
 ### Quality of Critic
 
-- Beside **appropriateness** and **correctness**, a good critic should support with specific examples.
+Beside **appropriateness** and **correctness**, a good critic should support with specific examples.
+
+- Screenshot below provides an example of a correct and good critic.
 
 ![](img/dataviz1_02.jpg)
 
@@ -275,7 +277,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 
 ### Quality of Alternative DataViz Makeover Design
 
-DataViz Makeover aims to improve existing design as much as possible according to the critics provided.  Students should avoid creating a totally new data visualisation.  You should also avoid changing the original content of the original design.  
+DataViz Makeover aims to **improve existing design** as much as possible according to the critics provided.  If possible, students should **avoid introducing a totally new data visualisation**.  You should also **avoid changing the original content of the original design**.  
 
 - For example, the original data visualisation uses monthly merchandise trade values but the proposed design showing quaterly values. 
 
@@ -289,7 +291,7 @@ DataViz Makeover aims to improve existing design as much as possible according t
 
 ![](img/dataviz1_05.jpg)
 
-## Level of Tableau Desktop Proficiency
+### Level of Tableau Desktop Proficiency
 
 To demonstrate your Tableau Desktop proficiency, students should avoid using default features and functions as much as possible.  When it is appropriate, you should not hesitate to use advanced functions such as calculated field and parameters.
 
