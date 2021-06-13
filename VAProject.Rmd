@@ -145,7 +145,8 @@ Note that the following examples are for references purposes.  You are urge to u
     - [Project A - The Non-Conventional Sales Dashboard for Company A](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Project_Team_11)
     - [DashboardViz](https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016_17T1_Group5_Report)
 - [ISSS608 Year 2016-17 Term 3](https://wiki.smu.edu.sg/1617t3isss608g1/Project_Groups)
-    - [VRshiny: An Application for better business decision making - Visualizing Association Rules with Network Diagram in Shiny](https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Group8_Arules_Project_Proposal) 
+    - [VRshiny: An Application for better business decision making - Visualizing Association Rules with Network Diagram in Shiny](https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Group8_Arules_Project_Proposal)
+    - [Discovering traffic patterns by using network graph visualisations](https://wiki.smu.edu.sg/1617t3isss608g1/Group1_Introduction). In this project, the students developed their project by using VAST  Challenge data sets and scenario.  However, the project was not a direct replicate of their assignments.  ![](img/must_read.jpg){width=5%}
 - [ISSS608 Year 2017-18 Term 1](https://wiki.smu.edu.sg/1718t1isss608g1/Project_Groups)
 - [ISSS608 Year 2017-18 Term 3](https://wiki.smu.edu.sg/1718t3isss608/Project_Groups)
     - [Singapore Property Market Watch - Your new tool to visualize SG Property Trend](https://wiki.smu.edu.sg/1718t3isss608/Group07_Overview)
