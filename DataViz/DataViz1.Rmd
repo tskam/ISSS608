@@ -202,7 +202,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
     - [DataViz Makeover write-up on Netlify](https://betterandbetter.netlify.app/posts/2021-05-22-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/views/DataViz_16222914766640/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link)
     
 - LI YUETING
-    - [DataViz Makeover write-up on Netlify](https://isss608.netlify.app/dataviz/dataviz1) and [Tableau Public link](https://public.tableau.com/app/profile/yueting.li/viz/Book1_16223574945920/MerchandiseTradeofCountries)
+    - [DataViz Makeover write-up on Netlify](https://yuetingli.netlify.app/posts/2021-05-22-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/yueting.li/viz/Book1_16223574945920/MerchandiseTradeofCountries)
     
 - LI ZHEN
     - [DataViz Makeover write-up on Netlify](https://bloglz.netlify.app/posts/2021-05-22-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/zhen.li7736/viz/VizMakeover1/Makeover1)
