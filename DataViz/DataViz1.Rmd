@@ -48,6 +48,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 
 - ARYAH UMRALKAR CHOPRA
     - [DataViz Makeover write-up on Netlify](https://arychopra.netlify.app/) and [Tableau Public link](https://public.tableau.com/profile/aryah.umralkar.chopra#!/)
+        - An overall well balanced submission, including the web blog design. ![](img/thumbup.jpg)
 
 - CHEN YUXI
     - [DataViz Makeover write-up on Netlify](https://yuxich.netlify.app/posts/2021-05-29-dataviz-makeover-1/) and [Tableau Public link]( https://public.tableau.com/app/profile/yuxi5876/viz/SingaporeMerchandiseTrade20192020/Dashboard1)
@@ -69,7 +70,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
 
 - KELLY KOH KIA WOON
     - [DataViz Makeover write-up on Netlify](https://kellykkw.netlify.app/posts/2021-05-15-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/kelly2850/viz/DatavizMakeover1_16220368938730/Dashboard1)
-        - A well balance submission.  The DataViz Makeover retains the basic design but providing several effective makeover.  The step-by-step makeover procedures provided are highly reproducible. ![](img/thumbup.jpg) 
+        - A well balanced submission.  The DataViz Makeover retains the basic design but providing several effective makeover.  The step-by-step makeover procedures provided are highly reproducible. ![](img/thumbup.jpg) 
 
 - KEVIN MAGIC RIALUBIN SUNGA
     - [DataViz Makeover write-up on Netlify](https://kevinsunga.netlify.app/posts/2021-05-27-dataviz-makeover-1/ ) and [Tableau Public link](https://public.tableau.com/app/profile/kevin.sunga/viz/dataviz_makeover_1_final/TopSixTradingPartnersGraph)
