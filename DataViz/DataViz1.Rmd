@@ -106,7 +106,7 @@ Submission deadline: **30th May 2021 (Sunday), mid-night 11:59pm**.
     - [DataViz Makeover write-up on Netlify](https://datavizmakeover1.netlify.app/) and [Tableau Public link](https://public.tableau.com/app/profile/stella.loh.yun.jia/viz/DataVizMakeover1SingaporesMerchandiseTrade/DatavizMakeover1)
 
 - LUO HAOYU
-    - [DataViz Makeover write-up on Netlify](https://r4dsa-lhy.netlify.app/posts/2021-05-30-dataviz-makeover-1/) and [Tableau Public link]()
+    - [DataViz Makeover write-up on Netlify](https://r4dsa-lhy.netlify.app/posts/2021-05-30-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/luo.haoyu/viz/Book1_16223766103090/Dashboard1)
 
 - MANMIT SINGH S/O NARMAL SINGH
     - [DataViz Makeover write-up on Netlify](https://gallant-hawking-d63d10.netlify.app/posts/2021-05-28-dataviz-1/) and [Tableau Public link](https://public.tableau.com/views/Final__Data_vizAssingment1_Final_vF/Dashboard1_1?:language=en-GB&:display_count=n&:origin=viz_share_link)
