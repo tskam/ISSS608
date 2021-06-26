@@ -1626,7 +1626,7 @@ The ggiraph code chunk.
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              #<<
-    aes(tooltip = ID)),                  #<<
+    aes(tooltip = ID),                   #<<
     stackgroups = TRUE,                  #<<
     binwidth = 1,                        #<<
     method = "histodot") +               #<<
@@ -1652,8 +1652,7 @@ A complete list of geometries supported by ggiraph and their corresponding comma
 ```{r echo=TRUE, eval=FALSE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    (aes(data_id = CLASS)),              #<<
+  geom_dotplot_interactive(aes(data_id = CLASS),
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1671,8 +1670,8 @@ girafe(
 ```{r echo=FALSE, eval=TRUE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    (aes(data_id = CLASS)),              
+  geom_dotplot_interactive(
+    aes(data_id = CLASS),
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1703,7 +1702,7 @@ In the code chunk below, css codes are used to change the highlighting effect.
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              
-    (aes(data_id = CLASS)),              
+    aes(data_id = CLASS),              
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1726,7 +1725,7 @@ girafe(
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              
-    (aes(data_id = CLASS)),              
+    aes(data_id = CLASS),              
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1759,7 +1758,7 @@ exam_data$onclick <- sprintf("window.open(\"%s%s\")",
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              
-    (aes(onclick = onclick)),              #<<
+    aes(onclick = onclick),              #<<
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1780,7 +1779,7 @@ exam_data$onclick <- sprintf("window.open(\"%s%s\")",
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              
-    (aes(onclick = onclick)),              #<<
+    aes(onclick = onclick),              #<<
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
