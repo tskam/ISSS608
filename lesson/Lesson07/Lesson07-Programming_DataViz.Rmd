@@ -269,14 +269,16 @@ ggplot(data=exam_data)
 - The code chunk on the right add the aesthetic element into the plot.
 
 ```{r, echo=TRUE, eval=FALSE,fig.height=6, fig.width=8}
-ggplot(data=exam_data, aes(x= MATHS))
+ggplot(data=exam_data, 
+       aes(x= MATHS)) #<<
 ```
 
 - Notice that ggplot includes the x-axis and the axis's label.]]
 
 .pull-right[
 ```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
-ggplot(data=exam_data, aes(x= MATHS))
+ggplot(data=exam_data, 
+       aes(x= MATHS))
 ```
 ]
 
@@ -311,8 +313,9 @@ ggplot(data=exam_data, aes(x= MATHS))
 - The code chunk below plots a bar chart.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
-ggplot(data=exam_data, aes(x=RACE)) +
-  geom_bar()
+ggplot(data=exam_data, 
+       aes(x=RACE)) +
+  geom_bar() #<< 
 ```
 ]
 
@@ -333,7 +336,7 @@ In a dot plot, the width of a dot corresponds to the bin width (or maximum width
 ```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
 ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot(dotsize = 0.5)
+  geom_dotplot(dotsize = 0.5) #<<
 ```
 
 Note that y scale is not very useful, in fact it is very misleading.]
@@ -361,10 +364,10 @@ The code chunk below performs the following two steps:
 ```{r, echo=TRUE, eval=FALSE, fig.height=6, fig.width=8}
 ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot(binwidth=2.5, 
-               dotsize = 0.5) +
-  scale_y_continuous(NULL, 
-                     breaks = NULL)
+  geom_dotplot(binwidth=2.5,         #<<
+               dotsize = 0.5) +      #<<
+  scale_y_continuous(NULL,           #<<
+                     breaks = NULL)  #<<
 ```
 ]
 
@@ -386,7 +389,7 @@ In the code chunk below, *geom_histogram()* is used to a simple histogram by usi
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_histogram()
+  geom_histogram()       #<<
 ```
 
 - Note that the default bin is 30.
@@ -414,9 +417,9 @@ In the code chunk below,
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
        aes(x= MATHS)) +
-  geom_histogram(bins=20, 
-                 color="black", 
-                 fill="light blue")
+  geom_histogram(bins=20,            #<<
+                 color="black",      #<<
+                 fill="light blue")  #<<
 ```
 ]
 
@@ -440,7 +443,7 @@ ggplot(data=exam_data,
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
        aes(x= MATHS, 
-           fill = GENDER)) +
+           fill = GENDER)) +      #<<
   geom_histogram(bins=20, 
                  color="grey30")
 ```
@@ -472,7 +475,7 @@ The code below plots the distribution of Maths scores in a kernel density estima
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
 ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_density()
+  geom_density()           #<<
 ```
 ]
 
@@ -498,7 +501,7 @@ The code chunk below plots two kernel density lines by using *colour* or *fill* 
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
 ggplot(data=exam_data, 
        aes(x = MATHS, 
-           colour = GENDER)) +
+           colour = GENDER)) +   #<<
   geom_density()
 ```
 ]
@@ -522,9 +525,9 @@ The code chunk below plots boxplots by using *geom_boxplot()*.]
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
-       aes(y = MATHS, 
-           x= GENDER)) +
-  geom_boxplot()
+       aes(y = MATHS,       #<<  
+           x= GENDER)) +    #<<
+  geom_boxplot()            #<<
 ```
 ]
 
@@ -550,7 +553,7 @@ The code chunk below plots the distribution of Maths scores by gender in notched
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_boxplot(notch=TRUE) 
+  geom_boxplot(notch=TRUE)   #<<
 ```
 ]
 
@@ -576,9 +579,9 @@ The code chunk below plots the data points on the boxplots by using both *geom_b
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_boxplot() +
-  geom_point(position="jitter", 
-             size = 0.5)
+  geom_boxplot() +              #<<      
+  geom_point(position="jitter", #<<
+             size = 0.5)        #<<
 ```
 ]
 
@@ -606,7 +609,7 @@ The code below plot the distribution of Maths score by gender in violin plot.
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_violin() 
+  geom_violin()            #<<
 ```
 ]
 
@@ -631,8 +634,8 @@ The code chunk below combined a violin plot and a boxplot to show the distributi
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_violin(fill="light blue") +
-  geom_boxplot(alpha=0.5)
+  geom_violin(fill="light blue") +   #<<
+  geom_boxplot(alpha=0.5)            #<<
 ```
 ]
 
@@ -658,7 +661,7 @@ The code chunk below plots a scatterplot showing the Maths and English grades of
 ggplot(data=exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
-  geom_point()
+  geom_point()                #<<
 ```
 ]
 
@@ -715,10 +718,10 @@ The code chunk below adds mean values by using *stat_summary()* function and ove
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  stat_summary(geom = "point", 
-               fun.y="mean", 
-               colour ="red", 
-               size=4)
+  stat_summary(geom = "point",       
+               fun.y="mean",         
+               colour ="red",        
+               size=4)               
 ```
 ]
 
@@ -746,10 +749,10 @@ The code chunk below adding mean values by using *geom_()* function and overridi
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  geom_point(stat="summary", 
-             fun.y="mean", 
-             colour ="red", 
-             size=4)
+  geom_point(stat="summary",        
+             fun.y="mean",           
+             colour ="red",          
+             size=4)          
 ```
 ]
 
