@@ -493,14 +493,12 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom-density*
 
 .pull-left[
-.large[
 The code chunk below plots two kernel density lines by using *colour* or *fill* arguments of *aes()*
-]
 
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
 ggplot(data=exam_data, 
        aes(x = MATHS, 
-           colour = GENDER)) +
+           colour = GENDER)) +  #<<  
   geom_density()
 ```
 ]
@@ -519,14 +517,13 @@ ggplot(data=exam_data,
 ### Geometric Objects: [*geom_boxplot*](https://ggplot2.tidyverse.org/reference/geom_boxplot.html)
 
 .pull-left[
-.large[
-The code chunk below plots boxplots by using *geom_boxplot()*.]
+The code chunk below plots boxplots by using *geom_boxplot()*.  Notice that two aesthetic properties are used, namely x and y. 
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
-       aes(y = MATHS,       
-           x= GENDER)) +    
-  geom_boxplot()            
+       aes(y = MATHS,      #<< 
+           x= GENDER)) +   #<<
+  geom_boxplot()           #<<  
 ```
 ]
 
@@ -626,16 +623,17 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom_violin()* and *geom_boxplot()*
 
 .pull-left[
-.large[
-The code chunk below combined a violin plot and a boxplot to show the distribution of Maths scores by gender.]
+The code chunk below combined a violin plot and a boxplot to show the distribution of Maths scores by gender.
 
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6, fig.retina=3}
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_violin(fill="light blue") +
-  geom_boxplot(alpha=0.5)           
+  geom_violin(fill="light blue") +  #<<
+  geom_boxplot(alpha=0.5)           #<<
 ```
+
+Notice that the violin plot is plotted first, then follows by the boxplot.
 ]
 
 .pull-right[
@@ -653,14 +651,13 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom_point()*
 
 .pull-left[
-.large[
-The code chunk below plots a scatterplot showing the Maths and English grades of pupils by using *geom_point()*.]  
+The code chunk below plots a scatterplot showing the Maths and English grades of pupils by using *geom_point()*.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=5}
 ggplot(data=exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
-  geom_point()            
+  geom_point()              #<<            
 ```
 ]
 
@@ -710,17 +707,16 @@ ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
 ### Working with stat - the *stat_summary()* method
 
 .pull-left[
-.large[
-The code chunk below adds mean values by using *stat_summary()* function and overriding the default geom.]
+The code chunk below adds mean values by using *stat_summary()* function and overriding the default geom.
 
 ```{r, echo=TRUE, eval=FALSE,warning=FALSE, fig.height=6, fig.width=8}
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  stat_summary(geom = "point",       
-               fun.y="mean",         
-               colour ="red",        
-               size=4)               
+  stat_summary(geom = "point",  #<<     
+               fun.y="mean",    #<<     
+               colour ="red",   #<<     
+               size=4)          #<<     
 ```
 ]
 
@@ -741,17 +737,16 @@ ggplot(data=exam_data,
 ### Working with stat - the *geom()* method
 
 .pull-left[
-.large[
-The code chunk below adding mean values by using *geom_()* function and overriding the default stat.]
+The code chunk below adding mean values by using *geom_()* function and overriding the default stat.
 
 ```{r, echo=TRUE, eval=FALSE,warning=TRUE, fig.height=6, fig.width=8}
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  geom_point(stat="summary",        
-             fun.y="mean",           
-             colour ="red",          
-             size=4)          
+  geom_point(stat="summary",  #<<      
+             fun.y="mean",    #<<       
+             colour ="red",   #<<       
+             size=4)          #<<
 ```
 ]
 
@@ -791,16 +786,15 @@ ggplot(data=exam_data,
 ### How to add a best fit curve on a scatterplot?
 
 .pull-left[
-.large[
 In the code chunk below, *geom_smooth()* is used to plot a best fit curve on the scatterplot.
 
-- The default method used is *loess*.]
+- The default method used is *loess*.
 
 ```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.height=6, fig.width=6}
 ggplot(data=exam_data, 
        aes(x= MATHS, y=ENGLISH)) +
   geom_point() +
-  geom_smooth(size=0.5)
+  geom_smooth(size=0.5)  #<<
 ```
 ]
 
@@ -818,16 +812,15 @@ ggplot(data=exam_data,
 ### How to add a best fit curve on a scatterplot?
 
 .pull-left[
-.large[
-The default smoothing method can be overridden as shown below.]
+The default smoothing method can be overridden as shown below.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=6, fig.width=6}
 ggplot(data=exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
   geom_point() +
-  geom_smooth(method=lm, 
-              size=0.5)
+  geom_smooth(method=lm,  #<< 
+              size=0.5)   #<<
 ```
 ]
 
@@ -847,26 +840,24 @@ ggplot(data=exam_data,
 ### Exercise: Plotting bar chart with error bar using ggplot2
 
 .pull-left[
-.large[
 The code chunk below plots the average maths scores by race as bars and their corresponding standard deviation as error bar plot.
 
 ```{r echo=TRUE, eval=FALSE, fig.width=6, fig.height=6}
 ggplot(data=exam_data, 
        aes(RACE, MATHS)) +
-  stat_summary(geom = "bar", 
-               fun.y = mean, 
-               position = "dodge",
-               fill = "light blue") +
-  stat_summary(geom = "errorbar", 
-               fun.data = mean_se,
-               position = "dodge",
-               width = 0.50)
+  stat_summary(geom = "bar",            #<<    
+               fun.y = mean,            #<<
+               position = "dodge",      #<<
+               fill = "light blue") +   #<<
+  stat_summary(geom = "errorbar",       #<<
+               fun.data = mean_se,      #<<
+               position = "dodge",      #<<
+               width = 0.50)            #<<
 ```
-]
+
 .small[
 For more examples, please refer to [Plotting means and error bars (ggplot2)](http://www.cookbook-r.com/Graphs/) and [ggplot2 error bars](http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization)
-]
-]
+]]
 
 .pull-right[
 ```{r echo=FALSE, eval=TRUE, warning=FALSE, fig.width=6, fig.height=6}
@@ -899,26 +890,18 @@ ggplot(data=exam_data,
 ## Essential Grammatical Elements in ggplot2
 ### *facet_wrap()* 
 
-.large[
-- facet_wrap wraps a 1d sequence of panels into 2d.
-
-- This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.]
-
----
-## Essential Grammatical Elements in ggplot2
-### Working with *facet_wrap()*
-
 .pull-left[
-.large[
+*facet_wrap* wraps a 1d sequence of panels into 2d. This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.
+
 The code chunk below plots a trellis plot using *facet-wrap()*.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=8, fig.width=9}
 ggplot(data=exam_data, 
        aes(x= MATHS)) +
   geom_histogram(bins=20) +
-    facet_wrap(~ CLASS)
+    facet_wrap(~ CLASS)       #<<
 ```
-]]
+]
 
 .pull-right[
 ```{r, echo=FALSE, eval=TRUE, fig.height=7, fig.width=9}
@@ -932,23 +915,19 @@ ggplot(data=exam_data, aes(x= MATHS)) +
 ## Essential Grammatical Elements in ggplot2
 ### *facet_grid()* function
 
-.large[
-- facet_grid forms a matrix of panels defined by row and column facetting variables. 
+.pull-left[
+*facet_grid()* forms a matrix of panels defined by row and column facetting variables. 
 
-- It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.]
+It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.]
 
----
-## Essential Grammatical Elements in ggplot2
-### Working with *facet_grid()*
-
-.large[
+.pull-right[
 The code chunk below plots a trellis plot using *facet_grid()*.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=2, fig.width=11}
 ggplot(data=exam_data, 
        aes(x= MATHS)) +
   geom_histogram(bins=20) +
-    facet_grid(~ CLASS)
+    facet_grid(~ CLASS)        #<<
 ```
 ]
 
@@ -963,8 +942,8 @@ ggplot(data=exam_data,
 ### Facetting
 
 .pull-left[
-.vlarge[Exercise:]
-.large[
+Exercise:
+
 Plot a trellis boxplot looks similar to the figure below.
 
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
@@ -973,11 +952,10 @@ ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
     facet_grid(~ GENDER)
 ```
 ]
-]
 
 --
 .pull-right[
-.large[The solution:
+The solution:
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
 ggplot(data=exam_data, 
@@ -986,15 +964,15 @@ ggplot(data=exam_data,
   facet_grid(~ GENDER)
 ```
 ]
-]
+
 ---
 ### Facetting
 
 .pull-left[
-.vlarge[Exercise:]
-.large[
+Exercise:
+
 Plot a trellis boxplot looks similar to the figure below.
-]
+
 
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
 ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
@@ -1019,10 +997,10 @@ ggplot(data=exam_data,
 ### Facetting
 
 .pull-left[
-.vlarge[Exercise:]
-.large[
+Exercise:
+
 Plot a trellis boxplot looks similar to the figure below.
-]
+
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=10}
 ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
@@ -1077,17 +1055,16 @@ The code chunk below flips the horizontal bar chart into vertical bar chart by u
 ggplot(data=exam_data, 
        aes(x=RACE)) +
   geom_bar() +
-  coord_flip()
+  coord_flip()  #<<
 ```
 ]
 
 ---
 ### Working with Coordinate
-#### How to change to the y- and x-axis range?
+#### Changing the range of y- and x-axis
 
 .pull-left[
-.large[
-The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.]]
+The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.]
 
 .pull-right[
 ```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=6, fig.width=6}
@@ -1099,7 +1076,7 @@ ggplot(data=exam_data, aes(x= MATHS, y=ENGLISH)) +
 
 ---
 ### Working with Coordinate
-#### How to change to the y- and x-axis range?
+#### Changing the range of y- and x-axis
 
 .pull-left[
 The code chunk below fixed both the y-axis and x-axis range from 0-100. 
@@ -1110,8 +1087,8 @@ ggplot(data=exam_data,
   geom_point() +
   geom_smooth(method=lm, 
               size=0.5) +  
-  coord_cartesian(xlim=c(0,100),
-                  ylim=c(0,100))
+  coord_cartesian(xlim=c(0,100),  #<<
+                  ylim=c(0,100))  #<<
 ```
 ]
 
@@ -1156,7 +1133,7 @@ ggplot(data=exam_data,
        aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_gray()
+  theme_gray()           #<<
 ```
 ]
 
@@ -1179,7 +1156,7 @@ A horizontal bar chart plotted using *theme_classic()*.
 ggplot(data=exam_data, aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_classic()
+  theme_classic()    #<<
 ```
 ]
 
@@ -1190,7 +1167,7 @@ A horizontal bar chart plotted using *theme_minimal()*.
 ggplot(data=exam_data, aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_minimal()
+  theme_minimal()    #<<
 ```
 ]
 
