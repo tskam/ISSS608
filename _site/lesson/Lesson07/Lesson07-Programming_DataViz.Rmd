@@ -16,11 +16,11 @@ output:
       beforeInit: "js/macros.js"
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=TRUE, fig.retina=3}
 options(htmltools.dir.version = FALSE)
 ```
 
-```{r xaringan-themer, include=FALSE, warning=FALSE, message=FALSE, echo=TRUE, fig.retina=3}
+```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
 style_duo_accent(
   primary_color = "#1381B0",
