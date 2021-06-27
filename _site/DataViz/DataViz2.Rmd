@@ -35,3 +35,256 @@ The data visualisation above is created by using data provided by Department of 
 
 ## Submission deadline
 Submission deadline: **20th June 2021 (Sunday), mid-night 11:59pm**.
+
+## Submission
+### G1
+
+- AHMAD FADY GANIS
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- ARCHIE QUIAMBAO DOLIT
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- ARYAH UMRALKAR CHOPRA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- CHEN YUXI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- CONNIE XIA YI JING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- HONG YUN TING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- HUANG LINYA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- HUANG SHAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- JOVINKA HARTANTO
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- KELLY KOH KIA WOON
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]() 
+
+- KEVIN MAGIC RIALUBIN SUNGA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LI SHUXIAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LI YUHONG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LI YUMENG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIAN YINGZHEN JOANNA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIANG YINGFANG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIM JIAHUI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIM JIN RU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIM YONG KAI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LIU YANGGUANG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LOH YUN JIA STELLA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- LUO HAOYU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- MANMIT SINGH S/O NARMAL SINGH
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- MAYURAPRIYANN ARULMOZHI BASKARAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- NG DING XUAN ARNOLD
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- NG YEN NGEE
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- NIKITHA BANDA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- NURULASYIQAH BINTE MOHAMMAD TAHA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- OH YAO WEI AARON
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- ONG CHEE HONG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- RHODA TONG MIN TING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- RYAN CHAN WEIYAO
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- SHEN XIAOJING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- SYED AHMAD ZAKI BIN SYED SAKAF AL-ATTAS
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- TAN CHEE SENG DAVMES
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- TAN CHOO THYE
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- TAN KAR YEE
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- WANG QINYU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- XU DAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- YAN RUIYUN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- YANG XU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- YEO CHIA GUAN ANDY
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- YEO DING RUN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- YU YAXIN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- ZHANG YING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- ZHONG LINLI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+### G2
+
+- BAI YINING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- DONG FANG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- JESSICA TAN SOO CHENG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- JOYCE WOON SHI HUI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LANG SHUANG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LEE SULING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LI NAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LI YUETING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LI ZHEN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()  
+    
+- LIN PEIRONG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LIU MANYE
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LIU NIAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- LU DI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- MAO XIAOZHU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- MIAO LU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- MISHRA AMRITA
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- QIAN ZIWEI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+- SNG KAH LEONG
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- TANG HUINING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- TANG YUE
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- VERTIKA PODDAR
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- WANG JIAYI
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- WANG XIYU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- YIN XIAOLAN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- ZHANG XINRU
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- ZHANG YOUZHEN
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+    
+- ZHONG PING
+    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
+
+## Peer Learning
+
+### Quality of Critic
+
+Beside **appropriateness** and **correctness**, a good critic should support with specific examples.
+
+### Quality of Alternative DataViz Makeover Design
+
+DataViz Makeover aims to **improve existing design** as much as possible according to the critics provided.  If possible, students should **avoid introducing a totally new data visualisation**.  You should also **avoid changing the original content of the original design**.  
+
+### Level of Tableau Desktop Proficiency
+
+To demonstrate your Tableau Desktop proficiency, students should avoid using default features and functions as much as possible.  When it is appropriate, you should not hesitate to use advanced functions such as calculated field and parameters.
+
+### Quality of Reproducibility
+
+One of the important learning objective of DataViz Makeover is **to embark your the skill in creating reproducible data visualisation**.  This is achieved by requiring students to to prepare complete and comprehensive step-by-step guide on  how the proposed dataviz makeover is created.  
+
+### Quality of Storytelling
+
+Visual communication plays an important role in a visual analytics process.  No matter how advanced and sophisticated data visualisation techniqiues are used, if we failed to tell a compelling story by using the data visualisation designed, all the hardwork and efforts will be wasted.  
+
+
+
+
+
+
+
