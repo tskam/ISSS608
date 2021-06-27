@@ -1497,16 +1497,7 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ]
 
 ---
-# ggplot2 extensions
-
-.center[
-![:scale 70%](img/image7-4.jpg)
-]
-
-This [link](https://exts.ggplot2.tidyverse.org/gallery/) provides you a collection of **ggplot2** extensions that enhanced the basic data visualisation functionalities of **ggplot2**.  
-
----
-## Interactive with R - A tile of Two Packages
+## Interactive with R - A Tale of Two R Packages
 
 .vlarge[
 - ggiraph
