@@ -1501,6 +1501,8 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ## Interactive with R - A Tale of Two R Packages
 
 .vlarge[
+Two R packages specially designed for programming interactive data visualisation similar to popular commercial off-the-shelf (COTS) software like Tableau Desktop, PowerBI and JMP.
+
 - ggiraph
 
 - plotlyr
@@ -1511,7 +1513,7 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ## Interactive Data Visualisation - ggiraph methods![:scale 6%](img/image7-7.jpg)
 
 .large[
-- An htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive by exporting them as SVG documents and using special attributes on the various elements.
+- An [htmlwidget](https://cran.r-project.org/web/packages/htmlwidgets/vignettes/develop_intro.html) and a ggplot2 extension. It allows ggplot graphics to be interactive by exporting them as SVG documents and using special attributes on the various elements.
 
 - Interactive is made with ggplot geometries that can understand three arguments:
     - **Tooltip**: a column of data-sets that contain tooltips to be displayed when the mouse is over elements.
@@ -1939,6 +1941,9 @@ Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
 
 Winston Chang (2013) **R Graphics Cookbook 2nd edition**. [Online version](https://r-graphics.org/).
 
+Yu Liang Weng, ["Interactive Visualisations in R"](https://dataviz.shef.ac.uk/blog/27/01/2021/Interactive-Visualisations-In-R). Last visited: 28/6/2021.
+
+
 ## R packages
 
 [ggplot2](https://ggplot2.tidyverse.org/index.html)
@@ -1947,6 +1952,9 @@ Winston Chang (2013) **R Graphics Cookbook 2nd edition**. [Online version](https
 
 [patchwork](https://patchwork.data-imaginist.com/index.html)
 
+[htmlwidgets for R](https://www.htmlwidgets.org/)
+
+[Crosstalk](https://rstudio.github.io/crosstalk/index.html)
 
 
 
