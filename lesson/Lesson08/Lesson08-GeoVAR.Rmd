@@ -533,5 +533,5 @@ Source: [Singapore Property Market Watch](https://joannetyy.shinyapps.io/SGPriva
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("ISSS608-Lesson08-GeoVizR.html")
+pagedown::chrome_print("Lesson08-GeoVAR.html")
 ```
