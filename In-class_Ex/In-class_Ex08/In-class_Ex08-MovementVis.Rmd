@@ -1,0 +1,280 @@
+---
+title: "In-Class Exercise 8: MovementVis with R"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-2-15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.retina=3,
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+# Content
+## Movement Data
+
+---
+## Overview
+
+.large[
+- In this hands-on exercise, you will learn how to create proportional symbol map by using **tmap** package.
+
+- By the end of this hands-on exercise, you will be able:
+    - to import an aspatial data in R by using **readr** pakage,
+    - to convert it into simple point feature by using **sf** package, and
+    - to create interactive proportional symbol maps by using **tmap** package.
+]
+
+---
+## Getting Started
+
+.pull-left[
+Write a code chunk to check, install and launch  **raster**, **sf**, **clock**, **tmap** and **tidyverse** packages of R]
+
+--
+.pull-right[
+The solution:
+
+```{r echo=TRUE, eval=TRUE}
+packages = c('raster', 'sf', 
+             'tmap', 'clock', 
+             'tidyverse')
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p,character.only = T)
+}
+```
+]
+
+---
+## Importing Raster file
+
+.pull-left[
+Write a code chunk to import *MC2-tourist.tif* into R by uing [*raster()*](https://www.rdocumentation.org/packages/raster/versions/3.4-13/topics/raster) of **Raster** package.]
+
+
+--
+.pull-right[
+The solution: 
+
+```{r}
+bgmap <- raster("data/geospatial/MC2-tourist.tif")
+bgmap
+```
+]
+
+---
+## Plotting Raster Layer
+
+.pull-left[
+In general, [tm_raster()](https://cran.r-project.org/web/packages/tmap/tmap.pdf) will be used to plot a raster layer by using tmap package.
+
+```{r fig.height=5}
+tmap_mode("plot")
+tm_shape(bgmap) +
+    tm_raster(bgmap,
+              legend.show = FALSE)
+```
+]
+
+--
+.pull-right[
+However, *bgmap* layer is a three bands false colour image.  Hence, *tm_rgb()* is used instead.
+
+```{r fig.height=5}
+tm_shape(bgmap) +
+tm_rgb(bgmap, r = 1,g = 2,b = 3,
+       alpha = NA,
+       saturation = 1,
+       interpolate = TRUE,
+       max.value = 255) 
+```
+]
+
+---
+## Importing Vector GIS Data File
+
+.pull-left[
+*Abila* GIS data layer is in [ESRI shapefile](https://en.wikipedia.org/wiki/Shapefile) format.  It is in vector data model and the feature class is line.
+
+Using [st_read()](https://r-spatial.github.io/sf/reference/st_read.html) of sf package, import *Abila* shapefile into R.]
+
+--
+.pull-right[
+The solution:
+
+```{r}
+Abila_st <- st_read(dsn = "data/Geospatial",
+                    layer = "Abila")
+```
+]
+
+---
+## Importing Aspatial Data
+
+.pull-left[
+Using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) of **readr** package, import *gps.csv* into R.
+]
+
+--
+.pull-right[
+The solution:
+
+```{r}
+gps <- read_csv("data/aspatial/gps.csv")
+glimpse(gps)
+```
+
+.red[Be warned:]
+
+- *Timestamp* field is not in date-time format.
+- *id* field should be in factor data type.
+]
+
+---
+## Converting Date-Time Field
+
+.pull-left[
+In the code chunk below, [*data-time_parse()*](https://clock.r-lib.org/reference/date-time-parse.html) of **clock** package is used to convert *Timestamp* filed from *Character* data type to *date-time* (i.e. dttm) format.
+
+```{r}
+gps$Timestamp <- date_time_parse(gps$Timestamp,
+                zone = "",
+                format = "%m/%d/%Y %H:%M:%S")
+gps$id <- as_factor(gps$id)
+```
+
+**Note:**
+
+- [**clock**](https://clock.r-lib.org/index.html) is a new package released by RStudio on 31st March 2021.  For more information, have a look at [this blog](https://www.tidyverse.org/blog/2021/03/clock-0-1-0/).
+- [*as_factor()*](https://forcats.tidyverse.org/reference/as_factor.html) is one of the function of [**forcats**](https://forcats.tidyverse.org/index.html) package. 
+
+]
+
+.pull-right[
+```{r}
+gps
+```
+]
+
+---
+## Converting Aspatial Data into a Simple Feature Data Frame
+
+.pull-left[
+Code chunk below converts *gps* data frame into a simple feature data frame by using [*st_as_sf()*](https://r-spatial.github.io/sf/reference/st_as_sf.html) of **sf** packages 
+
+
+```{r}
+gps_sf <- st_as_sf(gps, 
+                   coords = c("long", "lat"), #<<
+                       crs= 4326)#<<
+```
+
+Things to learn from the arguments:
+
+- The *coords* argument requires you to provide the column name of the x-coordinates (i.e. long) first then followed by the column name of the y-coordinates (i.e. lat).
+- The *crs* argument required you to provide the coordinates system in epsg format.  [EPSG: 4326](https://epsg.io/4326) is wgs84 Geographic Coordinate System.  You can search for other country's epsg code by referring to [epsg.io](https://epsg.io/).
+]
+
+--
+.pull-right[
+```{r}
+gps_sf
+```
+]
+
+---
+## Creating Movement Path from GPS Points
+
+.pull-left[
+Code chunk below joins the gps points into movement paths by using the drivers' IDs as unique identifiers.  
+
+```{r}
+gps_path <- gps_sf %>%
+  group_by(id) %>%
+  summarize(m = mean(Timestamp), 
+            do_union=FALSE) %>%
+  st_cast("LINESTRING")
+```
+]
+
+--
+.pull-right[
+```{r}
+gps_path
+```
+]
+
+.small[
+Note: I learn this trick from [this issue](https://github.com/r-spatial/sf/issues/321).
+]
+
+
+---
+## Plotting the gps Paths
+
+.pull-left[
+Write a code chunk to overplot the gps path of driver ID 1 onto the background tourist map.
+
+```{r echo=FALSE, eval=TRUE, fig.height=6}
+gps_path_selected <- gps_path %>%
+  filter(id==1)
+
+tmap_mode("view")
+tm_shape(bgmap) +
+  tm_rgb(bgmap, r = 1,g = 2,b = 3,
+       alpha = NA,
+       saturation = 1,
+       interpolate = TRUE,
+       max.value = 255) +
+  tm_shape(gps_path_selected) +
+  tm_lines()
+```
+]
+
+--
+.pull-right[
+The solution:
+
+```{r echo=TRUE, eval=FALSE}
+gps_path_selected <- gps_path %>%
+  filter(id==1)
+tmap_mode("view")
+tm_shape(bgmap) +
+  tm_rgb(bgmap, r = 1,g = 2,b = 3,
+       alpha = NA,
+       saturation = 1,
+       interpolate = TRUE,
+       max.value = 255) +
+  tm_shape(gps_path_selected) +
+  tm_lines()
+```
+]
+
