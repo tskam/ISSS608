@@ -1,5 +1,5 @@
 ---
-title: "Lesson 10: Text Visualisation with R"
+title: "Lesson 8: Visually Driven Data Analytics Packages in R"
 description: ""
 date: "`r Sys.Date()`"
 output:

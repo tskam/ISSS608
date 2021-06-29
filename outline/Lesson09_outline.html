@@ -86,31 +86,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Programming GeoVisual Analytics with R</title>
+  <title>Lesson 9: Graph Data Visualisation and Analysis</title>
 
   <meta property="description" itemprop="description" content />
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-05-18" />
-  <meta property="article:created" itemprop="dateCreated" content="2021-05-18" />
+  <meta property="article:published" itemprop="datePublished" content="2021-06-29" />
+  <meta property="article:created" itemprop="dateCreated" content="2021-06-29" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Programming GeoVisual Analytics with R" />
+  <meta property="og:title" content="Lesson 9: Graph Data Visualisation and Analysis" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content />
   <meta property="og:locale" content="en_US" />
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Programming GeoVisual Analytics with R" />
+  <meta property="twitter:title" content="Lesson 9: Graph Data Visualisation and Analysis" />
   <meta property="twitter:description" content />
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Programming GeoVisual Analytics with R"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2021-05-18"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson 9: Graph Data Visualisation and Analysis"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2021-06-29"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1454,7 +1454,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Programming GeoVisual Analytics with R","description":"","authors":[],"publishedDate":"2021-05-18T00:00:00.000+08:00"}
+{"title":"Lesson 9: Graph Data Visualisation and Analysis","description":"","authors":[],"publishedDate":"2021-06-29T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1464,7 +1464,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Programming GeoVisual Analytics with R</h1>
+<h1>Lesson 9: Graph Data Visualisation and Analysis</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -1477,78 +1477,98 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#content">Content</a></li>
+<li><a href="#readings">Readings</a></li>
 <li><a href="#all-about-r">All About R</a>
 <ul>
-<li><a href="#sf-package">sf package</a></li>
-<li><a href="#raster-package">raster package</a></li>
-<li><a href="#stars">stars</a></li>
-<li><a href="#tmap-package">tmap package</a></li>
-<li><a href="#micromap-package">micromap package</a></li>
-<li><a href="#geofacet-package">geofacet package</a></li>
+<li><a href="#wrangling-network-data">Wrangling Network Data</a></li>
+<li><a href="#visualisation-and-analysis">Visualisation and Analysis</a></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="content">Content</h2>
 <ul>
-<li>Handling Geospatial Data with R
+<li>Introduction to Graph Data Visualisation
 <ul>
-<li>sf package for vector data handling</li>
-<li>raster package for raster data handling</li>
-<li>Star package for spatio-temporal data data handling</li>
+<li>Basic principles of network graph</li>
+<li>Graph data visualisation in actions</li>
 </ul></li>
-<li>Thematic Mapping with R</li>
-<li>Introducing tmap
+<li>Network Graph Data
 <ul>
-<li>Proportional symbol mapping with tmap</li>
-<li>Choropleth mapping with tmap</li>
+<li>Network data sets</li>
+<li>Graph data format</li>
+<li>Graph Database</li>
 </ul></li>
-<li>GeoVisual Analytics with R
+<li>Network Graph Visualisation Tools</li>
+<li>Designer toolkit
 <ul>
-<li>Statistical mapping</li>
-<li>Coordinated-view geovisualization</li>
+<li>Gephi</li>
 </ul></li>
+<li>Programmer toolkit
+<ul>
+<li>R packages</li>
+</ul></li>
+<li>Graph layouts
+<ul>
+<li>Node-and-link layouts</li>
+<li>Force-directed layout</li>
+<li>Node-only layout</li>
+<li>Adjacency matrix</li>
+</ul></li>
+<li>Visual Attributes
+<ul>
+<li>Key node attributes</li>
+<li>Key edge attributes</li>
+<li>Bundles, shapes, images, and more</li>
+</ul></li>
+<li>Visual Analysis of Network Graphs
+<ul>
+<li>Relationships</li>
+<li>Hierarchies</li>
+<li>Communities</li>
+</ul></li>
+<li>Flows</li>
+<li>Spatial networks</li>
+</ul>
+<h2 id="readings">Readings</h2>
+<ul>
+<li><a href="https://hal.archives-ouvertes.fr/hal-00828795/document">Visual Analysis of Complex Networks for Business Intelligence with Gephi</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Graph_drawing">Graph Drawing</a></li>
+<li><a href="https://www.cs.umd.edu/users/ben/papers/Wong2011Graph.pdf">Graph Analytics - Lesson Learned and Challenges Ahead</a></li>
+<li><a href="http://noduslabs.com/cases/learn-read-interpret-network-graphs-data-visualization/">Learning to Read and Interpret Network Graph Data Visualizations</a></li>
+<li><a href="http://www.vismaster.eu/news/von/">The Visualization of Networks</a></li>
+<li><a href="http://hci.stanford.edu/jheer/projects/vizster/early_design/">ViZster: Visualizing Online Social Networks</a></li>
+<li>Adam Perer. <a href="http://perer.org/papers/adamPerer-BV_ch10.pdf">“Finding Beautiful Insights in the Chaos of Social Network Visualizations”</a>. In ’‘’Beautiful Visualization’’’. O’Reilly Press.</li>
+<li><a href="http://www.visualcomplexity.com/vc/">Visual Complexity</a></li>
 </ul>
 <h2 id="all-about-r">All About R</h2>
-<h3 id="sf-package">sf package</h3>
+<h3 id="wrangling-network-data">Wrangling Network Data</h3>
 <ul>
-<li><a href="https://r-spatial.github.io/sf/articles/sf1.html">Simple Features for R</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf2.html">Reading, Writing and Converting Simple Features</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf3.html">Manipulating Simple Feature Geometries</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf4.html">Manipulating Simple Features</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf5.html">Plotting Simple Features</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf6.html">Miscellaneous</a></li>
-<li><a href="https://r-spatial.github.io/sf/articles/sf7.html">Spherical geometry in sf using s2geometry</a></li>
+<li><a href="https://www.data-imaginist.com/2017/introducing-tidygraph/%20Introducing">tidygraph</a></li>
+<li><a href="https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/">tidygraph 1.1 – A tidy hope</a></li>
+<li><a href="https://tidygraph.data-imaginist.com/">tidygraph</a></li>
 </ul>
-<h3 id="raster-package">raster package</h3>
+<h3 id="visualisation-and-analysis">Visualisation and Analysis</h3>
+<p><strong>ggraph</strong></p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/raster/raster.pdf">raster reference</a></li>
-<li><a href="https://rspatial.org/raster/pkg/index.html">raster</a> package</li>
+<li><a href="https://ggraph.data-imaginist.com/">ggraph</a></li>
+<li><a href="https://www.data-imaginist.com/2017/announcing-ggraph/">Announcing ggraph</a></li>
+<li><a href="https://www.data-imaginist.com/2019/1-giraffe-2-giraffe-go/">1 giraffe, 2 giraffe, GO!</a></li>
+<li><a href="https://ggraph.data-imaginist.com/articles/Layouts.html">Layouts</a></li>
+<li><a href="https://ggraph.data-imaginist.com/articles/Nodes.html">Nodes</a></li>
+<li><a href="https://ggraph.data-imaginist.com/articles/Edges.html">Edges</a></li>
+<li><a href="https://ggraph.data-imaginist.com/articles/tidygraph.html">tidygraph and ggraph</a></li>
 </ul>
-<h3 id="stars">stars</h3>
+<p><strong>vizNetwork</strong></p>
 <ul>
-<li><a href="https://r-spatial.github.io/stars/reference/index.html">stars reference</a></li>
-<li><a href="https://r-spatial.github.io/stars/index.html">Spatiotemporal Arrays: Raster and Vector Datacubes</a></li>
-<li><a href="https://r-spatial.github.io/stars/articles/stars1.html">Introduction</a></li>
-<li><a href="https://r-spatial.github.io/stars/articles/stars3.html">stars tidyverse methods</a></li>
-<li><a href="https://r-spatial.github.io/stars/articles/stars7.html">Statistical modelling with stars objects</a></li>
+<li><a href="https://cran.r-project.org/web/packages/visNetwork/index.html">visNetwork: Network Visualization using ‘vis.js’ Library</a></li>
+<li><a href="https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html">Introduction to visNetwork</a></li>
+<li><a href="http://datastorm-open.github.io/visNetwork/">visNetwork, an R package for interactive network visualization</a></li>
 </ul>
-<h3 id="tmap-package">tmap package</h3>
+<p><strong>Circular Plot</strong></p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/tmap/tmap.pdf">tmap reference</a></li>
-<li><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html">tmap: get started!</a></li>
-<li><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-changes.html">tmap: what is changed in recent versions?</a></li>
-<li>Tennekes, M., (2018)<a href="https://www.jstatsoft.org/article/view/v084i06">tmap: Thematic Maps in R</a>, <em>Journal of Statistical Software</em>, 84(6), 1-39.</li>
-</ul>
-<h3 id="micromap-package">micromap package</h3>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/micromap/index.html">micromap</a> provides functions simplifies the creation of linked micromap plots.</li>
-<li><a href="https://cran.r-project.org/web/packages/micromap/vignettes/Introduction_Guide.pdf">Linked Micromaps</a></li>
-</ul>
-<h3 id="geofacet-package">geofacet package</h3>
-<ul>
-<li><a href="https://hafen.github.io/geofacet/">geofacet</a> provides geofaceting functionality for ggplot2. Geofaceting arranges a sequence of plots of data for different geographical entities into a grid that strives to preserve some of the original geographical orientation of the entities.</li>
-<li><a href="https://hafen.github.io/geofacet/articles/geofacet.html">Introduction to geofacet</a></li>
+<li><a href="https://cran.r-project.org/web/packages/circlize/index.html">circlize: circular visualization in R</a></li>
+<li><a href="https://jokergoo.github.io/circlize_book/book/">Circular Visualization in R</a></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

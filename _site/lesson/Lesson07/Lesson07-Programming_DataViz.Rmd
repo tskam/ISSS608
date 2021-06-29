@@ -16,11 +16,11 @@ output:
       beforeInit: "js/macros.js"
 ---
 
-```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=TRUE, fig.retina=3}
+```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
-```{r xaringan-themer, include=FALSE}
+```{r xaringan-themer, include=FALSE, warning=FALSE, message=FALSE, echo=TRUE, fig.retina=3}
 library(xaringanthemer)
 style_duo_accent(
   primary_color = "#1381B0",
@@ -101,8 +101,7 @@ Reference: [Introduction to the Tidyverse: How to be a tidy data scientist](http
 
 .pull-right[
 ```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
-packages = c('DT', 'ggiraph', 'patchwork',
-             'plotly', 'tidyverse')
+packages = c('DT', 'ggiraph', 'plotly', 'tidyverse')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -494,12 +493,14 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom-density*
 
 .pull-left[
+.large[
 The code chunk below plots two kernel density lines by using *colour* or *fill* arguments of *aes()*
+]
 
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
 ggplot(data=exam_data, 
        aes(x = MATHS, 
-           colour = GENDER)) +  #<<  
+           colour = GENDER)) +
   geom_density()
 ```
 ]
@@ -518,13 +519,14 @@ ggplot(data=exam_data,
 ### Geometric Objects: [*geom_boxplot*](https://ggplot2.tidyverse.org/reference/geom_boxplot.html)
 
 .pull-left[
-The code chunk below plots boxplots by using *geom_boxplot()*.  Notice that two aesthetic properties are used, namely x and y. 
+.large[
+The code chunk below plots boxplots by using *geom_boxplot()*.]
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
 ggplot(data=exam_data, 
-       aes(y = MATHS,      #<< 
-           x= GENDER)) +   #<<
-  geom_boxplot()           #<<  
+       aes(y = MATHS,       
+           x= GENDER)) +    
+  geom_boxplot()            
 ```
 ]
 
@@ -624,17 +626,16 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom_violin()* and *geom_boxplot()*
 
 .pull-left[
-The code chunk below combined a violin plot and a boxplot to show the distribution of Maths scores by gender.
+.large[
+The code chunk below combined a violin plot and a boxplot to show the distribution of Maths scores by gender.]
 
 ```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6, fig.retina=3}
 ggplot(data=exam_data, 
        aes(y = MATHS, 
            x= GENDER)) +
-  geom_violin(fill="light blue") +  #<<
-  geom_boxplot(alpha=0.5)           #<<
+  geom_violin(fill="light blue") +
+  geom_boxplot(alpha=0.5)           
 ```
-
-Notice that the violin plot is plotted first, then follows by the boxplot.
 ]
 
 .pull-right[
@@ -652,13 +653,14 @@ ggplot(data=exam_data,
 ### Geometric Objects: *geom_point()*
 
 .pull-left[
-The code chunk below plots a scatterplot showing the Maths and English grades of pupils by using *geom_point()*.
+.large[
+The code chunk below plots a scatterplot showing the Maths and English grades of pupils by using *geom_point()*.]  
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=5}
 ggplot(data=exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
-  geom_point()              #<<            
+  geom_point()            
 ```
 ]
 
@@ -708,16 +710,17 @@ ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
 ### Working with stat - the *stat_summary()* method
 
 .pull-left[
-The code chunk below adds mean values by using *stat_summary()* function and overriding the default geom.
+.large[
+The code chunk below adds mean values by using *stat_summary()* function and overriding the default geom.]
 
 ```{r, echo=TRUE, eval=FALSE,warning=FALSE, fig.height=6, fig.width=8}
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  stat_summary(geom = "point",  #<<     
-               fun.y="mean",    #<<     
-               colour ="red",   #<<     
-               size=4)          #<<     
+  stat_summary(geom = "point",       
+               fun.y="mean",         
+               colour ="red",        
+               size=4)               
 ```
 ]
 
@@ -738,16 +741,17 @@ ggplot(data=exam_data,
 ### Working with stat - the *geom()* method
 
 .pull-left[
-The code chunk below adding mean values by using *geom_()* function and overriding the default stat.
+.large[
+The code chunk below adding mean values by using *geom_()* function and overriding the default stat.]
 
 ```{r, echo=TRUE, eval=FALSE,warning=TRUE, fig.height=6, fig.width=8}
 ggplot(data=exam_data, 
        aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
-  geom_point(stat="summary",  #<<      
-             fun.y="mean",    #<<       
-             colour ="red",   #<<       
-             size=4)          #<<
+  geom_point(stat="summary",        
+             fun.y="mean",           
+             colour ="red",          
+             size=4)          
 ```
 ]
 
@@ -787,15 +791,16 @@ ggplot(data=exam_data,
 ### How to add a best fit curve on a scatterplot?
 
 .pull-left[
+.large[
 In the code chunk below, *geom_smooth()* is used to plot a best fit curve on the scatterplot.
 
-- The default method used is *loess*.
+- The default method used is *loess*.]
 
 ```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.height=6, fig.width=6}
 ggplot(data=exam_data, 
        aes(x= MATHS, y=ENGLISH)) +
   geom_point() +
-  geom_smooth(size=0.5)  #<<
+  geom_smooth(size=0.5)
 ```
 ]
 
@@ -813,15 +818,16 @@ ggplot(data=exam_data,
 ### How to add a best fit curve on a scatterplot?
 
 .pull-left[
-The default smoothing method can be overridden as shown below.
+.large[
+The default smoothing method can be overridden as shown below.]
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=6, fig.width=6}
 ggplot(data=exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
   geom_point() +
-  geom_smooth(method=lm,  #<< 
-              size=0.5)   #<<
+  geom_smooth(method=lm, 
+              size=0.5)
 ```
 ]
 
@@ -841,24 +847,26 @@ ggplot(data=exam_data,
 ### Exercise: Plotting bar chart with error bar using ggplot2
 
 .pull-left[
+.large[
 The code chunk below plots the average maths scores by race as bars and their corresponding standard deviation as error bar plot.
 
 ```{r echo=TRUE, eval=FALSE, fig.width=6, fig.height=6}
 ggplot(data=exam_data, 
        aes(RACE, MATHS)) +
-  stat_summary(geom = "bar",            #<<    
-               fun.y = mean,            #<<
-               position = "dodge",      #<<
-               fill = "light blue") +   #<<
-  stat_summary(geom = "errorbar",       #<<
-               fun.data = mean_se,      #<<
-               position = "dodge",      #<<
-               width = 0.50)            #<<
+  stat_summary(geom = "bar", 
+               fun.y = mean, 
+               position = "dodge",
+               fill = "light blue") +
+  stat_summary(geom = "errorbar", 
+               fun.data = mean_se,
+               position = "dodge",
+               width = 0.50)
 ```
-
+]
 .small[
 For more examples, please refer to [Plotting means and error bars (ggplot2)](http://www.cookbook-r.com/Graphs/) and [ggplot2 error bars](http://www.sthda.com/english/wiki/ggplot2-error-bars-quick-start-guide-r-software-and-data-visualization)
-]]
+]
+]
 
 .pull-right[
 ```{r echo=FALSE, eval=TRUE, warning=FALSE, fig.width=6, fig.height=6}
@@ -891,18 +899,26 @@ ggplot(data=exam_data,
 ## Essential Grammatical Elements in ggplot2
 ### *facet_wrap()* 
 
-.pull-left[
-*facet_wrap* wraps a 1d sequence of panels into 2d. This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.
+.large[
+- facet_wrap wraps a 1d sequence of panels into 2d.
 
+- This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with *facet_wrap()*
+
+.pull-left[
+.large[
 The code chunk below plots a trellis plot using *facet-wrap()*.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=8, fig.width=9}
 ggplot(data=exam_data, 
        aes(x= MATHS)) +
   geom_histogram(bins=20) +
-    facet_wrap(~ CLASS)       #<<
+    facet_wrap(~ CLASS)
 ```
-]
+]]
 
 .pull-right[
 ```{r, echo=FALSE, eval=TRUE, fig.height=7, fig.width=9}
@@ -916,19 +932,23 @@ ggplot(data=exam_data, aes(x= MATHS)) +
 ## Essential Grammatical Elements in ggplot2
 ### *facet_grid()* function
 
-.pull-left[
-*facet_grid()* forms a matrix of panels defined by row and column facetting variables. 
+.large[
+- facet_grid forms a matrix of panels defined by row and column facetting variables. 
 
-It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.]
+- It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.]
 
-.pull-right[
+---
+## Essential Grammatical Elements in ggplot2
+### Working with *facet_grid()*
+
+.large[
 The code chunk below plots a trellis plot using *facet_grid()*.
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=2, fig.width=11}
 ggplot(data=exam_data, 
        aes(x= MATHS)) +
   geom_histogram(bins=20) +
-    facet_grid(~ CLASS)        #<<
+    facet_grid(~ CLASS)
 ```
 ]
 
@@ -943,8 +963,8 @@ ggplot(data=exam_data,
 ### Facetting
 
 .pull-left[
-Exercise:
-
+.vlarge[Exercise:]
+.large[
 Plot a trellis boxplot looks similar to the figure below.
 
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
@@ -953,10 +973,11 @@ ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
     facet_grid(~ GENDER)
 ```
 ]
+]
 
 --
 .pull-right[
-The solution:
+.large[The solution:
 
 ```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
 ggplot(data=exam_data, 
@@ -965,15 +986,15 @@ ggplot(data=exam_data,
   facet_grid(~ GENDER)
 ```
 ]
-
+]
 ---
 ### Facetting
 
 .pull-left[
-Exercise:
-
+.vlarge[Exercise:]
+.large[
 Plot a trellis boxplot looks similar to the figure below.
-
+]
 
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
 ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
@@ -998,10 +1019,10 @@ ggplot(data=exam_data,
 ### Facetting
 
 .pull-left[
-Exercise:
-
+.vlarge[Exercise:]
+.large[
 Plot a trellis boxplot looks similar to the figure below.
-
+]
 ```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=10}
 ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
   geom_boxplot() +
@@ -1056,16 +1077,17 @@ The code chunk below flips the horizontal bar chart into vertical bar chart by u
 ggplot(data=exam_data, 
        aes(x=RACE)) +
   geom_bar() +
-  coord_flip()  #<<
+  coord_flip()
 ```
 ]
 
 ---
 ### Working with Coordinate
-#### Changing the range of y- and x-axis
+#### How to change to the y- and x-axis range?
 
 .pull-left[
-The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.]
+.large[
+The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.]]
 
 .pull-right[
 ```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=6, fig.width=6}
@@ -1077,7 +1099,7 @@ ggplot(data=exam_data, aes(x= MATHS, y=ENGLISH)) +
 
 ---
 ### Working with Coordinate
-#### Changing the range of y- and x-axis
+#### How to change to the y- and x-axis range?
 
 .pull-left[
 The code chunk below fixed both the y-axis and x-axis range from 0-100. 
@@ -1088,8 +1110,8 @@ ggplot(data=exam_data,
   geom_point() +
   geom_smooth(method=lm, 
               size=0.5) +  
-  coord_cartesian(xlim=c(0,100),  #<<
-                  ylim=c(0,100))  #<<
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
 ```
 ]
 
@@ -1134,7 +1156,7 @@ ggplot(data=exam_data,
        aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_gray()           #<<
+  theme_gray()
 ```
 ]
 
@@ -1157,7 +1179,7 @@ A horizontal bar chart plotted using *theme_classic()*.
 ggplot(data=exam_data, aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_classic()    #<<
+  theme_classic()
 ```
 ]
 
@@ -1168,7 +1190,7 @@ A horizontal bar chart plotted using *theme_minimal()*.
 ggplot(data=exam_data, aes(x=RACE)) +
   geom_bar() +
   coord_flip() +
-  theme_minimal()    #<<
+  theme_minimal()
 ```
 ]
 
@@ -1498,11 +1520,18 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ]
 
 ---
-## Interactive with R - A Tale of Two R Packages
+# ggplot2 extensions
+
+.center[
+![:scale 70%](img/image7-4.jpg)
+]
+
+This [link](https://exts.ggplot2.tidyverse.org/gallery/) provides you a collection of **ggplot2** extensions that enhanced the basic data visualisation functionalities of **ggplot2**.  
+
+---
+## Interactive with R - A tile of Two Packages
 
 .vlarge[
-Two R packages specially designed for programming interactive data visualisation similar to popular commercial off-the-shelf (COTS) software like Tableau Desktop, PowerBI and JMP.
-
 - ggiraph
 
 - plotlyr
@@ -1513,7 +1542,7 @@ Two R packages specially designed for programming interactive data visualisation
 ## Interactive Data Visualisation - ggiraph methods![:scale 6%](img/image7-7.jpg)
 
 .large[
-- An [htmlwidget](https://cran.r-project.org/web/packages/htmlwidgets/vignettes/develop_intro.html) and a ggplot2 extension. It allows ggplot graphics to be interactive by exporting them as SVG documents and using special attributes on the various elements.
+- An htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
 
 - Interactive is made with ggplot geometries that can understand three arguments:
     - **Tooltip**: a column of data-sets that contain tooltips to be displayed when the mouse is over elements.
@@ -1528,38 +1557,35 @@ Reference: [ggiraph](https://davidgohel.github.io/ggiraph/index.html) package
 ]
 
 ---
-### ggiraph Method: Interactive tooltip
+## ggiraph Methods
+### Create an interactive dotplot
 
 .pull-left[
-The code chunk below uses [*geom_dotplot_interactive()*](https://davidgohel.github.io/ggiraph/reference/geom_dotplot_interactive.html) of **ggiraph** package to implement an interactive tooltip on the dot plot.
-
 ```{r echo=TRUE, eval=FALSE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot_interactive(           #<<
-    aes(tooltip = ID),                #<<
-    stackgroups = TRUE,               #<<
-    binwidth = 1,                     #<<
-    method = "histodot") +            #<<
-  scale_y_continuous(NULL,             
-                     breaks = NULL)   
-girafe(                               #<<
-  ggobj = p,                          #<<
-  width_svg = 6,                      #<<
-  height_svg = 6*0.5                  #<<
+  geom_dotplot_interactive(
+    aes(tooltip = ID),
+    stackgroups = TRUE, 
+    binwidth = 1, 
+    method = "histodot") +
+  scale_y_continuous(NULL, 
+                     breaks = NULL)
+girafe(
+  ggobj = p,
+  width_svg = 6,
+  height_svg = 6*0.618
 )
 ```
 ]
 
 .pull-right[
-**Interactivity:** hovering displays student's ID
-
 ```{r echo=FALSE, eval=TRUE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(                  
     aes(tooltip = ID),
-    stackgroups = TRUE,
+    stackgroups = TRUE,                      
     binwidth = 1,                       
     method = "histodot") +              
   scale_y_continuous(NULL,              
@@ -1567,15 +1593,12 @@ p <- ggplot(data=exam_data,
 girafe(
   ggobj = p,
   width_svg = 6,
-  height_svg = 6*0.5
+  height_svg = 6*0.618
 )
 ```
 
-Things to learn from the code chunk on the left: 
-
-- Instead of using geom_dotplot(), *geom_dotplot_interactive()* is used,
-- An visual attribute (i.e. ID) is assigned to aesthetics tooltip to create an interactive element.
-- *girafe()* is used with the ggplot object to translate the graphic as a web interactive graphics.
+Interactivity: 
+hovering displays student's ID
 ]
 
 ---
@@ -1617,8 +1640,9 @@ girafe(                                  #<<
 ```
 ]
 
+.large[
 A complete list of geometries supported by ggiraph and their corresponding command syntax can be found [here](https://davidgohel.github.io/ggiraph/reference/index.html).                     
-
+]
 
 ---
 ## ggiraph Methods
@@ -1628,8 +1652,7 @@ A complete list of geometries supported by ggiraph and their corresponding comma
 ```{r echo=TRUE, eval=FALSE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
-  geom_dotplot_interactive(
-    aes(data_id = CLASS),         #<<
+  geom_dotplot_interactive(aes(data_id = CLASS),
     stackgroups = TRUE,                  
     binwidth = 1,                        
     method = "histodot") +               
@@ -1725,61 +1748,6 @@ Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse 
 
 ---
 ## ggiraph Methods
-### Combining tooltip and hover effects
-
-.pull-left[
-```{r echo=TRUE, eval=FALSE}
-p <- ggplot(data=exam_data, 
-       aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    aes(data_id = CLASS,                #<<  
-        tooltip = CLASS),               #<<
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-  scale_y_continuous(NULL,               
-                     breaks = NULL)
-girafe(                                  
-  ggobj = p,                             
-  width_svg = 6,                         
-  height_svg = 6*0.618,
-  options = list(                        
-    opts_hover(css = "fill: #202020;"),  
-    opts_hover_inv(css = "opacity:0.2;") 
-  )                                        
-)                                        
-```
-]
-
-.pull-right[
-```{r echo=FALSE, eval=TRUE}
-p <- ggplot(data=exam_data, 
-       aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    aes(data_id = CLASS,
-        tooltip = CLASS),              
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-  scale_y_continuous(NULL,               
-                     breaks = NULL)
-girafe(                                  
-  ggobj = p,                             
-  width_svg = 6,                         
-  height_svg = 6*0.618,
-  options = list(                         
-    opts_hover(css = "fill: #202020;"),  
-    opts_hover_inv(css = "opacity:0.2;")
-  )
-)                                        
-```
-
-Interactivity:
-Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over and tooltip appears too.
-]
-
----
-## ggiraph Methods
 ### Click effect with **onclick**
 
 .pull-left[
@@ -1808,7 +1776,7 @@ girafe(
 exam_data$onclick <- sprintf("window.open(\"%s%s\")",
 "https://www.moe.gov.sg/schoolfinder?journey=Primary%20school", as.character(exam_data$ID) )
 
-p1 <- ggplot(data=exam_data, 
+p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
   geom_dotplot_interactive(              
     aes(onclick = onclick),              #<<
@@ -1828,136 +1796,15 @@ Web document link with a data object will be displayed on the web browser upon m
 ]
 
 ---
-## ggiraph Methods
-### Coordinated Multiple Views 
-
-.pull-left[
-The two dotplots on the right are linked views.  In fact, they are coordinated.  In this case, when a data point is selected on one of the dotplot, the corresponding data point with the similar ID will be highlighted too. 
-]
-
-
-.pull-right[
-```{r echo=FALSE, eval=TRUE}
-p1 <- ggplot(data=exam_data, 
-       aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    aes(data_id = ID,                  
-        tooltip = ID),               
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-  scale_y_continuous(NULL,               
-                     breaks = NULL) +
-  coord_cartesian(xlim=c(0,100))
-
-p2 <- ggplot(data=exam_data, 
-       aes(x = ENGLISH)) +
-  geom_dotplot_interactive(              
-    aes(data_id = ID,                  
-        tooltip = ID),               
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-  scale_y_continuous(NULL,               
-                     breaks = NULL) +
-  coord_cartesian(xlim=c(0,100))
-
-girafe(                                  
-  code = print(p1 / p2),                             
-  width_svg = 8,                         
-  height_svg = 6,
-  options = list(                        
-    opts_hover(css = "fill: #202020;"),  
-    opts_hover_inv(css = "opacity:0.2;") 
-  )                                        
-)                                        
-```
-]
-
----
-## ggiraph Methods
-### Coordinated Multiple View 
-
-.pull-left[
-```{r echo=TRUE, eval=FALSE}
-p1 <- ggplot(data=exam_data, 
-       aes(x = MATHS)) +
-  geom_dotplot_interactive(              
-    aes(data_id = ID,                  
-        tooltip = ID),               
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-  scale_y_continuous(NULL,               
-                     breaks = NULL) +
-  coord_cartesian(xlim=c(0,100))
-
-p2 <- ggplot(data=exam_data, 
-       aes(x = ENGLISH)) +
-  geom_dotplot_interactive(              
-    aes(data_id = ID,                  
-        tooltip = ID),               
-    stackgroups = TRUE,                  
-    binwidth = 1,                        
-    method = "histodot") +               
-```
-]
-
-.pull-right[
-```{r echo=TRUE, eval=FALSE}
-   scale_y_continuous(NULL,               
-                     breaks = NULL) +
-  coord_cartesian(xlim=c(0,100))
-
-girafe(                                  
-  code = print(p1 / p2),   #<<
-  width_svg = 8,
-  height_svg = 6,
-  options = list(
-    opts_hover(css = "fill: #202020;"),
-    opts_hover_inv(css = "opacity:0.2;")
-    )
-  )                                        
-```
-
-Things to learn from the code chunk above: 
-
-- As ggiraph is mainly only new geoms, [**patchwork**](https://patchwork.data-imaginist.com/index.html) package can be used seamlessly.
-]
-
-
-
-
-
-
-
-
----
 # Reference
 
-## Textbook
+Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
 
-Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer. [Online version](https://ggplot2-book.org/).
+Winston Chang (2013) **R Graphics Cookbook 2nd edition**. (Online version https://r-graphics.org/).
 
-Winston Chang (2013) **R Graphics Cookbook 2nd edition**. [Online version](https://r-graphics.org/).
+Package 'ggplot2' (https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf)
 
-Yu Liang Weng, ["Interactive Visualisations in R"](https://dataviz.shef.ac.uk/blog/27/01/2021/Interactive-Visualisations-In-R). Last visited: 28/6/2021.
-
-
-## R packages
-
-[ggplot2](https://ggplot2.tidyverse.org/index.html)
-
-[ggiraph](https://davidgohel.github.io/ggiraph/index.html)
-
-[patchwork](https://patchwork.data-imaginist.com/index.html)
-
-[htmlwidgets for R](https://www.htmlwidgets.org/)
-
-[Crosstalk](https://rstudio.github.io/crosstalk/index.html)
-
-
-
+Healy, Kieran (2019) **Data Visualization: A practical introduction** (online version https://socviz.co/)
 
 
 ```{r echo=FALSE, eval=FALSE}
