@@ -20,7 +20,7 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-```{r xaringan-themer, include=FALSE}
+```{r xaringan-themer, include=FALSE, warning=FALSE, message=FALSE, echo=TRUE, fig.retina=3}
 library(xaringanthemer)
 style_duo_accent(
   primary_color = "#1381B0",
