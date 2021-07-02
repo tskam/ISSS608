@@ -21,7 +21,7 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
 ## DataViz Makeover Topics
 - [DataViz Makeover 1](DataViz/DataViz1.html)
 - [DataViz Makeover 2](DataViz/DataViz2.html)
-- DataViz Makeover 3
+- [DataViz Makeover 3](DataViz/DataViz3.html)
 
 ## Submission Instructions
 
