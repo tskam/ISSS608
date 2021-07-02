@@ -35,19 +35,26 @@ style_duo_accent(
 )
 ```
 
-# Content
-## Movement Data
+# From Movement Data to MovementVis
+
+.center[
+![](img/image8-1.jpg)
+]
 
 ---
 ## Overview
 
 .large[
-- In this hands-on exercise, you will learn how to create proportional symbol map by using **tmap** package.
+- In this hands-on exercise, you will learn how to visualise movement data by using appropriate R packages.
 
 - By the end of this hands-on exercise, you will be able:
-    - to import an aspatial data in R by using **readr** pakage,
-    - to convert it into simple point feature by using **sf** package, and
-    - to create interactive proportional symbol maps by using **tmap** package.
+    - to import GIS data file such as shapefile into R by using **sf** package,
+    - to import a georeferenced image such as geotif file into R by using **raster** package, 
+    - to import an aspatial data into R by using **readr** pakage,
+    - to convert the apstial data into simple point feature by using **sf** package,
+    - to wrangling date-time field by using **clock** package,
+    - to derive movement path (also known as trajectory) from the movement points by using **sf** package, and finally
+    - to visualising the movement paths by using **tmap** package.
 ]
 
 ---
@@ -285,7 +292,7 @@ tm_shape(bgmap) +
 ]
 
 ---
-## MoveVis ![:scale 5%](img/image8-1.jpg) 
+## MoveVis ![:scale 5%](img/image8-2.jpg) 
 
 .pull-left[
 [moveVis](https://movevis.org/index.html) provides tools to visualize movement data (e.g. from GPS tracking) and temporal changes of environmental data (e.g. from remote sensing) by creating video animations. 
