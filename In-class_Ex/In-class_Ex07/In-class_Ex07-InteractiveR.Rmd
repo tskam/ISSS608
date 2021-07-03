@@ -425,5 +425,42 @@ girafe(code = print(p1 / p2), #<<
 
 The data_id aesthetic is critical to link observations between plots and the tooltip aesthetic is optional but nice to have when mouse over a point.
 ]
+---
+## Interactive Data Visualisation - plotly methods!
+
+- Plotly's R graphing library create interactive web graphics from **ggplot2** graphs and/or a custom interface to the (MIT-licensed) JavaScript library [**plotly.js**](https://plotly.com/javascript/) inspired by the grammar of graphics.
+- Different from other plotly platform, plot.R is free and open source.
+
+.center[
+![:scale 45%](img/image7-2.jpg)
+]
+
+There are two ways to create interactive graph by using plotly, they are:
+
+- by using *plot_ly()*, and 
+- by using *ggplotly()*
+
+---
+### Creating an interactive scatter plot: plot_ly() method
+
+.pull-left[
+The code chunk below plots an interactive scatter plot by using *plot_ly()*.
+
+```{r eval=FALSE}
+plot_ly(data = exam_data, 
+             x = ~MATHS, 
+             y = ~ENGLISH)
+```
+]
+
+.pull-right[
+The output:
+
+```{r echo=FALSE, eval=TRUE}
+plot_ly(data = exam_data, 
+             x = ~MATHS, 
+             y = ~ENGLISH)
+```
+]
 
 
