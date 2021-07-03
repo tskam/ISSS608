@@ -766,4 +766,87 @@ Thing to learn from the code chunk:
 
 ]
 
+---
+## Interactive Data Table: DT package
+
+- A wrapper of the JavaScript Library [DataTables](https://datatables.net/)
+
+- Data objects in R can be rendered as HTML tables using the JavaScript library 'DataTables' (typically via R Markdown or Shiny). 
+
+```{r}
+DT::datatable(exam_data)
+```
+
+---
+### Linked brushing: crosstalk method 
+
+```{r echo=FALSE}
+d <- highlight_key(exam_data)
+p <- ggplot(d, aes(ENGLISH, MATHS)) + 
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+gg <- highlight(ggplotly(p), 
+                "plotly_selected")
+
+crosstalk::bscols(gg, DT::datatable(d), widths = 5)
+```
+
+---
+### Linked brushing: crosstalk method 
+
+.pull-left[
+Code chunk below is used to implement the coordinated brushing shown on Slide 17.
+
+```{r echo=TRUE, eval=FALSE}
+d <- highlight_key(exam_data)       #<<
+p <- ggplot(d, 
+            aes(ENGLISH, 
+                MATHS)) + 
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+gg <- highlight(ggplotly(p),        #<<
+                "plotly_selected")  #<<
+
+crosstalk::bscols(gg,               #<<
+                  DT::datatable(d), #<<
+                  widths = 5)       #<<
+```
+]
+
+.pull-right[
+Things to learn from the code chunk:
+
+- *highlight()* is a function of **plotly** package. It sets a variety of options for brushing (i.e., highlighting) multiple plots. These options are primarily designed for linking multiple plotly graphs, and may not behave as expected when linking plotly to another htmlwidget package via crosstalk.  In some cases, other htmlwidgets will respect these options, such as persistent selection in leaflet.
+
+- *bscols()* is a helper function of **crosstalk** package.  It makes it easy to put HTML elements side by side.  It can be called directly from the console but is especially designed to work in an R Markdown document.  **Warning:**  This will bring in all of Bootstrap!. 
+]
+---
+## Reference
+
+### ggiraph
+
+This [link](https://davidgohel.github.io/ggiraph/index.html) provides online version of the reference guide and several useful articles.  Use this [link](https://cran.r-project.org/web/packages/ggiraph/ggiraph.pdf) to download the pdf version of the reference guide. 
+
+- [How to Plot With Ggiraph](https://www.r-bloggers.com/2018/04/how-to-plot-with-ggiraph/)
+- [Interactive map of France with ggiraph](http://rstudio-pubs-static.s3.amazonaws.com/152833_56a4917734204de7b37881d164cf8051.html)  
+- [Custom interactive sunbursts with ggplot in R](https://www.pipinghotdata.com/posts/2021-06-01-custom-interactive-sunbursts-with-ggplot-in-r/)
+- This [link](https://github.com/d-qn/2016_08_02_rioOlympicsAthletes) provides code example on how ggiraph is used to interactive graphs for [Swiss Olympians - the solo specialists](https://www.swissinfo.ch/eng/rio-2016-_swiss-olympians---the-solo-specialists-/42349156?utm_content=bufferd148b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer). 
+
+### plotly for R
+
+- [Getting Started with Plotly in R](https://plotly.com/r/getting-started/) 
+- - A collection of plotly R  graphs are available via this [link](https://plotly.com/r/).
+- Carson Sievert (2020) **Interactive web-based data visualization with R, plotly, and shiny**, Chapman and Hall/CRC is the best resource to learn plotly for R.  The online version is available via this [link](https://plotly-r.com/)
+- [Plotly R Figure Reference](https://plotly.com/r/reference/index/) provides a comprehensive discussion of each visual representations.
+- [Plotly R Library Fundamentals](https://plotly.com/r/plotly-fundamentals/) is a good place to learn the fundamental features of Plotly's R API. 
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("In-class_Ex07-InteractiveR.html")
+```
 
