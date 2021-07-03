@@ -659,3 +659,111 @@ ggplotly(p)
 ```
 ]
 
+
+---
+### Coordinated Multiple Views with **plotly**
+
+.pull-left[
+
+Code chunk below plots two scatterplots and places them next to each other side-by-side by using [*subplot()*](https://plotly.com/r/subplots/) of **plotly** package.
+
+```{r echo=TRUE, eval=FALSE}
+p1 <- ggplot(data=exam_data, 
+              aes(x = MATHS,
+                  y = ENGLISH)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+p2 <- ggplot(data=exam_data, 
+            aes(x = MATHS,
+                y = SCIENCE)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+subplot(ggplotly(p1),            #<<
+        ggplotly(p2))            #<<
+```
+]
+
+.pull-right[
+The side-by-side scatterplots.
+
+```{r echo=FALSE, eval=TRUE, fig.height=4}
+p1 <- ggplot(data=exam_data, 
+              aes(x = MATHS,
+                  y = ENGLISH)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+p2 <- ggplot(data=exam_data, 
+            aes(x = MATHS,
+                y = SCIENCE)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+subplot(ggplotly(p1),
+        ggplotly(p2))
+```
+
+Notice that these two scatter plots are not linked.
+]
+
+---
+### Coordinated Multiple Views with **plotly**
+
+.pull-left[
+
+To create a coordinated scatterplots, *highlight_key()* of **plotly** package is used.
+
+```{r echo=TRUE, eval=FALSE}
+d <- highlight_key(exam_data)  #<<
+p1 <- ggplot(data=d, 
+            aes(x = MATHS,
+                y = ENGLISH)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+p2 <- ggplot(data=d, 
+            aes(x = MATHS,
+                y = SCIENCE)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+subplot(ggplotly(p1),
+        ggplotly(p2))
+```
+]
+
+.pull-right[
+Click on a data point of one of the scatterplot and see how the corresponding point on the other scatterplot is selected. 
+
+```{r echo=FALSE, eval=TRUE, fig.height=4}
+d <- highlight_key(exam_data)
+p1 <- ggplot(data=d, 
+            aes(x = MATHS,
+                y = ENGLISH)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+
+p2 <- ggplot(data=d, 
+            aes(x = MATHS,
+                y = SCIENCE)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+subplot(ggplotly(p1),
+        ggplotly(p2))
+```
+
+Thing to learn from the code chunk:
+
+- *highlight_key()* simply creates an object of class crosstalk::SharedData.  
+- Visit this [link](https://rstudio.github.io/crosstalk/) to learn more about crosstalk, 
+
+]
+
+
