@@ -69,8 +69,7 @@ The solution:
 
 ```{r echo=TRUE, eval=TRUE}
 packages = c('raster', 'sf', 
-             'tmap', 'move',
-             'moveVis', 'clock', 
+             'tmap', 'clock', 
              'tidyverse')
 for (p in packages){
   if(!require(p, character.only = T)){
@@ -176,25 +175,25 @@ In the code chunk below, [*data-time_parse()*](https://clock.r-lib.org/reference
 gps$Timestamp <- date_time_parse(gps$Timestamp,
                 zone = "",
                 format = "%m/%d/%Y %H:%M:%S")
-gps$id <- as_factor(gps$id)
-```
-
-```{r}
-gps1 <- gps %>%
-  filter(Timestamp < "2014-01-06 23:59:00")
 ```
 
 **Note:**
 
 - [**clock**](https://clock.r-lib.org/index.html) is a new package released by RStudio on 31st March 2021.  For more information, have a look at [this blog](https://www.tidyverse.org/blog/2021/03/clock-0-1-0/).
-- [*as_factor()*](https://forcats.tidyverse.org/reference/as_factor.html) is one of the function of [**forcats**](https://forcats.tidyverse.org/index.html) package. 
 
+In the code chunk below, [*as_factor()*](https://forcats.tidyverse.org/reference/as_factor.html) of [**forcats**](https://forcats.tidyverse.org/index.html) package is used to convert values in id field from numerical to factor data type.   
+
+```{r}
+gps$id <- as_factor(gps$id)
+```
 ]
 
 .pull-right[
 ```{r}
 gps
 ```
+
+Notice that the Timesstamp field is in dttm (i.e. date-time) format and the id field is in factor data type.
 ]
 
 ---
@@ -278,7 +277,7 @@ The solution:
 
 ```{r echo=TRUE, eval=FALSE}
 gps_path_selected <- gps_path %>%
-  filter(id==1)
+  filter(id==3)
 tmap_mode("view")
 tm_shape(bgmap) +
   tm_rgb(bgmap, r = 1,g = 2,b = 3,
@@ -292,30 +291,47 @@ tm_shape(bgmap) +
 ]
 
 ---
-## MoveVis ![:scale 5%](img/image8-2.jpg) 
+## Creating animated map with tmap_animation()
 
 .pull-left[
-[moveVis](https://movevis.org/index.html) provides tools to visualize movement data (e.g. from GPS tracking) and temporal changes of environmental data (e.g. from remote sensing) by creating video animations. 
+In the code chunk below, *tmap_animation()* of **tmap** package is used to create an animated gif for drivers' paths.
 
-It works with move and raster class inputs and turns them into ggplot2 frames that can be further customized. 
 
-moveVis uses gifski (wrapping the gifski cargo crate) and av (binding to FFmpeg) to render frames into animated GIF or video files.]
+```{r echo=TRUE, eval=FALSE}
+m <- tm_shape(bgmap) +
+  tm_rgb(bgmap, r = 1,g = 2,b = 3,
+       alpha = NA,
+       saturation = 1,
+       interpolate = TRUE,
+       max.value = 255) +
+  tm_shape(gps_path) +
+  tm_lines() +
+  tm_facets(along = "id")
 
-.pull-right[
-![](img/image8-2.gif)
-
+tmap_animation(m, 
+               filename = "gif/drivers.gif",
+               delay=40)
+```
 ]
 
----
+.pull-right[
 
-```{r eval=FALSE}
-movedf <- df2move(gps,
-                  proj = "+init=epsg:4326 +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
-        x = "long", 
-        y = "lat", 
-        time = "Timestamp", 
-        track_id = "id")
+```{r echo=FALSE, eval=FALSE}
+m <- tm_shape(bgmap) +
+  tm_rgb(bgmap, r = 1,g = 2,b = 3,
+       alpha = NA,
+       saturation = 1,
+       interpolate = TRUE,
+       max.value = 255) +
+  tm_shape(gps_path) +
+  tm_lines() +
+  tm_facets(along = "id")
+
+tmap_animation(m, 
+               filename = "gif/drivers.gif",
+               delay=40)
 ```
+]
 
 
 
