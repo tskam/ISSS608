@@ -463,4 +463,199 @@ plot_ly(data = exam_data,
 ```
 ]
 
+---
+### Working with visual variable: plot_ly() method
+
+.pull-left[
+In the code chunk below, *color* argument is mapped to a qualitative visual variable (i.e. RACE).
+
+```{r eval=FALSE}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE) #<<
+```
+]
+
+.pull-right[
+Interactive:
+
+- Click on the colour symbol at the legend.
+
+```{r echo=FALSE, fig.height=6}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE)
+```
+]
+
+---
+### Changing colour pallete: plot_ly() method
+
+.pull-left[
+In the code chunk below, *colors* argument is used to change the default colour palette to [ColorBrewel](https://www.r-graph-gallery.com/38-rcolorbrewers-palettes.html) colour palette.
+
+```{r eval=FALSE}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE, 
+        colors = "Set1") #<<
+```
+]
+
+.pull-right[
+Interactive:
+
+- Click on the colour symbol at the legend.
+
+```{r echo=FALSE, fig.height=6}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE, 
+        colors = "Set1") #<<
+```
+]
+
+---
+### Customising colour scheme: plot_ly() method
+
+.pull-left[
+In the code chunk below, a customised colour scheme is created.  Then, *colors* argument is used to change the default colour palette to the customised colour scheme. 
+
+```{r eval=FALSE}
+pal <- c("red", "purple", "blue", "green") #<<
+
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE, 
+        colors = pal) #<<
+```
+]
+
+.pull-right[
+Interactive:
+
+- Click on the colour symbol at the legend.
+
+```{r echo=FALSE, fig.height=6}
+pal <- c("red", "purple", "blue", "green")
+
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS, 
+        color = ~RACE, 
+        colors = pal)
+```
+]
+
+---
+### Customising tooltip: plot_ly() method
+
+.pull-left[
+In the code chunk below, *text* argument is used to change the default tooltip.
+
+```{r eval=FALSE}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS,
+        text = ~paste("Student ID:", ID,     #<<
+                      "<br>Class:", CLASS),  #<<
+        color = ~RACE, 
+        colors = "Set1")
+```
+]
+
+.pull-right[
+Interactive:
+
+- Click on the colour symbol at the legend.
+
+```{r echo=FALSE, fig.height=6}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS,
+        text = ~paste("Student ID:", ID, 
+                      "<br>Class:", CLASS),
+        color = ~RACE, 
+        colors = "Set1") #<<
+```
+]
+
+---
+### Working with layout: plot_ly() method
+
+.pull-left[
+In the code chunk below, *layout* argument is used to change the default tooltip.
+
+```{r eval=FALSE}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS,
+        text = ~paste("Student ID:", ID,     
+                      "<br>Class:", CLASS),  
+        color = ~RACE, 
+        colors = "Set1") %>%
+  layout(title = 'English Score versus Maths Score ', #<<
+         xaxis = list(range = c(0, 100)),             #<<
+         yaxis = list(range = c(0, 100)))             #<<
+```
+
+To learn more about layout, visit this [link](https://plotly.com/r/reference/#Layout_and_layout_style_objects).
+]
+
+.pull-right[
+Interactive:
+
+- Click on the colour symbol at the legend.
+
+```{r echo=FALSE, fig.height=6}
+plot_ly(data = exam_data, 
+        x = ~ENGLISH, 
+        y = ~MATHS,
+        text = ~paste("Student ID:", ID, 
+                      "<br>Class:", CLASS),
+        color = ~RACE, 
+        colors = "Set1") %>%
+  layout(title = 'English Score versus Maths Score ',
+         xaxis = list(range = c(0, 100)),
+         yaxis = list(range = c(0,100)))
+```
+]
+
+---
+### Creating an interactive scatter plot: ggplotly() method
+
+.pull-left[
+The code chunk below plots an interactive scatter plot by using *ggplotly()*.
+
+```{r, eval=FALSE}
+p <- ggplot(data=exam_data, 
+            aes(x = MATHS,
+                y = ENGLISH)) +
+  geom_point(dotsize = 1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+ggplotly(p) #<<
+
+```
+
+Notice that the only extra line you need to include in the code chunk is *ggplotly()*. 
+]
+
+.pull-right[
+```{r, echo=FALSE,  eval=TRUE}
+p <- ggplot(data=exam_data, 
+            aes(x = MATHS,
+                y = ENGLISH)) +
+  geom_point(size=1) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+ggplotly(p)
+
+```
+]
 
