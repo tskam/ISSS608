@@ -72,7 +72,8 @@ Date: 26/6/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson07_outline.html)
-- Lesson slides and In-class Exercise in [html](lesson/Lesson07/Lesson07-Programming_DataViz.html) and in [pdf](lesson/Lesson07/Lesson07-Programming_DataViz.pdf) formats.  
+- Lesson slides and In-class Exercise in [html](lesson/Lesson07/Lesson07-Programming_DataViz.html) and in [pdf](lesson/Lesson07/Lesson07-Programming_DataViz.pdf) formats.
+- [In-class Exercise](In-class_Ex/In-class_Ex07/In-class_Ex07-InteractiveR.html)
 
 ### Lesson 8: Programming GeoVisual Analytics with R  	
 
