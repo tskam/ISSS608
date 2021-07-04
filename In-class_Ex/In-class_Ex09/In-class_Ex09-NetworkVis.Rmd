@@ -1,0 +1,95 @@
+---
+title: "In-Class Exercise 9: Visualising and Analysing Network Data with R"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-7-4 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina=3,
+                      echo = TRUE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+## Overview
+
+.large[
+In this hands-on exercise, you will learn how to visualising network data using R.
+
+By the end of this hands-on exercise, you will be able to:
+
+- create graph object data frames, manipulate them using appropriate functions of *dplyr*, *lubridate*, and *tidygraph*,
+- build network graph visualisation using appropriate functions of *ggraph*,
+- compute network geometrics using *tidygraph*,
+- build advanced graph visualisation by incorporating the network geometrics, and
+- build interactive network visualisation using *visNetwork* package. 
+]
+
+---
+## Getting Started
+### Installing and launching R packages
+
+.pull-left[
+In this hands-on exercise, four network data modelling and visualisation packages will be installed and launched.  They are igraph, tidygraph, ggraph and visNetwork.  Beside these four packages, tidyverse and [lubridate](https://lubridate.tidyverse.org/), an R package specially designed to handle and wrangling time data will be installed and launched too.]]
+
+.pull-right[
+The code chunk:
+
+```{r, echo=TRUE, eval=TRUE}
+packages = c('igraph', 'tidygraph', 
+             'ggraph', 'visNetwork', 
+             'lubridate', 'tidyverse')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+]
+
+
+
+---
+##  The Data
+
+The data sets used in this hands-on exercise is from an oil exploration and extraction company.  There are two data sets.  One contains the nodes data and the other contains the edges (also know as link) data.
+
+### The edges data
+
+.large[
+- *GAStech-email_edges.csv* which consists of two weeks of 9063 emails correspondances between 55 employees]
+
+![](img/image9-2.jpg)
+
+---
+## The Data
+### The nodes data
+
+.large[
+- *GAStech_email_nodes.csv* which consist of the names, department and title of the 55 employees. 
+]
+![](img/image9-1.jpg)
+
+
+
+
+
+
+
+
