@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 10: Text Visualisation: Concepts and Methods</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 10: Text Visualisation: Concepts and Methods
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2021-07-04 (updated: 2021-07-05)
+
+---
+
+
+
+
+
+
+# Content
+
+.vlarge[
+- Introduction Text Visualisation
+    - Text data
+- Text Visualisation Methods
+    - Tag Cloud
+    - Wordle
+    - Word Tree
+    - Phrase Nets
+- R Packages for Text Visualisation
+]
+
+---
+## Introduction to Text Visualisation
+### History of text
+
+.center[
+![](img/image10-1.jpg)
+]
+
+---
+## Introduction to Text Visualisation
+### Text as historical archive
+
+.center[
+![](img/image10-2.jpg)
+]
+
+---
+## Introduction to Text Visualisation
+### Text as a mode of communication
+
+.center[
+![](img/image10-3.jpg)
+]
+
+---
+## Introduction to Text Visualisation
+### Textual data for business intelligence analytics
+
+.center[
+![:scale 80%](img/image10-4.jpg)
+]
+
+---
+### Why Visualise Text?
+
+.vlarge[
+- Understanding – get the “gist” of a document
+- Grouping – cluster for overview or classification
+- Compare – compare document collections, or
+- Inspect evolution of collection over time
+- Correlate – compare patterns in text to those in other data, e.g., correlate with social network
+]
+
+---
+### Levels of Text Representation
+
+.vlarge[
+- Lexical level, transforming a string of characters into a sequence of atomic entities, called tokens.
+- Syntactic level, identifying and tagging (anotating) each token’s functions.
+- Semantic level, extracting of meaning and relationships between pieces of knowledge derived from the structures identified in the syntactical level.
+]
+
+---
+### Fundamental of Text Visualisation
+
+.center[
+.vlarge[
+Be warn, not all text are written in English and in digital forms!
+
+![:scale 75%](img/image10-5.jpg)
+]]
+
+---
+# Text Visualisation Methods
+
+.vlarge[
+- Tag Cloud
+- Wordle
+- Word Tree
+- Phrase Nets
+]
+
+---
+### Tag Cloud
+
+.pull-left[
+.large[
+- A tag cloud (word cloud, or weighted list in visual design) is a visual representation for text data, typically used to depict keyword metadata (tags) on websites, or to visualize free form text. 
+- 'Tags' are usually single words, normally listed alphabetically, and the importance of each tag is shown with font size or color.
+]]
+
+
+.pull-right[
+![](img/image10-6.jpg)
+
+Source: [Tag cloud](http://en.wikipedia.org/wiki/Tag_cloud)
+]
+
+---
+### Application of Tag Cloud I: Branding
+
+.large[
+- One-word tag cloud of DBS’s corporate values statement created using Many Eyes.  
+]
+
+.center[
+![](img/image10-7.jpg)
+]
+
+---
+### Application of Tag Cloud I: Branding
+
+.large[
+- Two-word tag cloud of DBS’s corporate values statement created using Many Eyes.  
+]
+
+.center[
+![](img/image10-8.jpg)
+]
+
+---
+## Wordle 
+
+.large[
+- A toy for generating “word clouds” from text that you provide
+]
+
+.center[
+![](img/image10-9.jpg)
+]
+
+---
+### Word Clouds of Corporate Values Statements
+
+.pull-left[
+![](img/image10-10a.jpg)
+]
+
+.pull-right[
+![](img/image10-10b.jpg)
+]
+
+---
+## Word Tree
+
+.pull-left[
+.large[
+- A visual search tool for unstructured text, such as a book, article, speech or poem. It lets you pick a word or phrase and shows you all the different contexts in which the word or phrase appears. 
+- The contexts are arranged in a tree-like branching structure to reveal recurrent themes and phrases. 
+]]
+
+.pull-right[
+![](img/image10-11.jpg)
+
+Link: https://www.jasondavies.com/wordtree/ 
+]
+
+---
+## Phrase Net
+
+.pull-left[
+.large[
+- A phrase net diagrams the relationships between different words used in a text.  It uses a simple form of pattern matching to provide multiple views of the concepts contained in a book, speech, or poem. 
+]]
+
+.pull-right[
+![](img/image10-12.jpg)
+]
+
+---
+## Phrase Net
+
+.pull-left[
+.large[
+.center[
+Words separate by the keyword "and"
+]]
+
+![](img/image10-13a.jpg)
+]
+
+.pull-right[
+.large[
+.center[
+Words that directly follow one another
+]]
+
+![](img/image10-13b.jpg)
+]
+
+---
+## Parallel Tag Cloud
+
+.center[
+![:scale 75%](img/image10-14.jpg)
+]
+
+.small[
+Reference: [Parallel Tag Clouds to Explore and Analyze Faceted Text Corpora](http://vialab.science.uoit.ca/wp-content/papercite-data/pdf/col2009b.pdf)
+]
+
+---
+## Story Tracker: Main View
+
+.center[
+![:scale 80%](img/image10-15.jpg)
+]
+
+.small[
+Reference: [Story Tracker: Incremental visual textanalytics of news story development](https://kops.uni-konstanz.de/bitstream/handle/123456789/26224/Krstajic_262244.pdf?sequence=2)
+]
+
+---
+## R packages for Text Visualisation
+
+.vlarge[
+- ggwordcloud: a word cloud geom for ggplot2
+- TextPlot: R Library for Visualizing Text Data
+]
+
+---
+### wordcloud
+
+.large[
+- Provides functionality to create pretty word clouds, visualize differences and similarity between documents, and avoid over-plotting in scatter plots with text.
+- Visit this [link](https://cran.r-project.org/web/packages/wordcloud/) for more information.]
+
+.center[
+![:scale 50%](img/image10-21.jpg)
+]
+
+---
+### wordcloud2: Create Word Cloud by 'htmlwidget'
+
+.large[
+- A fast visualization tool for creating wordcloud by using [wordcloud2.js](https://timdream.org/wordcloud2.js/), ia JavaScript library to create wordle presentation on 2D canvas or HTML.
+- It provides Shiny functions.
+- Visit this [link](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) for more information.]
+
+.pull-left[
+![:scale 90%](img/image10-20a.jpg)
+]
+
+.pull-right[
+![:scale 90%](img/image10-20b.jpg)
+]
+
+---
+### ggwordcloud: a word cloud geom for ggplot2
+
+.large[
+- [ggwordcloud](https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html) provides a word cloud text geom for ggplot2. 
+- as an alternative to [wordcloud](https://cran.r-project.org/web/packages/wordcloud/) and [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/).
+]
+
+.center[
+![](img/image10-19.jpg)
+]
+
+---
+### Wordcloud on Shiny
+
+.center[
+![](img/image10-22.jpg)
+]
+
+.small[For live demo, visit this [link](https://shiny.rstudio.com/gallery/word-cloud.html)]
+
+
+---
+### TextPlot: R Library for Visualizing Text Data
+
+.pull-left[
+.large[
+- Aims to visualise complex relations in texts. 
+- Provides functionalities for displaying text co-occurrence networks, text correlation networks, dependency relationships as well as text clustering.
+- Visit this [link](https://cran.r-project.org/web/packages/textplot/index.html) for more information.
+]]
+
+.pull-right[
+.large[Dependency Parser]
+
+- This example visualises the result of a text annotation which provides parts of speech tags and dependency relationships.
+
+![](img/image10-16.jpg)
+]
+
+---
+### TextPlot
+
+.pull-left[
+.large[Biterm Topic Model plots]
+
+- This  example  shows  plotting  a  biterm  topic  model  which  was  pretrained  and  put  in  the package as an example.
+
+
+![](img/image10-17.jpg)
+]
+
+.pull-right[
+.large[Co-occurrence of texts]
+
+- The following graph shows how frequently adjectives co-occur across all the documents.
+
+
+![](img/image10-18.jpg)
+]
+
+---
+### corporaexplorer: An R package for dynamic exploration of text collections
+
+- It is an R package that uses the Shiny graphical user interface framework for dynamic exploration of text collections.
+- It’s intended primary audience are qualitatively oriented researchers who rely on close reading of textual documents as part of their academic activity.
+
+.center[
+![:scale 60%](img/image10-23.jpg)
+]
+
+.small[Visit this [link](img/image10-23.jpg) for more information.]
+
+---
+### textnets
+
+.pull-left[
+.large[
+- R package for automated text analysis using network techniques.
+- Visit the [github](https://github.com/cbail/textnets) repository for more information.  
+- Notice that this package is not on cran yet.  You need to install it by using the code *install_github("cbail/textnets")*. 
+]
+
+.small[
+Reference: Bail, Christopher A. (2016) ["Combining Network Analysis and Natural Language Processing to Examine how Advocacy Organizations Stimulate Conversation on Social Media."](https://www.pnas.org/content/pnas/113/42/11823.full.pdf?with-ds=yes) *Proceedings of the National Academy of Sciences*, 113:42. 
+]
+]
+
+.pull-right[
+![](img/image10-24.jpg)
+]
+
+---
+### LDAvis
+
+.large[
+- R package for interactive topic model visualization.
+- Visit the [github](https://github.com/cpsievert/LDAvis) repository and [cran](https://cran.r-project.org/web/packages/LDAvis/index.html) for more information.
+]
+
+.center[
+![:scale 75%](img/image10-25.jpg)
+]
+
+.small[
+Source: For live demo, visit this [link](https://ldavis.cpsievert.me/reviews/vis/#topic=3&amp;lambda=0.38&amp;term=).
+]
+
+---
+## References
+
+.large[
+Cao, Nan and Cui, Weiwei (2016) **Introduction to text visualization**, Springer.  This book is available at smu [e-collection](https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.2991%2F978-94-6239-186-4.pdf).
+]
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
