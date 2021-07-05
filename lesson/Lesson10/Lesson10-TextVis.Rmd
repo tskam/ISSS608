@@ -46,9 +46,6 @@ style_duo_accent(
     - Word Tree
     - Phrase Nets
 - R Packages for Text Visualisation
-    - R packages for importing and wrangling text data
-    - R packages for text analysis
-    - R packages for visualising text data
 ]
 
 ---
@@ -262,6 +259,17 @@ Reference: [Story Tracker: Incremental visual textanalytics of news story develo
 ]
 
 ---
+### wordcloud
+
+.large[
+- Provides functionality to create pretty word clouds, visualize differences and similarity between documents, and avoid over-plotting in scatter plots with text.
+- Visit this [link](https://cran.r-project.org/web/packages/wordcloud/) for more information.]
+
+.center[
+![:scale 50%](img/image10-21.jpg)
+]
+
+---
 ### wordcloud2: Create Word Cloud by 'htmlwidget'
 
 .large[
@@ -289,9 +297,17 @@ Reference: [Story Tracker: Incremental visual textanalytics of news story develo
 ![](img/image10-19.jpg)
 ]
 
+---
+### Wordcloud on Shiny
+
+.center[
+![](img/image10-22.jpg)
+]
+
+.small[For live demo, visit this [link](https://shiny.rstudio.com/gallery/word-cloud.html)]
+
 
 ---
-## R packages for visualising text data
 ### TextPlot: R Library for Visualizing Text Data
 
 .pull-left[
@@ -330,21 +346,65 @@ Reference: [Story Tracker: Incremental visual textanalytics of news story develo
 ![](img/image10-18.jpg)
 ]
 
+---
+### corporaexplorer: An R package for dynamic exploration of text collections
 
+- It is an R package that uses the Shiny graphical user interface framework for dynamic exploration of text collections.
+- It’s intended primary audience are qualitatively oriented researchers who rely on close reading of textual documents as part of their academic activity.
+
+.center[
+![:scale 60%](img/image10-23.jpg)
+]
+
+.small[Visit this [link](img/image10-23.jpg) for more information.]
 
 ---
-## R packages for importing and wrangling text data
-    
-    
----    
-## R packages for text analysis
+### textnets
+
+.pull-left[
+.large[
+- R package for automated text analysis using network techniques.
+- Visit the [github](https://github.com/cbail/textnets) repository for more information.  
+- Notice that this package is not on cran yet.  You need to install it by using the code *install_github("cbail/textnets")*. 
+]
+
+.small[
+Reference: Bail, Christopher A. (2016) ["Combining Network Analysis and Natural Language Processing to Examine how Advocacy Organizations Stimulate Conversation on Social Media."](https://www.pnas.org/content/pnas/113/42/11823.full.pdf?with-ds=yes) *Proceedings of the National Academy of Sciences*, 113:42. 
+]
+]
+
+.pull-right[
+![](img/image10-24.jpg)
+]
+
+---
+### LDAvis
+
+.large[
+- R package for interactive topic model visualization.
+- Visit the [github](https://github.com/cpsievert/LDAvis) repository and [cran](https://cran.r-project.org/web/packages/LDAvis/index.html) for more information.
+]
+
+.center[
+![:scale 75%](img/image10-25.jpg)
+]
+
+.small[
+Source: For live demo, visit this [link](https://ldavis.cpsievert.me/reviews/vis/#topic=3&lambda=0.38&term=).
+]
+
+---
+## References
+
+.large[
+Cao, Nan and Cui, Weiwei (2016) **Introduction to text visualization**, Springer.  This book is available at smu [e-collection](https://link-springer-com.libproxy.smu.edu.sg/content/pdf/10.2991%2F978-94-6239-186-4.pdf).
+]
 
 
-
-
-
-
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Lesson10-TextVis.html")
+```
 
 
 
