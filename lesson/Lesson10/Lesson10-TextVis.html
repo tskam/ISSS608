@@ -26,15 +26,19 @@ class: center, middle, inverse, title-slide
 
 # Content
 
+.vlarge[
 - Introduction Text Visualisation
     - Text data
-- Text Visualisation methods
+- Text Visualisation Methods
     - Tag Cloud
     - Wordle
     - Word Tree
     - Phrase Nets
-- Text Visualisation toolkits
-    - JIGSAW
+- R Packages for Text Visualisation
+    - R packages for importing and wrangling text data
+    - R packages for text analysis
+    - R packages for visualising text data
+]
 
 ---
 ## Introduction to Text Visualisation
@@ -71,7 +75,7 @@ class: center, middle, inverse, title-slide
 ---
 ### Why Visualise Text?
 
-.large[
+.vlarge[
 - Understanding – get the “gist” of a document
 - Grouping – cluster for overview or classification
 - Compare – compare document collections, or
@@ -82,7 +86,7 @@ class: center, middle, inverse, title-slide
 ---
 ### Levels of Text Representation
 
-.large[
+.vlarge[
 - Lexical level, transforming a string of characters into a sequence of atomic entities, called tokens.
 - Syntactic level, identifying and tagging (anotating) each token’s functions.
 - Semantic level, extracting of meaning and relationships between pieces of knowledge derived from the structures identified in the syntactical level.
@@ -239,13 +243,90 @@ Reference: [Story Tracker: Incremental visual textanalytics of news story develo
 ]
 
 ---
+## R packages for Text Visualisation
+
+.vlarge[
+- ggwordcloud: a word cloud geom for ggplot2
+- TextPlot: R Library for Visualizing Text Data
+]
+
+---
+### wordcloud2: Create Word Cloud by 'htmlwidget'
+
+.large[
+- A fast visualization tool for creating wordcloud by using [wordcloud2.js](https://timdream.org/wordcloud2.js/), ia JavaScript library to create wordle presentation on 2D canvas or HTML.
+- It provides Shiny functions.
+- Visit this [link](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) for more information.]
+
+.pull-left[
+![:scale 90%](img/image10-20a.jpg)
+]
+
+.pull-right[
+![:scale 90%](img/image10-20b.jpg)
+]
+
+---
+### ggwordcloud: a word cloud geom for ggplot2
+
+.large[
+- [ggwordcloud](https://cran.r-project.org/web/packages/ggwordcloud/vignettes/ggwordcloud.html) provides a word cloud text geom for ggplot2. 
+- as an alternative to [wordcloud](https://cran.r-project.org/web/packages/wordcloud/) and [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/).
+]
+
+.center[
+![](img/image10-19.jpg)
+]
+
+
+---
+## R packages for visualising text data
+### TextPlot: R Library for Visualizing Text Data
+
+.pull-left[
+.large[
+- Aims to visualise complex relations in texts. 
+- Provides functionalities for displaying text co-occurrence networks, text correlation networks, dependency relationships as well as text clustering.
+- Visit this [link](https://cran.r-project.org/web/packages/textplot/index.html) for more information.
+]]
+
+.pull-right[
+.large[Dependency Parser]
+
+- This example visualises the result of a text annotation which provides parts of speech tags and dependency relationships.
+
+![](img/image10-16.jpg)
+]
+
+---
+### TextPlot
+
+.pull-left[
+.large[Biterm Topic Model plots]
+
+- This  example  shows  plotting  a  biterm  topic  model  which  was  pretrained  and  put  in  the package as an example.
+
+
+![](img/image10-17.jpg)
+]
+
+.pull-right[
+.large[Co-occurrence of texts]
+
+- The following graph shows how frequently adjectives co-occur across all the documents.
+
+
+![](img/image10-18.jpg)
+]
 
 
 
-
-
-
-
+---
+## R packages for importing and wrangling text data
+    
+    
+---    
+## R packages for text analysis
 
 
 
