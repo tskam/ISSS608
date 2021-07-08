@@ -80,6 +80,19 @@ Figure below shows the workflow using tidytext approach
 ---
 ### The data
 
+###
+
+20news &lt;- "data/20news-bydate/20news-bydate-train/"
+
+# Define a function to read all files from a folder into a data frame
+read_folder &lt;- function(infolder) {
+  tibble(file = dir(infolder, full.names = TRUE)) %&gt;%
+    mutate(text = map(file, read_lines)) %&gt;%
+    transmute(id = basename(file), text) %&gt;%
+    unnest(text)
+}
+
+
 
 
 
