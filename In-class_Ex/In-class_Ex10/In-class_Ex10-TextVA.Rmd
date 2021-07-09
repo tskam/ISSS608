@@ -61,7 +61,9 @@ The code chunk:
 ```{r, echo=TRUE, eval=TRUE}
 packages = c('tidytext', 'igraph', 
              'tidygraph', 'ggraph', 
-             'widyr', 'DT', 'tidyverse')
+             'widyr', 'wordcloud',
+             'DT', 'ggwordcloud', 
+             'textplot', 'tidyverse')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -249,6 +251,69 @@ words_by_newsgroup <- usenet_words %>%
 ```
 
 ---
+### Visualising Words in newsgroups
+
+.pull-left[
+In this code chunk below, *wordcloud()* of **wordcloud** package is used to plot a static wordcloud.
+
+```{r}
+wordcloud(words_by_newsgroup$word,
+          words_by_newsgroup$n,
+          max.words = 300)
+
+```
+]
+
+.pull-right[
+A DT table can be used to complement the visual discovery.
+
+```{r echo=FALSE}
+DT::datatable(words_by_newsgroup, 
+              filter = 'top') %>% 
+  formatStyle(0, target = 'row', 
+              lineHeight='25%')
+```
+]
+
+---
+### Visualising Words in newsgroups
+
+.pull-left[
+The wordcloud below is plotted by using [**ggwordcloud**](https://lepennec.github.io/ggwordcloud/) package.
+
+```{r echo=FALSE}
+set.seed(1234)
+
+words_by_newsgroup %>%
+  filter(n > 5) %>%
+ggplot(aes(label = word,
+           size = n)) +
+  geom_text_wordcloud() +
+  theme_minimal() +
+  facet_wrap(~newsgroup)
+```
+]
+
+--
+.pull-left[
+The code chunk used:
+
+```{r eval=FALSE}
+set.seed(1234)
+
+words_by_newsgroup %>%
+  filter(n > 0) %>%
+ggplot(aes(label = word,
+           size = n)) +
+  geom_text_wordcloud() +
+  theme_minimal() +
+  facet_wrap(~newsgroup)
+```
+]
+
+
+
+---
 ### Computing tf-idf within newsgroups
 
 .pull-left[
@@ -304,6 +369,9 @@ To learn more about customising DT's table, visit this [link](https://rstudio.gi
 ---
 ### Visualising tf-idf within newsgroups
 
+.pull-left[
+Facet bar charts technique is used to visualise the tf-idf values of science related newsgroup.
+
 ```{r echo=FALSE}
 tf_idf %>%
   filter(str_detect(newsgroup, "^sci\\.")) %>%
@@ -316,6 +384,31 @@ tf_idf %>%
   facet_wrap(~ newsgroup, scales = "free") +
   labs(x = "tf-idf", y = NULL)
 ```
+]
+
+--
+.pull-right[
+The code chunk used to prepare the plot.
+
+```{r eval=FALSE}
+tf_idf %>%
+  filter(str_detect(newsgroup, "^sci\\.")) %>%
+  group_by(newsgroup) %>%
+  slice_max(tf_idf, 
+            n = 12) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, 
+                        tf_idf)) %>%
+  ggplot(aes(tf_idf, 
+             word, 
+             fill = newsgroup)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ newsgroup, 
+             scales = "free") +
+  labs(x = "tf-idf", 
+       y = NULL)
+```
+]
 
 ---
 ### Counting and correlating pairs of words with the widyr package
@@ -359,7 +452,7 @@ newsgroup_cors %>%
   geom_node_point(size = 6, 
                   color = "lightblue") +
   geom_node_text(aes(label = name),
-                 color = "yellow",
+                 color = "red",
                  repel = TRUE) +
   theme_void()
 ```
