@@ -1,4 +1,4 @@
-source,target,timestamp,price
+from,to,timestamp,price
 4795,Brew've Been Served,1/6/2014 7:28,11.34
 7108,Hallowed Grounds,1/6/2014 7:34,52.22
 6816,Brew've Been Served,1/6/2014 7:35,8.33
