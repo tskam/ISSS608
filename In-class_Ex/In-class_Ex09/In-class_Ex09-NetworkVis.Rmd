@@ -52,7 +52,8 @@ The code chunk:
 ```{r, echo=TRUE, eval=TRUE}
 packages = c('igraph', 'tidygraph', 
              'ggraph', 'visNetwork', 
-             'lubridate', 'tidyverse')
+             'lubridate', 'clock',
+             'tidyverse')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -62,8 +63,6 @@ for(p in packages){
 }
 ```
 ]
-
-
 
 ---
 ##  The Data
@@ -761,12 +760,21 @@ GAStech_edges_aggregated <- GAStech_edges %>%
 ---
 ### Plotting the first interactive network graph 
 
-.large[
-The code chunk below will be used to plot an interactive network graph by using the data prepared.]
+.pull-left[
+The code chunk below will be used to plot an interactive network graph by using the data prepared.
 
-```{r, echo=TRUE, eval=TRUE}
-visNetwork(GAStech_nodes, GAStech_edges_aggregated)
+```{r eval=FALSE}
+visNetwork(GAStech_nodes, 
+           GAStech_edges_aggregated)
 ```
+]
+
+.pull-right[
+```{r echo=FALSE}
+visNetwork(GAStech_nodes, 
+           GAStech_edges_aggregated)
+```
+]
 
 ---
 ### Working with layout
@@ -778,7 +786,8 @@ In the code chunk below, Fruchterman and Reingold layout is used.]
 ```{r, echo=TRUE, eval=FALSE}
 visNetwork(GAStech_nodes,
            GAStech_edges_aggregated) %>%
-  visIgraphLayout(layout = "layout_with_fr")
+  visIgraphLayout(layout = "layout_with_fr") %>%
+  visLayout(randomSeed = 123)
 ```
 
 Visit [Igraph](http://datastorm-open.github.io/visNetwork/igraph.html) to find out more about *visIgraphLayout*'s argument.
@@ -788,13 +797,13 @@ Visit [Igraph](http://datastorm-open.github.io/visNetwork/igraph.html) to find o
 
 ```{r, echo=FALSE, eval=TRUE}
 visNetwork(GAStech_nodes, GAStech_edges_aggregated) %>%
-  visIgraphLayout(layout = "layout_with_fr")
+  visIgraphLayout(layout = "layout_with_fr") %>%
+  visLayout(randomSeed = 123)
 ```
 ]
 
 ---
-## Working with visual attributes
-### Nodes 
+### Working with visual attributes - Nodes 
 
 .pull-left[
 visNetwork() looks for a field called "group" in the nodes object and colour the nodes according to the values of the group field.  
@@ -803,22 +812,38 @@ The code chunk below rename Department field to group.
 
 ```{r, echo=TRUE, eval=TRUE}
 GAStech_nodes <- GAStech_nodes %>%
-  rename(group = Department)
-```
-
-When we rerun the code chunk below, visNetwork shades the nodes by assigning unique colour to each category in the *group* field.
-]
-
-.pull-right[
-```{r echo=FALSE, eval=TRUE}
-visNetwork(GAStech_nodes,
-           GAStech_edges_aggregated) %>%
-  visIgraphLayout(layout = "layout_with_fr") 
+  rename(group = Department) 
 ```
 ]
 
 ---
-### Edges
+### Working with visual attributes - Nodes
+
+.pull-left[
+When we rerun the code chunk below, visNetwork shades the nodes by assigning unique colour to each category in the *group* field.
+
+```{r eval=FALSE}
+visNetwork(GAStech_nodes,
+           GAStech_edges_aggregated) %>%
+  visIgraphLayout(layout = "layout_with_fr") %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
+```
+
+]
+
+.pull-right[
+```{r echo=FALSE}
+visNetwork(GAStech_nodes,
+           GAStech_edges_aggregated) %>%
+  visIgraphLayout(layout = "layout_with_fr") %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
+```
+]
+
+---
+### Working with visual attributes - Edges
 
 .pull-left[
 In the code run below *visEdges()* is used to symbolise the edges.  
@@ -831,7 +856,9 @@ visNetwork(GAStech_nodes,
   visIgraphLayout(layout = "layout_with_fr") %>%
   visEdges(arrows = "to", 
            smooth = list(enabled = TRUE, 
-                         type = "curvedCW"))
+                         type = "curvedCW")) %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
 ```
 
 Visit [Option](http://datastorm-open.github.io/visNetwork/edges.html) to find out more about visEdges's argument.
@@ -844,7 +871,9 @@ visNetwork(GAStech_nodes,
   visIgraphLayout(layout = "layout_with_fr") %>%
   visEdges(arrows = "to", 
            smooth = list(enabled = TRUE, 
-                         type = "curvedCW"))
+                         type = "curvedCW")) %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
 ```
 ]
 
@@ -862,7 +891,9 @@ visNetwork(GAStech_nodes,
            GAStech_edges_aggregated) %>%
   visIgraphLayout(layout = "layout_with_fr") %>%
   visOptions(highlightNearest = TRUE,
-             nodesIdSelection = TRUE)
+             nodesIdSelection = TRUE) %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
 ```
 
 Visit [Option](http://datastorm-open.github.io/visNetwork/options.html) to find out more about visOption's argument.
@@ -875,9 +906,33 @@ visNetwork(GAStech_nodes,
            GAStech_edges_aggregated) %>%
   visIgraphLayout(layout = "layout_with_fr") %>%
   visOptions(highlightNearest = TRUE,
-             nodesIdSelection = TRUE)
+             nodesIdSelection = TRUE) %>%
+  visLegend() %>%
+  visLayout(randomSeed = 123)
 ```
 ]
+
+---
+## Bipartitle Network
+
+```{r}
+cc_edges <- read_csv("data/cc_edges.csv")
+cc_nodes <- read_csv("data/cc_nodes.csv")
+```
+
+
+```{r}
+cc_edges$timestamp <- date_time_parse(cc_edges$timestamp,
+                zone = "",
+                format = "%m/%d/%Y %H:%M")
+cc_edges$from <- as.character(cc_edges$from)
+```
+
+```{r, echo=TRUE, eval=FALSE}
+cc_graph <- tbl_graph(nodes = cc_nodes,
+                      edges = cc_edges, 
+                      directed = TRUE)
+```
 
 
 
