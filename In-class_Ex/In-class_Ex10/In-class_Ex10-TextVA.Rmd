@@ -53,13 +53,15 @@ By the end of this hands-on exercise, you will be able to:
 ### Installing and launching R packages
 
 .pull-left[
-In this hands-on exercise, four network data modelling and visualisation packages will be installed and launched.  They are igraph, tidygraph, ggraph and visNetwork.  Beside these four packages, tidyverse and [lubridate](https://lubridate.tidyverse.org/), an R package specially designed to handle and wrangling time data will be installed and launched too.]]
+In this hands-on exercise, four network data modelling and visualisation packages will be installed and launched.  They are igraph, tidygraph, ggraph and visNetwork.  Beside these four packages, tidyverse and [lubridate](https://lubridate.tidyverse.org/), an R package specially designed to handle and wrangling time data will be installed and launched too.]
 
 .pull-right[
 The code chunk:
 
 ```{r, echo=TRUE, eval=TRUE}
-packages = c('tidytext', 'lubridate', 'tidyverse')
+packages = c('tidytext', 'igraph', 
+             'tidygraph', 'ggraph', 
+             'widyr', 'tidyverse')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -89,19 +91,279 @@ Figure below shows the workflow using tidytext approach
 ---
 ### The data
 
-###
+.pull-left[
 
-20news <- "data/20news-bydate/20news-bydate-train/"
+#### Step 1: Creating a folder list
 
-# Define a function to read all files from a folder into a data frame
+```{r}
+news20 <- "data/20news/"
+```
+
+#### Step 2: Define a function to read all files from a folder into a data frame
+
+```{r}
 read_folder <- function(infolder) {
-  tibble(file = dir(infolder, full.names = TRUE)) %>%
-    mutate(text = map(file, read_lines)) %>%
-    transmute(id = basename(file), text) %>%
+  tibble(file = dir(infolder, 
+                    full.names = TRUE)) %>%
+    mutate(text = map(file, 
+                      read_lines)) %>%
+    transmute(id = basename(file), 
+              text) %>%
     unnest(text)
 }
+```
+]
+--
+
+.pull-right[
+#### Step 3:
+
+```{r}
+raw_text <- tibble(folder = 
+                     dir(news20, 
+                         full.names = TRUE)) %>%
+  mutate(folder_out = map(folder, 
+                          read_folder)) %>%
+  unnest(cols = c(folder_out)) %>%
+  transmute(newsgroup = basename(folder), 
+            id, text)
+```
+]
+
+---
+### Visualising
+
+.pull-left[
+
+```{r eval=FALSE}
+raw_text %>%
+  group_by(newsgroup) %>%
+  summarize(messages = n_distinct(id)) %>%
+  ggplot(aes(messages, newsgroup)) +
+  geom_col() +
+  labs(y = NULL)
+```
+]
+
+.pull-right[
+The visual: 
+
+```{r echo=FALSE}
+raw_text %>%
+  group_by(newsgroup) %>%
+  summarize(messages = n_distinct(id)) %>%
+  ggplot(aes(messages, newsgroup)) +
+  geom_col() +
+  labs(y = NULL)
+```
+]
+
+---
+### Further text data cleaning
+
+.pull-left[
+#### Step 4:
+
+must occur after the first occurrence of an empty line,
+and before the first occurrence of a line starting with
+
+```{r}
+cleaned_text <- raw_text %>%
+  group_by(newsgroup, id) %>%
+  filter(cumsum(text == "") > 0,
+         cumsum(str_detect(
+           text, "^--")) == 0) %>%
+  ungroup()
+```
+
+It is time to take a good look at the output data table.
+
+Notice that there are several untidy issues:
+- many empty entries at the text field.
+- redundant ">" character.
+]
+
+--
+.pull-left[
+#### Step 5: 
+
+```{r}
+cleaned_text <- cleaned_text %>%
+  filter(str_detect(text, "^[^>]+[A-Za-z\\d]")
+         | text == "",
+         !str_detect(text, 
+                     "writes(:|\\.\\.\\.)$"),
+         !str_detect(text, 
+                     "^In article <"),
+         !id %in% c(9704, 9985))
+```
+]
+
+---
+### Further text data cleaning
+
+.pull-left[
+
+```{r}
+usenet_words <- cleaned_text %>%
+  unnest_tokens(word, text) %>%
+  filter(str_detect(word, "[a-z']$"),
+         !word %in% stop_words$word)
+
+```
+]
+
+---
+### Visualising Words in newsgroups
+
+Now that we’ve removed the headers, signatures, and formatting, we can start exploring common words. For starters, we could find the most common words in the entire dataset, or within particular newsgroups.
+
+```{r}
+usenet_words %>%
+  count(word, sort = TRUE)
+```
 
 
+---
 
+```{r}
+words_by_newsgroup <- usenet_words %>%
+  count(newsgroup, word, sort = TRUE) %>%
+  ungroup()
+```
+
+---
+### Computing tf-idf within newsgroups
+
+.pull-left[
+The code chunk below uses *bind_tf_idf()* of tidytext to compute and bind the term frequency, inverse document frequency and ti-idf of a tidy text dataset to the dataset.   
+
+```{r}
+tf_idf <- words_by_newsgroup %>%
+  bind_tf_idf(word, newsgroup, n) %>%
+  arrange(desc(tf_idf))
+```
+]
+
+---
+### Visualising tf-idf as table
+
+The code chunk below uses *page_table()* of R Markdown package to create a html table that allows pagination of rows and columns.
+
+```{r}
+rmarkdown::paged_table(tf_idf)
+```
+
+---
+
+```{r}
+DT::datatable(tf_idf)
+```
+
+---
+### Visualising tf-idf within newsgroups
+
+```{r echo=FALSE}
+tf_idf %>%
+  filter(str_detect(newsgroup, "^sci\\.")) %>%
+  group_by(newsgroup) %>%
+  slice_max(tf_idf, n = 12) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, tf_idf)) %>%
+  ggplot(aes(tf_idf, word, fill = newsgroup)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ newsgroup, scales = "free") +
+  labs(x = "tf-idf", y = NULL)
+```
+
+---
+### Counting and correlating pairs of words with the widyr package
+
+- To count the number of times that two words appear within the same document, or to see how correlated they are. 
+- Most operations for finding pairwise counts or correlations need to turn the data into a wide matrix first.
+- [**widyr**](https://cran.r-project.org/web/packages/widyr/index.html) package first ‘casts’ a tidy dataset into a wide matrix, performs an operation such as a correlation on it, then re-tidies the result. 
+
+.pull-left[
+![](img/image10-2.jpg)
+]
+
+--
+.pull-right[
+In this code chunk below, *pairwise_cor()* of **widyr** package is used to compute the correlation between newsgroup based on the common words found. 
+
+```{r}
+newsgroup_cors <- words_by_newsgroup %>%
+  pairwise_cor(newsgroup, 
+               word, 
+               n, 
+               sort = TRUE)
+```
+]
+
+---
+### Visualising correlation as a network
+
+.pull-left[
+The code chunk below
+
+```{r eval=FALSE}
+set.seed(2017)
+
+newsgroup_cors %>%
+  filter(correlation > .025) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes(alpha = correlation, 
+                     width = correlation)) +
+  geom_node_point(size = 6, 
+                  color = "lightblue") +
+  geom_node_text(aes(label = name),
+                 color = "yellow",
+                 repel = TRUE) +
+  theme_void()
+```
+]
+
+.pull-right[
+The output:
+
+```{r echo=FALSE}
+set.seed(2017)
+
+newsgroup_cors %>%
+  filter(correlation > .025) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes(alpha = correlation, 
+                     width = correlation)) +
+  geom_node_point(size = 6, 
+                  color = "lightblue") +
+  geom_node_text(aes(label = name),
+                 color = "red",
+                 repel = TRUE) +
+  theme_void()
+```
+]
+
+---
+## Bigram
+
+
+```{r}
+bigrams <- cleaned_text %>%
+  unnest_tokens(bigram, 
+                text, 
+                token = "ngrams", 
+                n = 2)
+```
+
+---
+## References
+
+#### widyr
+
+- Reference guide
+    - [widyr: Widen, process, and re-tidy a dataset](https://cran.r-project.org/web/packages/widyr/vignettes/intro.html)
+    - [United Nations Voting Correlations](https://cran.r-project.org/web/packages/widyr/vignettes/united_nations.html)
 
 
