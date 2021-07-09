@@ -61,7 +61,7 @@ The code chunk:
 ```{r, echo=TRUE, eval=TRUE}
 packages = c('tidytext', 'igraph', 
              'tidygraph', 'ggraph', 
-             'widyr', 'tidyverse')
+             'widyr', 'DT', 'tidyverse')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -89,7 +89,7 @@ Figure below shows the workflow using tidytext approach
 ]
 
 ---
-### The data
+### Importing Multiple Text Files from Multiple Folders
 
 .pull-left[
 
@@ -113,10 +113,12 @@ read_folder <- function(infolder) {
 }
 ```
 ]
---
 
-.pull-right[
-#### Step 3:
+---
+### Importing Multiple Text Files from Multiple Folders
+
+.pull-left[
+#### Step 3: Reading in all the messages from the 20news folder
 
 ```{r}
 raw_text <- tibble(folder = 
@@ -130,42 +132,50 @@ raw_text <- tibble(folder =
 ```
 ]
 
----
-### Visualising
-
-.pull-left[
-
-```{r eval=FALSE}
-raw_text %>%
-  group_by(newsgroup) %>%
-  summarize(messages = n_distinct(id)) %>%
-  ggplot(aes(messages, newsgroup)) +
-  geom_col() +
-  labs(y = NULL)
-```
+.pull-right[
+Things to learn from the code chunk above:
+- [*read_lines()*](https://readr.tidyverse.org/reference/read_lines.html) of [**readr**](https://readr.tidyverse.org/index.html) package is used to read up to n_max lines from a file.
+- [*map()*](https://purrr.tidyverse.org/reference/map.html) of [**purrr**](https://purrr.tidyverse.org/index.html) package is used to transform their input by applying a function to each element of a list and returning an object of the same length as the input.
+- [*unnest()*](https://tidyr.tidyverse.org/reference/nest.html) of **dplyr** package is used to flatten a list-column of data frames back out into regular columns.
 ]
 
-.pull-right[
-The visual: 
+---
+### Initial EDA 
+
+.pull-left[
+Figure below shows the frequency of messages by newsgroup.
 
 ```{r echo=FALSE}
 raw_text %>%
   group_by(newsgroup) %>%
   summarize(messages = n_distinct(id)) %>%
   ggplot(aes(messages, newsgroup)) +
-  geom_col() +
+  geom_col(fill = "lightblue") +
+  labs(y = NULL)
+```
+]
+
+--
+.pull-right[
+The code chunk:
+
+```{r eval=FALSE}
+raw_text %>%
+  group_by(newsgroup) %>%
+  summarize(messages = n_distinct(id)) %>%
+  ggplot(aes(messages, newsgroup)) +
+  geom_col(fill = "lightblue") +
   labs(y = NULL)
 ```
 ]
 
 ---
-### Further text data cleaning
+### Cleaning Text Data
 
 .pull-left[
-#### Step 4:
+#### Step 1: Removing header and automated email signitures
 
-must occur after the first occurrence of an empty line,
-and before the first occurrence of a line starting with
+Notice that each message has some structure and extra text that we don’t want to include in our analysis. For example, every message has a header, containing field such as “from:” or “in_reply_to:” that describe the message. Some also have automated email signatures, which occur after a line like "--".
 
 ```{r}
 cleaned_text <- raw_text %>%
@@ -175,17 +185,21 @@ cleaned_text <- raw_text %>%
            text, "^--")) == 0) %>%
   ungroup()
 ```
-
-It is time to take a good look at the output data table.
-
-Notice that there are several untidy issues:
-- many empty entries at the text field.
-- redundant ">" character.
 ]
 
---
+.pull-right[
+Things to learn from the code chunk:
+- [*cumsum()*](https://rdrr.io/r/base/cumsum.html) of base R is used to return a vector whose elements are the cumulative sums of the elements of the argument.  
+- [*str_detect()*](https://stringr.tidyverse.org/reference/str_detect.html) from **stringr** is used to detect the presence or absence of a pattern in a string.
+]
+
+---
+### Cleaning Text Data
+
 .pull-left[
-#### Step 5: 
+#### Step 2: Removing lines with nested text representing quotes from other users. 
+
+In this code chunk below, regular expressions are used to remove with nested text representing quotes from other users. 
 
 ```{r}
 cleaned_text <- cleaned_text %>%
@@ -194,15 +208,17 @@ cleaned_text <- cleaned_text %>%
          !str_detect(text, 
                      "writes(:|\\.\\.\\.)$"),
          !str_detect(text, 
-                     "^In article <"),
-         !id %in% c(9704, 9985))
+                     "^In article <")
+  )
 ```
 ]
 
 ---
-### Further text data cleaning
+### Text Data Processing
 
 .pull-left[
+In this code chunk below, [*unnest_tokens()*](https://www.rdocumentation.org/packages/tidytext/versions/0.3.1/topics/unnest_tokens) of **tidytext** package is used to split the dataset into tokens, while [*stop_words()*](https://rdrr.io/cran/tidytext/man/stop_words.html) is used to remove stop-words. 
+
 
 ```{r}
 usenet_words <- cleaned_text %>%
@@ -246,19 +262,44 @@ tf_idf <- words_by_newsgroup %>%
 ]
 
 ---
-### Visualising tf-idf as table
+### Visualising tf-idf as interactive table
 
-The code chunk below uses *page_table()* of R Markdown package to create a html table that allows pagination of rows and columns.
+Table below is an interactive table created by using *datatable()*.
 
-```{r}
-rmarkdown::paged_table(tf_idf)
+```{r echo=FALSE}
+DT::datatable(tf_idf, filter = 'top') %>% 
+  formatRound(columns = c('tf', 'idf', 'tf_idf'), 
+              digits = 3) %>%
+  formatStyle(0, 
+              target = 'row', 
+              lineHeight='25%')
 ```
 
 ---
+### Visualising tf-idf as interactive table
 
-```{r}
-DT::datatable(tf_idf)
+.pull-left[
+The code chunk below uses *datatable()* of DT package to create a html table that allows pagination of rows and columns.
+
+```{r eval=FALSE}
+DT::datatable(tf_idf, filter = 'top') %>% 
+  formatRound(columns = c('tf', 'idf', 
+                          'tf_idf'), 
+              digits = 3) %>%
+  formatStyle(0, 
+              target = 'row', 
+              lineHeight='25%')
 ```
+]
+
+.pull-right[
+Things to learn from the code chunk:
+- *filter* argument is used to turn control the filter UI.
+- *formatRound()* is used to customise the values format.  The argument *digits* define the number of decimal places.
+- *formatStyle()* is used to customise the output table.  In this example, the arguments *target* and *lineHeight* are used to reduce the line height by 25%.
+
+To learn more about customising DT's table, visit this [link](https://rstudio.github.io/DT/functions.html).
+]
 
 ---
 ### Visualising tf-idf within newsgroups
@@ -304,9 +345,9 @@ newsgroup_cors <- words_by_newsgroup %>%
 ### Visualising correlation as a network
 
 .pull-left[
-The code chunk below
+Now, we can visualise the relationship between newgroups in network graph as shown below. 
 
-```{r eval=FALSE}
+```{r echo=FALSE}
 set.seed(2017)
 
 newsgroup_cors %>%
@@ -324,10 +365,11 @@ newsgroup_cors %>%
 ```
 ]
 
+--
 .pull-right[
-The output:
+The code chunk:
 
-```{r echo=FALSE}
+```{r eval=FALSE}
 set.seed(2017)
 
 newsgroup_cors %>%
