@@ -916,25 +916,88 @@ visNetwork(GAStech_nodes,
 ## Bipartitle Network
 
 ```{r}
-cc_edges <- read_csv("data/cc_edges.csv")
-cc_nodes <- read_csv("data/cc_nodes.csv")
+cc_data <- read_csv("data/cc_data.csv")
 ```
-
 
 ```{r}
-cc_edges$timestamp <- date_time_parse(cc_edges$timestamp,
-                zone = "",
-                format = "%m/%d/%Y %H:%M")
-cc_edges$from <- as.character(cc_edges$from)
+cc_data$timestamp <-  date_time_parse(cc_data$timestamp,
+                                      zone = "",
+                                      format = "%m/%d/%Y %H:%M")
 ```
+
+```{r}
+cc_data$last4ccnum <- as.character(cc_data$last4ccnum)
+cc_data$Day  = get_day(cc_data$timestamp)
+cc_data$Hour = get_hour(cc_data$timestamp)
+```
+
+```{r}
+sources <- cc_data %>%
+  distinct(last4ccnum) %>%
+  rename(label = last4ccnum)
+
+
+destinations <- cc_data %>%
+  distinct(location) %>%
+  rename(label = location)
+
+cc_nodes <- full_join(sources, 
+                   destinations, 
+                   by = "label")
+```
+
+```{r}
+cc_nodes <- cc_nodes %>% 
+  rowid_to_column("id")
+```
+
+```{r}
+edges <- cc_data %>%  
+  group_by(last4ccnum, location, Day, Hour) %>%
+  summarise(weight = n()) %>% 
+  ungroup()
+edges
+```
+
+```{r}
+cc_edges <- edges %>% 
+  left_join(cc_nodes, 
+            by = c("last4ccnum" = "label")) %>% 
+  rename(from = id)
+```
+
+```{r}
+cc_edges <- cc_edges %>% 
+  left_join(cc_nodes, 
+            by = c("location" = "label")) %>% 
+  rename(to = id)
+```
+
+```{r}
+cc_edges <- select(cc_edges, from, to, 
+                   Day, Hour, weight)
+```
+
+```{r}
+cc_graph <- tbl_graph(nodes = cc_nodes, 
+                      edges = cc_edges, 
+                      directed = FALSE)
+```
+
 
 ```{r, echo=TRUE, eval=FALSE}
-cc_graph <- tbl_graph(nodes = cc_nodes,
-                      edges = cc_edges, 
-                      directed = TRUE)
+g <- ggraph(cc_graph, 
+            layout = "auto") +
+  geom_edge_link(aes()) +
+  geom_node_point(aes())
+
+g + theme_graph()
 ```
 
-
+```{r}
+layout_tbl_graph_auto(cc_graph, 
+                      circular)
+```
 
 
 ```{r echo=FALSE, eval=FALSE}
