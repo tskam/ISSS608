@@ -724,6 +724,42 @@ g + theme_graph()
 ]
 
 ---
+### Visualising Community
+
+tidygraph package inherits many of the community detection algorithms imbedded into igraph and makes them available to us, including *Edge-betweenness (group_edge_betweenness)*, *Leading eigenvector (group_leading_eigen)*, *Fast-greedy (group_fast_greedy)*, *Louvain (group_louvain)*, *Walktrap (group_walktrap)*, *Label propagation (group_label_prop)*, *InfoMAP (group_infomap)*, *Spinglass (group_spinglass)*, and *Optimal (group_optimal)*. Some community algorithms are designed to take into account direction or weight, while others ignore it.  Use this [link](https://tidygraph.data-imaginist.com/reference/group_graph.html) to find out more about community detection functions provided by tidygraph, 
+
+In the code chunk below *group_edge_betweenness()* is used.
+
+```{r, eval=FALSE}
+g <- GAStech_graph %>%
+  mutate(community = as.factor(group_edge_betweenness(weights = Weight, directed = TRUE))) %>%
+  ggraph(layout = "fr") + 
+  geom_edge_link(aes(width=Weight), 
+                 alpha=0.2) +
+  scale_edge_width(range = c(0.1, 5)) +
+  geom_node_point(aes(colour = community))  
+
+g + theme_graph()
+```
+
+---
+### Visualising Community
+
+The output network graph with community coloured
+
+```{r, echo=FALSE}
+g <- GAStech_graph %>%
+  mutate(community = as.factor(group_edge_betweenness(weights = Weight, directed = TRUE))) %>%
+  ggraph(layout = "fr") + 
+  geom_edge_link(aes(width=Weight), 
+                 alpha=0.2) +
+  scale_edge_width(range = c(0.1, 5)) +
+  geom_node_point(aes(colour = community))  
+  
+g + theme_graph()
+```
+
+---
 ## Building Interactive Network Graph with visNetwork
 
 .large[
@@ -786,8 +822,7 @@ In the code chunk below, Fruchterman and Reingold layout is used.]
 ```{r, echo=TRUE, eval=FALSE}
 visNetwork(GAStech_nodes,
            GAStech_edges_aggregated) %>%
-  visIgraphLayout(layout = "layout_with_fr") %>%
-  visLayout(randomSeed = 123)
+  visIgraphLayout(layout = "layout_with_fr") 
 ```
 
 Visit [Igraph](http://datastorm-open.github.io/visNetwork/igraph.html) to find out more about *visIgraphLayout*'s argument.
@@ -915,42 +950,107 @@ visNetwork(GAStech_nodes,
 ---
 ## Bipartitle Network
 
+.pull-left[
+In this section, we will learn how to transform a transaction data set into a network graph by using tidygraph.  The data we are going to use is the *cc_data.csv* data from VAST Challenge 2021.
+
+First let us parse the data into R Studio by using *read_csv()*.
+
 ```{r}
 cc_data <- read_csv("data/cc_data.csv")
 ```
+
+Next, we should take a quick look at the imported tibble data.frame.
+
+```{r}
+glimpse(cc_data)
+```
+]
+
+--
+.pull-right[
+The code chunk used to parse the csv file into R Studio.
+
+```{r eval=FALSE}
+cc_data <- read_csv("data/cc_data.csv")
+```
+
+The code chunk used to check for data.table structure.
+
+```{r eval=FALSE}
+glimpse(cc_data)
+```
+
+Notice that the *timestamp* field is in character format and not in date-time format.  
+]
+
+---
+### Transforming data
+
+Write a code chunk to perform the following tasks:
+
+- transforming values in *timestamp* field into correct date-time format.
+- transforming values in *last4ccnum* field to character data type.
+- deriving a day-of-month field from timestamp.
+- deriving a hour-of-day field from timestamp.
+
+--
+The code chunk:
 
 ```{r}
 cc_data$timestamp <-  date_time_parse(cc_data$timestamp,
                                       zone = "",
                                       format = "%m/%d/%Y %H:%M")
-```
-
-```{r}
 cc_data$last4ccnum <- as.character(cc_data$last4ccnum)
 cc_data$Day  = get_day(cc_data$timestamp)
 cc_data$Hour = get_hour(cc_data$timestamp)
 ```
+
+---
+### Creating Nodes list
+
+.pull-left[
+In this section, we will perform the following task:
+
+- to get the distinct card users from the “last4ccnum” column.
+- to rename the column with the "last4ccnum" as “label” to adopt the vocabulary used by network analysis packages.
+- to repeat the same steps for "location" column.
+- to join both the sources and destinations data frames  
+
 
 ```{r}
 sources <- cc_data %>%
   distinct(last4ccnum) %>%
   rename(label = last4ccnum)
 
-
 destinations <- cc_data %>%
   distinct(location) %>%
   rename(label = location)
+```
+]
 
+--
+.pull-right[
+To create a single dataframe with a column with the unique users and locations, *full_join()* is used.  This is because we want to include all unique places from both the sources and the destinations of ccdata.
+
+```{r}
 cc_nodes <- full_join(sources, 
                    destinations, 
                    by = "label")
 ```
 
+Next, *rowid_to_column()* is used to add an “id” column to the nodes data frame. 
+
 ```{r}
 cc_nodes <- cc_nodes %>% 
   rowid_to_column("id")
 ```
+]
 
+---
+### Creating Edges list
+
+Creating an edge list is similar to the above, but it is complicated by the need to deal with two ID columns instead of one. We also want to create a weight column that will note the amount of letters sent between each set of nodes. The code chunk below will be used to accomplish the task.
+ 
 ```{r}
 edges <- cc_data %>%  
   group_by(last4ccnum, location, Day, Hour) %>%
@@ -958,6 +1058,12 @@ edges <- cc_data %>%
   ungroup()
 edges
 ```
+
+---
+### Tidying Edges list
+
+.pull-left[
+Like the node list, cc_edges now has the basic form that we want, but we again have the problem that the “source” and “destination” columns contain labels rather than IDs.  The code chunk below is used to address this issue. 
 
 ```{r}
 cc_edges <- edges %>% 
@@ -972,32 +1078,66 @@ cc_edges <- cc_edges %>%
             by = c("location" = "label")) %>% 
   rename(to = id)
 ```
+]
+
+--
+.pull-right[
+Now that edges has “from” and “to” columns with node IDs, we need to reorder the columns to bring “from” and “to” to the left of the data frame.  This task will be accomplished by using *select()* of **dplyr** as shown below.
 
 ```{r}
 cc_edges <- select(cc_edges, from, to, 
                    Day, Hour, weight)
+cc_edges
 ```
+]
+
+---
+### Building tidygraph network graph data object
+
+.pull-left[
+In the code chunk below, *tbl_graph()* of **tidygraph** package is used to build a network object by using a node list and an edge list.
 
 ```{r}
 cc_graph <- tbl_graph(nodes = cc_nodes, 
                       edges = cc_edges, 
                       directed = FALSE)
 ```
+]
 
-
-```{r, echo=TRUE, eval=FALSE}
-g <- ggraph(cc_graph, 
-            layout = "auto") +
-  geom_edge_link(aes()) +
-  geom_node_point(aes())
-
-g + theme_graph()
-```
-
+--
+.pull-right[
 ```{r}
-layout_tbl_graph_auto(cc_graph, 
-                      circular)
+cc_graph
 ```
+]
+
+---
+### Visualising the network 
+
+.pull-left[
+Figure below shown a network graph created by using cc_graph network object.
+
+```{r, echo=FALSE}
+ggraph(cc_graph, 
+       layout = "lgl") +
+  geom_edge_link(aes()) +
+  geom_node_point(aes()) +
+  theme_graph()
+```
+]
+
+--
+.pull-right[
+The code chunk used to create the network graph.
+
+```{r, eval=FALSE}
+ggraph(cc_graph, 
+       layout = "lgl") +
+  geom_edge_link(aes()) +
+  geom_node_point(aes()) +
+  theme_graph()
+```
+]
 
 
 ```{r echo=FALSE, eval=FALSE}
