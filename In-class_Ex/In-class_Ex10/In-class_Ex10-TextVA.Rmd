@@ -37,15 +37,17 @@ style_duo_accent(
 ## Overview
 
 .large[
-In this hands-on exercise, you will learn how to visualising network data using R.
+In this hands-on exercise, you will learn how to visualise and analyse text data using R.
 
 By the end of this hands-on exercise, you will be able to:
 
-- create graph object data frames, manipulate them using appropriate functions of *dplyr*, *lubridate*, and *tidygraph*,
-- build network graph visualisation using appropriate functions of *ggraph*,
-- compute network geometrics using *tidygraph*,
-- build advanced graph visualisation by incorporating the network geometrics, and
-- build interactive network visualisation using *visNetwork* package. 
+- understand tidytext framework for processing, analysing and visualising text data, 
+- write function for importing multiple files into R,
+- combine multiple files into a single data frame,
+- clean and wrangle text data by using tidyverse approach,
+- visualise words with Word Cloud, 
+- compute  term frequency–inverse document frequency (TF-IDF) using tidytext method, and
+- visualising texts and terms relationship. 
 ]
 
 ---
@@ -53,17 +55,27 @@ By the end of this hands-on exercise, you will be able to:
 ### Installing and launching R packages
 
 .pull-left[
-In this hands-on exercise, four network data modelling and visualisation packages will be installed and launched.  They are igraph, tidygraph, ggraph and visNetwork.  Beside these four packages, tidyverse and [lubridate](https://lubridate.tidyverse.org/), an R package specially designed to handle and wrangling time data will be installed and launched too.]
+In this hands-on exercise, the following R packages for handling, processing, wrangling, analysing and visualising text data will be used:
+
+- tidytext, tidyverse (mainly readr, purrr, stringr, ggplot2)
+- widyr, 
+- wordcloud and ggwordcloud,
+- textplot (required igraph, tidygraph and ggraph, )
+- DT,  
+- lubridate and hms.
+]
 
 .pull-right[
 The code chunk:
 
 ```{r, echo=TRUE, eval=TRUE}
-packages = c('tidytext', 'igraph', 
-             'tidygraph', 'ggraph', 
+packages = c('tidytext', 
              'widyr', 'wordcloud',
              'DT', 'ggwordcloud', 
-             'textplot', 'tidyverse')
+             'textplot', 'lubridate', 
+             'hms','tidyverse', 
+             'tidygraph', 'ggraph',
+             'igraph')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -72,22 +84,6 @@ for(p in packages){
   library(p, character.only = T)
 }
 ```
-]
-
----
-## Introducing tidytext
-
-.pull-left[
-- Using tidy data principles in processing, analysing and visualising text data.
-- Much of the infrastructure needed for text mining with tidy data frames already exists in packages like 'dplyr', 'broom', 'tidyr', and 'ggplot2'.]
-
----
-### The Text Visual Analytics Workflow
-
-Figure below shows the workflow using tidytext approach
-
-.center[
-![](img/image10-1.jpg)
 ]
 
 ---
@@ -131,6 +127,7 @@ raw_text <- tibble(folder =
   unnest(cols = c(folder_out)) %>%
   transmute(newsgroup = basename(folder), 
             id, text)
+write_rds(raw_text, "data/rds/news20.rds")
 ```
 ]
 
@@ -139,7 +136,12 @@ Things to learn from the code chunk above:
 - [*read_lines()*](https://readr.tidyverse.org/reference/read_lines.html) of [**readr**](https://readr.tidyverse.org/index.html) package is used to read up to n_max lines from a file.
 - [*map()*](https://purrr.tidyverse.org/reference/map.html) of [**purrr**](https://purrr.tidyverse.org/index.html) package is used to transform their input by applying a function to each element of a list and returning an object of the same length as the input.
 - [*unnest()*](https://tidyr.tidyverse.org/reference/nest.html) of **dplyr** package is used to flatten a list-column of data frames back out into regular columns.
+- [mutate()](https://dplyr.tidyverse.org/reference/mutate.html) of **dplyr** is used to add new variables and preserves existing ones; 
+- [transmute()](https://dplyr.tidyverse.org/reference/mutate.html) of **dplyr** is used to add new variables and drops existing ones.
+- [read_rds()](https://readr.tidyverse.org/reference/read_rds.html) is used to save the extracted and combined data frame as rds file for future use.
 ]
+
+
 
 ---
 ### Initial EDA 
@@ -162,6 +164,7 @@ raw_text %>%
 The code chunk:
 
 ```{r eval=FALSE}
+raw_text <- news20
 raw_text %>%
   group_by(newsgroup) %>%
   summarize(messages = n_distinct(id)) %>%
@@ -169,6 +172,19 @@ raw_text %>%
   geom_col(fill = "lightblue") +
   labs(y = NULL)
 ```
+]
+
+
+---
+## Introducing tidytext
+
+- Using tidy data principles in processing, analysing and visualising text data.
+- Much of the infrastructure needed for text mining with tidy data frames already exists in packages like 'dplyr', 'broom', 'tidyr', and 'ggplot2'.
+
+Figure below shows the workflow using tidytext approach for processing and visualising text data.
+
+.center[
+![](img/image10-1.jpg)
 ]
 
 ---
@@ -215,40 +231,51 @@ cleaned_text <- cleaned_text %>%
 ```
 ]
 
+.pull-right[
+Things to learn from the code chunk: 
+
+- [*str_detect()*](https://stringr.tidyverse.org/reference/str_detect.html) from **stringr** is used to detect the presence or absence of a pattern in a string.
+- [*filter()*](https://dplyr.tidyverse.org/reference/filter.html) of **dplyr** package is used to subset a data frame, retaining all rows that satisfy the specified conditions.
+]
+
 ---
 ### Text Data Processing
 
 .pull-left[
 In this code chunk below, [*unnest_tokens()*](https://www.rdocumentation.org/packages/tidytext/versions/0.3.1/topics/unnest_tokens) of **tidytext** package is used to split the dataset into tokens, while [*stop_words()*](https://rdrr.io/cran/tidytext/man/stop_words.html) is used to remove stop-words. 
 
-
 ```{r}
 usenet_words <- cleaned_text %>%
   unnest_tokens(word, text) %>%
   filter(str_detect(word, "[a-z']$"),
          !word %in% stop_words$word)
-
 ```
 ]
 
 ---
-### Visualising Words in newsgroups
+### Text Data Processing
 
+.pull-left[
 Now that we’ve removed the headers, signatures, and formatting, we can start exploring common words. For starters, we could find the most common words in the entire dataset, or within particular newsgroups.
 
 ```{r}
 usenet_words %>%
   count(word, sort = TRUE)
 ```
+]
 
+--
 
----
+.pull-right[
+Instead of counting individual word, you can also count words within by newsgroup by using the code chunk below.
+
 
 ```{r}
 words_by_newsgroup <- usenet_words %>%
   count(newsgroup, word, sort = TRUE) %>%
   ungroup()
 ```
+]
 
 ---
 ### Visualising Words in newsgroups
@@ -311,7 +338,14 @@ ggplot(aes(label = word,
 ```
 ]
 
+---
+## Basic Concept of TF-IDF
 
+- [tf–idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf), short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection of [corpus](https://en.wikipedia.org/wiki/Text_corpus). 
+
+.center[
+![:scale 60%](img/image10-4.jpg)
+]
 
 ---
 ### Computing tf-idf within newsgroups
@@ -481,8 +515,10 @@ newsgroup_cors %>%
 ]
 
 ---
-## Bigram
+### Bigram
 
+.pull-left[
+In this code chunk below, a bigram data frame is created by using unnest_tokens() of tidytext.
 
 ```{r}
 bigrams <- cleaned_text %>%
@@ -490,7 +526,169 @@ bigrams <- cleaned_text %>%
                 text, 
                 token = "ngrams", 
                 n = 2)
+
 ```
+]
+
+.pull-right[
+```{r}
+bigrams
+```
+]
+
+---
+### Counting bigrams
+
+.pull-left[
+The code chunk is used to count and sort the bigram data frame ascendingly.
+
+```{r}
+bigrams_count <- bigrams %>%
+  filter(bigram != 'NA') %>%
+  count(bigram, sort = TRUE)
+```
+]
+
+.pull-right
+```{r}
+bigrams_count
+```
+
+---
+### Cleaning bigram
+
+.pull-left[
+The code chunk below is used to seperate the bigram into two words.
+
+```{r}
+bigrams_separated <- bigrams %>%
+  filter(bigram != 'NA') %>%
+  separate(bigram, c("word1", "word2"), 
+           sep = " ")
+
+bigrams_filtered <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word)
+```
+]
+
+.pull-right[
+```{r}
+bigrams_filtered
+```
+]
+
+---
+### Counting the bigram again
+
+```{r}
+bigram_counts <- bigrams_filtered %>% 
+  count(word1, word2, sort = TRUE)
+```
+
+---
+### Create a network graph from bigram data frame
+
+In the code chunk below, a network graph is created by using *graph_from_data_frame()* of igraph. 
+
+```{r}
+bigram_graph <- bigram_counts %>%
+  filter(n > 3) %>%
+  graph_from_data_frame()
+bigram_graph
+```
+
+---
+### Visualizing a network of bigrams with ggraph
+
+.pull-left[
+
+In this code chunk below, ggraph package is used to plot the bigram.
+
+```{r echo=FALSE}
+set.seed(1234)
+
+ggraph(bigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), 
+                 vjust = 1, 
+                 hjust = 1)
+```
+]
+
+--
+.pull-right[
+
+The code chunk used to plot the network graph:
+
+```{r eval=FALSE}
+set.seed(1234)
+
+ggraph(bigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), 
+                 vjust = 1, 
+                 hjust = 1)
+```
+]
+
+---
+### Revised version
+
+.pull-left[
+
+```{r echo=FALSE}
+set.seed(1234)
+
+a <- grid::arrow(type = "closed", 
+                 length = unit(.15,
+                               "inches"))
+
+ggraph(bigram_graph, 
+       layout = "fr") +
+  geom_edge_link(aes(edge_alpha = n), 
+                 show.legend = FALSE,
+                 arrow = a, 
+                 end_cap = circle(.07,
+                                  'inches')) +
+  geom_node_point(color = "lightblue", 
+                  size = 5) +
+  geom_node_text(aes(label = name), 
+                 vjust = 1, 
+                 hjust = 1) +
+  theme_void()
+```
+]
+
+--
+.pull-right[
+
+The code chunl used to plot the network graph.
+
+```{r eval=FALSE}
+set.seed(1234)
+
+a <- grid::arrow(type = "closed", 
+                 length = unit(.15,
+                               "inches"))
+
+ggraph(bigram_graph, 
+       layout = "fr") +
+  geom_edge_link(aes(edge_alpha = n), 
+                 show.legend = FALSE,
+                 arrow = a, 
+                 end_cap = circle(.07,
+                                  'inches')) +
+  geom_node_point(color = "lightblue", 
+                  size = 5) +
+  geom_node_text(aes(label = name), 
+                 vjust = 1, 
+                 hjust = 1) +
+  theme_void()
+```
+]
 
 ---
 ## References

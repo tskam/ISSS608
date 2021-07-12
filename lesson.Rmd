@@ -100,7 +100,7 @@ Date: 17/7/2021
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson10_outline.html)
 - Lesson slides in [html](lesson/Lesson10/Lesson10-TextVis.html) and in [pdf](lesson/Lesson10/Lesson10-TextVis.pdf) formats.  
-- [In-class Exercise]() 
+- [In-class Exercise](In-class_Ex/In-class_Ex10/In-class_Ex10-TextVA.html) 
 
 ### Lesson 11: Introducing Shiny
 
