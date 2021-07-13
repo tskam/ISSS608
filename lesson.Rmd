@@ -116,8 +116,7 @@ Date: 31/7/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson12_outline.html)
-- Lesson slides in [html]() and in [pdf]() formats.  
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+- Lesson slides and In-class Exercise in [html](lesson/Lesson12/Lesson12-Advanced_Shiny.html) and in [pdf](lesson/Lesson12/Lesson12-Advanced_Shiny.pdf) formats.
 
 ### Lesson 13: The Epilogue
 

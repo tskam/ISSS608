@@ -55,7 +55,7 @@ Please visit [VAST Challenge 2021: Mini-Challenge 3](https://vast-challenge.gith
 - This is an individual assignment. You are required to work on the assignment and prepare submission individually. 
 
 * The assignment report must be written by using R Markdown.  It can be in either [Distill](https://rstudio.github.io/distill/) or [blogdown](https://github.com/rstudio/blogdown) format. You are required to publish the assignment report on [Netlify](https://www.netlify.com/) and provide the link on the assignment submission page on elearn. 
-- Upload the R Markdown document, web report and data to your team Visual Analytics Project Github repository and provide the link on the assignment submission page on eLearn.
+- Upload the assignment report and data onto your individual Github repository and provide the link on the assignment submission page on eLearn.
  
 ## Submission date 
  

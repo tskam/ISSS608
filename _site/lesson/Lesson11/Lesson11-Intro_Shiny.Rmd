@@ -748,7 +748,7 @@ server <- function(input, output){
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Getting-to-Know-Shiny.html")
+pagedown::chrome_print("Lesson11-Intro_Shiny.html")
 ```
 
 
