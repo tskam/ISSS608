@@ -20,19 +20,10 @@ output:
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
   fig.retina=3,
-  cache = FALSE,
   echo = TRUE,
+  eval = TRUE,
   message = FALSE, 
   warning = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-library(xaringanthemer)
-style_duo_accent(
-  primary_color = "#1381B0",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF"
-)
 ```
 
 # From Movement Data to MovementVis
@@ -175,6 +166,7 @@ In the code chunk below, [*data-time_parse()*](https://clock.r-lib.org/reference
 gps$Timestamp <- date_time_parse(gps$Timestamp,
                 zone = "",
                 format = "%m/%d/%Y %H:%M:%S")
+gps$day <- as.factor(get_day(gps$Timestamp))
 ```
 
 **Note:**
@@ -230,7 +222,7 @@ Code chunk below joins the gps points into movement paths by using the drivers' 
 
 ```{r}
 gps_path <- gps_sf %>%
-  group_by(id) %>%
+  group_by(id, day) %>%
   summarize(m = mean(Timestamp), 
             do_union=FALSE) %>%
   st_cast("LINESTRING")
@@ -277,7 +269,7 @@ The solution:
 
 ```{r echo=TRUE, eval=FALSE}
 gps_path_selected <- gps_path %>%
-  filter(id==3)
+  filter(id==1)
 tmap_mode("view")
 tm_shape(bgmap) +
   tm_rgb(bgmap, r = 1,g = 2,b = 3,
