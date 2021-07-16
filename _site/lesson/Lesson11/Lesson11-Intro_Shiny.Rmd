@@ -459,123 +459,6 @@ shinyApp (ui=ui, server=server)
 - Note that in a fluid design your sidebar and other elements may "collapse" if your browser view is not wide enough.
 
 ---
-## Shiny *Output()*
-### An overview of Shiny *Output()* 
-
-.large[
-- After creating all the inputs, we should add elements to the UI to display the outputs. 
-- To display output, add it to *fluidPage()* with an *Output()* function.]
-
-.center[
-![:scale 40%](img/image20.jpg)]
-
-.large[
-- Similarly to the input functions, all the ouput functions have a outputId argument that is used to identify each output, and this argument must be unique for each output.
-- Each output needs to be constructed in the server code later.]
-
-
----
-
-## Shiny *Output()*
-### Adding placeholders for outputs
-
-```{r, echo=TRUE, eval=FALSE}
-
-ui <- fluidPage(
-    titlePanel("Pupils Examination Results Dashboard"),
-    sidebarLayout(
-        sidebarPanel("Side bar panel"),
-        mainPanel(
-            plotOutput("distPlot") #<<
-        )    
-    )
-)
-```
-
----
-
-## Shiny server.R
-### Building an output
-
-.large[
-There are three rules to build an output in Shiny, they are:
-
-- Save the output object into the output list (remember the app template - every server function has an output argument).
-
-- Build the object with a *render()* function, where is the type of output.
-
-- Access input values using the input list (every server function has an input argument)
-
-Note: The third rule is only required if you want your output to depend on some input.
-]
-
----
-
-## Shiny server.R
-### A generic Shiny *Render()* syntax
-
-![:scale 60%](img/image21.jpg)
-
----
-
-## Shiny server.R
-### Building a basic output
-
-Let's first see how to build a very basic output using only the first two rules. We'll create a plot and send it to the ***distPlot*** output.
-
-```{r, echo=TRUE, eval=FALSE}
-
-server <- function(input, output){
-    output$distPlot <- renderPlot({ #<<
-        ggplot(exam, aes(ENGLISH)) + #<<
-            geom_histogram(bins = 20, #<<
-                           color="black", #<< 
-                           fill="light blue") #<<
-    }) #<<
-} 
-```
-
-- This simple code shows the first two rules: we're creating a plot inside the *renderPlot()* function, and assigning it to ***distPlot*** in the output list. 
-- Remember that every output created in the UI must have a unique ID, now we see why. In order to attach an R object to an output with ID x, we assign the R object to ***output$distPlot***.
-- Since ***distPlot*** was defined as a ***plotOutput***, we must use the *renderPlot()* function, and we must create a plot inside the *renderPlot()* function.
-
----
-## The shinyApp()
-
-.large[
-- It is important to add *shinyApp()* at the end of your Shiny application.] 
-
-```{r, echo=TRUE, eval=FALSE}
-shinyApp(ui = ui, server = server) #<<
-```
-
-.center[
-![:scale 60%](img/image22.jpg)]
-
----
-## Shiny app is Reactive
-
-.large[
-- Reactivity automatically occurs when an input value is used to render an output object.]
-
-.center[
-![:scale 70%](img/image23.jpg)]
-
----
-## Reactive Flow
-
-.center[
-![:scale 80%](img/image24.jpg)]
-
----
-## Reactive Flow
-### Reactive flow, simplified
-
-.center[
-![:scale 80%](img/image25.jpg)
-]
-
----
 ## Shiny Inputs
 ### An overview of Shiny Inputs
 
@@ -667,6 +550,21 @@ checkboxInput(inputId = "show_data", #<<
 
 ---
 ## Shiny *Output()*
+### An overview of Shiny *Output()* 
+
+.large[
+- After creating all the inputs, we should add elements to the UI to display the outputs. 
+- To display output, add it to *fluidPage()* with an *Output()* function.]
+
+.center[
+![:scale 40%](img/image20.jpg)]
+
+.large[
+- Similarly to the input functions, all the ouput functions have a outputId argument that is used to identify each output, and this argument must be unique for each output.
+- Each output needs to be constructed in the server code later.]
+
+---
+## Shiny *Output()*
 ### Shiny *Output()* options
 
 .pull-left[
@@ -677,8 +575,25 @@ checkboxInput(inputId = "show_data", #<<
 ![](img/image28.jpg)]
 
 ---
-## Shiny Inputs
-### Adding *checkboxInput()*
+## Shiny *Output()*
+### Adding *plotOutput()*
+
+```{r, echo=TRUE, eval=FALSE}
+
+ui <- fluidPage(
+    titlePanel("Pupils Examination Results Dashboard"),
+    sidebarLayout(
+        sidebarPanel("Side bar panel"),
+        mainPanel(
+            plotOutput("distPlot") #<<
+        )    
+    )
+)
+```
+
+---
+## Shiny *Output()*
+### Adding *dataTableOutput()*
 
 .large[
 - ui: Add an output defining where the data table should appear.]
@@ -692,10 +607,55 @@ mainPanel(
 
 ---
 ## Shiny server.R
+### Building an output
+
+.large[
+There are three rules to build an output in Shiny, they are:
+
+- Save the output object into the output list (remember the app template - every server function has an output argument).
+
+- Build the object with a *render()* function, where is the type of output.
+
+- Access input values using the input list (every server function has an input argument)
+
+Note: The third rule is only required if you want your output to depend on some input.
+]
+
+---
+
+## Shiny server.R
+### A generic Shiny *Render()* syntax
+
+![:scale 60%](img/image21.jpg)
+
+---
+## Shiny server.R
 ### Shiny *Render()*
 
 .center[
 ![:scale 80%](img/image29.jpg)]
+
+---
+## Shiny server.R
+### Building a basic output
+
+Let's first see how to build a very basic output using only the first two rules. We'll create a plot and send it to the ***distPlot*** output.
+
+```{r, echo=TRUE, eval=FALSE}
+
+server <- function(input, output){
+    output$distPlot <- renderPlot({ #<<
+        ggplot(exam, aes(ENGLISH)) + #<<
+            geom_histogram(bins = 20, #<<
+                           color="black", #<< 
+                           fill="light blue") #<<
+    }) #<<
+} 
+```
+
+- This simple code shows the first two rules: we're creating a plot inside the *renderPlot()* function, and assigning it to ***distPlot*** in the output list. 
+- Remember that every output created in the UI must have a unique ID, now we see why. In order to attach an R object to an output with ID x, we assign the R object to ***output$distPlot***.
+- Since ***distPlot*** was defined as a ***plotOutput***, we must use the *renderPlot()* function, and we must create a plot inside the *renderPlot()* function.
 
 ---
 ## Shiny server.R
@@ -704,7 +664,7 @@ mainPanel(
 ```{r, echo=TRUE, eval=FALSE}
 server <- function(input, output){
     output$distPlot <- renderPlot({
-        x <- unlist(exam[,input$variable])
+        x <- unlist(exam[,input$variable]) #<<
         
         ggplot(exam, aes(x)) +
             geom_histogram(bins = input$bin,
@@ -712,24 +672,62 @@ server <- function(input, output){
                            fill="light blue")
     })
     
-    output$examtable <- DT::renderDataTable({
-        if(input$show_data){
-            DT::datatable(data = exam %>% select(1:7),
-                          options= list(pageLength = 10),
-                          rownames = FALSE)
+    output$examtable <- DT::renderDataTable({               #<<
+        if(input$show_data){                                #<<
+            DT::datatable(data = exam %>% select(1:7),      #<<
+                          options= list(pageLength = 10),   #<<
+                          rownames = FALSE)                 #<<
         }
     })    
 }
 ```
 
+
+---
+## The shinyApp()
+
+.large[
+- It is important to add *shinyApp()* at the end of your Shiny application.] 
+
+```{r, echo=TRUE, eval=FALSE}
+shinyApp(ui = ui, server = server) #<<
+```
+
+.center[
+![:scale 60%](img/image22.jpg)]
+
+---
+## Shiny app is Reactive
+
+.large[
+- Reactivity automatically occurs when an input value is used to render an output object.]
+
+.center[
+![:scale 70%](img/image23.jpg)]
+
+---
+## Reactive Flow
+
+.center[
+![:scale 80%](img/image24.jpg)]
+
+---
+## Reactive Flow
+### Reactive flow, simplified
+
+.center[
+![:scale 80%](img/image25.jpg)
+]
+
 ---
 
 # References
 
-.large[
 * Hadley Wickham (2021) ['''Mastering Shiny'''](https://mastering-shiny.org/index.html), O’Reilly Media.  This is a highly recommended book. 
 
-* [Shiny Three Parts Tutorial](https://shiny.rstudio.com/tutorial/)
+* [Building Web Applications with Shiny](https://rstudio-education.github.io/shiny-course/), especially Module 1 and 2.
+
+* [Shiny Three Parts Tutorial](https://shiny.rstudio.com/tutorial/).
 
 * [Online Function reference](https://shiny.rstudio.com/reference/shiny/1.5.0/)
 
@@ -743,7 +741,7 @@ server <- function(input, output){
 **Beyond Uncle Google!** Last but not least, when you need help  
 
 * [How to get help](https://shiny.rstudio.com/articles/help.html)
-]
+
 
 
 ```{r echo=FALSE, eval=FALSE}
