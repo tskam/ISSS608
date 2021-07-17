@@ -59,7 +59,7 @@ Please visit [VAST Challenge 2021: Mini-Challenge 3](https://vast-challenge.gith
  
 ## Submission date 
  
-Your completed assignment is due on **18th July 2021 (Sunday), mid-night 11:59pm**.
+Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday), mid-night 11:59pm**.
 
 ## Reference
 ### Past Assignment Page
