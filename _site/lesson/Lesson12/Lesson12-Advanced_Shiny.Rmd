@@ -188,6 +188,14 @@ shinyApp (ui=ui, server=server)
 ```
 
 ---
+## Stop-trigger-delay
+
+In this section, you will learn how to how to stop, trigger, and delay Shiny actions.
+
+- Using *submitButton()*
+- Using *isolate()* and *actionButton()*
+
+---
 ## Build Reactivity
 ### Working with *submitButton()*
 
@@ -219,29 +227,22 @@ Note: The use of *submitButton* is generally discouraged in favor of the more ve
 
 .small[Reference: https://shiny.rstudio.com/reference/shiny/latest/submitButton.html]
 
-
 ---
-## Build Reactivity
-### Working with *isolate()* and *actionButton()*
+### Isolating reactions
 
-- Sometimes it’s useful for an observer/endpoint to access a reactive value or expression, but not to take a dependency on it. 
+#### When to use?
 
-- The *actionButton()* includes some JavaScript code that sends numbers to the server. When the web browser first connects, it sends a value of 0, and on each click, it sends an incremented value: 1, 2, 3, and so on.
-
-- In the server function, there are two items to note. First, *output$distPlot* will take a dependency on *input$goButton*, simply by accessing it. When the button is clicked, the value of *input$goButton* increases, and so *output$distPlot* re-executes.
-
-- The second is that the access to *input$obs* is wrapped with *isolate()*. This function takes an R expression, and it tells Shiny that the calling observer or reactive expression should not take a dependency on any reactive objects inside the expression.
-
-.small[Reference: https://shiny.rstudio.com/articles/isolation.html]
-
----
-## Build Reactivity
-### Working with *isolate()* and *actionButton()*
-
-.center[
-![:scale 60%](img/image3.jpg)
+.pull-left[
+- Suppose your app has an input widget where users can enter text for the title of the plot. However you only want the title to update if any of the other inputs that go into the plot change. You can achieve this by isolating the plot title such that: 
+    - When input$x or input$y changes, the plot will update.
+    - But when only the title input (input$plot_title) changes, the plot will not update.
 ]
 
+.pull-right[
+![](img/image19.jpg)
+]
+
+.small[Reference: https://shiny.rstudio.com/articles/isolation.html]
 
 ---
 ## Build Reactivity
@@ -252,16 +253,21 @@ Note: The use of *submitButton* is generally discouraged in favor of the more ve
 - At the ui, edit the code as shown below:]
 
 ```{r eval=FALSE}
-sliderInput(inputId = "bin",
-                        label = "Number of Bins",
-                        min = 5,
-                        max = 20,
-                        value = c(10)),
-            actionButton("goButton", "Go!"),#<<
-            checkboxInput(inputId = "show_data",
-                          label = "Show data table",
-                          value = TRUE)
+            selectInput(inputId = "xvariable",
+                        label = "x Variable:",
+                        choices = c("English" = "ENGLISH",
+                                    "Maths" = "MATHS",
+                                    "Science" = "SCIENCE"),
+                        selected = "SCIENCE"),
+            textInput(                      #<< 
+                inputId = "plot_title",     #<<
+                label = "Plot title",       #<<
+                placeholder = "Enter text to be used as plot title"), #<<
+            actionButton("goButton", "Go!") #<<
 ```
+
+- Reference guide on [textInput()](https://shiny.rstudio.com/reference/shiny/1.6.0/textInput.html)
+- Reference guide on [actionButton()](https://shiny.rstudio.com/reference/shiny/1.6.0/actionButton.html)
 
 ---
 ## Build Reactivity
@@ -271,83 +277,258 @@ sliderInput(inputId = "bin",
 - At the server side, edit the codes as shown below:]
 
 ```{r eval=FALSE}
-server <- function(input, output){
-    output$distPlot <- renderPlot({
-        input$goButton #<<
-
-        x <- unlist(exam[,input$variable])
+server <- function(input, output, session){
+    output$scatterPlot <- renderPlot({
+        input$goButton                           #<<
         
-        isolate({ #<<
-        ggplot(exam, aes(x)) +
-            geom_histogram(bins = input$bin,
-                           color="black", 
-                           fill="light blue")
-        })
+        ggplot(data=exam,
+               aes_string(x = input$xvariable,
+                          y = input$yvariable)) +
+            geom_point() +
+            labs(title = isolate({               #<<
+                toTitleCase(input$plot_title)    #<<
+            }))                                  #<<
     })
+}
 ```
 
+- Reference guide on [isolate()](https://shiny.rstudio.com/reference/shiny/1.6.0/isolate.html)
+
 ---
-## Building Interactive Graphics in Shiny
+## Embedding Interactive Graphs in R Shiny
 ### The **plotly** way
 
 .pull-left[
-.vlarge[
-- Plot the basic visualisation using **ggplots**
-- Wrap the visualisation object into plotly object using *ggplotly()*.
-]
+Two approaches:
+- Using plotly directly, or
+- Plot the basic visualisation using **ggplot2**, then wrap the visualisation object into plotly object using *ggplotly()*.
 
-.small[Reference:
-- Plotly R Open Source Graphing Library (https://plotly.com/r/)
-- Interactive web-based data visualization with R, plotly, and shiny (https://plotly-r.com/index.html)]
+Reference:
+- [Plotly R Open Source Graphing Library](https://plotly.com/r/)
+- [17 Server-side linking with shiny](https://plotly-r.com/linking-views-with-shiny.html) of [Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/index.html)
 ]
 
 .pull-right[
-![](img/image4.jpg)]
-
+![](img/image20.jpg)]
 
 ---
-### In-class Exercise: 
-### Building an interactive scatter plot in Shiny using Plotly
+### In-class Exercise: Embedding an interactive scatter plot in Shiny
 
 .pull-left[
-.large[
 - Install plotly R package if it has yet to be install in RStudio.
 - include a new line as shown below to launch plotly library. 
 
 ```{r}
 library(shiny)
-library(plotly)#<< 
+library(plotly) #<< 
 library(tidyverse)
 ```
 
 - At UI, edit the code as shown below
 
 ```{r eval=FALSE}
-        mainPanel(
-            plotlyOutput("scatterPlot") #<<
+ mainPanel(
+    plotlyOutput("scatterPlot") #<<
 ```
-]]
+]
 
+--
 .pull-right[
-.large[
 
 - edit the server section of the Shiny app as shown below.
 
 ```{r eval=FALSE}
 server <- function(input, output){
-    output$scatterPlot <- renderPlotly({#<<
-        x <- unlist(exam[,input$xvariable])
-        y <- unlist(exam[,input$yvariable])
+    output$scatterPlot <- renderPlotly({ #<<
         
-        p <- ggplot(exam, aes(x, y)) +
-            geom_point(color="grey 10",#<< 
-                       size=1) #<<
+      p <- ggplot(data = exam, 
+            aes_string(x = input$xvariable,
+                       y = input$yvariable)) +
+            geom_point(color="grey 10", 
+                       size=1)
         
-        ggplotly(p) #<<
+            ggplotly(p) #<<                           
     })
 }
 ```
-]]
+]
+
+---
+### In-class Exercise: Embedding an interactive bar chart in Shiny
+
+In this exercise, you will learn how going to embed an interactive bar chart in Shiny by using plotly.  The output will look similar to the figure below.
+
+.center[
+![:scale 50%](img/image21.jpg)
+]
+
+---
+### In-class Exercise: Embedding an interactive bar chart in Shiny
+
+.pull-left[
+The ui:
+
+```{r eval=FALSE}
+library(shiny)
+library(plotly)
+library(tidyverse)
+
+exam <- read_csv("data/Exam_data.csv")
+
+ui <- fluidPage(
+    titlePanel("Pupils Profile"),
+    mainPanel(
+            plotlyOutput("race"),
+        )
+    )
+```
+]
+
+--
+.pull-right[
+The server:
+
+```{r}
+server <- function(input, output) {
+    output$race <- renderPlotly({
+        p <- ggplot(data=exam, 
+                    aes(x=RACE)) +
+            geom_bar()
+        ggplotly(p)
+    })
+}
+```
+
+Last but not least the app
+
+```{r eval=FALSE}
+shinyApp (ui=ui, server=server)
+```
+]
+
+---
+### In-class Exercise: Embedding a drill-down bar chart in Shiny
+
+In this exercise, you will learn how to embed a drill-down bar chart in Shiny by using [event_data()](https://search.r-project.org/CRAN/refmans/plotly/html/event_data.html) of plotly.
+
+.center[
+![:scale 50%](img/image22.jpg)
+]
+
+---
+### In-class Exercise: Embedding a drill-down bar chart in Shiny
+
+.pull-left[
+The ui:
+
+```{r eval=FALSE}
+library(shiny)
+library(plotly)
+library(tidyverse)
+
+exam <- read_csv("data/Exam_data.csv")
+
+ui <- fluidPage(
+    titlePanel("Drill-down Bar Chart"),
+    mainPanel(
+            plotlyOutput("race"),
+            plotlyOutput("gender"),
+            verbatimTextOutput("info")
+        )
+    )
+```
+]
+
+--
+.pull-right[
+The server:
+
+```{r}
+server <- function(input, output) {
+    output$race <- renderPlotly({
+        p <- ggplot(data=exam, 
+                    aes(x=RACE)) +
+            geom_bar()
+        ggplotly(p)
+    })
+    output$gender <- renderPlotly({
+        d <- event_data("plotly_click") #<<
+        if (is.null(d)) return(NULL) #<<
+        
+        p <- exam %>% 
+            filter(RACE %in% d$x) %>%  #<<
+            ggplot(aes(x=GENDER)) +
+            geom_bar() 
+        ggplotly(p) %>%
+            layout(xaxis = list(title = d$x)) #<<
+    })
+    output$info <- renderPrint({
+        event_data("plotly_click") #<<
+    })    
+}
+```
+]
+
+---
+### In-class Exercise: Embedding a drill-down bar chart in Shiny (Revised version)
+
+.pull-left[
+The ui:
+
+```{r eval=FALSE}
+library(shiny)
+library(plotly)
+library(tidyverse)
+
+exam <- read_csv("data/Exam_data.csv")
+
+ui <- fluidPage(
+    titlePanel("Drill-down Bar Chart"),
+    mainPanel(
+            plotlyOutput("race"),
+            plotlyOutput("gender"),
+            verbatimTextOutput("info")
+        )
+    )
+```
+]
+
+--
+.pull-right[
+The server:
+
+```{r}
+server <- function(input, output) {
+    output$race <- renderPlotly({
+        p <- exam %>% #<<
+            plot_ly(x = ~RACE) #<<
+    })
+
+    output$gender <- renderPlotly({
+        d <- event_data("plotly_click")
+        if (is.null(d)) return(NULL)
+        
+        p <- exam %>% 
+            filter(RACE %in% d$x) %>% 
+            ggplot(aes(x=GENDER)) +
+            geom_bar() 
+        ggplotly(p) %>%
+            layout(xaxis = list(title = d$x))
+    })
+
+    output$info <- renderPrint({
+        event_data("plotly_click")
+    })    
+}
+```
+]
+
+
+---
+### Coordinated and Linked Views
+
+
+
 
 ---
 ## Plotting static map in Shiny - *renderPlot()* method
