@@ -50,15 +50,149 @@ By the end of this lesson, you will be able to:
 ---
 ## Reactive Flow
 
+By default, Shiny application is **Reactive**!
+
 .center[
-![:scale 80%](img/image1.jpg)]
+![:scale 75%](img/image12.jpg)
+]
+
+---
+## Reactive Flow - the basic
+
+The user selects an input, this input goes through some expression in the server, and an output is rendered. Each time the user changes their input selection, the expression that generates the output will automatically re-execute, and the relevant output will be re-rendered based on the new value of the input.
+
+In a Shiny application, there’s no need to explictly describe the relationships between inputs and outputs and tell R what to do when each input changes, Shiny automatically handles these details for you.
+
+.center[
+![:scale 80%](img/image11.jpg)
+]
+
+.small[
+Source: [Module 2](https://minecr.shinyapps.io/02-flow/#section-reactive-flow) of [Building Web Applications with Shiny](https://rstudio-education.github.io/shiny-course/)
+]
+
+---
+## Reactive Flow - The full features
+
+.center[
+![:scale 75%](img/image1.jpg)
+]
+
+---
+### Reactive elements
+
+Three components of reactive execution in Shiny are:
+
+- reactive inputs,
+- reactive expressions, and
+- reactive outputs.
+
+.center[
+![:scale 50%](img/image13.jpg)
+]
+
+---
+### Reactive elements
+
+.pull-left[
+#### Reactive inputs and outputs
+
+- A **reactive input** is a user input that comes through a browser interface, typically.
+- A **reactive output** is something that appears in the user’s browser window, such as a plot or a table of values.
+.center[
+![:scale 55%](img/image14.jpg)
+]
+
+- One reactive input can be connected to multiple outputs, and vice versa. For example we might have a UI input widget for filtering out data based on user’s selection, and the filtered data can be used in multiple outputs like plots and summaries.
+]
+
+--
+.pull-right[
+#### Reactive expressions
+
+- A **reactive expressions** is component between an input and an output.
+
+- It can both be a dependent (i.e be a child) and have dependents (i.e. be a parent).
+
+![](img/image15.jpg)
+
+]
+
+---
+## In-class Exercise: Building a reactive scatter plot using Shiny
+
+.pull-left[
+In this in-class exercise, you are going to explore advanced reactive features.
+
+To get started, you need to do the followings:
+
+- start a new Shiny Application
+- load the necessary R package, namely Shiny and tidyverse
+- import the data file (i.e. Exam_data.csv )
+- build a basic scatterplot look similar to the figure on the right.
+]
+
+.pull-right[
+![](img/image16.jpg)
+]
+
+---
+### The UI 
+
+```{r eval=FALSE}
+library(shiny)
+library(tidyverse)
+exam <- read_csv("data/Exam_data.csv")
+ui <- fluidPage(
+    titlePanel("Subject Correlation Analysis"),
+    sidebarLayout(
+        sidebarPanel(
+            selectInput(inputId = "yvariable",
+                        label = "y Variable:",
+                        choices = c("English" = "ENGLISH",
+                                    "Maths" = "MATHS",
+                                    "Science" = "SCIENCE"),
+                        selected = "MATHS"),
+            selectInput(inputId = "xvariable",
+                        label = "x Variable:",
+                        choices = c("English" = "ENGLISH",
+                                    "Maths" = "MATHS",
+                                    "Science" = "SCIENCE"),
+                        selected = "SCIENCE")
+        ),
+        mainPanel(
+            plotOutput("scatterPlot")
+        )
+    )
+)
+```
+
+---
+### The server
+
+```{r eval=FALSE}
+server <- function(input, output, session){    #<<
+    output$scatterPlot <- renderPlot({
+        ggplot(data=exam,
+               aes_string(x = input$xvariable,      #<<
+                          y = input$yvariable)) +   #<<
+                   geom_point()
+    })
+}
+```
+
+Lastly, do not forget to add this line!
+
+```{r eval=FALSE}
+shinyApp (ui=ui, server=server)
+```
 
 ---
 ## Build Reactivity
 ### Working with *submitButton()*
 
 .center[
-![:scale 60%](img/image2.jpg)
+![:scale 60%](img/image17.jpg)
 ]
 
 ---
@@ -71,11 +205,13 @@ By the end of this lesson, you will be able to:
 - Edit the code as shown below:
 
 ```{r eval=FALSE}
-checkboxInput(inputId = "show_data",
-                          label = "Show data table",
-                          value = TRUE),
-            submitButton("Apply changes")#<<
-
+            selectInput(inputId = "xvariable",
+                        label = "x Variable:",
+                        choices = c("English" = "ENGLISH",
+                                    "Maths" = "MATHS",
+                                    "Science" = "SCIENCE"),
+                        selected = "SCIENCE"),
+            submitButton("Apply changes")  #<<
 ```
 
 Note: The use of *submitButton* is generally discouraged in favor of the more versatile *actionButton()*
@@ -168,53 +304,6 @@ server <- function(input, output){
 .pull-right[
 ![](img/image4.jpg)]
 
----
-### In-class Exercise: Building a static scatter plot in Shiny
-
-```{r eval=FALSE}
-library(shiny)
-library(tidyverse)
-exam <- read_csv("data/Exam_data.csv")
-ui <- fluidPage(
-    titlePanel("Pupil Examination Results Dashboard"),
-    sidebarLayout(
-        sidebarPanel(
-            selectInput(inputId = "yvariable",
-                        label = "y Variable:",
-                        choices = c("English" = "ENGLISH",
-                                    "Maths" = "MATHS",
-                                    "Science" = "SCIENCE"),
-                        selected = "MATHS"),
-            selectInput(inputId = "xvariable",
-                        label = "x Variable:",
-                        choices = c("English" = "ENGLISH",
-                                    "Maths" = "MATHS",
-                                    "Science" = "SCIENCE"),
-                        selected = "SCIENCE")
-        ),
-        mainPanel(
-            plotOutput("scatterPlot")
-        )
-    )
-)
-```
-
----
-### In-class Exercise: Building a static scatter plot in Shiny
-
-```{r eval=FALSE}
-server <- function(input, output){
-    output$scatterPlot <- renderPlot({
-        x <- unlist(exam[,input$xvariable])
-        y <- unlist(exam[,input$yvariable])
-        
-        ggplot(exam, aes(x, y)) +
-            geom_point()
-    })
-}
-
-shinyApp (ui=ui, server=server)
-```
 
 ---
 ### In-class Exercise: 
@@ -486,74 +575,18 @@ shinyApp (ui=ui, server=server)
 ]
 
 ---
-## Standard R debugging tools
-
-.vlarge[
-- Tracing 
-    - print()/cat()/str() 
-    - renderPrint eats messages, must use cat(file = stderr(), ""...) 
-    - Also consider shinyjs package's logjs, which puts messages in the browser's JavaScript console  
-- Debugger
-    - Set breakpoints in RStudio 
-    - browser() 
-    - Conditionals: if (!is.null(input$x)) browser()
-]
-
----
-# Common errors
-
-.center[
-## "Object of type 'closure' is not subsettable"] 
-
-
-.vlarge[
-- You forgot to use () when retrieving a value from a reactive expression *plot(userData)* should be *plot(userData())*
-]
-
----
-# Common errors
-
-.center[
-## "Unexpected symbol"
-
-## "Argument xxx is missing, with no default"] 
-
-.vlarge[
-- Missing or extra comma in UI.  
-- Sometimes Shiny will realise this and give you a hint, or use RStudio editor margin diagnostics.
-]
-
----
-## Common errors
-
-.center[
-### "Operation not allowed without an active reactive context. (You tried to do something that can only be done from inside a reactive expression or observer.)]
-
-.vlarge[
-- Tried to access an input or reactive expression from directly inside the server function. You must use a reactive expression or observer instead. 
-- Or if you really only care about the value of that input at the time that the session starts, then use isolate().
-]
+### Selecting fields to download
 
 
 ---
-# Testing
+## Introducing Shiny Module
 
 .large[
-- There are many possible reasons for an application to stop working. These reasons include: 
-    - An upgraded R package has different behavior. (This could include Shiny itself!) 
-    - You make modifications to your application. 
-    - An external data source stops working, or returns data in a changed format. 
-- Automated tests can alert you to these kinds of problems quickly and with almost zero effort, after the tests have been created.
-]
+- As Shiny applications grow larger and more complicated, modules are used to manage the growing complexity of Shiny application code.
 
+- Functions are the fundamental unit of abstraction in R, and we designed Shiny to work with them. 
 
----
-## shinytest
-
-.large[
-- [Shinytest](https://rstudio.github.io/shinytest/index.html) uses snapshot-based testing strategy.  
-- The first time it runs a set of tests for an application, it performs some scripted interactions with the app and takes one or more snapshots of the application’s state.  
-- These snapshots are saved to disk so that future runs of the tests can compare their results to them.
+- We can write UI-generating functions and call them from our app, and we can write functions to be used in the server function that define outputs and create reactive expressions.
 ]
 
 ---
@@ -643,7 +676,6 @@ histogramUI <- function(id) {
 ```
 
 Here we have returned the UI components in a *tagList()*, which is a special type of layout function that allows you to bundle together multiple components without actually implying how they will be laid out. It is the responsibility of the person calling *histogramUI()* to wrap the result in a layout function like *column()* or *fluidRow()* according to their needs.
-
 
 ---
 ### Module server
@@ -765,16 +797,11 @@ shinyApp(ui, server)
 ```
 
 ---
-## Introducing Shiny Module
+## R Shiny Productive Extension
 
-.large[
-- As Shiny applications grow larger and more complicated, modules are used to manage the growing complexity of Shiny application code.
+- [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions): This github repository provides a comprehensive list of awesome R packages that offer extended UI or server components for the R web framework Shiny.  
 
-
-- Functions are the fundamental unit of abstraction in R, and we designed Shiny to work with them. 
-
-- We can write UI-generating functions and call them from our app, and we can write functions to be used in the server function that define outputs and create reactive expressions.
-]
+![:scale 20%](img/image10.jpg)
 
 ---
 ## shinythemes: Themes for Shiny
@@ -793,6 +820,79 @@ shinyApp(ui, server)
 ]]
 
 ---
+## shinytest
+
+.large[
+- [Shinytest](https://rstudio.github.io/shinytest/index.html) uses snapshot-based testing strategy.  
+- The first time it runs a set of tests for an application, it performs some scripted interactions with the app and takes one or more snapshots of the application’s state.  
+- These snapshots are saved to disk so that future runs of the tests can compare their results to them.
+]
+
+---
+## Standard R debugging tools
+
+.vlarge[
+- Tracing 
+    - print()/cat()/str() 
+    - renderPrint eats messages, must use cat(file = stderr(), ""...) 
+    - Also consider shinyjs package's logjs, which puts messages in the browser's JavaScript console  
+- Debugger
+    - Set breakpoints in RStudio 
+    - browser() 
+    - Conditionals: if (!is.null(input$x)) browser()
+]
+
+---
+# Common errors
+
+.center[
+## "Object of type 'closure' is not subsettable"] 
+
+
+.vlarge[
+- You forgot to use () when retrieving a value from a reactive expression *plot(userData)* should be *plot(userData())*
+]
+
+---
+# Common errors
+
+.center[
+## "Unexpected symbol"
+
+## "Argument xxx is missing, with no default"] 
+
+.vlarge[
+- Missing or extra comma in UI.  
+- Sometimes Shiny will realise this and give you a hint, or use RStudio editor margin diagnostics.
+]
+
+---
+## Common errors
+
+.center[
+### "Operation not allowed without an active reactive context. (You tried to do something that can only be done from inside a reactive expression or observer.)]
+
+.vlarge[
+- Tried to access an input or reactive expression from directly inside the server function. You must use a reactive expression or observer instead. 
+- Or if you really only care about the value of that input at the time that the session starts, then use isolate().
+]
+
+
+---
+# Testing
+
+.large[
+- There are many possible reasons for an application to stop working. These reasons include: 
+    - An upgraded R package has different behavior. (This could include Shiny itself!) 
+    - You make modifications to your application. 
+    - An external data source stops working, or returns data in a changed format. 
+- Automated tests can alert you to these kinds of problems quickly and with almost zero effort, after the tests have been created.
+]
+
+
+
+
+---
 ## References
 
 ### Shiny Module
@@ -804,6 +904,10 @@ shinyApp(ui, server)
 - [Shiny Modules (part 1) : Why using modules?](https://www.ardata.fr/en/post/2019/02/11/why-using-modules/)
 - [Shiny Modules (part 2): Share reactive among multiple modules](https://www.ardata.fr/en/post/2019/04/26/share-reactive-among-shiny-modules/)
 - [Shiny Modules (part 3): Dynamic module call](https://www.ardata.fr/en/post/2019/07/01/dynamic-module-call/)
+
+### Advanced R
+
+- [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
 
 
 ```{r echo=FALSE, eval=FALSE}
