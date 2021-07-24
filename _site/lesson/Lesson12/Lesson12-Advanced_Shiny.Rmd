@@ -196,7 +196,6 @@ In this section, you will learn how to how to stop, trigger, and delay Shiny act
 - Using *isolate()* and *actionButton()*
 
 ---
-## Build Reactivity
 ### Working with *submitButton()*
 
 .center[
@@ -204,7 +203,6 @@ In this section, you will learn how to how to stop, trigger, and delay Shiny act
 ]
 
 ---
-## Build Reactivity
 ### Working with *submitButton()*
 
 .large[
@@ -229,7 +227,6 @@ Note: The use of *submitButton* is generally discouraged in favor of the more ve
 
 ---
 ### Isolating reactions
-
 #### When to use?
 
 .pull-left[
@@ -245,7 +242,6 @@ Note: The use of *submitButton* is generally discouraged in favor of the more ve
 .small[Reference: https://shiny.rstudio.com/articles/isolation.html]
 
 ---
-## Build Reactivity
 ### Working with *isolate()* and *actionButton()*
 
 .large[
@@ -270,7 +266,6 @@ Note: The use of *submitButton* is generally discouraged in favor of the more ve
 - Reference guide on [actionButton()](https://shiny.rstudio.com/reference/shiny/1.6.0/actionButton.html)
 
 ---
-## Build Reactivity
 ### Working with *isolate()* and *actionButton()*
 
 .large[
@@ -523,18 +518,17 @@ server <- function(input, output) {
 ```
 ]
 
-
 ---
-### Coordinated and Linked Views
+## In-class Exercise: Embedding A Static Map in Shiny
+### *renderPlot()* method
 
+In this exercise, you will learn how to embed maps in Shiny.  It consists of three sub-exercise, namely:
 
+- plotting a simple geospatial layer,
+- plotting a map layer using tmap, and
+- building a choropleth mapping applicationin Shiny
 
-
----
-## Plotting static map in Shiny - *renderPlot()* method
-
-.large[
-- Setting up
+#### Setting up
 
 ```{r eval=FALSE}
 library(shiny)
@@ -549,13 +543,11 @@ library(tidyverse)
 mpsz <- st_read(dsn = "data/geospatial", 
                 layer = "MP14_SUBZONE_WEB_PL")
 ```
-]
 
 ---
-## Plotting static map in Shiny - *renderPlot()* method
+### In-class Exercise: Embedding a static map in Shiny
 
-.large[
-The UI codes]
+The UI codes
 
 ```{r eval=FALSE}
 ui <- fluidPage(
@@ -575,10 +567,9 @@ ui <- fluidPage(
 ```
 
 ---
-## Plotting static map in Shiny - *renderPlot()* method
+### In-class Exercise: Embedding a static map in Shiny
 
-.large[
-The Server codes]
+The Server codes:
 
 ```{r eval=FALSE}
 server <- function(input, output){
@@ -605,49 +596,25 @@ shinyApp (ui=ui, server=server)
 ```
 
 ---
-## Plotting interactive map in Shiny - *renderPlot()* method
+### In-class Exercise:  Building a choropleth mapping application
 
-.large[
-At the UI, edit the code as shown below:
-
-```{r eval=FALSE}
-mainPanel(
-            tmapOutput("mapPlot"), #<<
-            DT::dataTableOutput(outputId = "szTable")
-        )
-```
-
-At the server, edit the code as shown below:
-
-```{r eval=FALSE}
-server <- function(input, output){
-    output$mapPlot <- renderTmap({ #<<
-        tm_shape(mpsz)+
-            tm_fill() +
-            tm_borders(lwd = 0.1,  
-                       alpha = 1)
-    })
-```
-]
-
----
-## Building a choropleth mapping application
-
-.large[
 Edit the code as shown below:
 
 ```{r eval=FALSE}
+library(shiny)
+library(sf)
+library(tmap)
+library(tidyverse)
+
 mpsz <- st_read(dsn = "data/geospatial", 
                 layer = "MP14_SUBZONE_WEB_PL")
 
 popagsex <- read_csv("data/aspatial/respopagsex2000to2018.csv") #<<
 ```
-]
 
 ---
-## Building a choropleth mapping application
+### In-class Exercise:  Building a choropleth mapping application
 
-.large[
 Edit the codes as shown below:
 
 ```{r eval=FALSE}
@@ -673,12 +640,10 @@ mpsz_agemale2018 <- left_join(mpsz,
                               popagsex2018_male,
                               by = c("SUBZONE_N" = "SZ"))
 ```
-]
 
 ---
-## Building a choropleth mapping application
+### In-class Exercise:  Building a choropleth mapping application
 
-.large[
 At the UI, edit the codes as shown below:
 
 ```{r eval=FALSE}
@@ -700,12 +665,10 @@ ui <- fluidPage(
                                        "jenks" = "jenks"),
                         selected = "pretty"),
 ```
-]
 
 ---
-## Building a choropleth mapping application
+### In-class Exercise:  Building a choropleth mapping application
 
-.large[
 At the UI, continue edit the codes as shown below:
 
 ```{r eval=FALSE}
@@ -726,12 +689,11 @@ At the UI, continue edit the codes as shown below:
                         selected = "YlOrRd")
         ),
 ```
-]
+
 
 ---
-## Building a choropleth mapping application
+### In-class Exercise:  Building a choropleth mapping application
 
-.large[
 At the server, edit the codes as shown below:
 
 ```{r eval=FALSE}
@@ -753,11 +715,6 @@ A gentle reminder,
 ```{r eval=FALSE}
 shinyApp (ui=ui, server=server)
 ```
-]
-
----
-### Selecting fields to download
-
 
 ---
 ## Introducing Shiny Module
