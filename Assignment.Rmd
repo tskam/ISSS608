@@ -80,7 +80,229 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
 - [Suspense at the Wildlife Preserve](https://wiki.smu.edu.sg/1718t3isss608/ISSS608_2017-18_T3_Assign_Tan_Yong_Ying)
 - [Unmask Air Pollution in Sofia City](https://wiki.smu.edu.sg/18191isss608g1/ISSS608_2018-19_T1_Assign_Pu_Yiran)
 
-## Assignment Blog Link
+## Assignment Submission
+### G1
+
+- AHMAD FADY GANIS
+    - [Assignment write-up on Netlify](https://fadyganis-vast2.netlify.app/)
+
+- ARCHIE QUIAMBAO DOLIT
+    - [Assignment write-up on Netlify](https://adolit-vaa.netlify.app/posts/2021-07-18-assignment/)
+
+- ARYAH UMRALKAR CHOPRA
+    - [Assignment write-up on Netlify](https://arychopra-vc.netlify.app/)
+
+- CHEN YUXI
+    - [Assignment write-up on Netlify](https://yuxich.netlify.app/posts/2021-06-21-assignment/)
+
+- CONNIE XIA YI JING
+    - [Assignment write-up on Netlify]()
+
+- HONG YUN TING
+    - [Assignment write-up on Netlify](https://hongyunting.netlify.app/posts/2021-07-20-assignment-mc2/)
+
+- HUANG LINYA
+    - [Assignment write-up on Netlify](https://linyah-assignment.netlify.app/)
+
+- HUANG SHAN
+    - [Assignment write-up on Netlify](https://hs-visual.netlify.app/posts/2021-07-25-datavizblog/)
+
+- JOVINKA HARTANTO
+    - [Assignment write-up on Netlify](https://mc2jovinka.netlify.app/)
+
+- KELLY KOH KIA WOON
+    - Assignment write-up on Netlify: [Part 1](https://kellykkw.netlify.app/posts/2021-07-25-individual-assignment-part-1/), [Part 2](https://kellykkw.netlify.app/posts/2021-07-25-individual-assignment-part-3/), and [Part 3](https://kellykkw.netlify.app/posts/2021-07-25-individual-assignment-part-3/) 
+
+- KEVIN MAGIC RIALUBIN SUNGA
+    - [Assignment write-up on Netlify](https://kevinsunga.netlify.app/posts/2021-07-11-assignment/)
+
+- LI SHUXIAN
+    - [Assignment write-up on Netlify](https://gracious-bhaskara-0d9bfe.netlify.app/posts/2021-07-14-vast-2021-mc-3/)
+
+- LI YUHONG
+    - [Assignment write-up on Netlify](https://yuhongliblog.netlify.app/posts/2021-07-05-assignment/)
+
+- LI YUMENG
+    - [Assignment write-up on Netlify](https://nicetry.netlify.app/posts/individual%20assignment/)
+
+- LIAN YINGZHEN JOANNA
+    - [Assignment write-up on Netlify](https://isss608vizanalysis.netlify.app/posts/2021-07-18-assignment-mc2/)
+
+- LIANG YINGFANG
+    - [Assignment write-up on Netlify](https://isss608blog.netlify.app/posts/vast%20challenge%202021%20mc2/)
+
+- LIM JIAHUI
+    - [Assignment write-up on Netlify](https://limjiahui.netlify.app/posts/2021-07-07-viz-assignment/)
+
+- LIM JIN RU
+    - [Assignment write-up on Netlify](https://lim-jin-ru-assignment-mini-challenge1.netlify.app/posts/2021-07-23-vast-challenge-2021-mini-challenge-1/)
+
+- LIM YONG KAI
+    - [Assignment write-up on Netlify](https://limyongkai.netlify.app/posts/2021-07-23-vastmc2part1/)
+
+- LIU YANGGUANG
+    - [Assignment write-up on Netlify](https://ygliu.netlify.app/posts/2021-07-23-vast-challenge-2021-mc2/)
+
+- LOH YUN JIA STELLA
+    - [Assignment write-up on Netlify](https://isss608-assignment.netlify.app/index.html)
+
+- LUO HAOYU
+    - [Assignment write-up on Netlify](https://r4dsa-lhy.netlify.app/)
+
+- MANMIT SINGH S/O NARMAL SINGH
+    - [Assignment write-up on Netlify](https://gallant-hawking-d63d10.netlify.app/posts/2021-07-16-third-time-a-charm/)
+
+- MAYURAPRIYANN ARULMOZHI BASKARAN
+    - [Assignment write-up on Netlify](https://mayur-dataviz1.netlify.app/posts/2021-07-25-assignment-vast-challenge-mc2/)
+
+- NG DING XUAN ARNOLD
+    - [Assignment write-up on Netlify](https://arnoldndx.netlify.app/posts/2021-07-16-assignment/)
+
+- NG YEN NGEE
+    - [Assignment write-up on Netlify](https://yenngee-dataviz.netlify.app/post/2021-07-16-mc1-findings/)
+
+- NIKITHA BANDA
+    - [Assignment write-up on Netlify](https://vast-challenge.netlify.app/)
+
+- NURULASYIQAH BINTE MOHAMMAD TAHA
+    - [Assignment write-up on Netlify](https://vasq.netlify.app/posts/2021-07-13-assignment/)
+
+- OH YAO WEI AARON
+    - [Assignment write-up on Netlify](https://aaronoh743.netlify.app/posts/2021-07-07-assignment-1/)
+
+- ONG CHEE HONG
+    - [Assignment write-up on Netlify](https://chdataviz.netlify.app/posts/2021-07-04-vast-challenge-2021-assignment/)
+
+- RHODA TONG MIN TING
+    - [Assignment write-up on Netlify](https://mttong.netlify.app/posts/2021-07-25-my-assignment/)
+
+- RYAN CHAN WEIYAO
+    - [Assignment write-up on Netlify](https://ryan-chan.netlify.app/posts/2021-07-12-vast-challenge-mini-challenge-3/)
+
+- SHEN XIAOJING
+    - [Assignment write-up on Netlify](https://xiaojingshen.netlify.app/posts/assignment/)
+
+- SYED AHMAD ZAKI BIN SYED SAKAF AL-ATTAS
+    - [Assignment write-up on Netlify](https://syedahmadzakidataviz.netlify.app/posts/2021-06-08-assignment/)
+
+- TAN CHEE SENG DAVMES
+    - [Assignment write-up on Netlify](https://dtcs.netlify.app/posts/2021-07-13-assignment-1/)
+
+- TAN CHOO THYE
+    - [Assignment write-up on Netlify](https://funplaywdata06.netlify.app/posts/2021-06-28-assignment-vast-challenge-2021/)
+
+- TAN KAR YEE
+    - [Assignment write-up on Netlify](https://isss608-kytan-vast2021.netlify.app/posts/2021-07-07-mc3/)
+
+- WANG QINYU
+    - [Assignment write-up on Netlify](https://wangqy075.netlify.app/posts/2021-07-14-assignment/)
+
+- XU DAN
+    - [Assignment write-up on Netlify](https://visualsaturday.netlify.app/)
+
+- YAN RUIYUN
+    - [Assignment write-up on Netlify](https://optimistic-ritchie-9926db.netlify.app/)
+
+- YANG XU
+    - [Assignment write-up on Netlify](https://visualdataviz.netlify.app/posts/2021-07-17-assignment/)
+
+- YEO CHIA GUAN ANDY
+    - [Assignment write-up on Netlify](https://github.com/yeochiaguan/VAST-Challenge)
+
+- YEO DING RUN
+    - [Assignment write-up on Netlify](https://yeodingrun-vastchallenge2021.netlify.app/)
+
+- YU YAXIN
+    - [Assignment write-up on Netlify](https://determined-jepsen-0f6bf9.netlify.app/)
+
+- ZHANG YING
+    - [Assignment write-up on Netlify](https://alicia-zhang.netlify.app/posts/2021-07-11-dataviz-assignment/)
+
+- ZHONG LINLI
+    - [Assignment write-up on Netlify](https://linlizhong.netlify.app/)
+
+### G2
+
+- BAI YINING
+    - [Assignment write-up on Netlify](https://yiningmakeover1.netlify.app/posts/2021-07-13-assignment/)
+
+- DONG FANG
+    - [Assignment write-up on Netlify](https://dongfang-regina.netlify.app/posts/2021-07-17-assignvastchallenge/)
+    
+- JESSICA TAN SOO CHENG
+    - [Assignment write-up on Netlify](https://gracious-lumiere-bd59cb.netlify.app/methodology.html)
+    
+- JOYCE WOON SHI HUI
+    - [Assignment write-up on Netlify](https://jwdatavizassignment.netlify.app/posts/welcome/)
+    
+- LANG SHUANG
+    - [Assignment write-up on Netlify]()
+    
+- LEE SULING
+    - [Assignment write-up on Netlify](https://datavisvast2021.netlify.app/insights.html)
+    
+- LI NAN
+    - [Assignment write-up on Netlify](https://dataviz2linan.netlify.app/posts/2021-07-13-assignment/)
+    
+- LI YUETING
+    - [Assignment write-up on Netlify](https://yuetingassignment.netlify.app/)
+    
+- LI ZHEN
+    - [Assignment write-up on Netlify](https://visualizationzhen.netlify.app/posts/2021-07-05-aliba-crime-analysis/)  
+    
+- LIN PEIRONG
+    - [Assignment write-up on Netlify]()
+    
+- LIU MANYE
+    - [Assignment write-up on Netlify](https://dataviz-lmy.netlify.app/posts/2021-07-13-visual-assignment/)
+    
+- LIU NIAN
+    - [Assignment write-up on Netlify](https://visualisation-coursework-liunian.netlify.app/)
+    
+- LU DI
+    - [Assignment write-up on Netlify](https://ludi1234.netlify.app/posts/2021-07-19-assignment/)
+    
+- MAO XIAOZHU
+    - [Assignment write-up on Netlify](https://xiaozhumdataviz.netlify.app/posts/2021-07-03-assignmentmc1/)
+    
+- MIAO LU
+    - [Assignment write-up on Netlify](https://miaolu-assign.netlify.app/posts/2021-07-25-assignment/)
+    
+- MISHRA AMRITA
+    - [Assignment write-up on Netlify](https://amritamishradatablog.netlify.app/posts/2021-07-12-mini-challenge/)
+
+- QIAN ZIWEI
+    - [Assignment write-up on Netlify](https://qian-assignment.netlify.app/posts/2021-07-11-mini-challenge-3/)
+
+- SNG KAH LEONG
+    - [Assignment write-up on Netlify]()
+    
+- TANG HUINING
+    - [Assignment write-up on Netlify](https://myhardwork.netlify.app/posts/2021-07-25-assignment/)
+    
+- TANG YUE
+    - [Assignment write-up on Netlify](https://datavizblog.netlify.app/posts/2021-07-14-the-sharpe-ratio/)
+    
+- VERTIKA PODDAR
+    - [Assignment write-up on Netlify](https://vertika-assignment.netlify.app/overview.html)
+    
+- WANG JIAYI
+    - [Assignment write-up on Netlify](https://datavisual-wjy.netlify.app/posts/2021-07-17-vast-challenge-2021/)
+    
+- WANG XIYU
+    - [Assignment write-up on Netlify](https://isss608wangxiyu.netlify.app/posts/assignment/)
+    
+- YIN XIAOLAN
+    - [Assignment write-up on Netlify](https://isss608xiaolanyin.netlify.app/posts/2021-07-07-assignment/)
+    
+- ZHANG XINRU
+    - [Assignment write-up on Netlify](https://datavizblogzhangxinru.netlify.app/posts/2021-07-12-individual-assignment/)
+    
+- ZHANG YOUZHEN
+    - [Assignment write-up on Netlify](https://dataviz-1.netlify.app/posts/2021-07-14-assignment/)
+    
+- ZHONG PING
+    - [Assignment write-up on Netlify](https://zpmc2.netlify.app/)
 
 
 
