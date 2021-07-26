@@ -42,8 +42,9 @@ In this lesson, selected advanced methods of  Shiny will be discussed.  You will
 By the end of this lesson, you will be able to:
 
 - gain further understanding of the reactive feature of Shiny and Shiny's functions that support reactive flow,
-- build interactive Shiny application by using plotly R and
-- build static, interactive and reactive geovisualisation application by using tmap
+- build interactive Shiny application by using plotly R,
+- plot both static and interactive thematic maps by using tmap,
+- improve the productivity of Shiny applications development by using related built-in functions of Shiny for debugging and extension package. 
 ]
 
 ---
@@ -521,17 +522,14 @@ server <- function(input, output) {
 
 ---
 ## In-class Exercise: Embedding A Static Map in Shiny
+### *renderPlot()* method
 
-In this exercise, you will learn how to embed a static map in Shiny by using *renderPlot()*.  By the end of this exercise, you will be able to plot a static map on Shiny display as shown below.
+In this exercise, you will learn how to embed maps in Shiny.  It consists of three sub-exercise, namely:
 
-.center[
-![:scale 60%](img/image23.jpg)
-]
+- plotting a simple geospatial layer,
+- plotting a map layer using tmap, and
+- building a choropleth mapping applicationin Shiny
 
----
-### In-class Exercise: Embedding A Static Map in Shiny
-
-.pull-left[
 #### Setting up
 
 ```{r eval=FALSE}
@@ -540,17 +538,13 @@ library(sf)
 library(tmap)
 library(tidyverse)
 ```
-]
 
---
-.pull-right[
-#### Importing the geospatial data
+- Importing the geospatial data
 
 ```{r eval=FALSE}
 mpsz <- st_read(dsn = "data/geospatial", 
                 layer = "MP14_SUBZONE_WEB_PL")
 ```
-]
 
 ---
 ### In-class Exercise: Embedding a static map in Shiny
@@ -602,15 +596,6 @@ Important, don't miss out this line
 ```{r eval=FALSE}
 shinyApp (ui=ui, server=server)
 ```
-
----
-## In-class Exercise:  Building a choropleth mapping application
-
-In this exercise, you will learn how to build a choropleth mapping application by using tmap and Shiny.
-
-.center[
-![:scale 60%](img/image24.jpg)
-]
 
 ---
 ### In-class Exercise:  Building a choropleth mapping application
@@ -707,6 +692,7 @@ At the UI, continue edit the codes as shown below:
         ),
 ```
 
+
 ---
 ### In-class Exercise:  Building a choropleth mapping application
 
@@ -733,197 +719,335 @@ shinyApp (ui=ui, server=server)
 ```
 
 ---
-## Embedding an interactive map in Shiny
+## Introducing Shiny Module
 
-In this exercise, you will learn how to embed an interactive map in Shiny by using *renderTmap()* and *tmapOutput()* of **tmap** package.  The interactive map is a proportional symbol map showing distribution of winnings by branches/outlets.
+.large[
+- As Shiny applications grow larger and more complicated, modules are used to manage the growing complexity of Shiny application code.
 
-.center[
-![:scale 60%](img/image25.jpg)
+- Functions are the fundamental unit of abstraction in R, and we designed Shiny to work with them. 
+
+- We can write UI-generating functions and call them from our app, and we can write functions to be used in the server function that define outputs and create reactive expressions.
 ]
 
 ---
-### Embedding an interactive map in Shiny
-#### Setting up
+## Introducing Shiny Modules
 
-```{r eval=FALSE}
-library(shiny)
-library(sf)
-library(tmap)
-library(tidyverse)
-```
+.pull-left[
+.large[
+An example of a large and complex Shiny application diagram.
 
-#### Importing the geospatial data
+![:scale 90%](img/image5.jpg)
+]]
 
-```{r eval=FALSE}
-sgpools <- read_csv("data/aspatial/SGPools_svy21.csv")
-sgpools_sf <- st_as_sf(sgpools, 
-                       coords = c("XCOORD", 
-                                  "YCOORD"),
-                       crs= 3414)
-```
+--
+.pull-right[
+.large[
+An example of modulerised Shiny application.
 
-Things to learn from the code chunk above:
-
-- [*st_as_sf()*](https://r-spatial.github.io/sf/reference/st_as_sf.html) of sf package is used to convert the tibble data frame into simple feature data frame by using values from the XCOORD and YCOORD fields.  The crs argument is used to specify the projected coordinates systems (i.e. svy21 for Singapore).
+![:scale 85%](img/image6.jpg)
+]]
 
 ---
-### Embedding an interactive map in Shiny
-#### The ui
+## Module basics
+
+.large[
+A module is very similar to an app. Like an app, it’s composed of two pieces:
+
+- The **module UI** function that generates the *ui* specification.
+
+- The **module server** function that runs code inside the *server* function.
+
+The two functions have standard forms. They both take an *id* argument and use it to namespace the module. To create a module, we need to extract code out of the app UI and server and put it in to the module UI and server.
+]
+
+---
+### The original Shiny application codes 
+
+In order to understand the basics of Shiny modules, let us consider a simple Shiny application codes to plot a histogram shown below.
+
+.pull-left[
 
 ```{r eval=FALSE}
 ui <- fluidPage(
-    titlePanel("Interactive Map View"),
+  selectInput("var", 
+              "Variable", 
+              names(mtcars)),
+  numericInput("bins", 
+               "bins", 
+               10, 
+               min = 1),
+  plotOutput("hist")
+)
+server <- function(input, 
+                   output, 
+                   session) {
+  data <- reactive(mtcars[[input$var]])
+  output$hist <- renderPlot({
+    hist(data(), 
+         breaks = input$bins, 
+         main = input$var)
+  }, res = 96)
+}
+```
+]
+
+.pull-right[
+![](img/image7.jpg)
+]
+
+---
+### Module UI
+
+We’ll start with the module UI. There are two steps:
+
+- Put the UI code inside a function that has an id argument.
+
+- Wrap each existing ID in a call to NS(), so that (e.g.) "var" turns into NS(id, "var").
+
+
+```{r}
+histogramUI <- function(id) {
+  tagList(
+    selectInput(NS(id, "var"), "Variable", choices = names(mtcars)),
+    numericInput(NS(id, "bins"), "bins", value = 10, min = 1),
+    plotOutput(NS(id, "hist"))
+  )
+}
+```
+
+Here we have returned the UI components in a *tagList()*, which is a special type of layout function that allows you to bundle together multiple components without actually implying how they will be laid out. It is the responsibility of the person calling *histogramUI()* to wrap the result in a layout function like *column()* or *fluidRow()* according to their needs.
+
+---
+### Module server
+
+Next we tackle the server function. This gets wrapped inside another function which must have an id argument. This function calls *moduleServer()* with the *id*, and a function that looks like a regular server function:
+
+```{r eval=FALSE}
+histogramServer <- function(id) {
+  moduleServer(id, function(input, output, session) {
+    data <- reactive(mtcars[[input$var]])
+    output$hist <- renderPlot({
+      hist(data(), breaks = input$bins, main = input$var)
+    }, res = 96)
+  })
+}
+```
+
+Note that *moduleServer()* takes care of the namespacing automatically: inside of *moduleServer(id)*, *input$var* and *input$bins* refer to the inputs with names *NS(id, "var")* and *NS(id, "bins")*.
+]
+
+---
+### Revised Shiny Application
+
+Now that we have the ui and server functions, it’s good practice to write a function that uses them to generate an app which we can use for experimentation and testing:
+
+```{r eval=FALSE}
+ui <- fluidPage(
+    histogramUI("hist")
+    )
+
+server <- function(input, output, session) {
+    histogramServer("hist")
+    }
+
+shinyApp(ui, server)
+```
+
+Note that, like all Shiny control, you need to use the same *id* in both UI and server, otherwise the two pieces will not be connected.
+
+---
+## In-class Exercise: Function to import csv file
+
+![](img/image8.jpg)
+
+---
+### Module UI function
+
+```{r eval=FALSE}
+# Module UI function
+csvFileUI <- function(id, label = "CSV file") {
+    # `NS(id)` returns a namespace function, which was save as `ns` and will
+    # invoke later.
+    ns <- NS(id)
+    
+    tagList(
+        fileInput(ns("file"), label),
+        checkboxInput(ns("heading"), "Has heading"),
+        selectInput(ns("quote"), "Quote", c(
+            "None" = "",
+            "Double quote" = "\"",
+            "Single quote" = "'"
+        ))
+    )
+}
+```
+
+---
+### Module server function
+
+```{r eval=FALSE}
+csvFileServer <- function(id, stringsAsFactors) {
+    moduleServer(
+        id,
+        function(input, output, session) {
+            userFile <- reactive({
+                validate(need(input$file, message = FALSE))
+                input$file
+            })
+            dataframe <- reactive({
+                read.csv(userFile()$datapath,
+                         header = input$heading,
+                         quote = input$quote,
+                         stringsAsFactors = stringsAsFactors)
+            })
+            observe({
+                msg <- sprintf("File %s was uploaded", userFile()$name)
+                cat(msg, "\n")
+            })
+            return(dataframe)
+        }
+    )    
+}
+```
+
+---
+### The Shiny app
+
+```{r eval=FALSE}
+ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
-            checkboxInput(inputId = "showData",
-                          label = "Show data table",
-                          value = TRUE)
+            csvFileUI("datafile", "User data (.csv format)")
         ),
         mainPanel(
-            tmapOutput("mapPlot"), #<<
-            DT::dataTableOutput(outputId = "aTable")
+            dataTableOutput("table")
         )
     )
 )
 
-```
-
-Notice that *tmapout()* is used instead of *plotOutput()*.
-
----
-### Embedding an interactive map in Shiny
-#### The server
-
-```{r eval=FALSE}
-server <- function(input, output, session){
-    output$mapPlot <- renderTmap({   #<<
-        tm_shape(sgpools_sf)+
-            tm_bubbles(col = "OUTLET TYPE",
-                       size = "Gp1Gp2 Winnings",
-                       border.col = "black",
-                       border.lwd = 0.5)
-    })
+server <- function(input, output, session) {
+    datafile <- csvFileServer("datafile", stringsAsFactors = FALSE)
     
-    output$aTable <- DT::renderDataTable({
-        if(input$showData){
-            DT::datatable(data = sgpools_sf %>% 
-                            select(1:4),
-                          options= list(pageLength = 10),
-                          rownames = FALSE)
-        }
-    })    
+    output$table <- renderDataTable({
+        datafile()
+    })
 }
+
+shinyApp(ui, server)
 ```
-Notice that [*renderTmap()*](https://rdrr.io/cran/tmap/man/renderTmap.html) is used instead of *renderPlot()*.
 
 ---
-## In-class Exercise: Reactive Map in R Shiny
+## R Shiny Productive Extension
 
-In this exercise, you will learn how to create reactive map in Shiny.  The output will look similar to the figure below.
+- [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions): This github repository provides a comprehensive list of awesome R packages that offer extended UI or server components for the R web framework Shiny.  
 
-.center[
-![:scale 80%](img/image26.jpg)
+![:scale 20%](img/image10.jpg)
+
+---
+## shinythemes: Themes for Shiny
+
+.pull-left[
+.large[
+- It includes several Bootstrap themes from <https://bootswatch.com/>, which are packaged for use with Shiny applications.
+
+![:scale 90%](img/image9.jpg)
+]]
+
+.pull-right[
+.large[
+- For detail themes and getting started, refer to the [online document](https://rstudio.github.io/shinythemes/).
+
+]]
+
+---
+## shinytest
+
+.large[
+- [Shinytest](https://rstudio.github.io/shinytest/index.html) uses snapshot-based testing strategy.  
+- The first time it runs a set of tests for an application, it performs some scripted interactions with the app and takes one or more snapshots of the application’s state.  
+- These snapshots are saved to disk so that future runs of the tests can compare their results to them.
 ]
 
 ---
-### In-class Exercise: Reactive Map in R Shiny
-#### The ui
+## Standard R debugging tools
 
-```{r eval=FALSE}
-ui <- fluidPage(
-    titlePanel("Reactive Map"),
-    sidebarLayout(
-        sidebarPanel(
-            selectInput(inputId = "type",
-                        label = "Branch or Outlet?",
-                        choices = c("branch" = "Branch",
-                                    "outlet" = "Outlet"),
-                        selected = "Branch",
-                        multiple = TRUE),
-            sliderInput(inputId = "winning", 
-                        label = "Number of winnings", 
-                        min = 2,
-                        max = 80, 
-                        value = 20),
-            checkboxInput(inputId = "showData",
-                          label = "Show data table",
-                          value = TRUE)
-        ),
-```
+.vlarge[
+- Tracing 
+    - print()/cat()/str() 
+    - renderPrint eats messages, must use cat(file = stderr(), ""...) 
+    - Also consider shinyjs package's logjs, which puts messages in the browser's JavaScript console  
+- Debugger
+    - Set breakpoints in RStudio 
+    - browser() 
+    - Conditionals: if (!is.null(input$x)) browser()
+]
 
 ---
-### In-class Exercise: Reactive Map in R Shiny
-#### The ui (continue)
+# Common errors
 
-```{r eval=FALSE}
-        mainPanel(
-            tmapOutput("mapPlot"),
-            DT::dataTableOutput(outputId = "aTable")
-        )
-    )
-)
-```
+.center[
+## "Object of type 'closure' is not subsettable"] 
+
+
+.vlarge[
+- You forgot to use () when retrieving a value from a reactive expression *plot(userData)* should be *plot(userData())*
+]
 
 ---
-### In-class Exercise: Reactive Map in R Shiny
-#### The server
+# Common errors
 
-```{r eval=FALSE}
-server <- function(input, output, session){
-    dataset = reactive({ #<<                   
-        sgpools_sf %>% #<<
-            filter(TYPE == input$type) %>% #<<
-            filter(WINNINGS > input$winning) #<<
-    })
-    
-    output$mapPlot <- renderTmap({
-        tm_shape(shp = dataset(), #<<
-                 bbox = st_bbox(sgpools_sf))+ #<<
-            tm_bubbles(col = "TYPE",
-                       size = "WINNINGS",
-                       border.col = "black",
-                       border.lwd = 0.5)
-    })
-```
+.center[
+## "Unexpected symbol"
 
-Things to learn from the code chunk above:
+## "Argument xxx is missing, with no default"] 
 
-- [*reactive()*](https://shiny.rstudio.com/reference/shiny/1.6.0/reactive.html) is used to create a reactive expression (i.e. dataset) that hold the extracted data set.
-- *bbox = st_bbox()* argument is used to fix the extend of the map view.
+.vlarge[
+- Missing or extra comma in UI.  
+- Sometimes Shiny will realise this and give you a hint, or use RStudio editor margin diagnostics.
+]
 
 ---
-### In-class Exercise: Reactive Map in R Shiny
-#### The server (continue)
+## Common errors
 
-```{r eval=FALSE}
-    output$aTable <- DT::renderDataTable({
-        if(input$showData){
-            DT::datatable(data = dataset() %>% #<<
-                              select(1:4),
-                          options= list(pageLength = 10),
-                          rownames = FALSE)
-        }
-    })    
-}
-```
+.center[
+### "Operation not allowed without an active reactive context. (You tried to do something that can only be done from inside a reactive expression or observer.)]
 
-Also, don't forget this magic line!
+.vlarge[
+- Tried to access an input or reactive expression from directly inside the server function. You must use a reactive expression or observer instead. 
+- Or if you really only care about the value of that input at the time that the session starts, then use isolate().
+]
 
-```{r eval=FALSE}
-shinyApp (ui=ui, server=server)
-```
+
+---
+# Testing
+
+.large[
+- There are many possible reasons for an application to stop working. These reasons include: 
+    - An upgraded R package has different behavior. (This could include Shiny itself!) 
+    - You make modifications to your application. 
+    - An external data source stops working, or returns data in a changed format. 
+- Automated tests can alert you to these kinds of problems quickly and with almost zero effort, after the tests have been created.
+]
+
+
+
 
 ---
 ## References
 
-- Hadley Wickham (2020) **Mastering Shiny: Build Interactive Apps, Reports, and Dashboards Powered by R** online version
-    - [Chapter 3 Basic reactivity](https://mastering-shiny.org/basic-reactivity.html)
-    - [Chapter 13 Why reactivity?](https://mastering-shiny.org/reactive-motivation.html)
-    - [Chapter 14 The reactive graph](https://mastering-shiny.org/reactive-graph.html)
-    - [Chapter 15 Reactive building blocks](https://mastering-shiny.org/reactivity-objects.html)
-    - [Chapter 16 Escaping the graph](https://mastering-shiny.org/reactivity-components.html)
-- Carson Sievert (2019) **Interactive web-based data visualization with R, plotly, and shiny**, online version. 
-    - [Chapter 17 Server-side linking with shiny](https://plotly-r.com/linking-views-with-shiny.html)
+### Shiny Module
+
+- [Chapter 19 Shiny modules](https://mastering-shiny.org/scaling-modules.html) of Mastering Shiny.
+- [Modularizing Shiny app code](https://shiny.rstudio.com/articles/modules.html), online article
+- [Communication between modules](https://shiny.rstudio.com/articles/communicate-bet-modules.html).  This is a relatively old article, some functions have changed.
+- [Shiny Modules](https://www.inwt-statistics.com/read-blog/shiny-modules.html)
+- [Shiny Modules (part 1) : Why using modules?](https://www.ardata.fr/en/post/2019/02/11/why-using-modules/)
+- [Shiny Modules (part 2): Share reactive among multiple modules](https://www.ardata.fr/en/post/2019/04/26/share-reactive-among-shiny-modules/)
+- [Shiny Modules (part 3): Dynamic module call](https://www.ardata.fr/en/post/2019/07/01/dynamic-module-call/)
+
+### Advanced R
+
+- [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
 
 
 ```{r echo=FALSE, eval=FALSE}
