@@ -183,7 +183,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://xiaojingshen.netlify.app/posts/assignment/)
 
 - SYED AHMAD ZAKI BIN SYED SAKAF AL-ATTAS
-    - [Assignment write-up on Netlify](https://syedahmadzakidataviz.netlify.app/posts/2021-06-08-assignment/)
+    - Assignment write-up on Netlify: [Part 1](https://syedahmadzakidataviz.netlify.app/posts/2021-07-26-assignment-part-1/), [Part 2](https://syedahmadzakidataviz.netlify.app/posts/2021-07-26-assignment-part-2/) and [Part 3](https://syedahmadzakidataviz.netlify.app/posts/2021-07-26-assignment-part-3/)
 
 - TAN CHEE SENG DAVMES
     - [Assignment write-up on Netlify](https://dtcs.netlify.app/posts/2021-07-13-assignment-1/)
