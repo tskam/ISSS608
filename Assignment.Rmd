@@ -281,7 +281,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://myhardwork.netlify.app/posts/2021-07-25-assignment/)
     
 - TANG YUE
-    - [Assignment write-up on Netlify](https://datavizblog.netlify.app/posts/2021-07-14-the-sharpe-ratio/)
+    - [Assignment write-up on Netlify](https://visualblog.netlify.app/posts/2021-07-26-assignmentvastchallenge2021/)
     
 - VERTIKA PODDAR
     - [Assignment write-up on Netlify](https://vertika-assignment.netlify.app/overview.html)
