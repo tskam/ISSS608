@@ -1,38 +1,29 @@
----
-title: "Lesson 12: Advanced Shiny II"
-subtitle: ""  
-author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
-institute: "School of Computing and Information Systems,<br/>Singapore Management University"
-date: "`r format(Sys.time(), '%d %B %Y')`"
-output:
-  xaringan::moon_reader:
-    css: [xaringan-themer.css, "css/text.css"]
-    lib_dir: libs
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      beforeInit: "js/macros.js"
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 12: Advanced Shiny</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <meta name="date" content="2021-07-27" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 12: Advanced Shiny
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 27 July 2021
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.retina=3,
-                      echo = TRUE,
-                      eval = TRUE,
-                      cache = FALSE,
-                      message = FALSE,
-                      warning = FALSE)
-```
 
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-library(xaringanthemer)
-style_duo_accent(
-  primary_color = "#1381B0",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF"
-)
-```
+
+
+
 
 ## Overview
 
@@ -41,7 +32,9 @@ In this lesson, selected advanced methods of  Shiny will be discussed.  You will
 
 By the end of this lesson, you will be able to:
 
-- build complex Shiny application using module
+- gain further understanding of the reactive feature of Shiny and Shiny's functions that support reactive flow,
+- build interactive Shiny application by using plotly R,
+- plot both static and interactive thematic maps by using tmap,
 - improve the productivity of Shiny applications development by using related built-in functions of Shiny for debugging and extension package. 
 ]
 
@@ -94,8 +87,9 @@ In order to understand the basics of Shiny modules, let us consider a simple Shi
 
 .pull-left[
 
-```{r eval=FALSE}
-ui <- fluidPage(
+
+```r
+ui &lt;- fluidPage(
   selectInput("var", 
               "Variable", 
               names(mtcars)),
@@ -105,11 +99,11 @@ ui <- fluidPage(
                min = 1),
   plotOutput("hist")
 )
-server <- function(input, 
+server &lt;- function(input, 
                    output, 
                    session) {
-  data <- reactive(mtcars[[input$var]])
-  output$hist <- renderPlot({
+  data &lt;- reactive(mtcars[[input$var]])
+  output$hist &lt;- renderPlot({
     hist(data(), 
          breaks = input$bins, 
          main = input$var)
@@ -132,8 +126,9 @@ We’ll start with the module UI. There are two steps:
 - Wrap each existing ID in a call to NS(), so that (e.g.) "var" turns into NS(id, "var").
 
 
-```{r}
-histogramUI <- function(id) {
+
+```r
+histogramUI &lt;- function(id) {
   tagList(
     selectInput(NS(id, "var"), "Variable", choices = names(mtcars)),
     numericInput(NS(id, "bins"), "bins", value = 10, min = 1),
@@ -149,11 +144,12 @@ Here we have returned the UI components in a *tagList()*, which is a special typ
 
 Next we tackle the server function. This gets wrapped inside another function which must have an id argument. This function calls *moduleServer()* with the *id*, and a function that looks like a regular server function:
 
-```{r eval=FALSE}
-histogramServer <- function(id) {
+
+```r
+histogramServer &lt;- function(id) {
   moduleServer(id, function(input, output, session) {
-    data <- reactive(mtcars[[input$var]])
-    output$hist <- renderPlot({
+    data &lt;- reactive(mtcars[[input$var]])
+    output$hist &lt;- renderPlot({
       hist(data(), breaks = input$bins, main = input$var)
     }, res = 96)
   })
@@ -168,12 +164,13 @@ Note that *moduleServer()* takes care of the namespacing automatically: inside o
 
 Now that we have the ui and server functions, it’s good practice to write a function that uses them to generate an app which we can use for experimentation and testing:
 
-```{r eval=FALSE}
-ui <- fluidPage(
+
+```r
+ui &lt;- fluidPage(
     histogramUI("hist")
     )
 
-server <- function(input, output, session) {
+server &lt;- function(input, output, session) {
     histogramServer("hist")
     }
 
@@ -190,12 +187,13 @@ Note that, like all Shiny control, you need to use the same *id* in both UI and 
 ---
 ### Module UI function
 
-```{r eval=FALSE}
+
+```r
 # Module UI function
-csvFileUI <- function(id, label = "CSV file") {
+csvFileUI &lt;- function(id, label = "CSV file") {
     # `NS(id)` returns a namespace function, which was save as `ns` and will
     # invoke later.
-    ns <- NS(id)
+    ns &lt;- NS(id)
     
     tagList(
         fileInput(ns("file"), label),
@@ -212,23 +210,24 @@ csvFileUI <- function(id, label = "CSV file") {
 ---
 ### Module server function
 
-```{r eval=FALSE}
-csvFileServer <- function(id, stringsAsFactors) {
+
+```r
+csvFileServer &lt;- function(id, stringsAsFactors) {
     moduleServer(
         id,
         function(input, output, session) {
-            userFile <- reactive({
+            userFile &lt;- reactive({
                 validate(need(input$file, message = FALSE))
                 input$file
             })
-            dataframe <- reactive({
+            dataframe &lt;- reactive({
                 read.csv(userFile()$datapath,
                          header = input$heading,
                          quote = input$quote,
                          stringsAsFactors = stringsAsFactors)
             })
             observe({
-                msg <- sprintf("File %s was uploaded", userFile()$name)
+                msg &lt;- sprintf("File %s was uploaded", userFile()$name)
                 cat(msg, "\n")
             })
             return(dataframe)
@@ -240,8 +239,9 @@ csvFileServer <- function(id, stringsAsFactors) {
 ---
 ### The Shiny app
 
-```{r eval=FALSE}
-ui <- fluidPage(
+
+```r
+ui &lt;- fluidPage(
     sidebarLayout(
         sidebarPanel(
             csvFileUI("datafile", "User data (.csv format)")
@@ -252,10 +252,10 @@ ui <- fluidPage(
     )
 )
 
-server <- function(input, output, session) {
-    datafile <- csvFileServer("datafile", stringsAsFactors = FALSE)
+server &lt;- function(input, output, session) {
+    datafile &lt;- csvFileServer("datafile", stringsAsFactors = FALSE)
     
-    output$table <- renderDataTable({
+    output$table &lt;- renderDataTable({
         datafile()
     })
 }
@@ -275,7 +275,7 @@ shinyApp(ui, server)
 
 .pull-left[
 .large[
-- It includes several Bootstrap themes from <https://bootswatch.com/>, which are packaged for use with Shiny applications.
+- It includes several Bootstrap themes from &lt;https://bootswatch.com/&gt;, which are packaged for use with Shiny applications.
 
 ![:scale 90%](img/image9.jpg)
 ]]
@@ -377,7 +377,129 @@ shinyApp(ui, server)
 - [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
 
 
-```{r echo=FALSE, eval=FALSE}
-library(pagedown)
-pagedown::chrome_print("Lesson12-Advanced_Shiny.html")
-```
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
