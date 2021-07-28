@@ -207,7 +207,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://visualdataviz.netlify.app/posts/2021-07-17-assignment/)
 
 - YEO CHIA GUAN ANDY
-    - [Assignment write-up on Netlify](https://github.com/yeochiaguan/VAST-Challenge)
+    - Assignment write-up on Netlify [Part 1](https://andyyeodataviz.netlify.app/posts/2021-07-27-isss608-assignment-1-part-1/) and [Part 2](https://andyyeodataviz.netlify.app/posts/2021-07-27-isss608-assignment-1-part-2/)
 
 - YEO DING RUN
     - [Assignment write-up on Netlify](https://yeodingrun-vastchallenge2021.netlify.app/)
