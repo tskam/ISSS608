@@ -171,7 +171,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://aaronoh743.netlify.app/posts/2021-07-07-assignment-1/)
 
 - ONG CHEE HONG
-    - [Assignment write-up on Netlify](https://chdataviz.netlify.app/posts/2021-07-04-vast-challenge-2021-assignment/)
+    - [Assignment write-up on Netlify](https://chvastassignment.netlify.app/)
 
 - RHODA TONG MIN TING
     - [Assignment write-up on Netlify](https://mttong.netlify.app/posts/2021-07-25-my-assignment/)
