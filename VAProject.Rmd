@@ -193,6 +193,67 @@ Q8: Do we have to come out with a draft project proposal before scheduling a con
 
 > Prof: Yes, you should or else there is nothing to discuss
 
+# Project Groups
+### G1
+
+[Group 1](https://isss608ispy.netlify.app/posts/2021-06-13-proposal/) 
+
+Abstract:
+
+[Group 2](https://g2project.netlify.app/posts/project%20proposal/)
+
+[Group 3](https://vapg3.netlify.app/proposal.html)
+
+[Group 4](https://visualanalyticsgroup4.netlify.app/projectproposal)
+
+[Group 5](https://isss608g1group5.netlify.app/posts/2021-06-07-project-proposal/)
+
+[Group 6](https://visual-g6.netlify.app/)
+
+[Group 7](https://inspiring-liskov-a4638b.netlify.app/posts/2021-06-21-project-site/)
+
+[Group 8](https://g1t8.netlify.app/)
+
+[Group 9](https://isss608-g1-t9.netlify.app/posts/welcome/)
+
+[Group 10]()
+
+[Group 11](https://g1group11project.netlify.app/)
+
+[Group 12](https://vast2021.netlify.app/)
+
+[Group 13](https://g1g13project.netlify.app/)
+
+[Group 14](https://isss608vizproj.netlify.app/)
+
+[Group 15](https://smu-vast2021-t15.netlify.app/posts/2021-06-19-project-proposal/)
+
+[Group 16](https://isss608project2021.netlify.app/posts/2021-06-26-project-proposal/)
+
+### G2
+
+[Group 1](https://isss608-group1.netlify.app/)
+
+[Group 2](https://va-project2021.netlify.app/)
+
+[Group 3](https://isss608vaag2group3.netlify.app/posts/2021-06-13-proposal/)
+
+[Group 4](https://isss608vaaproject.netlify.app/posts/2021-06-27-isss608-visual-analytics-and-applications-project-proposal/)
+
+[Group 5](https://project-g2t5.netlify.app/)
+
+[Group 6](https://isss608g2-team6.netlify.app/posts/welcome/)
+
+[Group 7](https://github.com/danielsng07/G2_Group7)
+
+[Group 8](https://visualanalyticsproject.netlify.app/posts/2021-06-19-project-proposal/)
+
+[Group 9](https://team9-project-proposal.netlify.app/posts/2021-06-13-team9-project-proposal/)
+
+[Group 10](https://vast-challenge-2021-group10.netlify.app/)
+
+
+
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
