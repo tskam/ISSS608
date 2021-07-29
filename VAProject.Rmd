@@ -158,6 +158,8 @@ Note that the following examples are for references purposes.  You are urge to u
 - [ISSS608 Year 2019-20 Term 2](https://wiki.smu.edu.sg/1920t2isss608/Project_Groups)
     - [SGSAS: Simple Geo-Spatial Analysis using R-Shiny](https://wiki.smu.edu.sg/1920t2isss608/Group11_proposal)
     - [A Visual Exploration of Media Consumption in Singapore](https://wiki.smu.edu.sg/1920t2isss608/Group02_proposal)
+- [ISSS608 Year 2020-21 Term 2](VAProject/VAProject-AY2020-21T2.html)
+    
 
 # Q & A
 
@@ -251,8 +253,6 @@ Abstract:
 [Group 9](https://team9-project-proposal.netlify.app/posts/2021-06-13-team9-project-proposal/)
 
 [Group 10](https://vast-challenge-2021-group10.netlify.app/)
-
-
 
 
 ```{r echo=FALSE, eval=FALSE}

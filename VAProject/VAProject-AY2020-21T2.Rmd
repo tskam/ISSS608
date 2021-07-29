@@ -1,0 +1,50 @@
+---
+title: "Visual Analytics Project AY2020-2021 Term 2"
+description: |
+  This page provides links to Visual Analytics Projects done by students during AY2020-2021 Term 2.
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Group 1](https://isss608grp1.netlify.app/posts/visual-analytics-project/)
+
+[Group 2](https://greenhouseemission.netlify.app/posts/welcome/)
+
+Group 3
+
+[Group 4](https://trusting-brattain-11cec4.netlify.app/)
+
+[Group 5](https://distracted-bartik-1a1932.netlify.app/)
+
+[Group 6](https://ourshinypet.netlify.app/)
+
+[Group 7](https://innovation-amidst-covid-19.netlify.app/)
+
+[Group 8](https://isss608stock.netlify.app/)
+
+Group 9
+
+[Group 10](https://suspicious-roentgen-253ea8.netlify.app/posts/2021-04-25-updated-project-proposal/)
+
+[Group 11](https://mitb-spatio-temporal-analysis.netlify.app/)
+
+[Group 12](https://vincentngwk.shinyapps.io/shinyinVIZments/)
+
+Group 13
+
+[Group 14](https://group14.netlify.app/posts/2021-04-26-visual-analytic-project/)
+
+Group 15
+
+[Group 16](https://va.moomookau.org/posts/2021-04-20-visual-analytics-project/)
+
+
+
+
+
+
+
