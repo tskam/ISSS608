@@ -110,7 +110,7 @@ Date: 24/7/2021
 - [Lesson Outline](outline/Lesson11_outline.html)
 - Lesson slides and In-class Exercise in [html](lesson/Lesson11/Lesson11-Intro_Shiny.html) and in [pdf](lesson/Lesson11/Lesson11-Intro_Shiny.pdf) formats. 
 
-### Lesson 12: Advanced Shiny Methods
+### Lesson 12: Advanced Shiny Methods I
 
 Date: 31/7/2021
 
@@ -118,16 +118,16 @@ Date: 31/7/2021
 - [Lesson Outline](outline/Lesson12_outline.html)
 - Lesson slides and In-class Exercise in [html](lesson/Lesson12/Lesson12-Advanced_Shiny.html) and in [pdf](lesson/Lesson12/Lesson12-Advanced_Shiny.pdf) formats.
 
-### Lesson 13: The Epilogue
+### Lesson 13: Advanced Shiny Methods II
 
 Date: 7/8/2021
 
 <p class="nospace">Materials:</p>
 - [Lesson Outline](outline/Lesson13_outline.html)
-- Lesson slides in [html]() and in [pdf]() formats.  
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
+- Lesson and In-class Exercise slides in [html](lesson/Lesson13/Lesson13-Advanced_Shiny_II.html) and in [pdf](lesson/Lesson13/Lesson13-Advanced_Shiny_II.pdf) formats.  
 
-### Lesson 14: Visual Analytics Workshop and Poster
+
+### Lesson 14: The Epilogue
 
 Date: 14/8/2021
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Lesson 12: Advanced Shiny</title>
+    <title>Lesson 12: Advanced Shiny II</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <meta name="date" content="2021-07-27" />
+    <meta name="date" content="2021-07-30" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
@@ -13,14 +13,12 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Lesson 12: Advanced Shiny
+# Lesson 12: Advanced Shiny II
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 27 July 2021
+### 30 July 2021
 
 ---
-
-
 
 
 
@@ -28,13 +26,11 @@ class: center, middle, inverse, title-slide
 ## Overview
 
 .large[
-In this lesson, selected advanced methods of  Shiny will be discussed.  You will also gain hands-on experiences on using these advanced methods to build Shiny applications. 
+In this lesson, selected advanced methods of Shiny will be discussed.  You will also gain hands-on experiences on using these advanced methods to build Shiny applications. 
 
 By the end of this lesson, you will be able to:
 
-- gain further understanding of the reactive feature of Shiny and Shiny's functions that support reactive flow,
-- build interactive Shiny application by using plotly R,
-- plot both static and interactive thematic maps by using tmap,
+- build complex Shiny application using module
 - improve the productivity of Shiny applications development by using related built-in functions of Shiny for debugging and extension package. 
 ]
 
@@ -50,7 +46,7 @@ By the end of this lesson, you will be able to:
 ]
 
 ---
-## Introducing Shiny Modules
+### Shiny Modules Workflow
 
 .pull-left[
 .large[
@@ -68,7 +64,7 @@ An example of modulerised Shiny application.
 ]]
 
 ---
-## Module basics
+### Module basics
 
 .large[
 A module is very similar to an app. Like an app, it’s composed of two pieces:
