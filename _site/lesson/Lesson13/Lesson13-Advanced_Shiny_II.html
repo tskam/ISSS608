@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Lesson 12: Advanced Shiny II</title>
+    <title>Lesson 13: Advanced Shiny II</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <meta name="date" content="2021-07-30" />
+    <meta name="date" content="2021-07-31" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
@@ -13,10 +13,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Lesson 12: Advanced Shiny II
+# Lesson 13: Advanced Shiny II
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 30 July 2021
+### 31 July 2021
 
 ---
 
@@ -30,8 +30,208 @@ In this lesson, selected advanced methods of Shiny will be discussed.  You will 
 
 By the end of this lesson, you will be able to:
 
-- build complex Shiny application using module
-- improve the productivity of Shiny applications development by using related built-in functions of Shiny for debugging and extension package. 
+- understanding the basic development cycle of creating apps, making changes, and experimenting with the results,
+- debug errors in the codes, 
+- build complex Shiny application using module, and 
+- improve the productivity of Shiny applications development
+]
+
+---
+## Programming Shiny Application: Survival Tip! 
+
+.center[
+.pull-left[
+.vlarge[What can we learn from Lego?]
+
+![:scale 60%](img/image1.jpg)
+]]
+
+--
+.pull-right[
+.large[
+- Sketch the storyboard 
+- Building the app incrementally
+    - Using prototyping approach
+    - Start as simple as possible
+    - Adding features one at a time
+- Save -&gt; Run App
+]]
+
+---
+## Debugging
+
+.pull-left[
+
+.vlarge[Programming == Frustration?]
+
+![](img/image2.jpg)
+
+.small[
+Source: The original [article](https://medium.com/@JustineBethKay/programming-is-frustration-788cfe9d73c7).
+]
+
+
+]
+
+--
+.pull-right[
+Three main cases of problems which we’ll discuss below:
+
+- You get an unexpected error. This is the easiest case, because you’ll get a traceback which allows you to figure out exactly where the error occurred. 
+- You don’t get any errors, but some value is incorrect. Here, you’ll need to use the interactive debugger, along with your investigative skills to track down the root cause.
+- All the values are correct, but they’re not updated when you expect. This is the most challenging problem because it’s unique to Shiny, so you can’t take advantage of your existing R debugging skills.
+]
+
+---
+### Common errors
+
+.center[
+### "Object of type 'closure' is not subsettable"] 
+
+.vlarge[
+- You forgot to use () when retrieving a value from a reactive expression *plot(userData)* should be *plot(userData())*
+]
+
+---
+### Common errors
+
+.center[
+### "Unexpected symbol"
+
+### "Argument xxx is missing, with no default"] 
+
+.vlarge[
+- Missing or extra comma in UI.  
+- Sometimes Shiny will realise this and give you a hint, or use RStudio editor margin diagnostics.
+]
+
+---
+### Common errors
+
+.center[
+### "Operation not allowed without an active reactive context. (You tried to do something that can only be done from inside a reactive expression or observer.)]
+
+.vlarge[
+- Tried to access an input or reactive expression from directly inside the server function. You must use a reactive expression or observer instead. 
+- Or if you really only care about the value of that input at the time that the session starts, then use isolate().
+]
+
+---
+## Standard R debugging tools
+
+.vlarge[
+- Tracing
+    - tracebacks
+    - print()/cat()/str() 
+    - renderPrint eats messages, must use cat(file = stderr(), ""...) 
+    - Also consider shinyjs package's logjs, which puts messages in the browser's JavaScript console  
+- Debugger
+    - Set breakpoints in RStudio 
+    - browser() 
+    - Conditionals: if (!is.null(input$x)) browser()
+]
+
+---
+## In-class Exercise: Working with Tracebacks in Shiny
+
+In this hands-on exercise, you will learn how to detect error by using tracebacks in Shiny.
+
+.pull-left[
+
+The codes:
+
+
+```r
+library(shiny)
+
+f &lt;- function(x) g(x)
+g &lt;- function(x) h(x)
+h &lt;- function(x) x * 2
+
+ui &lt;- fluidPage(
+    selectInput("n", "N", 1:10),
+    plotOutput("plot")
+)
+server &lt;- function(input, output, session) {
+    output$plot &lt;- renderPlot({
+        n &lt;- f(input$n)
+        plot(head(cars, n))
+    }, res = 96)
+}
+shinyApp(ui, server)
+```
+]
+
+--
+.pull-right[
+Op, there is an error!
+
+![](img/image3.jpg)
+]
+
+---
+### Learning how to debug
+
+.pull-left[
+Tracebacks in Shiny
+
+![](img/image4.jpg)
+Things to learn from the call stack:
+
+- The first few calls start the app in this case you just see runApp() but depending on how you start the app, you might see something more complicated. 
+- In general, you can ignore anything before the first runApp(); this is just the setup code to get the app running.
+]
+
+--
+.pull-right[
+
+- Next, you’ll see some internal Shiny code in charge of calling the reactive expression:
+    - Here, spotting **output$plot** is really important — that tells which of your **reactives (plot)** is causing the error. The next few functions are internal, and you can ignore them.
+- Finally, at the very top, you’ll see the code that you have written:
+    - This is the code called inside of *renderPlot()*. You can tell you should pay attention here because of the file path and line number; this lets you know that it’s your code.
+
+If you get an error in your app but don’t see a traceback then make sure that you’re running the app using Cmd/Ctrl + Shift + Enter (or if not in RStudio, calling runApp()), and that you’ve saved the file that you’re running it from. Other ways of running the app don’t always capture the information necessary to make a traceback.
+]
+
+---
+## In-class Exercise: Working with RStudio's Interactive Debugger
+
+.pull-left[
+In this hands-on Exercise, you will learn how to work with the interactive debugger in RStudio.
+
+- Double click prototype7a.
+- Double click on *prototype7a.rproj* file to open the project file in RStudio.
+- Click on *app.R* file to open the Shiny app file on RStudio
+- Add a call to *browser()* in your source code (for example line 5).
+- Click in **Run App** button to run the Shiny app.
+]
+
+.pull-right[
+![:scale 80%](img/image4a.jpg)
+
+- Next (press n): executes the next step in the function. Note that if you have a variable named n, you’ll need to use print(n) to display its value.
+- Continue (press c): leaves interactive debugging and continues regular execution of the function. This is useful if you’ve fixed the bad state and want to check that the function proceeds correctly.
+- Stop (press Q): stops debugging, terminates the function, and returns to the global workspace. Use this once you’ve figured out where the problem is, and you’re ready to fix it and reload the code.
+]
+
+---
+## shinytest
+
+.large[
+- [Shinytest](https://rstudio.github.io/shinytest/index.html) uses snapshot-based testing strategy.  
+- The first time it runs a set of tests for an application, it performs some scripted interactions with the app and takes one or more snapshots of the application’s state.  
+- These snapshots are saved to disk so that future runs of the tests can compare their results to them.
+]
+
+---
+## Testing
+
+.large[
+- There are many possible reasons for an application to stop working. These reasons include: 
+    - An upgraded R package has different behavior. (This could include Shiny itself!) 
+    - You make modifications to your application. 
+    - An external data source stops working, or returns data in a changed format. 
+- Automated tests can alert you to these kinds of problems quickly and with almost zero effort, after the tests have been created.
 ]
 
 ---
@@ -77,7 +277,7 @@ The two functions have standard forms. They both take an *id* argument and use i
 ]
 
 ---
-### The original Shiny application codes 
+## In-class Exercise: Building Shiny App with Basic Modele
 
 In order to understand the basics of Shiny modules, let us consider a simple Shiny application codes to plot a histogram shown below.
 
@@ -133,7 +333,8 @@ histogramUI &lt;- function(id) {
 }
 ```
 
-Here we have returned the UI components in a *tagList()*, which is a special type of layout function that allows you to bundle together multiple components without actually implying how they will be laid out. It is the responsibility of the person calling *histogramUI()* to wrap the result in a layout function like *column()* or *fluidRow()* according to their needs.
+- Here we have returned the UI components in a *tagList()*, which is a special type of layout function that allows you to bundle together multiple components without actually implying how they will be laid out. 
+- It is the responsibility of the person calling *histogramUI()* to wrap the result in a layout function like *column()* or *fluidRow()* according to their needs.
 
 ---
 ### Module server
@@ -152,8 +353,10 @@ histogramServer &lt;- function(id) {
 }
 ```
 
-Note that *moduleServer()* takes care of the namespacing automatically: inside of *moduleServer(id)*, *input$var* and *input$bins* refer to the inputs with names *NS(id, "var")* and *NS(id, "bins")*.
-]
+Note that:
+
+- *moduleServer()* takes care of the namespacing automatically: inside of *moduleServer(id)*, 
+- *input$var* and *input$bins* refer to the inputs with names *NS(id, "var")* and *NS(id, "bins")*.
 
 ---
 ### Revised Shiny Application
@@ -281,78 +484,6 @@ shinyApp(ui, server)
 - For detail themes and getting started, refer to the [online document](https://rstudio.github.io/shinythemes/).
 
 ]]
-
----
-## shinytest
-
-.large[
-- [Shinytest](https://rstudio.github.io/shinytest/index.html) uses snapshot-based testing strategy.  
-- The first time it runs a set of tests for an application, it performs some scripted interactions with the app and takes one or more snapshots of the application’s state.  
-- These snapshots are saved to disk so that future runs of the tests can compare their results to them.
-]
-
----
-## Standard R debugging tools
-
-.vlarge[
-- Tracing 
-    - print()/cat()/str() 
-    - renderPrint eats messages, must use cat(file = stderr(), ""...) 
-    - Also consider shinyjs package's logjs, which puts messages in the browser's JavaScript console  
-- Debugger
-    - Set breakpoints in RStudio 
-    - browser() 
-    - Conditionals: if (!is.null(input$x)) browser()
-]
-
----
-# Common errors
-
-.center[
-## "Object of type 'closure' is not subsettable"] 
-
-
-.vlarge[
-- You forgot to use () when retrieving a value from a reactive expression *plot(userData)* should be *plot(userData())*
-]
-
----
-# Common errors
-
-.center[
-## "Unexpected symbol"
-
-## "Argument xxx is missing, with no default"] 
-
-.vlarge[
-- Missing or extra comma in UI.  
-- Sometimes Shiny will realise this and give you a hint, or use RStudio editor margin diagnostics.
-]
-
----
-## Common errors
-
-.center[
-### "Operation not allowed without an active reactive context. (You tried to do something that can only be done from inside a reactive expression or observer.)]
-
-.vlarge[
-- Tried to access an input or reactive expression from directly inside the server function. You must use a reactive expression or observer instead. 
-- Or if you really only care about the value of that input at the time that the session starts, then use isolate().
-]
-
-
----
-# Testing
-
-.large[
-- There are many possible reasons for an application to stop working. These reasons include: 
-    - An upgraded R package has different behavior. (This could include Shiny itself!) 
-    - You make modifications to your application. 
-    - An external data source stops working, or returns data in a changed format. 
-- Automated tests can alert you to these kinds of problems quickly and with almost zero effort, after the tests have been created.
-]
-
-
 
 
 ---
