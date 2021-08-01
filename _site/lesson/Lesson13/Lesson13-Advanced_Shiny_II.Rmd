@@ -457,30 +457,6 @@ shinyApp(ui, server)
 ```
 
 ---
-## R Shiny Productive Extension
-
-- [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions): This github repository provides a comprehensive list of awesome R packages that offer extended UI or server components for the R web framework Shiny.  
-
-![:scale 20%](img/image10.jpg)
-
----
-## shinythemes: Themes for Shiny
-
-.pull-left[
-.large[
-- It includes several Bootstrap themes from <https://bootswatch.com/>, which are packaged for use with Shiny applications.
-
-![:scale 90%](img/image9.jpg)
-]]
-
-.pull-right[
-.large[
-- For detail themes and getting started, refer to the [online document](https://rstudio.github.io/shinythemes/).
-
-]]
-
-
----
 ## References
 
 ### Shiny Module
@@ -492,11 +468,6 @@ shinyApp(ui, server)
 - [Shiny Modules (part 1) : Why using modules?](https://www.ardata.fr/en/post/2019/02/11/why-using-modules/)
 - [Shiny Modules (part 2): Share reactive among multiple modules](https://www.ardata.fr/en/post/2019/04/26/share-reactive-among-shiny-modules/)
 - [Shiny Modules (part 3): Dynamic module call](https://www.ardata.fr/en/post/2019/07/01/dynamic-module-call/)
-
-### Advanced R
-
-- [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
-
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
