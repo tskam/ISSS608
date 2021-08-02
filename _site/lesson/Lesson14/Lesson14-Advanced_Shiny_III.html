@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 14: Advanced Shiny III</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <meta name="date" content="2021-08-02" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 14: Advanced Shiny III
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 02 August 2021
+
+---
+
+
+
+
+## Overview
+
+.large[
+In this lesson, selected advanced methods of Shiny will be discussed.  You will also gain hands-on experiences on using these advanced methods to build Shiny applications. 
+
+By the end of this lesson, you will be able to:
+
+- understand basic components of Shiny layout and to customise Shiny layouts,
+- understand how Shiny themes work and how to customise Shiny theme, 
+- create professionally looking UI by using shinydashboard package, and 
+- deploy Shiny App on shinyapps.io service.
+]
+
+---
+## R Shiny Layout
+
+Structure of a basic R Shiny App with sidebar layout. 
+
+.pull-left[
+
+```r
+ui &lt;- fluidPage(
+    titlePanel("R Shiny Basic Layout"),
+    sidebarLayout(
+        sidebarPanel("Side bar"
+        ),
+        mainPanel("Main Display"
+        )
+    )
+)
+```
+]
+
+.pull-right[
+![](img/image1.jpg)
+]
+
+---
+### Multi-row layout: *fluidPage()* and *fluidRow()* method
+
+.pull-left[
+
+
+```r
+fluidPage(
+  fluidRow(
+    column(4, 
+      ...
+    ),
+    column(8, 
+      ...
+    )
+  ),
+  fluidRow(
+    column(6, 
+      ...
+    ),
+    column(6, 
+      ...
+    )
+  )
+)
+```
+]
+
+.pull-right[
+![](img/image2.jpg)
+]
+
+---
+### Multi-page layout: *tabsetPanel()* and *tabPanel()* method
+
+.pull-left[
+The code chunk below uses [*tabsetPanel()*](https://shiny.rstudio.com/reference/shiny/1.6.0/tabsetPanel.html) and its close friend [*tabPanel()*](https://shiny.rstudio.com/reference/shiny/1.6.0/tabPanel.html) to create a multi-page layout
+
+
+```r
+ui &lt;- fluidPage(
+  tabsetPanel(
+    tabPanel("Import data", 
+             fileInput("file", "Data", 
+                       buttonLabel = "Upload..."),
+             textInput("delim", 
+                       "Delimiter (leave blank to guess)", 
+                       ""),
+             numericInput("skip", "Rows to skip", 
+                          0, min = 0),
+             numericInput("rows", 
+                          "Rows to preview", 
+                          10, min = 1)
+             ),
+    tabPanel("EDA"),
+    tabPanel("Model Building")
+    )
+)
+```
+]
+
+.pull-right[
+![](img/image3.jpg)
+]
+
+---
+### Multi-page layout: *navlistPanel()* and *tabPanel()* method
+
+.pull-left[
+The code chunk below uses [*navlistPanel()*](https://shiny.rstudio.com/reference/shiny/1.6.0/navlistPanel.html) and [*tabPanel()*](https://shiny.rstudio.com/reference/shiny/1.6.0/tabPanel.html) to create an alternative layout that let you use more tabs with longer titles.
+
+
+```r
+ui &lt;- fluidPage(
+    titlePanel("Multi-row layout vertically in a sidebar"),
+    navlistPanel(
+        id = "tabset",
+        "Heading 1",
+        tabPanel("panel 1", "Panel one contents"),
+        "Heading 2",
+        tabPanel("panel 2", "Panel two contents"),
+        tabPanel("panel 3", "Panel three contents")
+    )
+)
+```
+]
+
+.pull-right[
+
+![](img/image4.jpg)
+]
+
+---
+### Multi-page layout - *navbarPage()* and *navbarMenu()* method
+
+.pull-left[
+In the code chunk below, [*navbarPage()*](https://shiny.rstudio.com/reference/shiny/1.6.0/navbarPage.html) is still runs the tab titles horizontally, but *navbarMenu()* is used to add drop-down menus for an additional level of hierarchy.  
+
+
+```r
+ui &lt;- navbarPage(
+    "Multi-row layout with drop-down menus",   
+    tabPanel("panel 1", "one"),
+    tabPanel("panel 2", "two"),
+    tabPanel("panel 3", "three"),
+    navbarMenu("subpanels", 
+               tabPanel("panel 4a", "four-a"),
+               tabPanel("panel 4b", "four-b"),
+               tabPanel("panel 4c", "four-c")
+    )
+)
+```
+]
+
+.pull-right[
+
+![](img/image5.jpg)
+]
+
+---
+## R Shiny Theme
+
+.pull-left[
+By default, Shiny theme is based on [**Bootstrap**](https://getbootstrap.com/) framework, a collection of HTML conventions, CSS styles, and JS snippets bundled up into a convenient form.
+
+- The visual appearance of Bootstrap can be customised by using *bslib::bs_theme()*.
+- The layouts, inputs, and outputs of Bootstrap names can be customised by using the *class* argument.
+]
+
+.pull-right[
+
+
+]
+
+---
+### R Shiny Theme - *bslib::bs_theme()* method
+
+.pull-left[
+- By default, *bslib::bs_theme()*, will use Bootstrap v4.
+
+
+```r
+ui &lt;- fluidPage(
+*   theme = bslib::bs_theme(),
+    titlePanel("R Shiny App"),
+    sidebarLayout(
+```
+
+![](img/image7.jpg)
+]
+
+--
+.pull-right[
+- The easiest way to change the overall look of an Shiny app is to pick a premade [**“bootswatch”**](https://bootswatch.com/) theme using the bootswatch argument to *bslib::bs_theme()*.
+
+
+```r
+ui &lt;- fluidPage(
+    theme = bslib::bs_theme(
+*     bootswatch = "flatly"),
+    titlePanel("R Shiny App"),
+    sidebarLayout(
+```
+]
+
+---
+### R Shiny Theme: Customising *bs_theme()* argument method
+
+.pull-left[
+Alternatively, we can construct our own theme using the other arguments to *bs_theme()* like *bg* (background colour), *fg* (foreground colour) and *base_font*:
+
+
+```r
+ui &lt;- fluidPage(
+* theme = bslib::bs_theme(bg = "#FFFAF0",
+*                         fg = "black",
+*                         base_font = "Arial"),
+  titlePanel("R Shiny App"),
+  sidebarLayout(
+```
+
+- For colour code, refer to this [link](https://www.w3schools.com/colors/colors_names.asp). 
+- For font name, refer to this [link](https://www.w3schools.com/css/css_font.asp)
+]
+
+.pull-right[
+![](img/image8.jpg)
+]
+
+---
+### R Shiny Theme: Customising with **thematic** package
+
+.pull-left[
+- [**thematic**](https://rstudio.github.io/thematic/index.html) package auto theming gives R plots the ability to style themselves inside Shiny (via CSS).
+- Call [*thematic_shiny()*](https://rstudio.github.io/thematic/reference/thematic_on.html) before launching a Shiny app to enable thematic for every *plotOutput()* inside the app.
+
+
+```r
+server &lt;- function(input, output){
+    output$distPlot &lt;- renderPlot({
+*       thematic::thematic_shiny()
+        x &lt;- unlist(exam[,input$variable])
+```
+
+Note that: 
+- If no values are provided to *thematic_shiny()*, each *plotOutput()* uses the app’s CSS colors to inform new R plotting defaults. 
+- If the app uses *Google Fonts* (and you have **showtext** and/or **ragg** installed), you may safely provide *font = "auto"* to *thematic_shiny()*, which also translates CSS fonts to R. 
+]
+
+.pull-right[
+![](img/image9.jpg)
+]
+
+---
+### R Shiny Theme: **shinythemes** package
+
+.pull-left[
+
+- [**shinythemes**](https://cran.r-project.org/web/packages/shinythemes/) package includes several [*Bootstrap themes*](https://bootswatch.com/) which are packaged for use with Shiny applications.
+
+
+```r
+library(shiny)
+library(tidyverse)
+*library(shinythemes)
+
+exam &lt;- read_csv("data/Exam_data.csv")
+
+ui &lt;- fluidPage(
+*   theme = shinytheme("cerulean"),
+    titlePanel("R Shiny App with shinythemes"),
+```
+]
+
+.pull-right[
+![](img/image10.jpg)
+
+- For detail themes and getting started, refer to the [online document](https://rstudio.github.io/shinythemes/).
+]
+
+---
+### R Shiny Theme: *themeSelector()* of **shinythemes** package
+
+.pull-left[
+If you want to quickly test out different themes with an application, you can simply add *themeSelector()* somewhere to the UI. This will add a select box which lets you choose the theme. It will change the theme without having to reload or restart your app.
+
+
+```r
+ui &lt;- fluidPage(
+*   shinythemes::themeSelector(),
+    titlePanel("R Shiny App with shinythemes"),
+```
+]
+
+.pull-right[
+![](img/image11.jpg)
+
+Note: *themeSelector()* is only meant to be used while developing an application. Once you’ve decided on which theme to use, pass it to the theme argument as described in previous slide.
+]
+
+---
+## shinydashboard
+
+.pull-left[
+This package provides a theme on top of 'Shiny', making it easy to create attractive dashboards.
+
+
+```r
+library(shiny)
+library(tidyverse)
+library(shinydashboard)
+
+ui &lt;- dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody()
+)
+
+server &lt;- function(input, output) { }
+
+shinyApp(ui, server)
+```
+]
+
+.pull-right[
+![](img/image12.jpg)
+
+]
+
+---
+### shinydashboard - Makeover prototype2 
+
+In this hands-on exercise, we will makeover prototype2 by using shinydashboard package as shown below.
+
+.center[
+![:scale 75%](img/image13.jpg)
+]
+
+---
+### shinydashboard - Makeover prototype2  
+
+
+```r
+library(shiny)
+*library(shinydashboard)
+library(tidyverse)
+
+exam &lt;- read_csv("data/Exam_data.csv")
+
+*ui &lt;- dashboardPage(
+*   dashboardHeader(title = "shinydashboard example"),
+*   dashboardSidebar(
+        selectInput(inputId = "variable",
+                    label = "Subject:",
+                    choices = list("English" = "ENGLISH",
+                                   "Maths" = "MATHS",
+                                    "Science" = "SCIENCE"),
+                        selected = "ENGLISH"),
+        sliderInput(inputId = "bin",
+                    label = "Number of Bins",
+                    min = 5,
+                    max = 20,
+                    value = c(10))
+        ),
+*       dashboardBody(
+            plotOutput("distPlot")
+            )
+    )
+```
+
+
+
+---
+## R Shiny UI Skins
+
+- [shinydashboardplus](https://cran.r-project.org/web/packages/shinydashboardPlus/index.html), relies on the same basis as **shinydashboard**, that is the [AdminLTE HTML](https://adminlte.io/) template. It provides extra elements that will help you to develop Shiny apps with a more professional look and feel.  Refer to this [article](https://cran.r-project.org/web/packages/shinydashboardPlus/vignettes/shinydashboardPlus.html) for an introduction.  For more details, read the vignettes.  
+- [shiny.semantic](https://cran.r-project.org/web/packages/shiny.semantic/index.html) adds support for a powerful UI library [Semantic UI](https://fomantic-ui.com/). It also supports universal UI input binding that works with various DOM elements.
+- [shinyMobile](https://cran.r-project.org/web/packages/shinyMobile/index.html) builds on top of framework 7, and is specifically designed for mobile apps.  To learn more, start with this [article](https://cran.r-project.org/web/packages/shinyMobile/vignettes/shinyMobile.html) before reading the rest of the vignetts.
+- [shinymaterial](https://cran.r-project.org/web/packages/shinymaterial/index.html) is built on top of Google’s Material design framework.
+
+---
+## Deploying Shiny apps to the web
+
+Three ways to deploy Shiny Apps.
+
+- Deploy to the cloud: [Shinyapps.io](https://www.shinyapps.io/?_ga=2.89268575.596310626.1627605052-1670780590.1620114500).  It is easy to use, secure, and scalable. No hardware, installation, or annual purchase contract required. Free and paid options available.
+
+- Deploy on-premises (open source): [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/?_ga=2.185862765.596310626.1627605052-1670780590.1620114500).  Deploy your Shiny apps and interactive documents on-premises with open source Shiny Server, which offers features such as multiple apps on a single server and deployment of apps behind firewalls.
+
+- Deploy on-premises (commercial): [RStudio Connect](https://www.rstudio.com/products/connect/?_ga=2.114018755.596310626.1627605052-1670780590.1620114500). With RStudio Connect, you can share Shiny applications, R Markdown reports, dashboards and plots, as well as Python-based content, including Flask, Dash, Streamlit and Bokeh, in one convenient place with push-button publishing from the RStudio IDE. Features include scheduled execution of reports and flexible security policies to bring the power of data science to your entire enterprise.
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 1:
+
+Before you get started with shinyapps.io, you will need:
+
+- to install [**rsconnect**](https://cran.r-project.org/web/packages/rsconnect/index.html) R package from CRAN, or the latest version from GitHub.
+
+
+```r
+install.packages('rsconnect')
+```
+
+- After the rsconnect package has been installed, load it into your R session:
+    
+
+```r
+library(rconnect)
+```
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 2: Create a shinyapps.io account
+
+- Go to [shinyapps.io](https://www.shinyapps.io/) and click “Dashboard.” The site will ask you to sign in using your email and password, your Google account, or your GitHub account.
+
+- The first time you sign in, shinyapps.io prompts you to set up your account. 
+    - Shinyapps.io uses the account name as the domain name for all your apps. Account names must be between four and 63 characters and can contain only letters, numbers, and dashes (-). 
+    - Account names may not begin with a number or a dash, and they can not end with a dash (see RFC 952). Some account names may be reserved.
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 3: Retrieve token
+
+Once you set up your account in shinyapps.io, you can configure the rsconnect package to use your account. 
+
+- Shinyapps.io automatically generates a token and secret for you, which the rsconnect package can use to access your account. 
+- Retrieve your token from the shinyapps.io dashboard. Tokens are listed under Tokens in the menu at the top right of the shinyapps dashboard (under your avatar).
+
+.center[
+![:scale 70%](img/image14.jpg)
+]
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 4: Configure rsconnect
+
+Next, you will configure rconnect:
+- Click the show button on the token page. A window will pop up that shows the full command to configure your account using the appropriate parameters for the rsconnect::setAccountInfo function. 
+
+.center[
+![:scale 70%](img/image15.jpg)
+]
+
+- Copy this command to your clip board, and then paste it into console window of RStudio and click **enter**.
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 5: Deploying the Shiny App
+
+- Test that the Shiny application works by running it locally.
+    - At RStudio IDE, click on **Run App** button on the editor toolbar.
+
+- From the upper right corner of the RStudio Browser window, click on the drop-down list and select **Other Destination**.
+
+.center[
+![:scale 70%](img/image16.jpg)
+]
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 5: Deploying the Shiny App (continue)
+
+The **Publish to Server** dialogue window appears.
+
+.center[
+![:scale 45%](img/image17.jpg)
+]
+
+- Click on **Publish** button
+
+---
+### Deploying Shiny apps to shinyapps.io
+#### Step 5: Deploying the Shiny App (continue)
+
+Once the deployment finishes, your browser should open automatically to your newly deployed application.
+
+.center[
+![:scale 55%](img/image18.jpg)
+]
+
+Congratulations! You’ve deployed your first application. :-)
+
+
+
+---
+## References
+### HTML and CSS
+
+The beauty of R Shiny is that, as a data analyst and R Shiny application developer, you don’t need to learn about the details of HTML CSS. However, if you know some HTML and CSS, it’s possible to customise Shiny still further.  The links below is a good start to learn HTML and CSS.
+
+- [HTML basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+- [CSS basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
+
+### R Shiny Productive Extension
+
+- [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
+- [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions): This github repository provides a comprehensive list of awesome R packages that offer extended UI or server components for the R web framework Shiny.
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
