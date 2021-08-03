@@ -257,7 +257,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://dataviz-lmy.netlify.app/posts/2021-07-13-visual-assignment/)
     
 - LIU NIAN
-    - [Assignment write-up on Netlify](https://visualisation-coursework-liunian.netlify.app/)
+    - [Assignment write-up on Netlify](https://visualisation-gallery-liunian.netlify.app/posts/2021-07-28-assignment/)
     
 - LU DI
     - [Assignment write-up on Netlify](https://ludi1234.netlify.app/posts/2021-07-19-assignment/)
