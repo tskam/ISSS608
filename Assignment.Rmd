@@ -251,7 +251,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://visualizationzhen.netlify.app/posts/2021-07-05-aliba-crime-analysis/)  
     
 - LIN PEIRONG
-    - [Assignment write-up on Netlify]()
+    - [Assignment write-up on Netlify](https://perry-dataviz.netlify.app/posts/2021-07-13-assignment/)
     
 - LIU MANYE
     - [Assignment write-up on Netlify](https://dataviz-lmy.netlify.app/posts/2021-07-13-visual-assignment/)
