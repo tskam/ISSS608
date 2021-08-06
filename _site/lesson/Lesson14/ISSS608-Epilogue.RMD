@@ -1,0 +1,193 @@
+---
+title: "ISSS608 Visual Analytics and Applications \nEpilogue"
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.retina=3,
+                      echo = TRUE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+## ISSS608: Visual Analytics and Applications
+
+.center[
+![:scale 75%](img/image14-1.jpg)
+]
+
+---
+## Motivation of Visual Analytics
+
+.center[
+### The World is full of charts that lie!
+![:scale 45%](img/image14-2.jpg)
+]
+
+.center[
+### We need to get smarter about visual information 
+]
+
+---
+## Motivation of Visual Analytics
+### Is there a place for Visual Analytics in knowledge discovery? 
+.center[
+![:scale 65%](img/image14-3.jpg)]
+
+---
+## What is Visual Analytics?
+### Visual Analytics must be Reprducible
+
+.center[
+![:scale 45%](img/image14-4.jpg)
+]
+
+Reference: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285#s9
+
+---
+## A Gentle Reminder
+### Data Visualization: Clarity or Aesthetics?
+
+.pull-left[
+![](img/image14-5a.png)
+]
+
+.pull-right[
+![:scale 80%](img/image14-5b.png)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 75%](img/image14-6.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 75%](img/image14-6.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 75%](img/image14-7.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 75%](img/image14-8.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 70%](img/image14-9.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 50%](img/image14-10.jpg)
+]
+
+---
+## A Gentle Reminder
+### Avoiding junk charts
+
+.center[
+![:scale 60%](img/image14-11.jpg)
+]
+
+---
+## A Gentle Reminder
+### Show the world the good visual design priciples
+
+.center[
+![:scale 75%](img/image14-12.jpg)
+]
+
+---
+## A Gentle Reminder
+### Show the world the good visual design priciples
+
+.center[
+![:scale 75%](img/image14-13.jpg)
+]
+
+---
+## The bumper ride of R rollercoaster
+
+.center[
+![:scale 75%](img/image14-14.png)
+]
+
+---
+## The bumper ride of R rollercoaster
+
+.center[
+![:scale 65%](img/image14-15.png)
+]
+
+---
+## The bumper ride of R rollercoaster
+
+.center[
+![:scale 75%](img/image14-16.png)
+]
+
+---
+## The bumper ride of R rollercoaster
+
+.center[
+![:scale 50%](img/image14-17.png)
+]
+
+---
+## The bumper ride of R rollercoaster
+
+.center[
+![:scale 75%](img/image14-18.png)
+]
+
+---
+## Time to Say Goodbye
+
+
+.center[
+![](img/image14-19.jpg)
+
+
+## Let's Build a Better World with Analytics
+]
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("ISSS608-Epilogue.html")
+```

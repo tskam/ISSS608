@@ -4,7 +4,7 @@
     <title>Lesson 14: Advanced Shiny III</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <meta name="date" content="2021-08-02" />
+    <meta name="date" content="2021-08-07" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Lesson 14: Advanced Shiny III
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 02 August 2021
+### 07 August 2021
 
 ---
 
@@ -504,7 +504,51 @@ Once the deployment finishes, your browser should open automatically to your new
 
 Congratulations! You’ve deployed your first application. :-)
 
+---
+## Introducing posterdown
 
+.pull-left[
+- An R package specially designed for creating professional or/and academic poster by using rmarkdown and [pagedown](https://cran.r-project.org/web/packages/pagedown/index.html).  
+
+- The output poster can be in HTML and PDF formats.
+
+- Visit this [link](https://cran.r-project.org/web/packages/posterdown/index.html) and its [github](https://github.com/brentthorne/posterdown) to learn more about posterdown.
+
+Use the following code to convert the output poster into pdf format:
+
+
+```r
+library(pagedown)
+pagedown::chrome_print("ShinyVA.html")
+```
+]
+
+.pull-right[
+![:scale 75%](img/image19.png)
+
+]
+
+---
+## Introducing rticle
+
+.pull-left[
+- A suite of custom R Markdown formats and templates for authoring journal articles and conference submissions.
+
+- Visit this [link](https://cran.r-project.org/web/packages/rticles/index.html) and its [github](https://github.com/rstudio/rticles) to learn more about posterdown.
+
+- To knit rticle, tinytext pacakge must be installed in RStudio.  Use the code chunk below to install tinytext.
+
+
+```r
+tinytex::install_tinytex()
+```
+
+Note: the solution was discovered by Nikki from [G1-Group8](https://g1t8.netlify.app/)
+]
+
+.pull-right[
+![:scale 85%](img/image19.jpg)
+]
 
 ---
 ## References
@@ -519,11 +563,6 @@ The beauty of R Shiny is that, as a data analyst and R Shiny application develop
 
 - [awesome-rshiny](https://github.com/grabear/awesome-rshiny), a curated list of resources for R Shiny.
 - [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions): This github repository provides a comprehensive list of awesome R packages that offer extended UI or server components for the R web framework Shiny.
-
-
-
-
-
 
 
 
