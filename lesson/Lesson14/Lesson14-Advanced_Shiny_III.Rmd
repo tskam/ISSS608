@@ -416,7 +416,7 @@ install.packages('rsconnect')
 - After the rsconnect package has been installed, load it into your R session:
     
 ```{r eval=FALSE}
-library(rconnect)
+library(rsconnect)
 ```
 
 ---
