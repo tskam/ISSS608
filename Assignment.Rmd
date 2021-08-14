@@ -96,7 +96,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://yuxich.netlify.app/posts/2021-06-21-assignment/)
 
 - CONNIE XIA YI JING
-    - [Assignment write-up on Netlify]()
+    - [Assignment write-up on Netlify](https://connie-xia.netlify.app/posts/2021-07-25-assignment-1/)
 
 - HONG YUN TING
     - [Assignment write-up on Netlify](https://hongyunting.netlify.app/posts/2021-07-20-assignment-mc2/)
