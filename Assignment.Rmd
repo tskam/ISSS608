@@ -275,7 +275,7 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
     - [Assignment write-up on Netlify](https://qian-assignment.netlify.app/posts/2021-07-11-mini-challenge-3/)
 
 - SNG KAH LEONG
-    - [Assignment write-up on Netlify]()
+    - [Assignment write-up on Netlify](https://beyourdetectiveassignment.netlify.app/)
     
 - TANG HUINING
     - [Assignment write-up on Netlify](https://myhardwork.netlify.app/posts/2021-07-25-assignment/)
