@@ -43,7 +43,7 @@ Submission deadline: **20th June 2021 (Sunday), mid-night 11:59pm**.
     - [DataViz Makeover write-up on Netlify](https://fadyganis.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/fady.ganis/viz/DataVizMakeover2-AhmadFadyGanis/TotalMerchandiseTrade)
 
 - ARCHIE QUIAMBAO DOLIT
-    - [DataViz Makeover write-up on Netlify](https://adolit-vaa.netlify.app/posts/2021-06-20-dataviz-makeover-02/) and [Tableau Public link](https://public.tableau.com/app/profile/fady.ganis/viz/DataVizMakeover2-AhmadFadyGanis/TotalMerchandiseTrade)
+    - [DataViz Makeover write-up on Netlify](https://adolit-vaa.netlify.app/posts/2021-06-20-dataviz-makeover-02/) and [Tableau Public link](https://public.tableau.com/app/profile/adolit/viz/DataViz_Makeover02/SGTradeDashboard)
 
 - ARYAH UMRALKAR CHOPRA
     - [DataViz Makeover write-up on Netlify](https://arychopra.netlify.app/) and [Tableau Public link](https://public.tableau.com/profile/aryah.umralkar.chopra#!/)
@@ -94,7 +94,7 @@ Submission deadline: **20th June 2021 (Sunday), mid-night 11:59pm**.
     - [DataViz Makeover write-up on Netlify](https://jinru-1906-datavizmakeover-2.netlify.app/posts/2021-06-19-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lim.jin.ru.alethea./viz/DataVizMakeOver2/Dashboard4)
 
 - LIM YONG KAI
-    - [DataViz Makeover write-up on Netlify](https://limyongkai.netlify.app/posts/2021-06-12-dataviz-makeover-2/) and [Tableau Public link](https://yuhongliblog.netlify.app/posts/2021-06-13-dataviz-makeover-2/)
+    - [DataViz Makeover write-up on Netlify](https://limyongkai.netlify.app/posts/2021-06-12-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lim.yong.kai/viz/viz2_16238675163570/Dashboard5)
 
 - LIU YANGGUANG
     - [DataViz Makeover write-up on Netlify](https://ygliu.netlify.app/posts/2021-06-14-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/liu.yangguang/viz/bubbleplot_16241846284400/Dashboard1)
