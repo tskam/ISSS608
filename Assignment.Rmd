@@ -304,6 +304,9 @@ Your completed assignment is due on ~~18th July 2021~~ **25th July 2021 (Sunday)
 - ZHONG PING
     - [Assignment write-up on Netlify](https://zpmc2.netlify.app/)
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/Assignment.html")
+```
 
 
