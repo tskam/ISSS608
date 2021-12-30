@@ -336,4 +336,7 @@ Visual communication plays an important role in a visual analytics process.  No 
 
 ![](img/dataviz1_12.jpg)
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("DataViz1.html")
+```

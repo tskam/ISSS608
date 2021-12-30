@@ -283,7 +283,10 @@ One of the important learning objective of DataViz Makeover is **to embark your 
 Visual communication plays an important role in a visual analytics process.  No matter how advanced and sophisticated data visualisation techniqiues are used, if we failed to tell a compelling story by using the data visualisation designed, all the hardwork and efforts will be wasted.  
 
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("DataViz2.html")
+```
 
 
 

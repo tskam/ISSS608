@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>ISSS608: Lesson Plan</title>
@@ -92,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-08-19"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-08-19"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-12-30"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-30"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="ISSS608: Lesson Plan"/>
@@ -111,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson Plan"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2021-08-19"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson Plan"]},{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["2021-12-30"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -458,7 +459,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1865,7 +1866,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2036,7 +2040,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2056,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lesson Plan","description":"","authors":[],"publishedDate":"2021-08-19T00:00:00.000+08:00"}
+{"title":"Lesson Plan","description":"","authors":[],"publishedDate":"2021-12-30T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2092,166 +2096,90 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#lesson-1-introduction-to-visual-analytics">Lesson 1: Introduction to Visual Analytics</a></li>
-<li><a href="#lesson-2-designing-graphs-to-enlighten">Lesson 2: Designing Graphs to Enlighten</a></li>
-<li><a href="#lesson-3-interactivity-in-visual-analytics-principles-and-methods">Lesson 3: Interactivity in Visual Analytics: Principles and Methods</a></li>
-<li><a href="#lesson-4-fundamentals-of-visual-analytics">Lesson 4: Fundamentals of Visual Analytics</a></li>
-<li><a href="#lesson-5-visualising-and-analysing-time-oriented-data">Lesson 5: Visualising and Analysing Time-Oriented Data</a></li>
-<li><a href="#lesson-6-visualising-geographical-data">Lesson 6: Visualising Geographical Data</a></li>
-<li><a href="#lesson-7-programming-data-visualisation-in-r">Lesson 7: Programming Data Visualisation in R</a></li>
-<li><a href="#lesson-8-programming-geovisual-analytics-with-r">Lesson 8: Programming GeoVisual Analytics with R</a></li>
-<li><a href="#lesson-9-network-data-visualisation-and-analysis">Lesson 9: Network Data Visualisation and Analysis</a></li>
-<li><a href="#lesson-10-text-visualisation-in-r">Lesson 10: Text Visualisation in R</a></li>
-<li><a href="#lesson-11-introducing-shiny">Lesson 11: Introducing Shiny</a></li>
-<li><a href="#lesson-12-advanced-shiny-methods-i">Lesson 12: Advanced Shiny Methods I</a></li>
-<li><a href="#lesson-13-advanced-shiny-methods-ii">Lesson 13: Advanced Shiny Methods II</a></li>
-<li><a href="#lesson-14-the-epilogue">Lesson 14: The Epilogue</a></li>
-</ul>
-</nav>
-</div>
-<h3 id="lesson-1-introduction-to-visual-analytics">Lesson 1: Introduction to Visual Analytics</h3>
-<p>Date: 8/5/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson01_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson01/Lesson01-Introduction_to_VAA.html">html</a> and in <a href="lesson/Lesson01/Lesson01-Introduction_to_VAA.pdf">pdf</a> formats.</li>
-<li><a href="">In-class Exercise</a></li>
-</ul>
-<h3 id="lesson-2-designing-graphs-to-enlighten">Lesson 2: Designing Graphs to Enlighten</h3>
-<p>Date: 15/5/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson02_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.html">html</a> and in <a href="lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.pdf">pdf</a> formats.</li>
-<li><a href="worksheets/intro-rmarkdown.Rmd">In-class Exercise</a> (Solutions are <a href="worksheets/intro-rmarkdown-solutions.Rmd">available here</a>)</li>
-</ul>
-<h3 id="lesson-3-interactivity-in-visual-analytics-principles-and-methods">Lesson 3: Interactivity in Visual Analytics: Principles and Methods</h3>
-<p>Date: 22/5/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson03_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.html">html</a> and in <a href="lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.pdf">pdf</a> formats.</li>
-<li><a href="worksheets/intro-rmarkdown.Rmd">In-class Exercise</a> (Solutions are <a href="worksheets/intro-rmarkdown-solutions.Rmd">available here</a>)</li>
-</ul>
-<h3 id="lesson-4-fundamentals-of-visual-analytics">Lesson 4: Fundamentals of Visual Analytics</h3>
-<p>Date: 29/5/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson04_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.html">html</a> and in <a href="lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.pdf">pdf</a> formats.<br />
-</li>
-<li><a href="worksheets/intro-rmarkdown.Rmd">In-class Exercise</a> (Solutions are <a href="worksheets/intro-rmarkdown-solutions.Rmd">available here</a>)</li>
-</ul>
-<h3 id="lesson-5-visualising-and-analysing-time-oriented-data">Lesson 5: Visualising and Analysing Time-Oriented Data</h3>
-<p>Date: 5/6/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson05_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson05/Lesson05-It_is_About_Time.html">html</a> and in <a href="lesson/Lesson05/Lesson05-It_is_About_Time.pdf">pdf</a> formats.</li>
-<li><a href="worksheets/intro-rmarkdown.Rmd">In-class Exercise</a> (Solutions are <a href="worksheets/intro-rmarkdown-solutions.Rmd">available here</a>)</li>
-</ul>
-<h3 id="lesson-6-visualising-geographical-data">Lesson 6: Visualising Geographical Data</h3>
-<p>Date: 12/6/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson06_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson06/Lesson06-Visualising_Geographical_Data.html">html</a> and in <a href="lesson/Lesson06/Lesson06-Visualising_Geographical_Data.pdf">pdf</a> formats.</li>
-<li><a href="worksheets/intro-rmarkdown.Rmd">In-class Exercise</a> (Solutions are <a href="worksheets/intro-rmarkdown-solutions.Rmd">available here</a>)</li>
-</ul>
-<h3 id="lesson-7-programming-data-visualisation-in-r">Lesson 7: Programming Data Visualisation in R</h3>
-<p>Date: 26/6/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson07_outline.html">Lesson Outline</a></li>
-<li>Lesson slides and In-class Exercise in <a href="lesson/Lesson07/Lesson07-Programming_DataViz.html">html</a> and in <a href="lesson/Lesson07/Lesson07-Programming_DataViz.pdf">pdf</a> formats.</li>
-<li><a href="In-class_Ex/In-class_Ex07/In-class_Ex07-InteractiveR.html">In-class Exercise</a></li>
-</ul>
-<h3 id="lesson-8-programming-geovisual-analytics-with-r">Lesson 8: Programming GeoVisual Analytics with R</h3>
-<p>Date: 3/July/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson08_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson08/Lesson08-GeoVAR.html">html</a> and in <a href="lesson/Lesson08/Lesson08-GeoVAR.pdf">pdf</a> formats.<br />
-</li>
-<li><a href="In-class_Ex/In-class_Ex08/In-class_Ex08-MovementVis.html">In-class Exercise</a></li>
-</ul>
-<h3 id="lesson-9-network-data-visualisation-and-analysis">Lesson 9: Network Data Visualisation and Analysis</h3>
-<p>Date: 10/7/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson09_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson09/Lesson09-NetworkVis.html">html</a> and in <a href="lesson/Lesson09/Lesson09-NetworkVis.pdf">pdf</a> formats.<br />
-</li>
-<li><a href="In-class_Ex/In-class_Ex09/In-class_Ex09-NetworkVis.html">In-class Exercise</a></li>
-</ul>
-<h3 id="lesson-10-text-visualisation-in-r">Lesson 10: Text Visualisation in R</h3>
-<p>Date: 17/7/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson10_outline.html">Lesson Outline</a></li>
-<li>Lesson slides in <a href="lesson/Lesson10/Lesson10-TextVis.html">html</a> and in <a href="lesson/Lesson10/Lesson10-TextVis.pdf">pdf</a> formats.<br />
-</li>
-<li><a href="In-class_Ex/In-class_Ex10/In-class_Ex10-TextVA.html">In-class Exercise</a></li>
-</ul>
-<h3 id="lesson-11-introducing-shiny">Lesson 11: Introducing Shiny</h3>
-<p>Date: 24/7/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson11_outline.html">Lesson Outline</a></li>
-<li>Lesson slides and In-class Exercise in <a href="lesson/Lesson11/Lesson11-Intro_Shiny.html">html</a> and in <a href="lesson/Lesson11/Lesson11-Intro_Shiny.pdf">pdf</a> formats.</li>
-</ul>
-<h3 id="lesson-12-advanced-shiny-methods-i">Lesson 12: Advanced Shiny Methods I</h3>
-<p>Date: 31/7/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson12_outline.html">Lesson Outline</a></li>
-<li>Lesson slides and In-class Exercise in <a href="lesson/Lesson12/Lesson12-Advanced_Shiny.html">html</a> and in <a href="lesson/Lesson12/Lesson12-Advanced_Shiny.pdf">pdf</a> formats.</li>
-</ul>
-<h3 id="lesson-13-advanced-shiny-methods-ii">Lesson 13: Advanced Shiny Methods II</h3>
-<p>Date: 7/8/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li><a href="outline/Lesson13_outline.html">Lesson Outline</a></li>
-<li>Lesson and In-class Exercise slides in <a href="lesson/Lesson13/Lesson13-Advanced_Shiny_II.html">html</a> and in <a href="lesson/Lesson13/Lesson13-Advanced_Shiny_II.pdf">pdf</a> formats.</li>
-</ul>
-<h3 id="lesson-14-the-epilogue">Lesson 14: The Epilogue</h3>
-<p>Date: 14/8/2021</p>
-<p class="nospace">
-Materials:
-</p>
-<ul>
-<li>Lesson slides and In-class Exercise in <a href="lesson/Lesson14/Lesson14-Advanced_Shiny_III.html">html</a> and in <a href="lesson/Lesson14/Lesson14-Advanced_Shiny_III.pdf">pdf</a> formats.</li>
-</ul>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 68%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td style="text-align: left;">15 Jan</td>
+<td style="text-align: left;"><a href="outline/Lesson01_outline.html">Introduction to Visual Analytics</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td style="text-align: left;">22 Jan</td>
+<td style="text-align: left;"><a href="outline/Lesson02_outline.html">Geospatial Data Handling and Wrangling</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td style="text-align: left;">29 Jan</td>
+<td style="text-align: left;"><a href="outline/Lesson03_outline.html">Thematic and Analytical Mapping</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td style="text-align: left;">5 Feb</td>
+<td style="text-align: left;"><a href="outline/Lesson04_outline.html">Spatial Point Patterns Analysis</a></td>
+<td style="text-align: left;">Take-home Ex1 due</td>
+</tr>
+<tr class="odd">
+<td>5.</td>
+<td style="text-align: left;">12 Feb</td>
+<td style="text-align: left;"><a href="outline/Lesson05_outline.html">Advanced Spatial Point Patterns Analysis</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>6.</td>
+<td style="text-align: left;">19 Feb</td>
+<td style="text-align: left;"><a href="outline/Lesson06_outline.html">Spatial Weights and Applications</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td>7.</td>
+<td style="text-align: left;">26 Feb</td>
+<td style="text-align: left;"><a href="outline/Lesson07_outline.html">Measures of Spatial Autocorrelation</a></td>
+<td style="text-align: left;">Take-home Ex2 due</td>
+</tr>
+<tr class="even">
+<td>R.</td>
+<td style="text-align: left;">5 Mar</td>
+<td style="text-align: left;"><a href="outline/workshop.html">Workshop on R Shiny</a></td>
+<td style="text-align: left;">Date: 6-7 October, 2021</td>
+</tr>
+<tr class="odd">
+<td>8.</td>
+<td style="text-align: left;">12 Mar</td>
+<td style="text-align: left;"><a href="outline/Lesson08_outline.html">Geographic Segmentation</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>9.</td>
+<td style="text-align: left;">19 Mar</td>
+<td style="text-align: left;"><a href="outline/Lesson09_outline.html">Geographically Weighted Regression</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td>10.</td>
+<td style="text-align: left;">26/Mar</td>
+<td style="text-align: left;"><a href="outline/Lesson10_outline.html">Spatial Interaction Models</a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

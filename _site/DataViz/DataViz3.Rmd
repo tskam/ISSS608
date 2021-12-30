@@ -271,7 +271,10 @@ This dataviz makeover exercise have something to do with visualizing uncertainty
 - ZHONG PING
     - [DataViz Makeover write-up on Netlify]() and [Tableau Public link]()
     
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("DataViz3.html")
+```
 
 
 

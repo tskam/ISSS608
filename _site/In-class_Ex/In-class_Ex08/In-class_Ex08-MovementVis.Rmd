@@ -326,5 +326,8 @@ tmap_animation(m,
 ]
 
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("In-class_Ex08-MovementVis.html")
+```
 

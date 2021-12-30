@@ -1,138 +1,45 @@
 ---
 title: "Lesson Plan"
-description: ""
+description: " "
 date: "`r Sys.Date()`"
-output:
-  distill::distill_article:
-    toc: true
-    toc_depth: 3
+output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### Lesson 1: Introduction to Visual Analytics
-
-Date: 8/5/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson01_outline.html)
-- Lesson slides in [html](lesson/Lesson01/Lesson01-Introduction_to_VAA.html) and in [pdf](lesson/Lesson01/Lesson01-Introduction_to_VAA.pdf) formats.
-- [In-class Exercise]()  
-
-### Lesson 2: Designing Graphs to Enlighten 	
-
-Date: 15/5/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson02_outline.html)
-- Lesson slides in [html](lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.html) and in [pdf](lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.pdf) formats.
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
-
-### Lesson 3: Interactivity in Visual Analytics: Principles and Methods
-
-Date: 22/5/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson03_outline.html)
-- Lesson slides in [html](lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.html) and in [pdf](lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.pdf) formats.
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
-
-### Lesson 4: Fundamentals of Visual Analytics 	
-
-Date: 29/5/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson04_outline.html)
-- Lesson slides in [html](lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.html) and in [pdf](lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.pdf) formats.  
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
-
-### Lesson 5: Visualising and Analysing Time-Oriented Data 	
-
-Date: 5/6/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson05_outline.html)
-- Lesson slides in [html](lesson/Lesson05/Lesson05-It_is_About_Time.html) and in [pdf](lesson/Lesson05/Lesson05-It_is_About_Time.pdf) formats.
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
-
-### Lesson 6: Visualising Geographical Data
-
-Date: 12/6/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson06_outline.html)
-- Lesson slides in [html](lesson/Lesson06/Lesson06-Visualising_Geographical_Data.html) and in [pdf](lesson/Lesson06/Lesson06-Visualising_Geographical_Data.pdf) formats.
-- [In-class Exercise](worksheets/intro-rmarkdown.Rmd) (Solutions are [available here](worksheets/intro-rmarkdown-solutions.Rmd))
-
-### Lesson 7: Programming Data Visualisation in R
-
-Date: 26/6/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson07_outline.html)
-- Lesson slides and In-class Exercise in [html](lesson/Lesson07/Lesson07-Programming_DataViz.html) and in [pdf](lesson/Lesson07/Lesson07-Programming_DataViz.pdf) formats.
-- [In-class Exercise](In-class_Ex/In-class_Ex07/In-class_Ex07-InteractiveR.html)
-
-### Lesson 8: Programming GeoVisual Analytics with R  	
-
-Date: 3/July/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson08_outline.html)
-- Lesson slides in [html](lesson/Lesson08/Lesson08-GeoVAR.html) and in [pdf](lesson/Lesson08/Lesson08-GeoVAR.pdf) formats.  
-- [In-class Exercise](In-class_Ex/In-class_Ex08/In-class_Ex08-MovementVis.html)
-
-### Lesson 9: Network Data Visualisation and Analysis  
-
-Date: 10/7/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson09_outline.html)
-- Lesson slides in [html](lesson/Lesson09/Lesson09-NetworkVis.html) and in [pdf](lesson/Lesson09/Lesson09-NetworkVis.pdf) formats.  
-- [In-class Exercise](In-class_Ex/In-class_Ex09/In-class_Ex09-NetworkVis.html) 
-
-### Lesson 10: Text Visualisation in R
-
-Date: 17/7/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson10_outline.html)
-- Lesson slides in [html](lesson/Lesson10/Lesson10-TextVis.html) and in [pdf](lesson/Lesson10/Lesson10-TextVis.pdf) formats.  
-- [In-class Exercise](In-class_Ex/In-class_Ex10/In-class_Ex10-TextVA.html) 
-
-### Lesson 11: Introducing Shiny
-
-Date: 24/7/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson11_outline.html)
-- Lesson slides and In-class Exercise in [html](lesson/Lesson11/Lesson11-Intro_Shiny.html) and in [pdf](lesson/Lesson11/Lesson11-Intro_Shiny.pdf) formats. 
-
-### Lesson 12: Advanced Shiny Methods I
-
-Date: 31/7/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson12_outline.html)
-- Lesson slides and In-class Exercise in [html](lesson/Lesson12/Lesson12-Advanced_Shiny.html) and in [pdf](lesson/Lesson12/Lesson12-Advanced_Shiny.pdf) formats.
-
-### Lesson 13: Advanced Shiny Methods II
-
-Date: 7/8/2021
-
-<p class="nospace">Materials:</p>
-- [Lesson Outline](outline/Lesson13_outline.html)
-- Lesson and In-class Exercise slides in [html](lesson/Lesson13/Lesson13-Advanced_Shiny_II.html) and in [pdf](lesson/Lesson13/Lesson13-Advanced_Shiny_II.pdf) formats.  
 
 
-### Lesson 14: The Epilogue
 
-Date: 14/8/2021
+-----------------------------------------------------------------------------------------------
+Week Date   Topic                                                                      Remarks
+---- ------ -------------------------------------------------------------------------- ---------------------
+1.   15 Jan  [Introduction to Visual Analytics](outline/Lesson01_outline.html)                
 
-<p class="nospace">Materials:</p>
-- Lesson slides and In-class Exercise in [html](lesson/Lesson14/Lesson14-Advanced_Shiny_III.html) and in [pdf](lesson/Lesson14/Lesson14-Advanced_Shiny_III.pdf) formats.
+2.   22 Jan  [Geospatial Data Handling and Wrangling](outline/Lesson02_outline.html)          
+
+3.   29 Jan  [Thematic and Analytical Mapping](outline/Lesson03_outline.html)         
+
+4.   5 Feb  [Spatial Point Patterns Analysis](outline/Lesson04_outline.html)           Take-home Ex1 due
+
+5.   12 Feb  [Advanced Spatial Point Patterns Analysis](outline/Lesson05_outline.html)
+
+6.   19 Feb  [Spatial Weights and Applications](outline/Lesson06_outline.html)
+        
+7.   26 Feb  [Measures of Spatial Autocorrelation](outline/Lesson07_outline.html)       Take-home Ex2 due
+
+R.   5 Mar  [Workshop on R Shiny](outline/workshop.html)                               Date: 6-7 October, 2021
+
+8.   12 Mar  [Geographic Segmentation](outline/Lesson08_outline.html)
+
+9.   19 Mar  [Geographically Weighted Regression](outline/Lesson09_outline.html)        
+
+10.  26/Mar  [Spatial Interaction Models](outline/Lesson10_outline.html)                 
+
+----------------------------------------------------------------
+
+
 
 
 
