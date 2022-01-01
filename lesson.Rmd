@@ -22,7 +22,7 @@ Week Date   Topic                                                               
 
 5.   12 Feb  [Visual Multivariate Analysis](outline/Lesson05_outline.html)
 
-6.   19 Feb  [It's About Time](outline/Lesson06_outline.html)
+6.   19 Feb  [Visualising and Analysing Time-Oriented Data](outline/Lesson06_outline.html)
         
 7.   26 Feb  [GeoVisual Analytics](outline/Lesson07_outline.html)       
 

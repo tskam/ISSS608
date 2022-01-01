@@ -40,8 +40,8 @@
       "description": " ",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15 Jan\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22 Jan\r\nDesigning Graphs to Englighten\r\nDataViz Makeover 1 due\r\n3.\r\n29 Jan\r\nInteractive in Visual Analytics\r\n\r\n4.\r\n5 Feb\r\nFundamental of Visual Analytics\r\n\r\n5.\r\n12 Feb\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19 Feb\r\nIt’s About Time\r\n\r\n7.\r\n26 Feb\r\nGeoVisual Analytics\r\n\r\nR.\r\n5 Mar\r\n\r\n\r\n8.\r\n12 Mar\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19 Mar\r\nTextVis\r\n\r\n10.\r\n26 Mar\r\nAnalytical Dashboard Design\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-01T16:10:39+08:00"
+      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15 Jan\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22 Jan\r\nDesigning Graphs to Englighten\r\nDataViz Makeover 1 due\r\n3.\r\n29 Jan\r\nInteractive in Visual Analytics\r\n\r\n4.\r\n5 Feb\r\nFundamental of Visual Analytics\r\n\r\n5.\r\n12 Feb\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19 Feb\r\nVisualising and Analysing Time-Oriented Data\r\n\r\n7.\r\n26 Feb\r\nGeoVisual Analytics\r\n\r\nR.\r\n5 Mar\r\n\r\n\r\n8.\r\n12 Mar\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19 Mar\r\nTextVis\r\n\r\n10.\r\n26 Mar\r\nAnalytical Dashboard Design\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-01-01T16:29:38+08:00"
     },
     {
       "path": "R.html",
