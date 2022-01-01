@@ -9,34 +9,29 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
------------------------------------------------------------------------------------------------
-Week Date   Topic                                                                         Remarks
----- ------ ----------------------------------------------------------------------------- ---------------------
-1.   15 Jan  [Introduction to Visual Analytics](outline/Lesson01_outline.html)                
+---------------------------------------------------------------------------------------------------------------
+Week Date  Topic                                                                      Remarks
+---- ----- -------------------------------------------------------------------------- ---------------------
+1.   15/1  [Introduction to Visual Analytics](outline/Lesson01_outline.html)      
 
-2.   22 Jan  [Designing Graphs to Englighten](outline/Lesson02_outline.html)              DataViz Makeover 1 due
+2.   22/1  [Designing Graphs to Enlighten](outline/Lesson02_outline.html)    
 
-3.   29 Jan  [Interactive in Visual Analytics](outline/Lesson03_outline.html)         
+3.   29/1  [Interactivity in Visual Analytics](outline/Lesson03_outline.html)         
 
-4.   5 Feb  [Fundamental of Visual Analytics](outline/Lesson04_outline.html)           
+4.    5/2  [Fundamentals of Visual Analytics](outline/Lesson04_outline.html)          Take-home Ex1 due
 
-5.   12 Feb  [Visual Multivariate Analysis](outline/Lesson05_outline.html)
+5.   12/2  [Visual Multivariate Analysis](outline/Lesson05_outline.html)
 
-6.   19 Feb  [Visualising and Analysing Time-Oriented Data](outline/Lesson06_outline.html)
+6.   19/2  [It's About Time](outline/Lesson06_outline.html)
         
-7.   26 Feb  [GeoVisual Analytics](outline/Lesson07_outline.html)       
+7.   26/2  [GeoVisual Analytics](outline/Lesson07_outline.html)                       Take-home Ex2 due
 
-R.   5 Mar  []()                               
+R.    5/3  []()                               
 
-8.   12 Mar  [Network Data Visualisation and Analysis](outline/Lesson09_outline.html)
+8.   12/3  [Network Data Visualisation and Analysis](outline/Lesson08_outline.html)
 
-9.   19 Mar  [TextVis](outline/Lesson10_outline.html)        
+9.   19/3  [Text Data Visualisation and Analysis](outline/Lesson09_outline.html)
 
-10.  26 Mar  [Analytical Dashboard Design](outline/Lesson10_outline.html)                 
+10.  26/3  [Information Dashboard Design](outline/Lesson10_outline.html)
 
-----------------------------------------------------------------
-
-
-
-
-
+-------------------------------------------------------------------------------------------------------------

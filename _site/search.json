@@ -32,7 +32,7 @@
       "description": "Visual Analytics and Applications\n",
       "author": [],
       "contents": "\r\nWelcome to the home page for ISSS608 Visual Analytics and Applications. All course materials will be posted on this site.\r\nInstructor: Dr. Kam Tin Seong, Associate Professor of Information Systems (Practice)\r\nLesson: Saturday 12:00pm to 3:15pm\r\nVenue: SCIS Seminar Rm B1-1 except 5/2 and 12/2 at YPHSL CR B1-09\r\nSyllabus: click here\r\nUpcoming lectures and assignments: click here\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-01T16:05:27+08:00"
+      "last_modified": "2022-01-01T17:04:05+08:00"
     },
     {
       "path": "lesson.html",
@@ -40,8 +40,8 @@
       "description": " ",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15 Jan\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22 Jan\r\nDesigning Graphs to Englighten\r\nDataViz Makeover 1 due\r\n3.\r\n29 Jan\r\nInteractive in Visual Analytics\r\n\r\n4.\r\n5 Feb\r\nFundamental of Visual Analytics\r\n\r\n5.\r\n12 Feb\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19 Feb\r\nVisualising and Analysing Time-Oriented Data\r\n\r\n7.\r\n26 Feb\r\nGeoVisual Analytics\r\n\r\nR.\r\n5 Mar\r\n\r\n\r\n8.\r\n12 Mar\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19 Mar\r\nTextVis\r\n\r\n10.\r\n26 Mar\r\nAnalytical Dashboard Design\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-01T16:29:38+08:00"
+      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15/1\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22/1\r\nDesigning Graphs to Enlighten\r\n\r\n3.\r\n29/1\r\nInteractivity in Visual Analytics\r\n\r\n4.\r\n5/2\r\nFundamentals of Visual Analytics\r\nTake-home Ex1 due\r\n5.\r\n12/2\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19/2\r\nIt’s About Time\r\n\r\n7.\r\n26/2\r\nGeoVisual Analytics\r\nTake-home Ex2 due\r\nR.\r\n5/3\r\n\r\n\r\n8.\r\n12/3\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19/3\r\nText Data Visualisation and Analysis\r\n\r\n10.\r\n26/3\r\nInformation Dashboard Design\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-01-01T17:55:44+08:00"
     },
     {
       "path": "R.html",
