@@ -9,33 +9,30 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
-
-
 -----------------------------------------------------------------------------------------------
-Week Date   Topic                                                                      Remarks
----- ------ -------------------------------------------------------------------------- ---------------------
+Week Date   Topic                                                                         Remarks
+---- ------ ----------------------------------------------------------------------------- ---------------------
 1.   15 Jan  [Introduction to Visual Analytics](outline/Lesson01_outline.html)                
 
-2.   22 Jan  [Geospatial Data Handling and Wrangling](outline/Lesson02_outline.html)          
+2.   22 Jan  [Designing Graphs to Englighten](outline/Lesson02_outline.html)              DataViz Makeover 1 due
 
-3.   29 Jan  [Thematic and Analytical Mapping](outline/Lesson03_outline.html)         
+3.   29 Jan  [Interactive in Visual Analytics](outline/Lesson03_outline.html)         
 
-4.   5 Feb  [Spatial Point Patterns Analysis](outline/Lesson04_outline.html)           Take-home Ex1 due
+4.   5 Feb  [Fundamental of Visual Analytics](outline/Lesson04_outline.html)           
 
-5.   12 Feb  [Advanced Spatial Point Patterns Analysis](outline/Lesson05_outline.html)
+5.   12 Feb  [Visual Multivariate Analysis](outline/Lesson05_outline.html)
 
-6.   19 Feb  [Spatial Weights and Applications](outline/Lesson06_outline.html)
+6.   19 Feb  [Visualising and Analysing Time-Oriented Data](outline/Lesson06_outline.html)
         
-7.   26 Feb  [Measures of Spatial Autocorrelation](outline/Lesson07_outline.html)       Take-home Ex2 due
+7.   26 Feb  [GeoVisual Analytics](outline/Lesson07_outline.html)       
 
-R.   5 Mar  [Workshop on R Shiny](outline/workshop.html)                               Date: 6-7 October, 2021
+R.   5 Mar  []()                               
 
-8.   12 Mar  [Geographic Segmentation](outline/Lesson08_outline.html)
+8.   12 Mar  [Network Data Visualisation and Analysis](outline/Lesson09_outline.html)
 
-9.   19 Mar  [Geographically Weighted Regression](outline/Lesson09_outline.html)        
+9.   19 Mar  [TextVis](outline/Lesson10_outline.html)        
 
-10.  26/Mar  [Spatial Interaction Models](outline/Lesson10_outline.html)                 
+10.  26 Mar  [Analytical Dashboard Design](outline/Lesson10_outline.html)                 
 
 ----------------------------------------------------------------
 
