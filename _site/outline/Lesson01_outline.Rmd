@@ -29,6 +29,10 @@ knitr::opts_chunk$set(echo = FALSE)
 - Handout of Hands-on Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
 
 
+## Self-reading Before Meet-up
+
+To read before class:
+
 ## Webinars
 
 ### Highly Recommended TED Talk
