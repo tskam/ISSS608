@@ -22,6 +22,13 @@ knitr::opts_chunk$set(echo = FALSE)
     - Practical Guides for Using Colour in Charts
     - Data-ink
 
+## Lesson Slides and Hands-on Notes 
+
+- Lesson slides in [html](../lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.html) and [pdf](../lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.pdf) formats
+
+- Handout of Hands-on Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
+
+
 ## Readings
 ### Core Readings
 
