@@ -1,5 +1,5 @@
 ---
-title: "Visualising and Analysing Geographical Data"
+title: "It's About Time"
 description: ""
 date: "`r Sys.Date()`"
 output:
@@ -12,60 +12,60 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Lesson Outline
+## Lesson Content
 
-* Introducing map
-* Properties of geographical data
-* Typology of map
-* Thematic mapping techniques
-    * Proportional symbol map
-    * Choropleth map
-    * Data Classification
-* Alternative mapping techniques
+* Characteristics of time-series data
+* A short visual history of time-series graphs
+* Time-series patterns
+* Time-series data visualization Methods
+    * Line graph
+    * Control chart
+    * Candlestick chart
+    * Slopegraph
+    * Cycle plot
+    * Horizon graph
+    * Sunburst diagram
+    * Calendar Heatmap
+    * Stream Graph
+* Interactive techniques for time-series data visualisation
+* Animation techniques for time-series visualisation
+
+## Lesson Slides and Hands-on Notes 
+
+- Lesson slides in [html](../lesson/Lesson06/Lesson06-Lesson06-It_is_About_Time.html) and [pdf](../lesson/Lesson06/Lesson06-It_is_About_Time.pdf) formats
+
+- Handout of Hands-on Exercise 6 in [html](../Hands-on_Ex/Hands-on_Ex06/Hands-on_Ex06.html) and [pdf](../Hands-on_Ex/Hands-on_Ex06/Hands-on_Ex06.pdf) formats.
+
 
 ## Readings
 
-### Core Reading
+### Core Readings
 
-* [The Concept of Map Symbols](https://www.yaaka.cc/unit/the-concept-of-map-symbols/)
-* [Proportional Symbols](https://www.axismaps.com/guide/univariate/proportional-symbols/)
-* [Choropleth map](https://en.wikipedia.org/wiki/Choropleth_map)
-* [Choropleth Maps](https://www.axismaps.com/guide/univariate/choropleth/)
-* [The Basics of Data Classification](https://www.axismaps.com/guide/data/data-classification/)
+* [A taxonomy of temporal data visualization techniques](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.122.8704&rep=rep1&type=pdf)
+* [Edward Tufte’s “Slopegraphs”](http://charliepark.org/slopegraphs/)
+* [Introduction to Cycle Plots](http://www.perceptualedge.com/articles/guests/intro_to_cycle_plots.pdf)
+* [Visualizing Change: An Innovation in Time-Series Analysis](http://www.perceptualedge.com/articles/visual_business_intelligence/visualizing_change.pdf)
+* [The Development of the Horizon Graph](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=08076DD0A1346CB0F3AE2A98A5FB17A0?doi=10.1.1.363.5396&rep=rep1&type=pdf)
+* [Candlestick chart](https://en.wikipedia.org/wiki/Candlestick_chart)
 
 ### Additional Readings
 
-* [Choropleth Maps – A Guide to Data Classification](https://gisgeography.com/choropleth-maps-data-classification/)
-* [Bivariate Choropleth](https://www.axismaps.com/guide/multivariate/bivariate-choropleth/)
-* [Value-by-alpha maps](http://andywoodruff.com/blog/value-by-alpha-maps/)
-* [What to consider when creating choropleth maps](https://blog.datawrapper.de/choroplethmaps/)
-* [Choropleth Mapping with Exploratory Data Analysis](https://www.directionsmag.com/article/3363)
-* [Cartogram Maps: Data Visualization with Exaggeration](https://gisgeography.com/cartogram-maps/)
-* [Cartogram](https://en.wikipedia.org/wiki/Cartogram)
-* [When Maps Shouldn’t Be Maps](http://www.ericson.net/content/2011/10/when-maps-shouldnt-be-maps/)
-* [What to consider when creating choropleth maps](https://blog.datawrapper.de/choroplethmaps/)
+* [Slopegraph Update](http://charliepark.org/a-slopegraph-update/)
+* [Time on the Horizon](http://www.perceptualedge.com/articles/visual_business_intelligence/time_on_the_horizon.pdf)
+* [TimeSearcher](http://www.cs.umd.edu/hcil/timesearcher/)
+* [Understanding Basic Candlestick Charts](https://www.investopedia.com/trading/candlestick-charting-what-is-it/)
+* [What is a slopegraph?](https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph) ![](img/image1.jpg){width=5%}
+* Donahue, Rafe M.J. [*Fundamental Statistical Concepts in Presenting Data: Principles for Constructing Better Graphics*](https://byuistats.github.io/CSE150/files/FSCPD_Donahue_callcenter.pdf).  This article provide a real world example of building truthful and functional time series graph.![](img/image1.jpg){width=5%}
+* [Hockey stick graph](https://en.wikipedia.org/wiki/Hockey_stick_graph) at wiki.![](img/image1.jpg){width=5%}
+* Michael E. Mann, Raymond S. Bradley, Malcolm K. Hughes (1999) ["Northern hemisphere temperatures during the past millennium: Inferences, uncertainties, and limitations"](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/1999GL900070). *Geophysical Research Letters*, Vol. 26, No. pp. 759-762.![](img/image1.jpg){width=5%}
+* The Guardian (2010) ["Hockey stick graph took pride of place in IPCC report, despite doubts"](https://www.theguardian.com/environment/2010/feb/09/hockey-stick-graph-ipcc-report).![](img/image1.jpg){width=5%} 
 
 ## All About Tableau
 
-### Basic Tutorial
-
-* [Maps and Geographic Data Analysis in Tableau](https://help.tableau.com/current/pro/desktop/en-us/maps.htm).  This chapter from the User Guide of Tableau provide a comprehensive overview of the mapping concepts and Tableau methods.  I strongly recommend you to read the chapter at least once. 
-* [Live Training: Mapping](https://www.tableau.com/learn/webinars/live-training-mapping#video)
-* [Getting Started with Mapping](https://www.tableau.com/learn/tutorials/on-demand/getting-started-mapping?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Maps in Tableau](https://www.tableau.com/learn/tutorials/on-demand/maps-tableau?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Editing Unrecognized Location](https://www.tableau.com/learn/tutorials/on-demand/editing-unrecognized-locations?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Spatial Files](https://www.tableau.com/learn/tutorials/on-demand/spatial-files?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [The Density Mark Type (Heat maps)](https://www.tableau.com/learn/tutorials/on-demand/density-mark-type?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Expanding Tableau's Mapping Capabilities](https://www.tableau.com/learn/tutorials/on-demand/expanding-tableaus-mapping-capabilities?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Custom Geocoding](https://www.tableau.com/learn/tutorials/on-demand/custom-geocoding?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Polygon Maps](https://www.tableau.com/learn/tutorials/on-demand/polygon-maps?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-* [Background Images](https://www.tableau.com/learn/tutorials/on-demand/background-images?product=tableau_desktop%2Btableau_prep&version=tableau_desktop_2019_3%2Btableau_prep_2019_3_1&topic=mapping)
-
-### Beyond the Basic
-
-* [Advanced Mapping with Tableau](https://www.tableau.com/learn/webinars/advanced-mapping-techniques-tableau)
-* [10 ways to add value to your dashboards with maps](https://www.tableau.com/learn/whitepapers/10-ways-add-value-your-dashboards-maps)
-* [3 Ways to Make Magnificent Maps in Tableau](https://www.ryansleeper.com/3-ways-to-make-magnificent-maps-in-tableau/)
-* [How to Make Trellis / Tile / Small Multiple Maps in Tableau](https://playfairdata.com/how-to-make-trellis-tile-small-multiple-maps-in-tableau//)
+* [Slopegraphs in Tableau](http://dataremixed.com/2013/12/slopegraphs-in-tableau/)
+* [Horizon Graph](https://www.tableau.com/learn/tutorials/on-demand/horizon-charts)
+* [Viz Variety Show: When to use heatmap calendars](https://www.tableau.com/about/blog/2017/2/viz-variety-show-heatmaps-66330)
+* [Creating a Candlestick chart](https://kb.tableau.com/articles/howto/creating-a-candlestick-chart)
+* [Candlestick Charts and Bollinger Bands](https://www.tableau.com/learn/tutorials/on-demand/candlestick-charts-and-bollinger-bands)
 
 

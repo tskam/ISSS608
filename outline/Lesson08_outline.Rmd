@@ -1,5 +1,5 @@
 ---
-title: "Programming GeoVisual Analytics with R"
+title: "Lesswon 8: NetworkVis: Network Data Visualisation and Analysis"
 description: ""
 date: "`r Sys.Date()`"
 output:
@@ -13,54 +13,81 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Content
-* Handling Geospatial Data with R
-    * sf package for vector data handling
-    * raster package for raster data handling
-    * Star package for spatio-temporal data data handling 
-* Thematic Mapping with R
-* Introducing tmap
-    * Proportional symbol mapping with tmap
-    * Choropleth mapping with tmap
-* GeoVisual Analytics with R
-    * Statistical mapping
-    * Coordinated-view geovisualization
+
+* Introduction to Graph Data Visualisation
+    * Basic principles of network graph
+    * Graph data visualisation in actions
+* Network Graph Data 
+    * Network data sets
+    * Graph data format
+    * Graph Database
+* Network Graph Visualisation Tools
+* Designer toolkit
+    * Gephi
+* Programmer toolkit
+    * R packages
+* Graph layouts
+    * Node-and-link layouts
+    * Force-directed layout
+    * Node-only layout
+    * Adjacency matrix
+* Visual Attributes
+    * Key node attributes
+    * Key edge attributes
+    * Bundles, shapes, images, and more
+* Visual Analysis of Network Graphs
+    * Relationships
+    * Hierarchies
+    * Communities
+* Flows
+* Spatial networks 
+
+## Lesson Slides and Hands-on Notes 
+
+- Lesson slides in [html](../lesson/Lesson08/Lesson08-NetworkVA.html) and [pdf](../lesson/Lesson08/Lesson08-NetworkVA.pdf) formats
+
+- Handout of Hands-on Exercise 8 in [html](../Hands-on_Ex/Hands-on_Ex08/Hands-on_Ex08.html) and [pdf](../Hands-on_Ex/Hands-on_Ex08/Hands-on_Ex08.pdf) formats.
+
+
+## Readings
+
+* [Visual Analysis of Complex Networks for Business Intelligence with Gephi](https://hal.archives-ouvertes.fr/hal-00828795/document)
+* [Graph Drawing](http://en.wikipedia.org/wiki/Graph_drawing)
+* [Graph Analytics - Lesson Learned and Challenges Ahead](https://www.cs.umd.edu/users/ben/papers/Wong2011Graph.pdf)
+* [Learning to Read and Interpret Network Graph Data Visualizations](http://noduslabs.com/cases/learn-read-interpret-network-graphs-data-visualization/)
+* [The Visualization of Networks](http://www.vismaster.eu/news/von/)
+* [ViZster: Visualizing Online Social Networks](http://hci.stanford.edu/jheer/projects/vizster/early_design/)
+* Adam Perer. ["Finding Beautiful Insights in the Chaos of Social Network Visualizations"](http://perer.org/papers/adamPerer-BV_ch10.pdf). In '''Beautiful Visualization'''. O’Reilly Press.
+* [Visual Complexity](http://www.visualcomplexity.com/vc/)
 
 ## All About R
-### sf package
-* [Simple Features for R](https://r-spatial.github.io/sf/articles/sf1.html)
-* [Reading, Writing and Converting Simple Features](https://r-spatial.github.io/sf/articles/sf2.html)
-* [Manipulating Simple Feature Geometries](https://r-spatial.github.io/sf/articles/sf3.html)
-* [Manipulating Simple Features](https://r-spatial.github.io/sf/articles/sf4.html)
-* [Plotting Simple Features](https://r-spatial.github.io/sf/articles/sf5.html)
-* [Miscellaneous](https://r-spatial.github.io/sf/articles/sf6.html)
-* [Spherical geometry in sf using s2geometry](https://r-spatial.github.io/sf/articles/sf7.html)
+### Wrangling Network Data
+* [tidygraph](https://www.data-imaginist.com/2017/introducing-tidygraph/ Introducing)
+* [tidygraph 1.1 – A tidy hope](https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/)
+* [tidygraph](https://tidygraph.data-imaginist.com/)
 
-### raster package
-* [raster reference](https://cran.r-project.org/web/packages/raster/raster.pdf)
-* [raster](https://rspatial.org/raster/pkg/index.html) package
+### Visualisation and Analysis 
 
-### stars
-* [stars reference](https://r-spatial.github.io/stars/reference/index.html)
-* [Spatiotemporal Arrays: Raster and Vector Datacubes](https://r-spatial.github.io/stars/index.html)
-* [Introduction](https://r-spatial.github.io/stars/articles/stars1.html)
-* [stars tidyverse methods](https://r-spatial.github.io/stars/articles/stars3.html)
-* [Statistical modelling with stars objects](https://r-spatial.github.io/stars/articles/stars7.html)
+**ggraph**
 
-### tmap package
-* [tmap reference](https://cran.r-project.org/web/packages/tmap/tmap.pdf)
-* [tmap: get started!](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)
-* [tmap: what is changed in recent versions?](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-changes.html)
-* Tennekes, M., (2018)[tmap: Thematic Maps in R](https://www.jstatsoft.org/article/view/v084i06), *Journal of Statistical Software*, 84(6), 1-39.
+* [ggraph](https://ggraph.data-imaginist.com/)
+* [Announcing ggraph](https://www.data-imaginist.com/2017/announcing-ggraph/)
+* [1 giraffe, 2 giraffe, GO!](https://www.data-imaginist.com/2019/1-giraffe-2-giraffe-go/)
+* [Layouts](https://ggraph.data-imaginist.com/articles/Layouts.html)
+* [Nodes](https://ggraph.data-imaginist.com/articles/Nodes.html)
+* [Edges](https://ggraph.data-imaginist.com/articles/Edges.html)
+* [tidygraph and ggraph](https://ggraph.data-imaginist.com/articles/tidygraph.html)
 
-### micromap package
-* [micromap](https://cran.r-project.org/web/packages/micromap/index.html) provides functions simplifies the creation of linked micromap plots.
-* [Linked Micromaps](https://cran.r-project.org/web/packages/micromap/vignettes/Introduction_Guide.pdf)
+**vizNetwork**
 
-### geofacet package
-* [geofacet](https://hafen.github.io/geofacet/) provides geofaceting functionality for ggplot2. Geofaceting arranges a sequence of plots of data for different geographical entities into a grid that strives to preserve some of the original geographical orientation of the entities.
-* [Introduction to geofacet](https://hafen.github.io/geofacet/articles/geofacet.html)
+* [visNetwork: Network Visualization using 'vis.js' Library](https://cran.r-project.org/web/packages/visNetwork/index.html)
+* [Introduction to visNetwork](https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html)
+* [visNetwork, an R package for interactive network visualization](http://datastorm-open.github.io/visNetwork/)
 
+**Circular Plot**
 
+* [circlize: circular visualization in R](https://cran.r-project.org/web/packages/circlize/index.html)
+* [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/)
 
 
 

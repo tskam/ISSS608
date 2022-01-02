@@ -1,5 +1,5 @@
 ---
-title: "Lesson 9: Graph Data Visualisation and Analysis"
+title: "Lesson 9: TextVis: Text Data Visualisation and Analysis"
 description: ""
 date: "`r Sys.Date()`"
 output:
@@ -14,73 +14,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Content
 
-* Introduction to Graph Data Visualisation
-    * Basic principles of network graph
-    * Graph data visualisation in actions
-* Network Graph Data 
-    * Network data sets
-    * Graph data format
-    * Graph Database
-* Network Graph Visualisation Tools
-* Designer toolkit
-    * Gephi
-* Programmer toolkit
-    * R packages
-* Graph layouts
-    * Node-and-link layouts
-    * Force-directed layout
-    * Node-only layout
-    * Adjacency matrix
-* Visual Attributes
-    * Key node attributes
-    * Key edge attributes
-    * Bundles, shapes, images, and more
-* Visual Analysis of Network Graphs
-    * Relationships
-    * Hierarchies
-    * Communities
-* Flows
-* Spatial networks 
++ Introduction Text Visualisation
+    + Text data
++ Text Visualisation Methods
+    + Tag Cloud
+    + Wordle
+    + Word Tree
+    + Phrase Nets
++ R Packages for Text Visualisation
 
-## Readings
+## Lesson Slides and Hands-on Notes 
 
-* [Visual Analysis of Complex Networks for Business Intelligence with Gephi](https://hal.archives-ouvertes.fr/hal-00828795/document)
-* [Graph Drawing](http://en.wikipedia.org/wiki/Graph_drawing)
-* [Graph Analytics - Lesson Learned and Challenges Ahead](https://www.cs.umd.edu/users/ben/papers/Wong2011Graph.pdf)
-* [Learning to Read and Interpret Network Graph Data Visualizations](http://noduslabs.com/cases/learn-read-interpret-network-graphs-data-visualization/)
-* [The Visualization of Networks](http://www.vismaster.eu/news/von/)
-* [ViZster: Visualizing Online Social Networks](http://hci.stanford.edu/jheer/projects/vizster/early_design/)
-* Adam Perer. ["Finding Beautiful Insights in the Chaos of Social Network Visualizations"](http://perer.org/papers/adamPerer-BV_ch10.pdf). In '''Beautiful Visualization'''. O’Reilly Press.
-* [Visual Complexity](http://www.visualcomplexity.com/vc/)
+- Lesson slides in [html](../lesson/Lesson09/Lesson09-TextVA.html) and [pdf](../lesson/Lesson09/Lesson09-TextVA.pdf) formats
 
-## All About R
-### Wrangling Network Data
-* [tidygraph](https://www.data-imaginist.com/2017/introducing-tidygraph/ Introducing)
-* [tidygraph 1.1 – A tidy hope](https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/)
-* [tidygraph](https://tidygraph.data-imaginist.com/)
+- Handout of Hands-on Exercise 9 in [html](../Hands-on_Ex/Hands-on_Ex09/Hands-on_Ex09.html) and [pdf](../Hands-on_Ex/Hands-on_Ex09/Hands-on_Ex09.pdf) formats.
 
-### Visualisation and Analysis 
-
-**ggraph**
-
-* [ggraph](https://ggraph.data-imaginist.com/)
-* [Announcing ggraph](https://www.data-imaginist.com/2017/announcing-ggraph/)
-* [1 giraffe, 2 giraffe, GO!](https://www.data-imaginist.com/2019/1-giraffe-2-giraffe-go/)
-* [Layouts](https://ggraph.data-imaginist.com/articles/Layouts.html)
-* [Nodes](https://ggraph.data-imaginist.com/articles/Nodes.html)
-* [Edges](https://ggraph.data-imaginist.com/articles/Edges.html)
-* [tidygraph and ggraph](https://ggraph.data-imaginist.com/articles/tidygraph.html)
-
-**vizNetwork**
-
-* [visNetwork: Network Visualization using 'vis.js' Library](https://cran.r-project.org/web/packages/visNetwork/index.html)
-* [Introduction to visNetwork](https://cran.r-project.org/web/packages/visNetwork/vignettes/Introduction-to-visNetwork.html)
-* [visNetwork, an R package for interactive network visualization](http://datastorm-open.github.io/visNetwork/)
-
-**Circular Plot**
-
-* [circlize: circular visualization in R](https://cran.r-project.org/web/packages/circlize/index.html)
-* [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/)
 
 
 
