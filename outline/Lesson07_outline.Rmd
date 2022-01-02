@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Lesson Slides and Hands-on Notes 
 
-- Lesson slides in [html](../lesson/Lesson07/Lesson07-Lesson07-GeoVA.html) and [pdf](../lesson/Lesson07/Lesson07-GeoVA.pdf) formats
+- Lesson slides in [html](../lesson/Lesson07/Lesson07-GeoVA.html) and [pdf](../lesson/Lesson07/Lesson07-GeoVA.pdf) formats
 
 - Handout of Hands-on Exercise 7 in [html](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.html) and [pdf](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.pdf) formats.
 
