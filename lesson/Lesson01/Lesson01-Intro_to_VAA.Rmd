@@ -1,0 +1,365 @@
+---
+title: "Lesson 1: Introduction to Visual Analytics"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2019-04-28 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# What will you learn from this lesson?
+
+.vlarge[
+- Motivation of Visual Analytics
+- What is Visual Analytics
+- Learning from the history of visual analytics
+- Data Visualisation tools
+]
+
+---
+## Motivation of Visual Analytics
+
+.center[
+### The World is full of charts that lie!
+![:scale 45%](img/image1-1.jpg)
+]
+
+.center[
+### We need to get smarter about visual information 
+]
+---
+
+## Motivation of Visual Analytics
+### Junk charts are good for advertising but not for understanding.
+
+.center[
+![:scale 45%](img/image1-15.jpg)]
+
+---
+## Motivation of Visual Analytics
+### Data rich, information poor
+
+.center[
+![:scale 60%](img/image1-2.jpg)
+
+Source: http://omnitele-com.s3.frantic.com/2015/04/big-data-ocean-crop.jpeg]
+
+---
+## Motivation of Visual Analytics
+### The World is buried in data,
+
+.center[
+## Just SHOW me the number]
+.center[
+![:scale 45%](img/image1-3.jpg)
+]
+
+---
+## Motivation of Visual Analytics
+
+.pull-left[
+### Spreadsheet: A great hammer but lousy screwdriver
+![](img/image1-4.jpg)
+]
+
+--
+.pull-right[
+
+.center[
+### Visual analytics come to the rescue]
+
+![](img/image1-5.jpg)
+]
+
+---
+## Motivation of Visual Analytics
+### When statistics failed!
+
+.pull-left[
+![:scale 125%](img/image1-6.jpg)]
+
+.pull-right[
+.center[
+![:scale 75%](img/image1-14.jpg)
+
+.vlarge[Data analysis without data visualisation is no data analysis]
+]]
+
+
+---
+## Motivation of Visual Analytics
+### Analytical graphics reveal the truth
+.center[
+![:scale 50%](img/image1-7.jpg)]
+
+---
+## Motivation of Visual Analytics
+### Is there a place for Visual Analytics in knowledge discovery? 
+
+.center[
+![:scale 65%](img/image1-12.jpg)]
+
+---
+## Motivation of Visual Analytics
+### Free and Open Source Analytics Web Apps
+
+.center[
+![:scale 65%](img/image1-27.jpg)]
+
+Visit the link at https://vrshiny.shinyapps.io/vrshiny/
+
+---
+## Motivation of Visual Analytics
+### Open data need to be unlocked! 
+
+.center[
+![:scale 40%](img/image1-30.jpg)]
+Visit the link at https://data.gov.sg
+
+---
+## Motivation of Visual Analytics
+### Democratising Data and Analytics with Visually-driven Web Apps
+
+.center[
+![:scale 65%](img/image1-29.jpg)]
+
+Visit the link at https://singaporetourist.shinyapps.io/VA_Proj_Shiny/
+
+---
+## What is Visual Analytics?
+
+.pull-left[
+.vlarge[Visual Analytics is the craft of **analytical reasoning** supported by:
+- Data Science and Analytics
+- Data Visualisation
+- Human-Computing-Interaction (HCI)
+- Interface Design
+- Visual Storytelling
+
+The marriage of data analytics and visualizations
+]]
+
+.pull-right[
+![:scale 100%](img/image1-8.jpg)]
+
+---
+## What is Visual Analytics?
+
+.pull-left[
+### Science of Visual Analytics
+
+![](img/image1-13.jpg)]
+
+--
+.pull-right[
+### Aims of Visual Analytics
+
+.middle[
+
+![](img/image1-13a.jpg)
+]
+]
+
+---
+## What is Visual Analytics?
+### Visual Data Sense-making
+
+.vlarge[Visual Analytics’ greatest strength is its use for **sense-making**.]
+
+.pull-right[![:scale 60%](img/image1-9.jpg)]
+
+.pull-left[
+.center[
+![](img/image1-9a.jpg)
+
+]]
+
+---
+## What is Visual Analytics?
+### Visual Analytics Framework
+
+.center[
+![:scale 70%](img/image1-10.jpg)]
+
+---
+## What is Visual Analytics?
+### Visual Analytics require a shift of mindset
+
+.center[
+![:scale 75%](img/image1-11.jpg)]
+
+---
+## What is Visual Analytics?
+### Learning from the history of Visual Analytics
+
+.large[[Commercial and Political Atlas by William Playfair](https://en.wikipedia.org/wiki/William_Playfair) (22 September 1759 – 11 February 1823)]
+
+.center[
+![:scale 50%](img/image1-16.jpg)]
+
+---
+## What is Visual Analytics?
+### Learning from the history of Visual Analytics
+.large[[Cholera and the Pump on Broad Street](https://en.wikipedia.org/wiki/John_Snow)(John Snow, 1854).]
+
+.center[
+![:scale 40%](img/image1-17.jpg)]
+
+---
+## What is Visual Analytics?
+### Learning from the history of Visual Analytics
+.large[[Florence Nightingale: The compassionate statistician](https://plus.maths.org/content/florence-nightingale-compassionate-statistician) (12 May 1820 – 13 August 1910)]
+
+.center[
+![:scale 60%](img/image1-18.jpg)]
+
+---
+## What is Visual Analytics?
+### Learning from the history of Visual Analytics
+.large[[Plot of Napoleon's ill-fated Russian campaign of 1812-1813](https://en.wikipedia.org/wiki/Charles_Joseph_Minard) (Charles Joseph Minard,1861)]
+
+.center[
+![:scale 80%](img/image1-19.png)]
+
+---
+## What is Visual Analytics?
+### Visual Analytics must be Reprducible
+
+.pull-left[
+.large[
+- For every result, keep track of how it was produced.
+- Avoid manual data manipulation steps.
+- Archive the excat versions of all external programmes used.
+- Version control all custom scripts.
+- Record all intermedia results, when possible in standard formats.
+- For analysis that include randomness, note underlying random seeds.
+- Always store raw data behind plots.
+- Generate hierarchical analysis output, allowing layers of increasing detail to be inspected.
+
+]]
+
+.pull-right[
+.large[
+- Connect textual statements to underlying results.
+- Provide public access to scripts, runs, and results.
+]
+
+![:scale 90%](img/image1-32.jpg)
+]
+
+Reference: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285#s9
+
+
+
+---
+## Milestones in the history of Visual Analytics
+
+.pull-left[
+### Exploratory Data Analysis by John Tukey (June 16, 1915 – July 26, 2000)
+
+.center[
+.vlarge[Exploration is the key!]
+
+![:scale 80%](img/image1-20.jpg)]
+
+.small[Source:https://en.wikipedia.org/wiki/Exploratory_data_analysis]
+]
+
+--
+.pull-right[
+### The Craft of Information Visualization, 2003 (Ben Shneiderman)
+
+.center[
+.vlarge[Interaction is the key!]
+
+![:scale 80%](img/image1-21.jpg)]
+
+.small[Source: https://en.wikipedia.org/wiki/Ben_Shneiderman
+]
+]
+
+---
+## Data Visualisation Toolkits
+
+.large[
+- Commercial-off-the-shelf
+    + Visual analytics tookit such as Tableau, JMP, PowerBI, Qlik Sense/View & TIBCO SpotFire.
+    + Specialised data visualisation applications such as TreeMap from Macrofocus (https://www.macrofocus.com/)
+- Open source 
+    + Specialised data visualisation applications such as Gephi (https://gephi.org/)
+    + Data visualisation API library such as D3.js (https://d3js.org/)
+]
+
+---
+## COS Data Visualisualisation Toolkit
+### Magic Quadrant for BI and Analytics Platforms
+
+.center[
+![:scale 40%](img/image1-23.jpg)]
+
+---
+## COS Data Visualisation Toolkit
+
+.center[
+![:scale 70%](img/image1-22.jpg)]
+
+---
+## Programmable Data Visualisation Library
+
+.large[
+- Javascript
+    + D3.js (https://d3js.org/) 
+- Python
+    + Maplotlib (http://matplotlib.org/)
+    + Bokeh (http://bokeh.pydata.org/en/latest/) 
+    + Plotly (https://plot.ly/python/)   
+- R, Base Graphics 
+    + lattice (https://cran.r-project.org/web/packages/lattice/index.html)
+    + ggplot (https://ggplot2.tidyverse.org/)
+    + plotly R (https://plot.ly/r/)
+    + R Shiny (https://shiny.rstudio.com/) 
+]
+
+---
+## Tableau: A data visualisation tool for everyone
+
+.left-column[
+.large[
+- Theory to practice
+    + The Grammar of Graphics
+- Science to product
+    + VisQL
+    + Show Me
+    + Polaris
+]]
+
+.right-column[
+![:scale 80%](img/image1-24.jpg)]
+
+---
+## Highly recommended blogs
+
+.large[
+- Perceptual Edge (https://www.perceptualedge.com/)
+- Junk Charts (http://junkcharts.typepad.com/junk_charts/)
+- The Functional Art (http://www.thefunctionalart.com/)
+]
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Lesson01-Introduction_to_VAA.html")
+```
+

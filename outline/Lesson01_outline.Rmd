@@ -22,6 +22,12 @@ knitr::opts_chunk$set(echo = FALSE)
 * Visual Analytics Techniques: basic graphical methods
 * Visual Analytics Tools
 
+## Lesson Slides and Hands-on Notes 
+
+- Lesson slides in [html](../lesson/Lesson01/Lesson01-Intro_to_VAA.html) and [pdf](../lesson/Lesson01/Lesson01-Intro_to_VAA.pdf) formats
+
+- Handout of Hands-on Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
+
 
 ## Webinars
 
