@@ -360,6 +360,6 @@ Reference: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcb
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson01-Introduction_to_VAA.html")
+pagedown::chrome_print("Lesson01-Intro_to_VAA.html")
 ```
 
