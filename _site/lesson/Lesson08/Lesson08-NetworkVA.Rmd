@@ -1008,15 +1008,6 @@ This [site](https://geonetworks.github.io/) provides an outstanding overview and
 ]
 
 
-
-
-
-
-
-
-
-
-
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
 pagedown::chrome_print("Lesson08-NetworkVA.html")
