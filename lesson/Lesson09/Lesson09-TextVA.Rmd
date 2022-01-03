@@ -1,5 +1,5 @@
 ---
-title: "Lesson 10: Text Visualisation: Concepts and Methods"
+title: "Lesson 9: Text Data Visualisation and Analysis: Concepts and Methods"
 subtitle: ""  
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -403,7 +403,7 @@ Cao, Nan and Cui, Weiwei (2016) **Introduction to text visualization**, Springer
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson10-TextVis.html")
+pagedown::chrome_print("Lesson09-TextVA.html")
 ```
 
 
