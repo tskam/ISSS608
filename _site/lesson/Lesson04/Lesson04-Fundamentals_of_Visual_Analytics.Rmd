@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 4: Fundemantal of Visual Analytics'
+title: 'Lesson 4: Fundamantals of Visual Analytics'
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
