@@ -1,5 +1,5 @@
 ---
-title: "Lesson 6: Visualising Geographical Data"
+title: "Lesson 7: GeoVA-Geographic Data Visualisation and Analysis"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -531,7 +531,7 @@ Figure below provided a mathematical method to determine number of classes used 
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson06-Visualising_Geographical_Data.html")
+pagedown::chrome_print("Lesson07-GeoVA.html")
 ```
 
 
