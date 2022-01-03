@@ -1,5 +1,5 @@
 ---
-title: "Lesson 9: Network Data Visualisation and Analysis"
+title: "Lesson 8: NetworkVA: Network Data Visualisation and Analysis"
 subtitle: ""  
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -1019,5 +1019,5 @@ This [site](https://geonetworks.github.io/) provides an outstanding overview and
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson09-NetworkVis.html")
+pagedown::chrome_print("Lesson08-NetworkVA.html")
 ```
