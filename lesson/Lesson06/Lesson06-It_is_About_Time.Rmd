@@ -1,5 +1,5 @@
 ---
-title: "Lesson 5: It's About Time <br/>Visualising and Analysing Time-Oriented Data"
+title: "Lesson 6: It's About Time <br/>Visualising and Analysing Time-Oriented Data"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management Uniiversity"
@@ -547,5 +547,5 @@ Claus. O. Wilke (2019) **Fundamentals of Data Visualisation**, O’Reilly. USA. 
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson05-It_is_About_Time.html")
+pagedown::chrome_print("Lesson06-It_is_About_Time.html")
 ```
