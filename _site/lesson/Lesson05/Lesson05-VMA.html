@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 5: Visual Multivariate Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 5: Visual Multivariate Analysis
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2020-01-20 (updated: 2022-01-04)
+
+---
+
+
+
+
+
+
+# Content
+
+.vlarge[
+What will you learn from this lesson?
+
++ Understand the characteristics of multidimensional data
++ Visual analytics techniques and tools for visualising and analysing multidimensional continuous data 
++ Visual analytics techniques and tools for visualising and analysing multidimensional categorical data
++ Sensing both categorical and continuous multidimensional data
++ Multidimensional data analysis best practices
+]
+
+---
+# Visual analytics techniques
+
+.vlarge[
++ Ternary plot
++ Glyphs
++ Scatterplot Matrix
++ Parallel coordinates
++ Heatmap
++ Parallel Set
++ Table Lens
++ Tableplots
+]
+
+---
+# Introducing Multidimensional Data
+## Wine data set
+
+There are 13 variables in this data set.  11 of them are in continuous data type, one in ordinal scale and one in norminal scale
+.center[
+![:scale 70%](img/image5-1.jpg)]
+.small[Source:UCI Machine Learning Repository https://archive.ics.uci.edu/ml/datasets/Wine]
+
+
+---
+## Scatterplot Matrix
+
+.pull-left[
+.large[
++ **Scatterplot matrix** (also known as **correlation matrix**) is a graphical method used to reveal the relationship between multiple variables *pairwisely*.
+]]
+
+.pull-right[
+![](img/image5-2.jpg)
+]
+
+---
+## Scatterplot Matrix
+
+.pull-left[
+.large[
++ When a relatively large number of obversation points is used, the scatterplot matrix failed to reveal the pair relationship effectively.
+]]
+
+.pull-right[
+![](img/image5-3.jpg)
+]
+
+---
+## Correlogram
+
+.pull-left[
+.large[
+- Correlogram uses **visual geometrics** such as ellipse, circle, square, and bars to replace the scatterplot in correlation matrix. 
+
+- It is very useful to reveal pair-relationships between variables in a large correlation matrix. 
+
+- In this plot, correlation coefficients is colored according to the value. 
+]] 
+
+.pull-right[
+![](img/image5-4.jpg)
+]
+
+---
+## Correlogram
+### Visual abstractions for rendering correlation values.
+
+.center[
+![:scale 65%](img/image5-5.jpg)
+]
+
+---
+## Correlogram
+### **corrgram** package  
+
+.pull-left[
+- The [**corrgram**](https://kwstat.github.io/corrgram/index.html) is one of the oldest R package specially designed to correlograms. You can choose what to display in the upper, lower and diagonal part of the figure: scatterplot, pie chart, text, ellipse and more.]
+
+.pull-right[
+![](img/image5-6.jpg)
+]
+
+---
+## Correlogram
+### ggstatsplot package
+
+.pull-left[
+- The [*ggcorrmat()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html) of [**ggstatsplot**](https://indrajeetpatil.github.io/ggstatsplot/) package can be used to plot a correlogram and their corresponding coefficients.
+
+- To learn more, refer to [ggcorrmat](https://indrajeetpatil.github.io/ggstatsplot/articles/web_only/ggcorrmat.html) and the [function's reference guide](https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html).
+]
+
+.pull-right[
+![](img/image5-7.jpg)
+]
+
+---
+## Correlogram
+### Corrplot package
+
+.pull-left[
+- The correlogram on the right is produced by using R [**corrplot**](https://cran.r-project.org/web/packages/corrplot/index.html).
+
+- The article entitle [An Introduction to corrplot Package](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) provides a good overview of the functions of the package.
+]
+
+.pull-right[
+![](img/image5-8.jpg)
+]
+
+---
+## Correlogram
+### GGally Package
+
+.pull-left[
+- The [**GGally**](https://ggobi.github.io/ggally/) package offers great options to build correlograms. 
+
+- The [*ggpairs()*](https://ggobi.github.io/ggally/reference/ggpairs.html) function build a classic correlogram with scatterplot, correlation coefficient and variable distribution. On top of that, it is possible to inject ggplot2 code, for instance to color categories.
+]
+
+.pull-right[
+![](img/image5-9.jpg)
+]
+
+---
+# Beyond Visualising Variables Pairwisely
+## The data
+
+.center[
+![:scale 60%](img/image5-10.jpg)
+]
+
+---
+## Ternary Plot
+
+.pull-left[
+.large[
++ A ternary plot (also known as ternary graph, triangle plot, simplex plot, Gibbs triangle or de Finetti diagram) is a [barycentric plot](https://en.wikipedia.org/wiki/Barycentric_coordinate_system) on three variables which sum to a constant, usually in percentage.
+
++ It graphically depicts the ratios of the three variables as positions in an [equilateral triangle](https://en.wikipedia.org/wiki/Equilateral_triangle). ]]
+
+.pull-right[
+![](img/image5-11.jpg)
+]
+
+---
+## Ternary Plot
+### ggtern package
+
+.pull-left[
+.large[
++ [ggtern](http://www.ggtern.com/) is a package that extends the functionality of ggplot2, giving the capability to plot ternary diagrams for (subset of) the ggplot2 proto geometries.
+
++ For a good start, please refer to the article entitle [ggtern: Ternary Diagrams Using ggplot2](https://www.jstatsoft.org/article/view/v087c03)]]
+
+.pull-right[
+![](img/image5-12.jpg)
+]
+
+---
+## Glyphs
+
+.pull-left[
+.large[
++ Star plot (Chambers 1983)(also known as radar chart, star chart and spider chart) is a method of displaying multivariate data. 
++ The star plot consists of a sequence of equi-angular spokes, called radii, with each spoke representing one of the variables. The data length of a spoke is proportional to the magnitude of the variable for the data point relative to the maximum magnitude of the variable across all data points. A line is drawn connecting the data values for each spoke. This gives the plot a star-like appearance and the origin of the name of this plot. 
+]]
+
+.pull-right[
+![:scale 60%](img/image5-13.jpg)
+]
+
+---
+## Radar Chart
+
+.pull-left[
+.large[
++ In R, *radarchart()* of **fmsb** library is the best tool to build radar chart.
+
+]]
+
+
+---
+# Visualising and Analysing Multivariate Data
+## Heatmap method
+
+.pull-left[
+
+- A heat map (or heatmap) is a graphical representation of data where the individual values contained in a matrix are represented as colors.
+- When applied to a tabular format, heatmaps are useful for cross-examining multivariate data, through placing variables in the columns and observation (or records) in row and colouring the cells within the table. 
+- Heatmaps are good for showing variance across multiple variables, revealing any patterns, displaying whether any variables are similar to each other, and for detecting if any correlations exist in-between them.
+]
+
+.pull-right[
+![:scale 70%](img/image9-16.jpg)]
+
+---
+## R packages for creating statis Heatmap 
+
+There are many R packages and functions can be used to drawing static heatmaps, they are:
+
+- [heatmap()](https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/heatmap)of R stats package.  It draws a simple heatmap.
+- [heatmap.2()](https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/heatmap.2) of **gplots** R package.  It draws an enhanced heatmap compared to the R base function.
+- [pheatmap()](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap) of [**pheatmap**](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12) R package.  **pheatmap** package also known as Pretty Heatmap.  The package provides functions to draws pretty heatmaps and provides more control to change the appearance of heatmaps.
+- [**ComplexHeatmap**](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html) package of R/Bioconductor package.  The package draws, annotates and arranges complex heatmaps (very useful for genomic data analysis).  The full reference guide of the package is available [here](https://jokergoo.github.io/ComplexHeatmap-reference/book/).
+- [**superheat**](https://cran.r-project.org/web/packages/superheat/) package: A Graphical Tool for Exploring Complex Datasets Using Heatmaps.  A system for generating extendable and customizable heatmaps for exploring complex datasets, including big data and data with multiple data types.  The full reference guide of the package is available [here](https://rlbarter.github.io/superheat/).
+
+---
+## R package for creating Interactive Heatmap
+
+- [**heatmaply**](https://talgalili.github.io/heatmaply/) is an R package for building interactive cluster heatmap that can be shared online as a stand-alone HTML file.  It is designed and maintained by Tal Galili.
+
+- Before we get started, you should review the [Introduction to Heatmaply](https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html) to have an overall understanding of the features and functions of Heatmaply package.  You are also required to have the [user manual](https://cran.r-project.org/web/packages/heatmaply/heatmaply.pdf)of the package handy with you for reference purposes. 
+
+
+```r
+packages = c('seriation', 'dendextend', 'heatmaply', 'readr')
+
+for(p in packages){library
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+---
+# Visualising and Analysing Multivariate Data
+## Parallel Coordinates Plot Method
+
+Parallel Coordinates plot or Parallel plot allows to compare the feature of several individual observations on a set of numeric variables. Each vertical bar represents a variable and usually has its own scale. (The units can even be different). Values are then plotted as series of lines connected across each axis.
+
+.center[
+![:scale 80%](img/image8-8.jpg)]
+
+---
+## parallelPlot Package
+
+.pull-left[
+- An R package specially designed to plot a parallel coordinates plot by using 'htmlwidgets' package and [d3.js](https://d3js.org/).
+
+- Before we get started, you should review the [Introduction to ‘parallelPlot’](https://cran.r-project.org/web/packages/parallelPlot/vignettes/introduction-to-parallelplot.html) to have an overall understanding of the features and functions of parallelPlot package.  You are also required to have the [user manual](https://cran.r-project.org/web/packages/parallelPlot/parallelPlot.pdf)of the package handy with you for reference purposes. 
+]
+
+.pull-right[
+
+The code below is used to plot a basic parallel coordinates by using World Hapiness 2018 data set.
+
+
+```r
+library(parallelPlot)
+
+parallelPlot(wh)
+```
+
+The code chunk below plot histograms on the axis of the parallel coordinates plot. 
+
+
+```r
+histoVisibility &lt;- rep(TRUE, ncol(wh))
+parallelPlot(wh, 
+             histoVisibility = histoVisibility)
+```
+]
+
+
+---
+# Reference
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -46,12 +46,15 @@ knitr::opts_chunk$set(echo = FALSE)
 * [Top 50 ggplot2 Visualizations - The Master List (With Full R Code)](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 * [ggplot2 Quickref](http://r-statistics.co/ggplot2-cheatsheet.html)
 * [Data visualization with ggplot2](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)
+* [ggplot Wizardary](https://www.cedricscherer.com/slides/useR-2021_ggplot-wizardry-extended.pdf)
+
 
 ### Webminers
 
 * [ggplot2 workshop part 1](https://www.youtube.com/watch?v=h29g21z0a68)
 * [ggplot2 workshop part 2](https://www.youtube.com/watch?v=0m4yywqNPVY )
 * [Make Beautiful Graphs in R: 5 Quick Ways to Improve ggplot2 Graphs](https://www.youtube.com/watch?v=qnw1xDnt_Ec)
+* [Outlier 2021—ggplot wizardy: my favorite tricks and secrets for beautiful plots in R](https://www.youtube.com/watch?v=7UjA_5gNvdw&list=PLAm5TIX-yz7IkKOUcStM_vl8AD0S9v0co&index=34) by Cédric Scherer
 
 ### ggplots Extension
 * ggVis
