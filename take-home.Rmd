@@ -1,0 +1,49 @@
+---
+title: "Take-home Exercise"
+description: "The only way to learn a new programming language is by writing programs in it. *- Dennis Ritchie*"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+The take-home exercise provides students the opportunity to revise and practice the R packages and programming skills they learnt in-class at home.  It is a weekly exercise.  Each exercise is designed to be completed within 1.5-2 hours.  The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.  Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.  
+
+## Take-home Exercises 
+- [Take-home Exercise 1](TH_EX/TH_EX01.html)
+- [Take-home Exercise 2](TH_EX/TH_EX02.html)
+- [Take-home Exercise 3](TH_EX/TH_EX03.html)
+- [Take-home Exercise 4](TH_EX/TH_EX04.html)
+- [Take-home Exercise 5](TH_EX/TH_EX05.html)
+- [Take-home Exercise 6](TH_EX/TH_EX06.html)
+- [Take-home Exercise 7](TH_EX/TH_EX07.html)
+- [Take-home Exercise 8](TH_EX/TH_EX08.html)
+- [Take-home Exercise 9](TH_EX/TH_EX09.html)
+- [Take-home Exercise 10](TH_EX/TH_EX10.html)
+
+
+## Submission Instructions 
+
+This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually. 
+
+- The take-home exercise submission must be written by using **distill for R Markdown**.  It can be in either [distill article](https://distill.pub/guide/) or [distill blog ](https://rstudio.github.io/distill/blog.html) format. You are required to publish the assignment report on [Netlify](https://www.netlify.com/) and provide the link on the take-home exercise submission page on elearn. 
+- You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.
+ 
+## Submission date 
+ 
+Your completed take-home exercise is due at **11:59pm on every Sunday**.
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/take-home.html")
+```
+
+

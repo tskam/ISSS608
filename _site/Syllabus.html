@@ -2037,15 +2037,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs/header-attrs.js"></script>
-  <script src="site_libs/popper/popper.min.js"></script>
-  <link href="site_libs/tippy/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor/anchor.min.js"></script>
-  <script src="site_libs/bowser/bowser.min.js"></script>
-  <script src="site_libs/webcomponents/webcomponents.js"></script>
-  <script src="site_libs/distill/template.v2.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2069,8 +2069,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="syllabus.html">Syllabus</a>
 <a href="lesson.html">Lesson Plan</a>
 <a href="DataViz.html">DataViz Makeover</a>
-<a href="assignment.html">Takehome Exercise</a>
+<a href="take-home.html">Take-home Exercise</a>
 <a href="VAproject.html">Visual Analytics Project</a>
+</div>
+<div class="nav-right">
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Shiny Workshop
@@ -2081,8 +2083,6 @@ Shiny Workshop
 <a href="ShinyWorkshop/Shiny1/Shiny1.html">Getting to Know Shiny</a>
 </div>
 </div>
-</div>
-<div class="nav-right">
 <a href="Tableau.html">Tableau Resources</a>
 <a href="R.html">R Resouces</a>
 <a href="index.html">Home</a>
@@ -2118,10 +2118,11 @@ Shiny Workshop
 <ul>
 <li><a href="#in-class-exercise-and-class-participation">In-class Exercise and Class Participation</a></li>
 <li><a href="#dataviz-makeover">DataViz Makeover</a></li>
-<li><a href="#individual-assignments">Individual Assignments</a></li>
+<li><a href="#take-home-exercise">Take-home Exercise</a></li>
 <li><a href="#visual-analytics-project">Visual Analytics Project</a></li>
 </ul></li>
 <li><a href="#grading-summary">Grading Summary</a></li>
+<li><a href="#words-of-encouragement">Words of Encouragement</a></li>
 <li><a href="#core-readings">Core Readings</a></li>
 <li><a href="#other-important-information">Other Important Information</a>
 <ul>
@@ -2151,8 +2152,8 @@ Shiny Workshop
 <ul>
 <li>Explaining the concepts and principles of Visual Analytics.</li>
 <li>Describing the differences between Visual Analytics, Data Visualisation, Statistical Graphs and Infographics.</li>
-<li>Explaining the basic concept of visual variables and applying these concepts and best practice in designing data-driven static graphs.</li>
-<li>Explaining interactive techniques and best practice, and applying these techniques in designing interactive data visualisation.</li>
+<li>Explaining the basic concept of visual variables and applying these concepts and best practices in designing data-driven static graphs.</li>
+<li>Explaining interactive techniques and best practices, and applying these techniques in designing interactive data visualisation.</li>
 <li>Understanding the data characteristics of numerical data and building data visualisation by using appropriate visually driven univariate and bivariate data analytics methods.</li>
 <li>Understanding the characteristics of multivariate data and building data visualisation by using appropriate multivariate visualisation methods.</li>
 <li>Understanding the characteristics of time-series data and building data visualisation by using appropriate time-series visualisation methods.</li>
@@ -2174,11 +2175,11 @@ Shiny Workshop
 </ul>
 <p>You don’t have to finish reading either one of them before lesson starts. Take your time, review them from time to time. You will find yourself learning something new each time you revisit the book.</p>
 <h2 id="course-assessment">Course Assessment</h2>
-<p>The assessment of this course consists of four major components, namely:</p>
+<p>The assessment for this course consists of four major components, namely:</p>
 <ul>
 <li>In-class Hands-on exercise and class participation,</li>
 <li>DataViz Makeover</li>
-<li>Individual assignments,</li>
+<li>Take-home exercises,</li>
 <li>Visual Analytics Project.</li>
 </ul>
 <p>There will be no mid-term test or final examination for this course.</p>
@@ -2186,22 +2187,19 @@ Shiny Workshop
 <p>A strict requirement for each class meeting is to complete the assigned readings and to try out the hands-on exercises before coming to class. Readings will be provided from the textbook on technical information and from provided documents and articles on business applications of Visual Analytics. Students are required to review the recommended readings and class exercises before coming to class. Without preparation, the learning and discussions would not be as meaningful. Student sharing of insights from readings and hands-on exercises of assigned materials in class participation will form a large part of the learning in this course.</p>
 <p>During lesson, students are required to complete a series of hands-on exercises using either Tableau or R. In general, these exercises are guided if Tableau is used. For R programming session, hands-on guides will be shared on RPubs before lesson starts. By the end of each lesson, students are required to upload their in-class exercise onto eLearn for reviewing. The exercises will be briefly reviewed after collection. Students will be given 10 points for correctly completing the exercise, 7-9 points for partially completed and correct work, and 0 points if absent. Up to 100 points can be accumulated during the term.</p>
 <h3 id="dataviz-makeover">DataViz Makeover</h3>
-<p>Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.</p>
-<p>The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!</p>
-<p>The write-up of the DataViz Makeover must be in <a href="https://rstudio.github.io/distill/website.html">distill</a> format. You are required to publish the write-up on <a href="https://www.netlify.com/">netlify</a>. If Tableau is used to complete the DataViz Makeover, students are require to upload their Tableau workbook onto <a href="https://public.tableau.com/en-us/s/">Tableau Public</a>.</p>
-<p>All DataViz Makeover have to be completed by <strong>Sunday before mid-night 11.59pm</strong>. Students are required to provide the URL links on eLearn (i.e. DataViz Makeover).</p>
-<h3 id="individual-assignments">Individual Assignments</h3>
-<p>There is one assignment that is due throughout the term. The assignment must be completed using R. The write-up of the assignment must be in <a href="https://rstudio.github.io/distill/website.html">distill</a> format. You are required to publish the write-up on <a href="https://www.netlify.com/">netlify</a>. Assignment due is to be uploaded onto eLearn strictly before the official due dates. Late work will be severely penalised. Students must check and confirm on course webpage the assignment due dates.</p>
-<p>The assignment will be graded on a scale from 0 to 100. Scores of 70 and 80 are given when the assignment is essentially done completely and correctly. Scores 80 and 90 are reserved for complete and correct homework where extra initiative or innovation clearly sets the completed work above the simple, perfunctory and satisfactory completion of the mini-assignment.</p>
+<p>Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you will be able to retell the story more effectively, or find a new story in the data. I am curious to see the different approaches all of you take.</p>
+<p>The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you can make it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!</p>
+<h3 id="take-home-exercise">Take-home Exercise</h3>
+<p>The take-home exercise provides students with the opportunity to revise and practice the R packages and programming skills they had learned in class at home. It is a weekly exercise. Each exercise is designed to be completed within 1.5-2 hours. The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative in applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.</p>
 <h3 id="visual-analytics-project">Visual Analytics Project</h3>
-<p>The purpose of the project is to provide students first hand experience on collecting, processing and analysing large business data using real world data. A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains. Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment. Students are encouraged to focus on research topics that are relevant to their field of study. It should address a concrete visual analytics problem and should propose a novel and creative solution.</p>
-<p>For more details please refer to [[VAProject|Visual Analytics Project page]]</p>
+<p>The purpose of the project is to provide students with first hand experiences on collecting, processing and analysing large business data using real world data. A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains. Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment. Students are encouraged to focus on research topics that are relevant to their field of study. It should address a concrete visual analytics problem and should propose a novel and creative solution.</p>
+<p>For more details please refer to <a href="_site/VAProject.html">Visual Analytics Project</a> page.</p>
 <h2 id="grading-summary">Grading Summary</h2>
 <p>The grading distribution of this course is as follows:</p>
 <ul>
 <li>In-class Exercise and Class Participation 20%</li>
 <li>DataViz Makeover 30%</li>
-<li>Assignment 20%</li>
+<li>Take-home Exercise 20%</li>
 <li>Visual Analytics Project 30%
 <ul>
 <li>Project blog 15%</li>
@@ -2211,6 +2209,21 @@ Shiny Workshop
 </ul></li>
 </ul>
 <p>There will be no mid-term test and final examination for this course.</p>
+<h2 id="words-of-encouragement">Words of Encouragement</h2>
+<p>For the next 12 weeks, your learning journey will be very bumpy, especially come to R programming</p>
+<p><img src="img/image4.png" /></p>
+<p>Learning R can be difficult at first—it’s like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you’ll be using like ggplot2 — made this wise observation:</p>
+<blockquote>
+<p>It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.</p>
+</blockquote>
+<p>Even experienced programmers find themselves bashing their heads against seemingly intractable errors.</p>
+<p><img src="img/image3.jpg" style="width:75.0%" /></p>
+<p>If you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, and don’t hesitate to approach me.</p>
+<p>The students who have a bad time in this course are the ones who don’t work with one another to learn. We are a learning community, and we should help each other to learn.</p>
+<p>If you understand something and someone is struggling with it, try and help them. If you are struggling, take a breath, and try to pinpoint what you are struggling with.</p>
+<p>Our goal is to be better programmers each day, not to be the perfect programmer. There’s no such thing as a perfect programmer. I’ve been learning new things almost every day.</p>
+<p>I promise you can succeed in this class as long as you are willing to learn, practice, be open minded and don’t give up easily.</p>
+<p><img src="img/image6.jpg" style="width:45.0%" /></p>
 <h2 id="core-readings">Core Readings</h2>
 <p>Claus. O. Wilke (2019) <a href="https://clauswilke.com/dataviz/"><strong>Fundamentals of Data Visualisation</strong></a>, O’Reilly. USA</p>
 <p>Cairo, Alberto (2013) <strong>The Functional Art: An Introduction to Information Graphics and Visualization</strong>, New Riders, Berkeley, CA. This book is available at SMU eLibrary.</p>
@@ -2223,6 +2236,9 @@ Shiny Workshop
 <p>SMU strives to make learning experiences accessible for all. If you anticipate or experience physical or academic barriers due to disability, please let the instructor know immediately. You are also welcome to contact the university’s disability support team if you have questions or concerns about academic accommodations: <a href="mailto:included@smu.edu.sg" class="email">included@smu.edu.sg</a> Please be aware that the accessible tables in our seminar room should remain available for students who require them.</p>
 <h3 id="emergency-preparedness-for-teaching-and-learning-eptl">Emergency Preparedness for Teaching and Learning (EPTL)</h3>
 <p>As part of emergency preparedness, Instructors may conduct lessons online via the WebEx platform during the term, to prepare students for online learning. During an actual emergency, students will be notified to access the WebEx platform for their online lessons. The class schedule will mirror the current face-to-face class timetable unless otherwise stated.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -34,8 +34,8 @@ Upon successful completion of the course, students will be able to:
 
 - Explaining the concepts and principles of Visual Analytics.
 - Describing the differences between Visual Analytics, Data Visualisation, Statistical Graphs and Infographics.
-- Explaining the basic concept of visual variables and applying these concepts and best practice in designing data-driven static graphs.
-- Explaining interactive techniques and best practice, and applying these techniques in designing interactive data visualisation.
+- Explaining the basic concept of visual variables and applying these concepts and best practices in designing data-driven static graphs.
+- Explaining interactive techniques and best practices, and applying these techniques in designing interactive data visualisation.
 - Understanding the data characteristics of numerical data and building data visualisation by using appropriate visually driven univariate and bivariate data analytics methods.
 - Understanding the characteristics of multivariate data and building data visualisation by using appropriate multivariate visualisation methods. 
 - Understanding the characteristics of time-series data and building data visualisation by using appropriate time-series visualisation methods. 
@@ -63,11 +63,11 @@ You don't have to finish reading either one of them before lesson starts.  Take 
 
 ## Course Assessment
 
-The assessment of this course consists of four major components, namely: 
+The assessment for this course consists of four major components, namely: 
 
 - In-class Hands-on exercise and class participation,
 - DataViz Makeover 
-- Individual assignments, 
+- Take-home exercises, 
 - Visual Analytics Project. 
 
 There will be no mid-term test or final examination for this course.  
@@ -82,27 +82,19 @@ During lesson, students are required to complete a series of hands-on exercises 
 
 ### DataViz Makeover
 
-Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
+Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you will be able to retell the story more effectively, or find a new story in the data. I am curious to see the different approaches all of you take.
 
-The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
+The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you can make it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
 
-The write-up of the DataViz Makeover must be in [distill](https://rstudio.github.io/distill/website.html) format. You are required to publish the write-up on [netlify](https://www.netlify.com/).  If Tableau is used to complete the DataViz Makeover, students are require to upload their Tableau workbook onto [Tableau Public](https://public.tableau.com/en-us/s/).  
+### Take-home Exercise
 
-All DataViz Makeover have to be completed by **Sunday before mid-night 11.59pm**.  Students are required to provide the URL links on eLearn (i.e. DataViz Makeover).
- 
-
-### Individual Assignments
-
-There is one assignment that is due throughout the term.  The assignment must be completed using R.  The write-up of the assignment must be in [distill](https://rstudio.github.io/distill/website.html) format. You are required to publish the write-up on [netlify](https://www.netlify.com/).  Assignment due is to be uploaded onto eLearn strictly before the official due dates.  Late work will be severely penalised.  Students must check and confirm on course webpage the assignment due dates.
-
-The assignment will be graded on a scale from 0 to 100.  Scores of 70 and 80 are given when the assignment is essentially done completely and correctly.  Scores 80 and 90 are reserved for complete and correct homework where extra initiative or innovation clearly sets the completed work above the simple, perfunctory and satisfactory completion of the mini-assignment.  
-
+The take-home exercise provides students with the opportunity to revise and practice the R packages and programming skills they had learned in class at home.  It is a weekly exercise.  Each exercise is designed to be completed within 1.5-2 hours.  The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative in applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.      
 
 ### Visual Analytics Project
 
-The purpose of the project is to provide students first hand experience on collecting, processing and analysing large business data using real world data.  A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains.  Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment.  Students are encouraged to focus on research topics that are relevant to their field of study.  It should address a concrete visual analytics problem and should propose a novel and creative solution.   
+The purpose of the project is to provide students with first hand experiences on collecting, processing and analysing large business data using real world data.  A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains.  Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment.  Students are encouraged to focus on research topics that are relevant to their field of study.  It should address a concrete visual analytics problem and should propose a novel and creative solution.   
 
-For more details please refer to [[VAProject|Visual Analytics Project page]]
+For more details please refer to [Visual Analytics Project](_site/VAProject.html) page.
 
 
 ## Grading Summary
@@ -111,7 +103,7 @@ The grading distribution of this course is as follows:
 
 - In-class Exercise and Class Participation 20%
 - DataViz Makeover 30%
-- Assignment 20%
+- Take-home Exercise 20%
 - Visual Analytics Project 30%
     - Project blog 15%
     - Poster 10%
@@ -119,6 +111,33 @@ The grading distribution of this course is as follows:
     - Artifact 50%  
 
 There will be no mid-term test and final examination for this course.
+
+
+## Words of Encouragement
+
+For the next 12 weeks, your learning journey will be very bumpy, especially come to R programming 
+
+![](img/image4.png)
+
+Learning R can be difficult at first—it’s like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you’ll be using like ggplot2 — made this wise observation:
+
+> It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.
+
+Even experienced programmers find themselves bashing their heads against seemingly intractable errors. 
+
+![](img/image3.jpg){width=75%}
+
+If you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, and don't hesitate to approach me.  
+
+The students who have a bad time in this course are the ones who don’t work with one another to learn. We are a learning community, and we should help each other to learn.
+
+If you understand something and someone is struggling with it, try and help them. If you are struggling, take a breath, and try to pinpoint what you are struggling with.
+
+Our goal is to be better programmers each day, not to be the perfect programmer. There’s no such thing as a perfect programmer. I’ve been learning new things almost every day.
+
+I promise you can succeed in this class as long as you are willing to learn, practice, be open minded and don't give up easily.
+
+![](img/image6.jpg){width=45%}
 
 
 ## Core Readings
@@ -148,6 +167,9 @@ Please be aware that the accessible tables in our seminar room should remain ava
 As part of emergency preparedness, Instructors may conduct lessons online via the WebEx platform during the term, to prepare students for online learning. During an actual emergency, students will be notified to access the WebEx platform for their online lessons. The class schedule will mirror the current face-to-face class timetable unless otherwise stated.
 
 
-
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/Syllabus.html")
+```
 
 

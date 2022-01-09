@@ -11,16 +11,16 @@ navbar:
       href: lesson.html
     - text: "DataViz Makeover"
       href: DataViz.html
-    - text: "Takehome Exercise"
-      href: assignment.html
+    - text: "Take-home Exercise"
+      href: take-home.html
     - text: "Visual Analytics Project"
       href: VAproject.html
+
+  right:
     - text: "Shiny Workshop"
       menu:
         - text: "Getting to Know Shiny"
           href: "ShinyWorkshop/Shiny1/Shiny1.html"
-      
-  right:
     - text: "Tableau Resources"
       href: Tableau.html
     - text: "R Resouces"
