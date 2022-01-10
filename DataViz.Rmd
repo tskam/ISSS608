@@ -38,8 +38,7 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
     - [DataViz Makeover 1 handout](others/ISSS608_AY2020-21T2_DataViz1.pdf), [sample web article](https://kaichinlim.netlify.app/posts/2021-01-24-dataviz-makeover-1/) and [Tableau Public](https://public.tableau.com/profile/kai.chin#!/vizhome/DataViz1_16113674336320/Sheet1?publish=yes) submission.
 - DataViz Makeover AY2020-2021 Term 3
   - [DataViz Makeover 1](DataViz-AY2020-21T3/DataViz1.html)
-  - [DataViz Makeover 2](DataViz-AY2020-21T3/DataViz2.html)
-  - [DataViz Makeover 3](DataViz-AY2020-21T3/DataViz3.html)
+
 
 ### From external sources
 - [Makeover Monday](https://www.makeovermonday.co.uk/), especially:
@@ -52,7 +51,7 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
     - [Community](https://community.storytellingwithdata.com/)
     - [Blog](http://www.storytellingwithdata.com/blog)
 
-## DataViz Makeover Blog Link
+
 
 
 
