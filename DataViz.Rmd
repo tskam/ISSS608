@@ -14,14 +14,13 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Overview
-Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
+There are two dataviz makeover exercises that are due throughout the term.  I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation. Maybe you retell the story more effectively, or find a new story in the data. I am curious to see the different approaches you all take.
 
 The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you made it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
 
 ## DataViz Makeover Topics
 - [DataViz Makeover 1](DataViz/DataViz1.html)
 - [DataViz Makeover 2](DataViz/DataViz2.html)
-- [DataViz Makeover 3](DataViz/DataViz3.html)
 
 ## Submission Instructions
 
@@ -36,7 +35,11 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
 
 ### From seniors
 - DataViz Makeover Blog Link [AY2020-2021 Term 2](https://wiki.smu.edu.sg/2021t2isss608/DataViz#DataViz_Makeover_Blog_Link)
-    - [DataViz Makeover 1 handout](others/ISSS608_AY2020-21T2_DataViz1.pdf), [sample web article](https://kaichinlim.netlify.app/posts/2021-01-24-dataviz-makeover-1/) and [Tableau Public](https://public.tableau.com/profile/kai.chin#!/vizhome/DataViz1_16113674336320/Sheet1?publish=yes) submission. 
+    - [DataViz Makeover 1 handout](others/ISSS608_AY2020-21T2_DataViz1.pdf), [sample web article](https://kaichinlim.netlify.app/posts/2021-01-24-dataviz-makeover-1/) and [Tableau Public](https://public.tableau.com/profile/kai.chin#!/vizhome/DataViz1_16113674336320/Sheet1?publish=yes) submission.
+- DataViz Makeover AY2020-2021 Term 3
+  - [DataViz Makeover 1](DataViz-AY2020-21T3/DataViz1.html)
+  - [DataViz Makeover 2](DataViz-AY2020-21T3/DataViz2.html)
+  - [DataViz Makeover 3](DataViz-AY2020-21T3/DataViz3.html)
 
 ### From external sources
 - [Makeover Monday](https://www.makeovermonday.co.uk/), especially:
