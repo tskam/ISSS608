@@ -73,7 +73,7 @@ The important take away from this slide is to avoid creating eye candy data visu
 Source: http://omnitele-com.s3.frantic.com/2015/04/big-data-ocean-crop.jpeg]
 
 ???
-In this big data age, data analyst tends to flooded with large amount of data.  Before she/he can build any effective model by using advanced AI/ML techniques, she/he need to first understand the data and data visualisation are one of the most commonly used method.  
+In this big data age, data analyst tends to flooded with large amount of data.  Before she/he can build any effective model by using advanced AI/ML techniques, she/he need to first understand the data and data visualisation is one of the most commonly used approach.  
 
 ---
 ## Motivation of Visual Analytics
