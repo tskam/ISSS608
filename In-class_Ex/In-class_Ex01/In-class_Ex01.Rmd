@@ -1,0 +1,1521 @@
+---
+title: "In-Class Exercise 1: Programming Elegant DataVis with ggplot2"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-2-15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.retina=3,
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE)
+```
+
+# Content
+
+.large[
+- Introducing Tidyverse 
+
+- *ggplot2*, The Layered Grammar of Graphics
+    - The Essential Grammatical Elements in ggplot2
+    - Designing Analytical Graphics with ggplot2
+- ggplot Wizardry 
+]
+
+---
+# Introducing **Tidyverse**
+
+.large[
+**tidyverse** is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.]
+
+![:scale 65%](img/image1.jpg)
+
+.small[
+Reference: [tidyverse](https://www.tidyverse.org/)
+]
+
+---
+## Core **Tidyverse** packages
+
+.pull-left[
+.large[
+- [**dplyr**](https://dplyr.tidyverse.org/) is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges.
+- [**tidyr**](https://tidyr.tidyverse.org/) helps R users to create tidy data.
+- [**stringr**](https://stringr.tidyverse.org/) provides a cohesive set of functions designed to make working with strings as easy as possible.
+- [**forcats**](https://forcats.tidyverse.org/) provides a suite of tools that solve common problems with factors, including changing the order of levels or the values.
+]]
+
+.pull-right[
+.large[
+- [**readr**](https://readr.tidyverse.org/) provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+- [**tibble**](https://tibble.tidyverse.org/) is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. 
+- [**ggplot2**](https://ggplot2.tidyverse.org/) is a system for declaratively creating graphics, based on The Grammar of Graphics. 
+- [**purrr**](https://purrr.tidyverse.org/) enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors. 
+]]
+
+---
+## Data Science Workflow with Tidyverse
+
+.center[
+![:scale 60%](img/image1a.jpg)
+]
+
+.small[
+Reference: [Introduction to the Tidyverse: How to be a tidy data scientist](https://oliviergimenez.github.io/intro_tidyverse/#1)
+]
+
+---
+# Getting started
+## Installing and loading the required libraries
+
+.pull-left[
+.large[
+- Before we get started, it is important for us to ensure that the required R packages have been installed.  If yes, we will load the R pacakges.  If they have yet to be installed, we will install the R packages and load them onto R environment.
+
+- The chunk code on the right will do the trick.
+]] 
+
+.pull-right[
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+packages = c('tidyverse')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+]
+
+---
+## Importing data
+
+.pull-left[
+.large[
+- The code chunk below imports *exam_data.csv* into R environment using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) function of [**readr**](https://readr.tidyverse.org/) package.
+
+- **readr** is one of the tidyverse package.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+exam_data <- read_csv("data/Exam_data.csv")
+```
+]]
+
+.pull-right[
+.large[
+- Year end examination grades of a cohort of primary 3 students from a local school.
+
+- There are a total of seven attributes.  Four of them are categorical data type and the other three are in continuous data type.
+    - The categorical attributes are: ID, CLASS, GENDER and RACE.
+    - The continuous attributes are: MATHS, ENGLISH and SCIENCE.
+]]
+
+---
+# Introducing ggplot ![:scale 10%](img/image2a.jpg)
+
+.pull-left[
+.large[
+- An R package for **declaratively** creating **data-driven** graphics based on ***The Grammar of Graphics***
+
+- It is part of the tidyverse family specially designed for visual exploration and communication.
+
+- For more detail, visit [ggplot2 link](https://ggplot2.tidyverse.org/index.html).
+]]
+
+.pull-right[
+![:scale 85%](img/image2.png)
+]
+
+---
+## R Graphics VS ggplot
+
+.pull-left[
+.center[
+.large[R Graphics]]
+
+```{r fig.width=5, fig.height=5}
+hist(exam_data$MATHS)
+```
+]
+
+.pull-right[
+.center[
+.large[ggplot2]]
+
+```{r warning=FALSE, message=FALSE, fig.width=4, fig.height=4, fig.retina=3}
+ggplot(data=exam_data, aes(x = MATHS)) +
+  geom_histogram(bins=10, 
+                 boundary = 100,
+                 color="black", 
+                 fill="grey") +
+  ggtitle("Distribution of Maths scores")
+```
+]
+
+---
+## Then, why ggplot2
+
+.pull-left[
+.large[
+The transferable skills from ggplot2 are not the idiosyncrasies of plotting syntax, but a powerful way of thinking about visualisation, as a way of mapping between variables and the visual properties of geometric objects that you can perceive.
+]
+
+.small[[Hadley Wickham](http://varianceexplained.org/r/teach_ggplot2_to_beginners/#comment-1745406157)]
+
+```{r eval=FALSE, warning=FALSE, message=FALSE, fig.width=4, fig.height=4, fig.retina=3}
+ggplot(data=exam_data, aes(x = MATHS)) +
+  geom_histogram(bins=10, 
+                 boundary = 100,
+                 color="black", 
+                 fill="grey") +
+  ggtitle("Distribution of Maths scores")
+```
+]
+
+
+.pull-right[
+![](img/image5.png)
+]
+
+---
+## Grammar of Graphics
+
+.pull-left[
+- Wilkinson, L. (1999) **Grammar of Graphics**, Springer.
+- The grammar of graphics is an answer to a question: 
+
+    ***What is a statistical graphic?***
+
+- Grammar of graphics defines the rules of structuring mathematic and aesthetic elements into a meaningful graph.
+- Two principles
+    + Graphics = distinct layers of grammatical elements
+    + Meaningful plots through aesthetic mapping
+]
+
+.pull-right[
+- A good grammar will allow us to gain insight into the composition of complicated graphics, and reveal unexpected connections between seemingly different graphics (Cox 1978). 
+
+- A grammar provides a strong foundation for understanding a diverse range of graphics. 
+
+- A grammar may also help guide us on what a well-formed or correct graphic looks like, but there will still be many grammatically
+correct but nonsensical graphics. 
+]
+
+---
+# Essential Grammatical Elements in ggplot2
+.center[
+.large[A Layered Grammer of Graphics]]
+.pull-left[
+- **Data**: The dataset being plotted.
+- **Aesthetics** take attributes of the data and use them to influence visual characteristics, such as position, colours, size, shape, or transparency.
+- **Geometrics**: The visual elements used for our data, such as point, bar or line.
+- **Facets** split the data into subsets to create multiple variations of the same graph (paneling, multiple plots).
+- **Statistics**, statiscal transformations that summarise data (e.g. mean, confidence intervals).
+- **Coordinate systems** define the plane on which data are mapped on the graphic.
+- **Themes** modify all non-data components of a plot, such as main title, sub-title, y-aixs title, or legend background.]
+
+.pull-right[
+![:scale 120%](img/image4.jpg)
+
+.small[Reference: Hadley Wickham (2010)"A layered grammar of graphics." *Journal of Computational and Graphical Statistics*, vol. 19, no. 1, pp. 3–28. https://vita.had.co.nz/papers/layered-grammar.html]]
+
+---
+## Essential Grammatical Elements in ggplot2
+### The *ggplot()* function and [*data*]() argument 
+
+.pull-left[
+.large[
+- Let us call the *ggplot()* function using the code chunk on the right.
+
+- Notice that a blank canvas appears.
+
+- *ggplot()* initializes a ggplot object.
+
+- The *data* argument defines the dataset to be used for plotting. 
+
+- If the dataset is not already a data.frame, it will be converted to one by *fortify()*. 
+]]
+
+.pull-right[
+```{r, echo=TRUE, fig.height=4, fig.width=8}
+ggplot(data=exam_data)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### The [Aesthetic mappings](https://ggplot2.tidyverse.org/reference/aes.html)
+
+.large[
+- The aesthetic mappings take attributes of the data and and use them to influence visual characteristics, such as position, colour, size, shape, or transparency.
+
+- Each visual characteristic can thus encode an aspect of the data and be used to convey information.
+
+- All aesthetics of a plot are specified in the [*aes()*](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html) function call (in later part of this lesson, you will see that each *geom* layer can have its own aes specification)]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with *aes()*
+
+.pull-left[
+.large[
+- The code chunk on the right add the aesthetic element into the plot.
+
+```{r, echo=TRUE, eval=FALSE,fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) #<<
+```
+
+- Notice that ggplot includes the x-axis and the axis's label.]]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS))
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom* 
+
+.pull-left[
+- Geometric objects are the actual marks we put on a plot. Examples include: 
+    + *geom_point* for drawing individual points (e.g., a scatter plot)
+    + *geom_line* for drawing lines (e.g., for a line charts)
+    + *geom_smooth* for drawing smoothed lines (e.g., for simple trends or approximations)
+    + *geom_bar* for drawing bars (e.g., for bar charts)
+    + *geom_histogram* for drawing binned values (e.g. a histogram)
+    + *geom_polygon* for drawing arbitrary shapes
+    + *geom_map* for drawing polygons in the shape of a map! (You can access the data to use for these maps by using the map_data() function).
+]
+
+.pull-right[
+![](img/image6.jpg)
+
+- A plot must have at least one geom; there is no upper limit. You can add a geom to a plot using the **+** operator.
+- For complete list, please refer to [here](https://ggplot2.tidyverse.org/reference/#section-layer-geoms).
+]
+
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom_bar*](https://ggplot2.tidyverse.org/reference/geom_bar.html)
+
+.pull-left[
+- The code chunk below plots a bar chart.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x=RACE)) +
+  geom_bar() #<< 
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom_dotplot*](https://ggplot2.tidyverse.org/reference/geom_dotplot.html)
+
+.pull-left[
+In a dot plot, the width of a dot corresponds to the bin width (or maximum width, depending on the binning algorithm), and dots are stacked, with each dot representing one observation.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot(dotsize = 0.5) #<<
+```
+
+Note that y scale is not very useful, in fact it is very misleading.]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot(dotsize = 0.5)
+```
+]
+
+.small[Reference: Dot plot (statistics) https://en.wikipedia.org/wiki/Dot_plot_(statistics)]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom_dotplot*
+
+.pull-left[
+The code chunk below performs the following two steps: 
+
+- *scale_y_continuous()* is used to turn off the y-axis, and 
+- binwidth argument is used to change the binwidth to 2.5.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot(binwidth=2.5,         #<<
+               dotsize = 0.5) +      #<<
+  scale_y_continuous(NULL,           #<<
+                     breaks = NULL)  #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, aes(x = MATHS)) +
+  geom_dotplot(binwidth=2.5, dotsize = 0.5) +
+  scale_y_continuous(NULL, breaks = NULL)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom_histogram*](https://ggplot2.tidyverse.org/reference/geom_histogram.html) 
+
+.pull-left[
+In the code chunk below, *geom_histogram()* is used to a simple histogram by using values in *MATHS* field of *exam_data*.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_histogram()       #<<
+```
+
+- Note that the default bin is 30.
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_histogram()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Modifying a geometric object by changing *geom()*
+
+.pull-left[
+In the code chunk below, 
+
+- *bins* argument is used to change the number of bins to 20,
+- *fill* argument is used to shade the histogram with light blue color, and 
+- *color* argument is used to change the outline colour of the bars in black
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20,            #<<
+                 color="black",      #<<
+                 fill="light blue")  #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20, 
+                 color="black", 
+                 fill="light blue")
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Modifying a geometric object by changing *aes()* 
+
+.pull-left[
+- The code chunk below changes the interior colour of the histogram (i.e. *fill*) by using sub-group of *aesthetic()*.    
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           fill = GENDER)) +      #<<
+  geom_histogram(bins=20, 
+                 color="grey30")
+```
+
+- Note that this approach can be used to colour, fill and alpha of the geometric.
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           fill = GENDER)) +
+  geom_histogram(bins=20, 
+                 color="grey30")
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom-density*](https://ggplot2.tidyverse.org/reference/geom_density.html)
+
+.pull-left[
+*geom-density()* computes and plots kernel density estimate, which is a smoothed version of the histogram. 
+
+It is a useful alternative to the histogram for continuous data that comes from an underlying smooth distribution.
+
+The code below plots the distribution of Maths scores in a kernel density estimate plot.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_density()           #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_density()
+```
+]
+
+.small[Reference: Kernel density estimation https://en.wikipedia.org/wiki/Kernel_density_estimation]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom-density*
+
+.pull-left[
+.large[
+The code chunk below plots two kernel density lines by using *colour* or *fill* arguments of *aes()*
+]
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x = MATHS, 
+           colour = GENDER)) +
+  geom_density()
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x = MATHS, 
+           colour = GENDER)) +
+  geom_density()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom_boxplot*](https://ggplot2.tidyverse.org/reference/geom_boxplot.html)
+
+.pull-left[
+.large[
+The code chunk below plots boxplots by using *geom_boxplot()*.]
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS,       
+           x= GENDER)) +    
+  geom_boxplot()            
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_boxplot()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom_boxplot*
+
+.pull-left[
+**Notches** are used in box plots to help visually assess whether the medians of distributions differ. If the notches do not overlap, this is evidence that the medians are different.
+
+The code chunk below plots the distribution of Maths scores by gender in notched plot instead of boxplot.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_boxplot(notch=TRUE)   #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_boxplot(notch=TRUE)  
+```
+]
+
+.small[Reference: Notched Box Plots https://sites.google.com/site/davidsstatistics/home/notched-box-plots]
+
+---
+## Essential Grammatical Elements in ggplot2
+### *geom* objects can be combined
+
+.pull-left[
+The code chunk below plots the data points on the boxplots by using both *geom_boxplot()* and *geom_point()*.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=4, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_boxplot() +              #<<      
+  geom_point(position="jitter", #<<
+             size = 0.5)        #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_boxplot() +
+  geom_point(position="jitter", 
+             size = 0.5)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: [*geom_violin*](https://ggplot2.tidyverse.org/reference/geom_violin.html) 
+
+.pull-left[
+Violin plots are a way of comparing multiple data distributions. With ordinary density curves, it is difficult to compare more than just a few distributions because the lines visually interfere with each other. With a violin plot, it's easier to compare several distributions since they're placed side by side.
+
+The code below plot the distribution of Maths score by gender in violin plot.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=4.5}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_violin()            #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_violin() 
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom_violin()* and *geom_boxplot()*
+
+.pull-left[
+.large[
+The code chunk below combined a violin plot and a boxplot to show the distribution of Maths scores by gender.]
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=6, fig.retina=3}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_violin(fill="light blue") +
+  geom_boxplot(alpha=0.5)           
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6, fig.retina=3}
+ggplot(data=exam_data, 
+       aes(y = MATHS, 
+           x= GENDER)) +
+  geom_violin(fill="light blue") +
+  geom_boxplot(alpha=0.5)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Geometric Objects: *geom_point()*
+
+.pull-left[
+.large[
+The code chunk below plots a scatterplot showing the Maths and English grades of pupils by using *geom_point()*.]  
+
+```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=5}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point()            
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Statistics, *stat*
+
+.large[
+- The Statistics functions statistically transform data, usually as some form of summary.  For example:
+    + frequency of values of a variable (bar graph)
+    + a mean
+    + a confidence limit
+
+- There are two ways to use these functions:
+    + add a *stat_()* function and override the default geom, or
+    + add a *geom_()*/ function and override the default stat.
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with stat
+
+.pull-left[
+.large[
+- The boxplots on the right are incomplete because the positions of the means were not shown.
+
+- Next two slides will show you how to add the mean values on the boxplots]]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
+  geom_boxplot()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with stat - the *stat_summary()* method
+
+.pull-left[
+.large[
+The code chunk below adds mean values by using *stat_summary()* function and overriding the default geom.]
+
+```{r, echo=TRUE, eval=FALSE,warning=FALSE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+  stat_summary(geom = "point",       
+               fun.y="mean",         
+               colour ="red",        
+               size=4)               
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+  stat_summary(geom = "point", 
+               fun.y="mean", 
+               colour ="red", 
+               size=4)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with stat - the *geom()* method
+
+.pull-left[
+.large[
+The code chunk below adding mean values by using *geom_()* function and overriding the default stat.]
+
+```{r, echo=TRUE, eval=FALSE,warning=TRUE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+  geom_point(stat="summary",        
+             fun.y="mean",           
+             colour ="red",          
+             size=4)          
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE,warning=FALSE, fig.height=6, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+  geom_point(stat="summary", 
+             fun.y="mean", 
+             colour ="red", 
+             size=4)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### How to add a best fit curve on a scatterplot?
+
+.pull-left[
+.large[
+- The scatterplot on the right shows the relationship of Maths and English grades of pupils.
+
+- The interpretability of this graph can be improved by adding a best fit curve.]]  
+
+.pull-right[
+```{r, echo=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point()
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### How to add a best fit curve on a scatterplot?
+
+.pull-left[
+.large[
+In the code chunk below, *geom_smooth()* is used to plot a best fit curve on the scatterplot.
+
+- The default method used is *loess*.]
+
+```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(size=0.5)
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(size=0.5)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### How to add a best fit curve on a scatterplot?
+
+.pull-left[
+.large[
+The default smoothing method can be overridden as shown below.]
+
+```{r, echo=TRUE, eval=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5)
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Facets
+
+.large[
+- Facetting generates small multiples (sometimes also called trellis plot), each displaying a different subset of the data. 
+
+- Facets are an alternative to aesthetics for displaying additional discrete variables.
+
+- ggplot2 supports two types of factes, namely: *facet_grid* and *facet_wrap*.
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### *facet_wrap()* 
+
+.large[
+- facet_wrap wraps a 1d sequence of panels into 2d.
+
+- This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with *facet_wrap()*
+
+.pull-left[
+.large[
+The code chunk below plots a trellis plot using *facet-wrap()*.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=8, fig.width=9}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20) +
+    facet_wrap(~ CLASS)
+```
+]]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.height=7, fig.width=9}
+ggplot(data=exam_data, aes(x= MATHS)) +
+  geom_histogram(bins=20) +
+    facet_wrap(~ CLASS)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### *facet_grid()* function
+
+.large[
+- facet_grid forms a matrix of panels defined by row and column facetting variables. 
+
+- It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with *facet_grid()*
+
+.large[
+The code chunk below plots a trellis plot using *facet_grid()*.
+
+```{r, echo=TRUE, eval=FALSE, fig.height=2, fig.width=11}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20) +
+    facet_grid(~ CLASS)
+```
+]
+
+```{r, echo=FALSE, eval=TRUE, fig.height=3.5, fig.width=15}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20) +
+    facet_grid(~ CLASS)
+```
+
+---
+### Facetting
+
+.pull-left[
+.vlarge[Exercise:]
+.large[
+Plot a trellis boxplot looks similar to the figure below.
+
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
+  geom_boxplot() +
+    facet_grid(~ GENDER)
+```
+]
+]
+
+--
+.pull-right[
+.large[The solution:
+
+```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= CLASS)) +
+  geom_boxplot() +
+  facet_grid(~ GENDER)
+```
+]
+]
+---
+### Facetting
+
+.pull-left[
+.vlarge[Exercise:]
+.large[
+Plot a trellis boxplot looks similar to the figure below.
+]
+
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, aes(y = MATHS, x= CLASS)) +
+  geom_boxplot() +
+    facet_grid(GENDER ~.)
+```
+]
+
+--
+.pull-right[
+The solution:
+
+```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=8}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= CLASS)) +
+  geom_boxplot() +
+  facet_grid(GENDER ~.)
+```
+]
+
+---
+### Facetting
+
+.pull-left[
+.vlarge[Exercise:]
+.large[
+Plot a trellis boxplot looks similar to the figure below.
+]
+```{r, echo=FALSE, eval=TRUE, fig.height=5, fig.width=10}
+ggplot(data=exam_data, aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+    facet_grid(GENDER ~ CLASS)
+```
+]
+
+--
+.pull-right[
+The solution:
+
+```{r, echo=TRUE, eval=FALSE, fig.height=5, fig.width=10}
+ggplot(data=exam_data, 
+       aes(y = MATHS, x= GENDER)) +
+  geom_boxplot() +
+  facet_grid(GENDER ~ CLASS)
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Coordinates
+
+.large[
+- The *Coordinates* functions map the position of objects onto the plane of the plot.
+
+- There are a number of different possible coordinate systems to use, they are:
+
+    + *coord_cartesian()*: the default cartesian coordinate systems, where you specify x and y values (e.g. allows you to zoom in or out).
+    + *coord_flip()*: a cartesian system with the x and y flipped.
+    + *coord_fixed()*: a cartesian system with a "fixed" aspect ratio (e.g. 1.78 for a "widescreen" plot).
+    + *coord_quickmap()*: a coordinate system that approximates a good aspect ratio for maps. 
+]
+
+---
+### Working with Coordinate
+
+.pull-left[
+By the default, the bar chart of ggplot2 is in vertical form.
+
+```{r, echo=FALSE, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x=RACE)) +
+  geom_bar()
+```
+]
+
+.pull-right[
+The code chunk below flips the horizontal bar chart into vertical bar chart by using *coord_flip()*.
+
+```{r, echo=TRUE, eval=TRUE, fig.height=5}
+ggplot(data=exam_data, 
+       aes(x=RACE)) +
+  geom_bar() +
+  coord_flip()
+```
+]
+
+---
+### Working with Coordinate
+#### How to change to the y- and x-axis range?
+
+.pull-left[
+.large[
+The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.]]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, aes(x= MATHS, y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, size=0.5)
+```
+]
+
+---
+### Working with Coordinate
+#### How to change to the y- and x-axis range?
+
+.pull-left[
+The code chunk below fixed both the y-axis and x-axis range from 0-100. 
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(data=exam_data, 
+       aes(x= MATHS, y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=6, fig.width=6}
+ggplot(data=exam_data, 
+       aes(x= MATHS, y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100))
+```
+]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Themes
+
+.large[
+- Themes control elements of the graph not related to the data.  For example:
+    + background colour
+    + size of fonts
+    + gridlines
+    + colour of labels
+- Built-in themes include:
+    + *theme_gray()* (default)
+    + *theme_bw()*
+    + *theme_classic()*
+- A list of theme can be found at http://ggplot2.tidyverse.org/reference/theme.html.
+- Each theme element can be conceived of as either a line (e.g. x-axis), a rectangle (e.g. graph background), or text (e.g. axis title).]
+
+---
+## Essential Grammatical Elements in ggplot2
+### Working with theme
+
+.pull-left[
+The code chunk below plot a horizontal bar chart using *theme_gray()*.
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(data=exam_data, 
+       aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_gray()
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_gray()
+```
+]
+
+---
+### Working with theme
+
+.pull-left[
+A horizontal bar chart plotted using *theme_classic()*.
+
+```{r, echo=TRUE, eval=TRUE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_classic()
+```
+]
+
+.pull-right[
+A horizontal bar chart plotted using *theme_minimal()*.
+
+```{r, echo=TRUE, eval=TRUE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_minimal()
+```
+]
+
+---
+### Working with theme
+#### Exercise
+
+Plot a horizontal bar chart looks similar to the figure below.
+
+- Changing the colors of plot panel background of *theme_minimal* to lightblue and the color of grid lines to white.
+
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_minimal() +
+  theme(panel.background = element_rect(fill = "lightblue",                                 colour = "lightblue",
+                           size = 0.5, 
+                           linetype = "solid"),
+        panel.grid.major = element_line(size = 0.5, 
+                           linetype = 'solid',
+                           colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, 
+                           linetype = 'solid',
+                           colour = "white"))
+```
+
+---
+### Working with theme
+#### The solution
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar() +
+  coord_flip() +
+  theme_minimal() +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                        colour = "lightblue",
+                                        size = 0.5,
+                                        linetype = "solid"),
+        panel.grid.major = element_line(size = 0.5, 
+                                        linetype = 'solid',
+                                        colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, 
+                                        linetype = 'solid',
+                                        colour = "white"))
+```
+
+---
+## Designing Data-drive Graphics for Analysis I
+### The original design
+
+.pull-left[
+A simple vertical bar chart for frequency analysis.
+
+Critics:
+- y-aixs label is not clear (i.e. count)
+- To support effective comparison, the bars should be sorted by their resepctive frequencies.
+- For static graph, frequency values should be added to provide addition information.
+]
+
+.pull-right[
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, aes(x=RACE)) +
+  geom_bar()
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis I
+### The makeover design
+
+.pull-left[
+The code chunk.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data,
+       aes(x=reorder(RACE,RACE,
+                function(x)-length(x))))+
+  geom_bar() +
+  ylim(0,220) +
+  geom_text(stat="count", 
+      aes(label=paste0(..count.., ", ", 
+      round(..count../sum(..count..)*100,
+            1), "%")),
+      vjust=-1) +
+  xlab("Race") +
+  ylab("No. of\nPupils") +
+  theme(axis.title.y=element_text(angle = 0))
+```
+]
+
+.pull-right[
+```{r, echo=FALSE, fig.width=8, fig.height=6}
+ggplot(data=exam_data, aes(x=reorder(RACE,RACE,
+                     function(x)-length(x)))) +
+  geom_bar() +
+  ylim(0,220) +
+  geom_text(stat="count", 
+      aes(label=paste0(..count.., ", ", 
+      round(..count../sum(..count..)*100, 1), "%")),
+      vjust=-1) +
+  xlab("Race") +
+  ylab("No. of\nPupils") +
+  theme(axis.title.y=element_text(angle = 0))
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis I
+### The makeover design 
+
+.pull-left[
+This code chunk uses [*fct_infreq()*](https://forcats.tidyverse.org/reference/fct_inorder.html) of [**forcats**](https://forcats.tidyverse.org/articles/forcats.html) package.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=5}
+
+exam_data %>%
+  mutate(RACE = fct_infreq(RACE)) %>%
+  ggplot(aes(x = RACE)) + 
+  geom_bar()+
+  ylim(0,220) +
+  geom_text(stat="count", 
+      aes(label=paste0(..count.., ", ", 
+      round(..count../sum(..count..)*100,
+            1), "%")),
+      vjust=-1) +
+  xlab("Race") +
+  ylab("No. of\nPupils") +
+  theme(axis.title.y=element_text(angle = 0))
+```
+
+.small[
+Credit: I learned this trick from [*Getting things into the right order*](https://wilkelab.org/SDS375/slides/getting-things-in-order.html#1) of Prof. Claus O. Wilke, the author of [**Fundamentals of Data Visualization**](https://clauswilke.com/dataviz/).
+]
+]
+
+.pull-right[
+```{r, echo=FALSE, fig.width=8, fig.height=6}
+exam_data %>%
+  mutate(RACE = fct_infreq(RACE)) %>%
+  ggplot(aes(x = RACE)) + 
+  geom_bar()+ 
+  ylim(0,220) +
+  geom_text(stat="count", 
+      aes(label=paste0(..count.., ", ", 
+      round(..count../sum(..count..)*100,
+            1), "%")),
+      vjust=-1) +
+  xlab("Race") +
+  ylab("No. of\nPupils") +
+  theme(axis.title.y=element_text(angle = 0))
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis II
+### The original design
+
+```{r, echo=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x= MATHS)) +
+  geom_histogram(bins=20)
+```
+
+---
+## Designing Data-drive Graphics for Analysis II
+### The makeover design
+
+.pull-left[
+- Adding mean and median lines on the histogram plot.
+- Change fill color and line color
+
+```{r, echo=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x= MATHS)) +
+  geom_histogram(bins=20, color="black", fill="light blue") +
+  geom_vline(aes(xintercept=mean(MATHS, na.rm=T)), # Ignore NA values for mean
+             color="red", linetype="dashed", size=1) +
+  geom_vline(aes(xintercept=median(MATHS, na.rm=T)), # Ignore NA values for mean
+             color="grey30", linetype="dashed", size=1)
+```
+]
+
+--
+.pull-right[
+The code chunk
+
+```{r, echo=TRUE, eval=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, 
+       aes(x= MATHS)) +
+  geom_histogram(bins=20, 
+                 color="black", 
+                 fill="light blue") +
+  geom_vline(aes(xintercept=mean(MATHS,
+                                 na.rm=T)),
+             color="red", 
+             linetype="dashed", 
+             size=1) +
+  geom_vline(aes(xintercept=median(MATHS,
+                                  na.rm=T)),
+             color="grey30",
+             linetype="dashed", 
+             size=1)
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis III
+
+.pull-left[
+The histograms on the left are elegantly designed but not informative.  This is because they only reveal the distribution of English scores by gender but without context such as all pupils.
+
+```{r, echo=FALSE, message=FALSE, fig.height=5, fig.width=9}
+ggplot(exam_data, aes(x = ENGLISH)) +
+  geom_histogram() +
+  facet_wrap(~ GENDER)
+```
+]
+
+--
+.pull-right[
+The makeover histograms on the right are not only elegantly designed but also informative.  This is because they reveal the distribution of English scores by gender with reference to all pupils.
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=5, fig.width=9}
+d <- exam_data   # Full data set
+d_bg <- d[, -3]  # Background Data - full without the 3th column (GENDER)
+
+ggplot(d, aes(x = ENGLISH, fill = GENDER)) +
+  geom_histogram(data = d_bg, fill = "grey", alpha = .5) +
+  geom_histogram(colour = "black") +
+  facet_wrap(~ GENDER) +
+  guides(fill = FALSE) +  # to remove the legend
+  theme_bw()              # for clean look overall
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis III
+
+.pull-left[
+The code chunk below is used to create the makeover design on the right.  Note that the second line is used to create the so called **Background Data** - full without the 3th column (GENDER).
+
+```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.height=5, fig.width=9}
+d <- exam_data   
+d_bg <- d[, -3]  
+
+ggplot(d, aes(x = ENGLISH, 
+              fill = GENDER)) +
+  geom_histogram(data = d_bg, 
+                 fill = "grey", 
+                 alpha = .5) +
+  geom_histogram(colour = "black") +
+  facet_wrap(~ GENDER) +
+  guides(fill = FALSE) +  
+  theme_bw()              
+```
+
+.small[
+Credit: I learned this trick from an article entitle [*Plotting background data for groups with ggplot2*](https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2) from RBLOG maintain Simon Jackson.]
+]
+
+.pull-right[
+The makeover histograms on the right are not only elegantly designed but also informative.  This is because they reveal the distribution of English scores by gender with reference to all pupils.
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, fig.height=5, fig.width=9}
+d <- exam_data   # Full data set
+d_bg <- d[, -3]  # Background Data - full without the 3th column (GENDER)
+
+ggplot(d, aes(x = ENGLISH, fill = GENDER)) +
+  geom_histogram(data = d_bg, fill = "grey", alpha = .5) +
+  geom_histogram(colour = "black") +
+  facet_wrap(~ GENDER) +
+  guides(fill = FALSE) +  # to remove the legend
+  theme_bw()              # for clean look overall
+```
+]
+
+---
+## Designing Data-drive Graphics for Analysis IV
+### The original design.
+
+```{r, echo=FALSE, fig.width=8, fig.height=5}
+ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
+  geom_point()
+```
+
+---
+## Designing Data-drive Graphics for Analysis IV
+### The makeover design
+
+.pull-left[
+The code chunk used to create the makeover.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=6, fig.height=6}
+ggplot(data=exam_data, 
+       aes(x=MATHS, y=ENGLISH)) +
+  geom_point() +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  geom_hline(yintercept=50,
+             linetype="dashed",
+             color="grey60",
+             size=1) + 
+  geom_vline(xintercept=50, 
+             linetype="dashed",
+             color="grey60",
+             size=1)
+```
+]
+
+.pull-right[
+A within group scatterplot with reference lines.
+
+```{r, echo=FALSE, fig.width=6, fig.height=6}
+ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
+  geom_point() +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  geom_hline(yintercept=50,
+             linetype="dashed",
+             color="grey60",
+             size=1) + 
+  geom_vline(xintercept=50, 
+             linetype="dashed",
+             color="grey60",
+             size=1)
+```
+]
+
+---
+# ggplot2 extensions
+
+.large[
+- [ggtext](https://wilkelab.org/ggtext/articles/introduction.html): To improve text rendering support for ggplot2.
+
+- [ggrepel](https://ggrepel.slowkow.com/index.html): To provide geoms for ggplot2 to repel overlapping text labels.
+
+- [ggforce](https://ggforce.data-imaginist.com/index.html): To aid in visual data investigations. This focus has led to a lack of facilities for composing specialised plots. 'ggforce' aims to be a collection of mainly new stats and geoms that fills this gap.
+
+- [geomtextpath](https://allancameron.github.io/geomtextpath/index.html): To provide text-based geom layers in ggplot2 that enable plotting text follow a curved path.
+
+- [patchwork](https://patchwork.data-imaginist.com/index.html): To make it ridiculously simple to combine separate ggplots into the same graphic.
+]
+
+---
+# Reference
+
+Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
+
+Winston Chang (2013) **R Graphics Cookbook 2nd edition**. (Online version https://r-graphics.org/).
+
+Package 'ggplot2' (https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf)
+
+Healy, Kieran (2019) **Data Visualization: A practical introduction** (online version https://socviz.co/)
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("In-class_Ex01.html")
+```
