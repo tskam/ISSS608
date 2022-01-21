@@ -23,15 +23,16 @@ knitr::opts_chunk$set(echo = FALSE)
 # What will you learn from this lesson?
 
 .vlarge[
+- Data visualisation design process
+- The Devil is in the data
 - Human perception and information processing
 - Perceptual and design principles for effective visual analytics
-- Principles of Graphic Design
-    - Rules for Encoding Values in Graph
-    - JunkCharts
-    - Practical Guides for Using Colour in Charts
-    - Data-ink
-- Storytelling with Charts
+- Principles and Practical Guides for Data Visualisation Design
+- Data Visualisation Critics framework
 ]
+
+???
+In this lesson, I am going to share with you the basic principles and best practices of Data Visualisation Design.  The discussion consists of four sections.  First, I will provide an overview of data visualisation design process.  Next, by using appropriate examples, I will share with you the importance of data selection and preparation in building enlightening graphs.  In section three, the practical guides of data visualisation will be discussed. Lastly, a framework for critic data visualisation design will be introduced.   
 
 ---
 ## Building Block of Visual Analytics
@@ -45,51 +46,108 @@ knitr::opts_chunk$set(echo = FALSE)
 
 .vlarge[
 - Start with a clear message
-- Search for appropriate data
-- Prepare the data
-- Use the right graph type
+- Select the right data
+- Use the right visualisations
 - Express and explain
 - Review and seek feedback from experts and casual readers
 ]
 
----
-# DataViz design process
+???
+In general, a data visualisation design process consists of five major steps.
 
+---
+# DataViz design process: Start with a clear message
+
+.center[
 ![:scale 80%](img/image2-2.png)
+]
+
+???
+In data visualisation design, it is important to be clear and explicit about what you want to achieve. Is it to explore some data, to convey an inferential analysis, to deliver a message, convince an audience, or support a decision? It may be a mixture of these—for example, even seemingly simple exploratory plots should serve some (perhaps implicit) decision (e.g., on how to explore further). Every graph, and, more generally, every communication, must be tailored to its specific purpose.
 
 ---
 # The Devil is in the Data
     
 ![:scale 75%](img/image2-3.png)    
 
+???
+Clean and tidy data are needed to build truthful data visualisation.  But beside clean and tidy data, there are at least two considerations related to data require our attention.  
+
 ---
 ## Numbers Worth Knowing
 
 .vlarge[
-- Categorical data: numbers that summarise (i.e. sex, property type, planning region)
-    - nominal, ordinal, interval, hierarchical
-    - time series
-- Continuous data: numbers that measure (i.e. unit price, age, monthly salary)
-    - ranking, ratio
-]
-
----
-## Data Understanding
-.large[
-- Avoid garbage in, garbage out problem.  For example, display size should be classified as categorical instead of continuous.]
++ Not all numerical data are continuous!]
 
 .center[
 ![:scale 60%](img/image2-4.png)
 ]
 
+???
+First, it is important to note that not all numerical data are continuous.  There are two types of numerical data.  They are discrete and continuous.  Discrete data can only assume specific values that you cannot subdivide. Typically, you count discrete values, and the results are in frequency count or in per cent . For example, display size should be classified as discrete (i.e. nominal or ordinal scales) instead of continuous., a mean of 15.81 in monitor is no meaning.
+Continuous data can assume any numeric value and can be meaningfully split into smaller parts. Consequently, they have valid fractional and decimal values. In fact, continuous variables have an infinite number of potential values between any two points. Generally, you measure them using a scale.
+
 ---
-## Graphical Integrity: Show Me the Truth
+## Visualising the Right Data
+
+.vlarge[
++ There are more than one way to present the data.
+]
+.center[
+![](img/image2-5a.jpg)
+]
+
+???
+Secondly, there are more than one way to present the data.  It is not unusual by presenting derived data reveal more aha surprises than the raw data. 
+
+---
+## Visualising the Right Data
+
 .large[
-- Don't lie to yourself (or to others) with charts]
++ Derived values reveal more interesting patterns than absolute values.
+]
+
+.pull-left[
+![](img/image2-5b.jpg)
+]
+
+--
+.pull-right[
+![](img/image2-5c.jpg)
+]
+
+???
+The data visualisation on the left is a dual y-axis bar graph.  The y-axis on the left shows revenue and the y-axis on right shows customers.  From the graph, you can see how both the monthly revenue and number of customers are growing for this company.    
+
+The data visualisation on the right shows the differences between the month-to-month % change of revenue and customers. By showing the data in percent change, the data visualisation allows us to discover that the month-to-month customers and revenue growth rate are reducing in the financial year.     
+
+---
+## Visualising the Right Data
+
+.large[
++ Derived values reveal more interesting patterns than absolute values.
+]
 
 .center[
-![:scale 50%](img/image2-5.png)
+![:scale 60%](img/image2-5d.jpg)
 ]
+
+???
+By deriving revenue per customer and plot them as a line graph, the data visualisation allows us to tell a more compelling data story.  In the figure, we can see that revenue per customer has decreased significantly during the year, even though the monthly revenue has risen steadily. The important take away from this case study is that select the right data to prepare the data visualisation and be mindful that the raw data might not always be the right choice. 
+
+
+---
+## Graphical Integrity: Show Me the Truth
+
+.center[
+![:scale 45%](img/image2-7.jpg)
+
+.small[
+Source: [Department of Statistics](https://www.singstat.gov.sg/modules/infographics/singapore-international-trade) 
+]]
+
+???
+Let us take a good look at the data visualisation on the slide.  Can you spot any graphical integrity issue?  Yes, the issue of inconsistent data aggregation.  On the figure, the major trading partners are at the country level except EU.
 
 
 ---
@@ -99,15 +157,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 .pull-left[
 
-Donald Trump liked to claim that the job market was a "disaster" before he was sworn in but recovered right after, and he used charts that cropped the horizontal axis in a convenient place.
-
 ![](img/image2-5a.png)
 ]
 
 --
 .pull-right[
-
-But if we go back in time and mark the point when Trump became president, we'll see that there's no remarkable change in the trajectory and slope of the line. Jobs began recovering in 2010. 
 
 ![](img/image2-5b.png)
 ]
@@ -115,6 +169,11 @@ But if we go back in time and mark the point when Trump became president, we'll 
 .small[
 Source: Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA. pg 168.
 ]
+
+???
+Donald Trump liked to claim that the job market was a "disaster" before he was sworn in but recovered right after, and he used charts that cropped the horizontal axis in a convenient place.
+
+But if we go back in time and mark the point when Trump became president, we'll see that there's no remarkable change in the trajectory and slope of the line. Jobs began recovering in 2010. 
 
 ---
 ## Graphical Integrity: Show Me the Truth
@@ -131,24 +190,6 @@ Source: Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA. pg
 ![](img/image2-6b.png)
 ]
 
-
----
-## Graphical Integrity: Show Me the Truth
-
-.vlarge[
-- Sometimes, data need to be transformed.]
-
-![](img/image2-7.png)
-
----
-## Graphical Integrity: Show me the truth
-
-.vlarge[Designing graph to enlighten people – not to entertain them
-]
-
-.center[
-![:scale 80%](img/image2-7b.png)
-]
 
 ---
 # Human Perception and Information Processing
@@ -201,16 +242,47 @@ Source: Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA. pg
 ]
 
 ---
-## QW
+## How Visual Sensing Works?
 .vlarge[How Many 3’s?]
 
 ![](img/image2-13.png)
 
 ---
-## QW
-.vlarge[How Many 3’s?]
+## How Visual Sensing Works?
+.vlarge[Now you see them!]
 
 ![](img/image2-14.png)
+
+???
+As you can see, by applying pre-attentive principle, we can count the number 3 easily now.
+
+---
+## Application of pre-attentive principle in data visualisation design
+
+.pull-left[
+![](img/image2-8a.jpg)
+]
+
+.pull-right[
+![](img/image2-8b.jpg)
+]
+
+???
+In last Saturday class, I had shown the reference line feature of Tableau.  By understanding the principle of pre-attentive, reference line feature is useful for providing context to the data visualisation.
+
+---
+## Application of pre-attentive principle in data visualisation design
+
+.pull-left[
+![](img/image2-9a.jpg)
+]
+
+.pull-right[
+![](img/image2-9b.jpg)
+]
+
+???
+In the data visualisation of the right, bright red is use to show the month running at a lot.  This is another example whereby pre-attentive principle is put go used.
 
 ---
 # Components of a graph
@@ -227,55 +299,17 @@ Source: Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA. pg
 ]
 
 ---
-## Grammar of a language
-
-.pull-left[
-.vlarge[
-- Grammar of a language defines the rules of structuring words and phrases into meaningful expressions.]
-]
-
-.pull-right[
-.center[
-### The quick brown fox jumps over the lazy dog
-
-![:scale 55%](img/image2-16.png)
-]]
-
----
-## The Grammar of Graphics
-
-.pull-left[
-.large[
-- The grammar of graphics is an answer to a question: What is a statistical graphic?
-- Grammar of graphics defines the rules of structuring mathematic and aesthetic elements into a meaningful graph.
-- Two principles:
-    - Graphics = distinct layers of grammatical elements
-    - Meaningful plots through aesthetic mapping
-]]
-
-.pull-right[
-![](img/image2-17.png)
-]
-
----
-## A Layered Grammar of Graphics
+## Choosing the Right Visualisation
 
 .center[
-### Design principles of ggplot2 r package]
-
-.pull-left[
-![](img/image2-17b.png)
-]
-
-.pull-right[
-![:scale 45%](img/image2-17a.png)
+![:scale 85%](img/image2-16.jpg)
 ]
 
 ---
 # Design principles for effective visual presentation
 
 .vlarge[
-* Rules for Encoding Values in Graph
+* Guides for Encoding Values in Graph
 * JunkCharts
 * Practical Guides for Using Colour in Charts
 * Data-ink
@@ -285,43 +319,51 @@ Source: Cairo, Alberto (2019) **How Charts Lie**, W.W. Norton & Company, USA. pg
 # Design principles for effective visual presentation
 
 .vlarge[
-- **Rules for Encoding Values in Graph**
+- **Guides for Encoding Values in Graph**
 - JunkCharts
 - Practical Guides for Using Colour in Charts
 - Data-ink
 ]
 
 ---
-## Rules for Encoding Values in Graph
+## General Guide: Show the Data Clearly
+
+![](img/image2-20a.jpg)
+
+???
+The pie and donut charts in panels (a) and (b) make it difficult to see the order of magnitude of some of the segments. The eye needs to compare areas, bent lengths (of the contour), or angles, – graphical attributes that are not easily decoded. The donut chart even omits the angles. The mosaic plot in panel (c) only relies on areas; again, it is hard to tell the order of magnitude.  It is better to use lengths with a common baseline or positions on a common scale, such as in a bar chart or dot plot (see Cleveland-McGill effectiveness ranking in Law 3). The bar chart in panel (d), however, introduces a fake dimension, which is unnecessary and makes it hard to decode the numerical values from the height of the bars. Panels (e) and (f) are appropriately simple and show the data clearly. They also order the data by magnitude to aid comparison even further. The dot plot in panel (f) uses minimal amount of ink and draws the eye to the position of the dots; it is the most effective way of displaying these data.
+
+---
+## Guides for Encoding Values in Graph
 .vlarge[
-Rule 1:  Avoid using point alone to display time-series data]
+Guide 1:  Avoid using point alone to display time-series data]
 
 .center[
 ![](img/image2-20.png)
 ]
 
 ---
-## Rules for Encoding Values in Graph
+## Guides for Encoding Values in Graph
 .vlarge[
-Rule 2:  Avoid using points to represent discrete values]
+Guide 2:  Avoid using points to represent discrete values]
 
 .center[
 ![:scale 70%](img/image2-21.png)
 ]
 
 ---
-## Rules for Encoding Values in Graph
+## Guides for Encoding Values in Graph
 .vlarge[
-Rule 3:  Bars don’t work unless the quantative scale begins at zero]
+Guide 3:  Bars don’t work unless the quantative scale begins at zero]
 
 .center[
 ![](img/image2-22.png)
 ]
 
 ---
-## Rule for Encoding Values in Graph
+## Guide for Encoding Values in Graph
 .vlarge[
-Rule 4:  Avoid pie chart if possible because our eyes are not good in reading areas]
+Guide 4:  Avoid pie chart if possible because our eyes are not good in reading areas]
 
 .center[
 ![:scale 80%](img/image2-23.png)
@@ -331,9 +373,9 @@ Rule 4:  Avoid pie chart if possible because our eyes are not good in reading ar
 Reference: http://junkcharts.typepad.com/junk_charts/2015/09/a-not-so-satisfying-rose.html] 
 
 ---
-## Rule for Encoding Values in Graph
+## Guide for Encoding Values in Graph
 .vlarge[
-Rule 5:  Avoid pie chart if you are comparing changes over time]
+Guide 5:  Avoid pie chart if you are comparing changes over time]
 
 .pull-left[
 ![](img/image2-24a.png)
@@ -347,20 +389,18 @@ Rule 5:  Avoid pie chart if you are comparing changes over time]
 # Design principles for effective visual presentation
 
 .vlarge[
-* Rules for Encoding Values in Graph
-* **JunkCharts**
+* Guides for Encoding Values in Graph
+* **Chartjunk**
 * Practical Guides for Using Colour in Charts
 * Data-ink
 ]
 
----
-# What is ChartJunk?
+???
+Chartjunk refers to all visual elements in charts and graphs that are not necessary to comprehend the information represented on the graph, or that distract the viewer from this information.
 
-.vlarge[
-- Chartjunk refers to all visual elements in charts and graphs that are not necessary to comprehend the information represented on the graph, or that distract the viewer from this information.
-- It was first introduced by Edward Tufte in his 1983 book *The Visual Display of Quantitative Information*.
-- There is an interesting blog called [Junk Charts](http://junkcharts.typepad.com/junk_charts/) by Kaiser Fung.
-]
+It was first introduced by Edward Tufte in his 1983 book *The Visual Display of Quantitative Information*.
+
+There is an interesting blog called Junk Charts by Kaiser Fung.  The blog link is available on the last slide.
 
 ---
 ## ChartJunk I
@@ -371,6 +411,9 @@ Rule 5:  Avoid pie chart if you are comparing changes over time]
 ![](img/image2-25.png)
 ]
 
+???
+In this data visualisation, it is very obvious that the different intensity colours shading used on the bars and background are not map to any meaningful variables.  These are junk that should be avoid in our graphs.
+
 ---
 ## ChartJunk II
 .vlarge[
@@ -380,12 +423,18 @@ Avoid colourful or wallpaper background]
 ![:scale 60%](img/image2-26.png)
 ]
 
+???
+In this data visualisation, the background patterns make it impossible for us to read the words in the legend.  Likewise the watermarks used as the background of the graph is redudant.  Again, these are junk that we should be avoided. 
+
 ---
 ## ChartJunk III
 .vlarge[
 Avoid using 3D effects in graphics]
 
 ![](img/image2-27.png)
+
+???
+It is very common for us to see 3D bar chart was used to present frequency distribution of a categorical variable like the data visualisation on the left of the slide.  In fact, the fancy 3D bar chart is less effective to read as compared to the simple bar chart on the right of the slide.  The key take away is avoid using 3D object to display univariate data. 
 
 ---
 ## ChartJunk IV
@@ -396,6 +445,9 @@ Avoid using misleading graphical representation]
 ![](img/image2-28.png)
 ]
 
+???
+In this data visualisation, there is no way for us to know what is the sales volume represented by one potato because their ratio varies from one year to another.    
+
 ---
 ## ChartJunk V
 .vlarge[
@@ -404,29 +456,52 @@ Avoid using artistic design which is difficult to visualise]
 .center[
 ![:scale 50%](img/image2-29.png)]
 
+???
+Although the visualisation is very appealing visually.  However, it is not functional because the curve 3D bar chart make it very difficult to do a proper comparison. 
+
+---
+## ChartJunk VI
+
+.vlarge[Designing graph to enlighten people – not to entertain them
+]
+
+.center[
+![:scale 80%](img/image2-7b.png)
+]
+
+???
+This is another good example of JunkChart.  In this data visualisation, the author distorts the sequence of the age-cohort intentionally in order to show the ladder-like view.  But this design easily lead to misinterpretation by the graph users.    
+
+
 ---
 # Design principles for effective visual presentation
 
 .vlarge[
-* Rules for Encoding Values in Graph
+* Guides for Encoding Values in Graph
 * JunkCharts
 * **Practical Guides for Using Colour in Charts**
 * Data-ink
 ]
 
+???
+In this topic, I am going to share with the practical guides for using colour in data visualisation.
+
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 1:  If you want different objects of the same colour in a graph to look the same, make sure that the background- the colour that surrounds them – is consistent.]
+Guide 1:  If you want different objects of the same colour in a graph to look the same, make sure that the background- the colour that surrounds them – is consistent.]
 
 .center[
 ![:scale 50%](img/image2-30.png)
 ]
 
+???
+The guide practice If you want different objects of the same colour in a graph to look the same, make sure that the background- the colour that surrounds them – is consistent.  We should avoid using background with different colour intensity.
+
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 2:  If you want objects in a graph to be easily seen, use a background colour that constracts sufficiently with the object.]
+Guide 2:  If you want objects in a graph to be easily seen, use a background colour that constrasts sufficiently with the object.]
 
 .center[
 ![:scale 45%](img/image2-31.png)]
@@ -434,15 +509,18 @@ Rule 2:  If you want objects in a graph to be easily seen, use a background colo
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 3:  Use color only when needed to serve a particular communication goal.]
+Guide 3:  Use color only when needed to serve a particular communication goal.]
 
 .center[
 ![:scale 40%](img/image2-32.png)]
 
+???
+The power of preattentive processing.  
+
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 4:  Use different colours when they correspond to differences of meaning in the data.]
+Guide 4:  Use different colours when they correspond to differences of meaning in the data.]
 
 .center[
 ![](img/image2-33.png)
@@ -451,7 +529,7 @@ Rule 4:  Use different colours when they correspond to differences of meaning in
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 5:  Use soft, natural colours to display most information and bright and/or dark colours to highlight information that requires greater attention.]
+Guide 5:  Use soft, natural colours to display most information and bright and/or dark colours to highlight information that requires greater attention.]
 
 .center[
 ![:scale 50%](img/image2-34.png)]
@@ -459,7 +537,7 @@ Rule 5:  Use soft, natural colours to display most information and bright and/or
 ---
 ## Practical Guides for Using Colour in Charts
 .large[
-Rule 6:  When using colour to encode a sequential range of quantitative values, stick with a single hue (or a small set of closely related hues) and vary intensity from pale colours for low values to increasingly darker and brighter colours for high values.]
+Guide 6:  When using colour to encode a sequential range of quantitative values, stick with a single hue (or a small set of closely related hues) and vary intensity from pale colours for low values to increasingly darker and brighter colours for high values.]
 
 .center[
 ![:scale 65%](img/image2-35.png)]
@@ -467,7 +545,7 @@ Rule 6:  When using colour to encode a sequential range of quantitative values, 
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 7:  Non-data components of a graph should be displayed just visibly enough to perform their role, but not more so, for excessive salience could cause them to distract attention from the data.]
+Guide 7:  Non-data components of a graph should be displayed just visibly enough to perform their role, but not more so, for excessive salience could cause them to distract attention from the data.]
 
 .center[
 ![:scale 65%](img/image2-36.png)]
@@ -475,7 +553,7 @@ Rule 7:  Non-data components of a graph should be displayed just visibly enough 
 ---
 ## Practical Guides for Using Colour in Charts
 .vlarge[
-Rule 8:  To guarantee that most people who are colourblind can distinguish groups of data that are colour coded, avoid using a combination of red and green in the same display.]
+Guide 8:  To guarantee that most people who are colourblind can distinguish groups of data that are colour coded, avoid using a combination of red and green in the same display.]
 
 .center[
 ![:scale 60%](img/image2-37.png)]
@@ -484,7 +562,7 @@ Rule 8:  To guarantee that most people who are colourblind can distinguish group
 # Design principles for effective visual presentation
 
 .vlarge[
-* Rules for Encoding Values in Graph
+* Guides for Encoding Values in Graph
 * JunkCharts
 * Practical Guides for Using Colour in Charts
 * **Data-ink**
@@ -506,6 +584,9 @@ Rule 8:  To guarantee that most people who are colourblind can distinguish group
 
 .pull-right[
 ![:scale 65%](img/image2-38.png)]
+
+???
+The term, ‘data-ink’, is defined as the total ink on a graph that represents data. Tufte claims that good graphical representations maximize data-ink and erase as much non-data-ink as possible. Thus, he defines the data-ink ratio is the proportion of a graphic’s ink devoted to the non-redundant display of data-information. It should equal to (1 - the proportion of graphics that can be erased without loss of data-information).
 
 ---
 ## Practical used of data-ink
@@ -584,6 +665,15 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3cac-11ea-b232-000f4477fbca), Financail Times, January 23 2020.]
 
 ---
+## Graphical Integrity: Show Me the Truth
+.large[
+- However, don't lie to yourself (or to others) with charts]
+
+.center[
+![:scale 50%](img/image2-5.png)
+]
+
+---
 # Graph typography
 ### Avoid using artistic fonts
 
@@ -598,10 +688,36 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 ![:scale 85%](img/image2-46.png)]
 
 ---
-## When should you use other text?
+# Three Bugs of Charts Interpretation
 
-.center[
-![:scale 60%](img/image2-47.png)]
+.vlarge[
+- The **Patternicity** bug: We detect interating patterns, regardless of whether or not they are real.
+- The **Storytelling** bug: We immediately come up with a coherent explanation for those patterns.
+- The **Confirmation** bug: We start seeing all further information we receive, even the one that conflicts with our explanation, in a way that confirmed it.  We refuse to give our explanation up, no matter what.
+]
+
+---
+## Three Bugs example
+
+![](img/image2-56.jpeg)
+
+.small[
+Source: [Spurious Correlation](https://www.tylervigen.com/spurious-correlations)
+]
+
+---
+## Stop the Fallacy of Visual Storytelling 
+
+![:scale 50%](img/image2-57.jpg)
+
+.small[
+Source: [Franz H. Messerli (2012)Chocolate Consumption, Cognitive Function,
+and Nobel Laureates](https://www.nejm.org/doi/full/10.1056/NEJMon1211064), *The New England Journal of Medicine*.
+]
+
+
+
+
 
 ---
 # Data Visualization: Clarity or Aesthetics?
@@ -701,34 +817,6 @@ Source: [The truth about weekend working](https://www.ft.com/content/085749dc-3c
 
 .pull-right[
 ![](img/image2-53.png)]
-
----
-# Three Bugs of Charts Interpretation
-
-.vlarge[
-- The **Patternicity** bug: We detect interating patterns, regardless of whether or not they are real.
-- The **Storytelling** bug: We immediately come up with a coherent explanation for those patterns.
-- The **Confirmation** bug: We start seeing all further information we receive, even the one that conflicts with our explanation, in a way that confirmed it.  We refuse to give our explanation up, no matter what.
-]
-
----
-## Three Bugs example
-
-![](img/image2-56.jpeg)
-
-.small[
-Source: [Spurious Correlation](https://www.tylervigen.com/spurious-correlations)
-]
-
----
-## Stop the Fallacy of Visual Storytelling 
-
-![:scale 50%](img/image2-57.jpg)
-
-.small[
-Source: [Franz H. Messerli (2012)Chocolate Consumption, Cognitive Function,
-and Nobel Laureates](https://www.nejm.org/doi/full/10.1056/NEJMon1211064), *The New England Journal of Medicine*.
-]
 
 
 
