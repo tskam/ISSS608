@@ -14,7 +14,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
-The take-home exercise provides students the opportunity to revise and practice the R packages and programming skills they learnt in-class at home.  It is a weekly exercise.  Each exercise is designed to be completed within 1.5-2 hours.  The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.  Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.  
+The take-home exercise provides students the opportunity to revise and practice the R packages and programming skills they learnt in-class at home.  It is a weekly exercise.  Students are expected to spend not more than an hour a day to work of the exercise instead of complete the exercise at one go.    
+
+The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.  Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.  
 
 ## Take-home Exercises 
 - [Take-home Exercise 1](TH_EX/TH_EX01.html)
@@ -22,12 +24,6 @@ The take-home exercise provides students the opportunity to revise and practice 
 - [Take-home Exercise 3](TH_EX/TH_EX03.html)
 - [Take-home Exercise 4](TH_EX/TH_EX04.html)
 - [Take-home Exercise 5](TH_EX/TH_EX05.html)
-- [Take-home Exercise 6](TH_EX/TH_EX06.html)
-- [Take-home Exercise 7](TH_EX/TH_EX07.html)
-- [Take-home Exercise 8](TH_EX/TH_EX08.html)
-- [Take-home Exercise 9](TH_EX/TH_EX09.html)
-- [Take-home Exercise 10](TH_EX/TH_EX10.html)
-
 
 ## Submission Instructions 
 
@@ -38,7 +34,7 @@ This is an individual assignment. You are required to work on the take-home exer
  
 ## Submission date 
  
-Your completed take-home exercise is due at **11:59pm on every Sunday**.
+Your completed take-home exercise is due at **11:59pm on every Friday**.
 
 
 ```{r echo=FALSE, eval=FALSE}
