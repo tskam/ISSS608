@@ -48,6 +48,8 @@ knitr::opts_chunk$set(echo = FALSE)
 - [Data Visualization: Rules for Encoding Values in Graph](http://www.perceptualedge.com/articles/b-eye/encoding_values_in_graph.pdf)
 - [Choosing Colors for Data Visualization](http://www.perceptualedge.com/articles/b-eye/choosing_colors.pdf)
 - [Line Graphs and Irregular Intervals: An Incompatible Partnership](http://www.perceptualedge.com/articles/visual_business_intelligence/line_graphs_and_irregular_intervals.pdf)
+- [Dos and don’ts of data visualisation- Usability guidelines for improving your visualisations](https://www.eea.europa.eu/data-and-maps/daviz/learn-more/chart-dos-and-donts) 
+
  
 ## Learning from Examples
 
