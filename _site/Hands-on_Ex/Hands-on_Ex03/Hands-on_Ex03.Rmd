@@ -66,7 +66,8 @@ The solution:
 ```{r echo=TRUE, eval=TRUE}
 packages = c('ggiraph', 'plotly', 
              'DT', 'patchwork',
-             'gganimate', 'tidyverse')
+             'gganimate', 'tidyverse',
+             'readxl', 'gifski', 'gapminder')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -805,7 +806,7 @@ crosstalk::bscols(gg, DT::datatable(d), widths = 5)
 ### Linked brushing: crosstalk method 
 
 .pull-left[
-Code chunk below is used to implement the coordinated brushing shown on Slide 17.
+Code chunk below is used to implement the coordinated brushing shown on Slide 24.
 
 ```{r echo=TRUE, eval=FALSE}
 d <- highlight_key(exam_data)       #<<
@@ -820,9 +821,8 @@ gg <- highlight(ggplotly(p),        #<<
                 "plotly_selected")  #<<
 
 crosstalk::bscols(gg,               #<<
-                  DT::datatable(d,
-                                options = list(autoWidth = TRUE),
-                                columnDefs = list(list(width = '20%', targets = list(2,3,4))),))
+                  DT::datatable(d), #<<
+                  widths = 5)       #<< 
 ```
 ]
 
@@ -833,6 +833,119 @@ Things to learn from the code chunk:
 
 - *bscols()* is a helper function of **crosstalk** package.  It makes it easy to put HTML elements side by side.  It can be called directly from the console but is especially designed to work in an R Markdown document.  **Warning:**  This will bring in all of Bootstrap!. 
 ]
+
+---
+## Animated Data Visualisation: gganimate methods ![:scale 8%](img/image3.jpg) 
+
+[**gganimate**](https://gganimate.com/index.html) extends the grammar of graphics as implemented by ggplot2 to include the description of animation. It does this by providing a range of new grammar classes that can be added to the plot object in order to customise how it should change with time.
+
++ `transition_*()` defines how the data should be spread out and how it relates to itself across time.
++ `view_*()` defines how the positional scales should change along the animation.
++ `shadow_*()` defines how data from other points in time should be presented in the given point in time.
++ `enter_*()/exit_*()` defines how new data should appear and how old data should disappear during the course of the animation.
++ `ease_aes()` defines how different aesthetics should be eased during transitions.
+
+---
+### Getting started
+
+.pull-left[
+.large[
++ Add the following packages in the packages list:
+    + gganimate
+    + [**gifski**](https://cran.r-project.org/web/packages/gifski/index.html) converts video frames to GIF animations using pngquant's fancy features for efficient cross-frame palettes and temporal dithering. It produces animated GIFs that use thousands of colors per frame.
+    + [**gapminder**](https://cran.r-project.org/web/packages/gapminder/index.html): An excerpt of the data available at Gapminder.org. We just want to use its *country_colors* scheme.
+]]
+
+--
+.pull-right[
+.large[
++ Import the *Data* worksheet from *GlobalPopulation* Excel workbook.  
+]]
+
+---
+### Building a static population bubble plot
+
+.pull-left[
+
+```{r echo=FALSE}
+col <- c("Country", "Continent")
+globalPop <- read_xls("data/GlobalPopulation.xls", sheet="Data") %>%
+  mutate_each_(funs(factor(.)), col) %>%
+  mutate(Year = as.integer(Year))
+```
+
+```{r eval=FALSE}
+ggplot(globalPop, aes(x = Old, y = Young, 
+                      size = Population, 
+                      colour = Country)) +
+  geom_point(alpha = 0.7, 
+             show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  labs(title = 'Year: {frame_time}', 
+       x = '% Aged', 
+       y = '% Young') 
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(globalPop, aes(x = Old, y = Young, 
+                      size = Population, 
+                      colour = Country)) +
+  geom_point(alpha = 0.7, 
+             show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  labs(title = 'Year: {frame_time}', 
+       x = '% Aged', 
+       y = '% Young') 
+```
+]
+
+---
+### Building the animated bubble plot
+
+.pull-left[
+The code chunk:
+
+```{r eval=FALSE}
+ggplot(globalPop, aes(x = Old, y = Young, 
+                      size = Population, 
+                      colour = Country)) +
+  geom_point(alpha = 0.7, 
+             show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  labs(title = 'Year: {frame_time}', 
+       x = '% Aged', 
+       y = '% Young') +
+  transition_time(Year) +       #<<
+  ease_aes('linear')            #<<
+```
+]
+
+.pull-right[
+The animated bubble chart
+
+```{r echo=FALSE}
+ggplot(globalPop, aes(x = Old, y = Young, 
+                      size = Population, 
+                      colour = Country)) +
+  geom_point(alpha = 0.7, 
+             show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  labs(title = 'Year: {frame_time}', 
+       x = '% Aged', 
+       y = '% Young') +
+  transition_time(Year) +       #<<
+  ease_aes('linear')            #<<
+```
+]
+
+
 ---
 ## Reference
 
@@ -852,6 +965,12 @@ This [link](https://davidgohel.github.io/ggiraph/index.html) provides online ver
 - Carson Sievert (2020) **Interactive web-based data visualization with R, plotly, and shiny**, Chapman and Hall/CRC is the best resource to learn plotly for R.  The online version is available via this [link](https://plotly-r.com/)
 - [Plotly R Figure Reference](https://plotly.com/r/reference/index/) provides a comprehensive discussion of each visual representations.
 - [Plotly R Library Fundamentals](https://plotly.com/r/plotly-fundamentals/) is a good place to learn the fundamental features of Plotly's R API. 
+
+### gganimate
+
+- [Getting Started](https://gganimate.com/articles/gganimate.html)
+- Visit this [link](https://rpubs.com/raymondteo/dataviz8) for a very interesting implementation of gganimate by your senior.
+
 
 
 ```{r echo=FALSE, eval=FALSE}
