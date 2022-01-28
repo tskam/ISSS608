@@ -23,7 +23,7 @@ Content
 
 - Lesson slides in [html](../lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.html) and [pdf](../lesson/Lesson03/Lesson03-Interactivity_in_Visual_Analytics.pdf) formats
 
-- Handout of Hands-on Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
+- Handout of Hands-on Exercise 3 in [html](../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.html) and [pdf](../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.pdf) formats.
 
 
 ## Readings
