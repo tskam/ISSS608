@@ -194,6 +194,52 @@ girafe(                                  #<<
 A complete list of geometries supported by ggiraph and their corresponding command syntax can be found [here](https://davidgohel.github.io/ggiraph/reference/index.html).                     
 
 ---
+### Displaying multiple information on tooltip
+
+.pull-left[
+```{r eval=FALSE}
+exam_data$tooltip <- c(paste0("Name = ", exam_data$ID, "\n Class = ", exam_data$CLASS)) #<<
+
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(
+    aes(tooltip = exam_data$tooltip), #<<
+    stackgroups = TRUE,
+    binwidth = 1,
+    method = "histodot") +
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(
+  ggobj = p,
+  width_svg = 8,
+  height_svg = 8*0.618
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+exam_data$tooltip <- c(paste0("Name = ", exam_data$ID, "\n Class = ", exam_data$CLASS)) #<<
+
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(
+    aes(tooltip = exam_data$tooltip),
+    stackgroups = TRUE,
+    binwidth = 1,
+    method = "histodot") +
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(
+  ggobj = p,
+  width_svg = 8,
+  height_svg = 8*0.618
+)
+```
+]
+
+
+---
 ### Hover effect with *data_id* aesthetic
 
 .pull-left[
