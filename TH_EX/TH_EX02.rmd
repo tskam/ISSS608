@@ -1,0 +1,59 @@
+---
+title: "Take-home Exercise 2"
+description: |
+  Creating data visualisation beyond default
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# The Task
+
+In this take-home exercise, you are required to apply appropriate interactivity and animation methods you had learned in last week lesson to design an age-sex pyramid based data visualisation to show the changes of demographic structure of Singapore by age cohort and gender between 2000-2020 at planning area level.  
+
+For this task, the data sets entitle *Singapore Residents by Planning Area / Subzone, Age Group, Sex and Type of Dwelling, June 2000-2010* and *Singapore Residents by Planning Area / Subzone, Age Group, Sex and Type of Dwelling, June 2011-2020* should be used.  These data sets are available at [Department of Statistics](https://www.singstat.gov.sg/) home page.   
+
+### Word of advice
+
+Students are strongly encouraged to review the submission done by your peers for [Take-home Exercise 1](https://isss608-ay2021-22t2.netlify.app/th_ex/th_ex01) to either improve or correct some of the mistake you have done in your previous design before attempting this take-home exercise.  This is to ensure that you are not going to repeat the same mistake again.
+
+
+# Submission Instructions 
+
+This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually. 
+
+- The take-home exercise submission must be written by using **distill for R Markdown**.  It can be in either [distill article](https://distill.pub/guide/) or [distill blog ](https://rstudio.github.io/distill/blog.html) format. You are required to publish the exercise on [Netlify](https://www.netlify.com/) and provide the link on the take-home exercise submission page on elearn. 
+- You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.
+ 
+### Submission date 
+ 
+Your completed take-home exercise is due on **4th February 2022, by 11:59pm evening**.
+
+   
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/take-home.html")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
