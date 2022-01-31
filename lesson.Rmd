@@ -18,13 +18,13 @@ Week Date  Topic                                                                
 
 3.   29/1  [Interactivity in Visual Analytics](outline/Lesson03_outline.html)         
 
-4.    5/2  [Fundamentals of Visual Analytics](outline/Lesson04_outline.html)          Take-home Ex1 due
+4.    5/2  [Fundamentals of Visual Analytics](outline/Lesson04_outline.html)           
 
 5.   12/2  [Visual Multivariate Analysis](outline/Lesson05_outline.html)
 
 6.   19/2  [It's About Time](outline/Lesson06_outline.html)
         
-7.   26/2  [GeoVisual Analytics](outline/Lesson07_outline.html)                       Take-home Ex2 due
+7.   26/2  [GeoVisual Analytics](outline/Lesson07_outline.html)                       
 
 R.    5/3  []()                               
 

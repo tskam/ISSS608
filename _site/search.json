@@ -31,8 +31,8 @@
       "description": " ",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15/1\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22/1\r\nDesigning Graphs to Enlighten\r\n\r\n3.\r\n29/1\r\nInteractivity in Visual Analytics\r\n\r\n4.\r\n5/2\r\nFundamentals of Visual Analytics\r\nTake-home Ex1 due\r\n5.\r\n12/2\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19/2\r\nIt’s About Time\r\n\r\n7.\r\n26/2\r\nGeoVisual Analytics\r\nTake-home Ex2 due\r\nR.\r\n5/3\r\n\r\n\r\n8.\r\n12/3\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19/3\r\nText Data Visualisation and Analysis\r\n\r\n10.\r\n26/3\r\nInformation Dashboard Design\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-30T23:00:34+08:00"
+      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n15/1\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n22/1\r\nDesigning Graphs to Enlighten\r\n\r\n3.\r\n29/1\r\nInteractivity in Visual Analytics\r\n\r\n4.\r\n5/2\r\nFundamentals of Visual Analytics\r\n\r\n5.\r\n12/2\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n19/2\r\nIt’s About Time\r\n\r\n7.\r\n26/2\r\nGeoVisual Analytics\r\n\r\nR.\r\n5/3\r\n\r\n\r\n8.\r\n12/3\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n19/3\r\nText Data Visualisation and Analysis\r\n\r\n10.\r\n26/3\r\nInformation Dashboard Design\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-01-31T12:03:11+08:00"
     },
     {
       "path": "R.html",
