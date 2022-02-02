@@ -283,5 +283,5 @@ Source: Messerli (2012) "Chocolate Consumption, Cognitive Function, and Nobel La
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson04-Fundamentals_of_Visual_Analytics.html")
+pagedown::chrome_print("Lesson02a-Choosing-the-Right-Visualisation.html")
 ```
