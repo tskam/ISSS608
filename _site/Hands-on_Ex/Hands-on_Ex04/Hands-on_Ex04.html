@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Lesson 4: Fundamantals of Visual Analytics</title>
+    <title>Hands-on Exercise 4: Visually-Drive Data Analysis with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
   </head>
@@ -12,32 +12,49 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Lesson 4: Fundamantals of Visual Analytics
+# Hands-on Exercise 4: Visually-Drive Data Analysis with R
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-01-20 (updated: 2022-02-02)
+### 2020-2-15 (updated: 2022-01-31)
 
 ---
 
 
 
 
-# What will you learn from this lesson?
-.vlarge[
-- Visualising count
-- Visualising proportion
-    - Part-whole and ranking analysis 
-- Visualising distribution
-- Visualising deviation
-- Visualising relationships
-    - between two continuous variables
-    - between two categorical variables
-- Visualising relationship between sub-categories
-- Visualising uncertainty
-]
+
+
+## Content
+
++ Visually-driven Confirmatory Data Analysis
++ Visualising Uncertainty
 
 ---
-## Visually Driven Analytics (VDA)
+# Getting Started
+
+In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
+
+
+```r
+packages = c('infer', 'ggstatsplot', 'tidyverse')
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+}
+```
+
+In this exercise, the Exam.csv
+ data will be used.
+ 
+
+```r
+exam &lt;- read_csv("data/Exam_data.csv")
+```
+
+
+---
+## Introducing **ggstatsplot**
 
 .large[
 Motivation: To combine data visualisation and statistical modeling]
@@ -70,169 +87,126 @@ For all statistical tests reported in the plots, the default template abides by 
 .center[
 ![](img/image4.jpg)]
 
-
 ---
-# Visualising Uncertainty
-## Why it is important?
-
-.left-column[
-.large[
-- One of the most challenging aspects of data visualization is the visualization of uncertainty.]] 
-
-.right-column[
-![:scale 90%](img/image5-1.jpg)
-
-.small[Source: Chart 61, LABOUR FORCE IN SINGAPORE 2019, pg. 52]
-]
-
----
-# Visualising Uncertainty
-## Commend mistake
+## *ggbetweenstats()* - defaults
 
 .pull-left[
-.large[
-- It is not appropriate to displace average values on bars]]
 
-.pull-right[
-.center[
-![:scale 100%](img/image5-2.jpg)]]
+```r
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "p", 
+  messages = FALSE
+)
+```
 
----
-## 1-d statistical graphic methods for visualising uncertainty
-### Error bar on a bar chart
-
-.pull-left[
-.large[
-- Each error bar is constructed using a 95% confidence interval of the mean.]]
-
-.pull-right[
-![:scale 100%](img/image5-3.jpg)]
-
----
-## Back to Statistics 101
-### Population and samples
-
-.pull-left[
-![:scale 80%](img/image5-5.jpg)
+Default information:
+- statistical details
+- Bayes Factor
+- sample sizes
+- distribution summary
 ]
 
 .pull-right[
-![:scale 80%](img/image5-6.jpg)]
-
-- When drawing many samples from a population, it is possible to obtain a few with means that greatly differ from the population.
-
-.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
-
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
+]
 
 ---
-## A reminder of the standard normal distribution
+### Unpacking the Bayes Factor
+
+- A Bayes factor is the ratio of the likelihood of one particular hypothesis to the likelihood of another. It can be interpreted as a measure of the strength of evidence in favor of one theory among two competing theories.
+
+- That’s because the Bayes factor gives us a way to evaluate the data in favor of a null hypothesis, and to use external information to do so. It tells us what the weight of the evidence is in favor of a given hypothesis.
+
+- When we are comparing two hypotheses, H1 (the alternate hypothesis) and H0 (the null hypothesis), the Bayes Factor is often written as B10. It can be defined mathematically as
 
 .center[
-![:scale 50%](img/image5-7.jpg)]
-.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+![:scale 50%](img/image5.jpg)]
+
+- The [**Schwarz criterion**](https://www.statisticshowto.com/bayesian-information-criterion/) is one of the easiest ways to calculate rough approximation of the Bayes Factor.
+
 
 ---
-## The standard error
+### How to interpret Bayes Factor
+
+A **Bayes Factor** can be any positive number. One of the most common interpretations is this one—first proposed by Harold Jeffereys (1961) and slightly modified by [Lee and Wagenmakers](https://www-tandfonline-com.libproxy.smu.edu.sg/doi/pdf/10.1080/00031305.1999.10474443?needAccess=true) in 2013:
 
 .center[
-![:scale 40%](img/image5-8.jpg)]
-.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
+![:scale 40%](img/image6.jpg)]
 
 ---
-## Calculating the confidence interval of a mean
-
-.center[
-![:scale 50%](img/image5-9.jpg)]
-.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
-
----
-## Calculating the confidence interval of a percentage
-
-.center[
-![:scale 75%](img/image5-11.jpg)]
-
-.small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
-
----
-## 1-d graphical methods for visualising uncertainty
+## ggbetweenstats - Changing the type of test
 
 .pull-left[
-### Error bar on a dot plot
-- Each error bar is constructed using a 95% confidence interval of the percentage.]
+
+```r
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "np", 
+  messages = FALSE
+)
+```
+
+Changing the type of test:
+- "p" → parametric
+- "np" → non-parametric
+- "r" → robust
+- "bf" → bayes factor
+]
 
 .pull-right[
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-6-1.png" width="504" /&gt;
+]
+
+---
+## ggbetweenstats - Changing pairwise comparisons displayed
+
+.pull-left[
+- "ns" → only non-significant
+- "s" → only significant
+- "all" → everything
+
+
+```r
+ggbetweenstats(
+  data = exam,
+  x = RACE, 
+  y = ENGLISH,
+  type = "np",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-8-1.png" width="504" /&gt;
+]
+
+---
+## ggbetweenstats - Summary of tests
+
 .center[
-![:scale 100%](img/image5-4.jpg)]]
+![:scale 70%](img/image7.jpg)]
 
 ---
-## Graphical methods for visualising uncertainty
-.center[
-![:scale 60%](img/image5-12.png)]
-.small[Reference: https://serialmentor.com/dataviz/visualizing-uncertainty.html#visualizing-the-uncertainty-of-point-estimates]
-
----
-## 2-d graphical methods for visualising uncertainty
-
-.pull-left[
-### Scatter plot with 95% confidence ellipse
-
-![:scale 100%](img/image5-13.jpg)]
-
---
-
-.pull-right[
-### Scatter plot with 95% confidence intervals
-
-![:scale 100%](img/image5-14.jpg)]
-
----
-## 2-d graphical methods for visualising uncertainty
-
-### Trellis scatter plot with 95% confidence intervals
-
-.pull-left[
-.large[
-Figure on the right reveals that the relationships between english and maths grades for Indians and Other races are relatively less certain than Chinese and Malays.]]
-
-.pull-right[
-![:scale 100%](img/image5-15.jpg)]
-
----
-# Variation and Its Discontents
-## Random and unfair comparisons
+## ggbetweenstats - Summary of tests
 
 .center[
-![:scale 55%](img/image5-16.jpg)]
-.small[Reference: https://www.perceptualedge.com/articles/visual_business_intelligence/variation_and_its_discontents.pdf]
+![:scale 90%](img/image8.jpg)]
 
 ---
-# Variation and Its Discontents
-## Funnel plots to the rescue
+## ggbetweenstats - Summary of tests
 
-.pull-left[
-.vlarge[Statistical details]
-
-![:scale 125%](img/image5-18.jpg)]
-
-
-.pull-right[
-![:scale 125%](img/image5-17.jpg)]
-
----
-## Normality assumption
-
-.pull-left[
-.large[- Before plotting the graph, it is important to check if the values are conformed to normal distribution assumption.
-
-- If the raw values are not conformed to normality assumption, they have to be transformed.
-]]
-
-.pull-right[
-![](img/image5-19.jpg)]
-
-
-
-
+.center[
+![:scale 70%](img/image9.jpg)]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

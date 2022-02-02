@@ -35,249 +35,39 @@ knitr::opts_chunk$set(echo = FALSE)
 ]
 
 ---
-## Visualising Count
-### Bar Chart
+## Visually Driven Analytics (VDA)
 
-- A bar chart is used for plotting categorical data.
-- It can be mapped horizontally or vertically.
-- When displaying data using bar chart, it is a good practice to sort the count or frequency ascendingly or descendingly.   
-
-.center[
-![:scale 60%](img/image3-1.jpg)]
-
----
-## Visualising Proportion
-### A case for pie chart
-
-.center[
-![:scale 35%](img/image3-19.jpg)]
-
----
-## Visualising Proportion 
-### A case against pie chart
-
-- Avoid pie chart if the sub-groups are very similar because our eyes are not good in reading areas
-
-![:scale 85%](img/image2-23.png)
-
----
-## Visualising Proportion 
-### A case against pie chart
-
-- Avoid pie chart if you are comparing changes over time
-
-.pull-left[
-![](img/image3-19a.jpg)]
-
-.pull-right[
-![:scale 90%](img/image3-19b.jpg)]
-
----
-## Visualising Proportion
-### Side-by-side bar chart 
-
-.pull-left[
-![:scale 75%](img/image3-5.jpg)]
-
----
-## Visualising Proportion
-### Stacked bar chart 
-
-.center[
-![:scale 85%](img/image3-6.jpg)]
-
----
-## Comparing Proportion
-### Age-sex pyramid
-
-.pull-left[
 .large[
-- An age-sex pyramid, also popularly know as population pyramid, breaks down a country's or location's population into male and female genders and age cohorts. 
-
-- Usually, you'll find the left side of the pyramid graphing the male population and the right side of the pyramid displaying the female population.
-]]
-
-.pull-right[
-![:scale 90%](img/image3-9.jpg)]
-
----
-## Part-to-Whole and Ranking Analysis
-### Pareto Chart
-
-.pull-left[
-- A Pareto chart is a special type of bar chart where the values being plotted are arranged in descending order.
-
-- Pareto chart was developed to illustrate the 80-20 Rule - that 80 percent of the problems stem from 20 percent of the various causes.
-
-- In Pareto chart there are two y-axises.  The primary y-axis is used to display the frequency counts of the sub-types and the secondary axis is used to display the cumulative frequency of the subtype.
-
-- The frequency count usually is represented as bar chart and the cumulative frequency is represented as line chart.
-]
-
-.pull-right[
-![](img/image3-4.jpg)]
-
----
-## Visualising Likert Scale Data
-### Diverging stacked bar chart
-
-.left-column[
-- What is likert scale?
-
-![](img/image5-20a.jpg)
-]
-
-.right-column[
-![:scale 80%](img/image5-20.jpg)]
-
-.small[Reference: 
-- https://en.wikipedia.org/wiki/Likert_scale
-- Heiberger RM, Robbins NB. [Design of diverging stacked bar charts for Likert scales and other applications](https://www.jstatsoft.org/article/view/v057i05/v57i05.pdf). Journal of Statistical Software. 2014;57(5): 1-32. 
-]
-
----
-## What about line graph?
-### Lorenz curve
-
-.pull-left[
-.vlarge[
-- A graphical representation of the distribution of income or of wealth.
-]]
-
-.pull-right[
-![:scale 85%](img/image3-28.JPG)]
-
----
-## Visualising Distribution
-### Histogram
-
-.pull-left[
-- A histogram is a graphical display of tabular frequencies, shown as adjacent rectangles.
-
-- Each rectangle is erected over an interval, with an area equal to the frequency of the interval. 
-
-- The height of a rectangle is also equal to the frequency density of the interval, i.e. the frequency divided by the width of the interval. 
-
-- The total area of the histogram is equal to the number of data.]
-
-.pull-right[
-![](img/image3-7.jpg)]
-
----
-## Visualising Distribution
-### Histogram
-
-- It is important to note that the shape of a histogram can be affected by the number of bins or/and classification methods used.  
+Motivation: To combine data visualisation and statistical modeling]
 
 .center[
-![:scale 60%](img/image3-8.jpg)]
+![:scale 70%](img/image1.jpg)]
 
 ---
-## Visualising Distribution
-### Density plot
+## Introducing **ggstatsplot**
 
-.pull-left[
-- To visualise the underlying probability distribution of the data by drawing an appropriate continuous curve.]
-
-.pull-right[
-![](img/image3-10.jpg)]
-
-
----
-## Deviation Analysis
-### Boxplot
-
-.pull-left[
-- A convenient way of graphically depicting groups of numerical data through their five-number summaries (the smallest observation, lower quartile (Q1), median (Q2), upper quartile (Q3), and largest observation). 
-
-- A box plot may also indicate which observations, if any, might be considered outliers. 
+.large[
+Motivation: To provide alternative statistical inference methods by default.
 ]
 
-.pull-right[
-![:scale 115%](img/image3-13.jpg)]
-
----
-## Visualising Relationship Between Two Continuous Variables
-### Scatterplot 
-
 .pull-left[
-- A scatter plot or scattergraph is a type of mathematical diagram using Cartesian coordinates to display values for two variables for a set of data.
-- The data is displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis.
-- Also known as scatter chart, scattergram, scatter diagram or scatter graph.]
+![](img/image2.jpg)]
 
 .pull-right[
-![:scale 70%](img/image3-14.jpg)]
+![](img/image3.jpg)]
 
 ---
-## Visualising Relationship Between Two Continuous Variables
+## Introducing **ggstatsplot**
 
-.left-column[
-### Interpreting scatterplot
+.large[
+Motivation: To follow best practices for statistical reporting.
 ]
 
-.right-column[
-.center[
-![:scale 60%](img/image3-15.jpg)]]
-
----
-## Visualising Relatinships
-### Caution: Not all relationships are linear
-
-.pull-left[
-![:scale 85%](img/image3-26.jpg)]
-
---
-
-.pull-right[
-![:scale 85%](img/image3-26b.jpg)
-]
-
----
-## Visualising Relationships
-
-.pull-left[
-.vlarge[Warning!]
-
-![](img/image3-24.jpg)
-
-.small[
-Source: Messerli (2012) "Chocolate Consumption, Cognitive Function, and Nobel Laureates", [*The New England Journal of Medicine*]( http://www.biostat.jhsph.edu/courses/bio621/misc/Chocolate%20consumption%20cognitive%20function%20and%20nobel%20laurates%20(NEJM).pdf)
-]] 
-
---
-.pull-right[
-.vlarge[Correlation does not imply causation]
-
-
-![](img/image3-25.jpg)]
-
----
-## Visualising Relationship 
-### Quadrat analysis
+For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
 
 .center[
-![:scale 55%](img/image3-17.jpg)]
+![](img/image4.jpg)]
 
----
-## Visualising Relationship Between Two Categorical Variables
-### Mosaic Plot
-
-.pull-left[
-- A mosaic plot is a graphical display that allows you to examine the relationship among two or more categorical variables.  
-]
-
-.pull-right[
-![](img/image3-16.jpg)]
-
----
-## Visualising Relationship Between Sub-groups
-### Trellis
-
-- Trellised visualizations enable you to quickly recognize similarities or differences between different categories in the data. 
-- Each individual panel in a trellis visualization displays a subset of the original data table, where the subsets are defined by the categories available in a column or hierarchy.
-
-.center[
-![:scale 60%](img/image3-18.jpg)]
 
 ---
 # Visualising Uncertainty

@@ -1,0 +1,243 @@
+---
+title: "Hands-on Exercise 4: Visually-Drive Data Analysis with R"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-2-15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.retina=3,
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+## Content
+
++ Visually-driven Confirmatory Data Analysis
++ Visualising Uncertainty
+
+---
+# Getting Started
+
+In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
+
+```{r}
+packages = c('infer', 'ggstatsplot', 'tidyverse')
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+}
+```
+
+In this exercise, the Exam.csv
+ data will be used.
+ 
+```{r message=FALSE, warning=FALSE}
+exam <- read_csv("data/Exam_data.csv")
+```
+
+
+---
+## Introducing **ggstatsplot**
+
+.large[
+Motivation: To combine data visualisation and statistical modeling]
+
+.center[
+![:scale 70%](img/image1.jpg)]
+
+---
+## Introducing **ggstatsplot**
+
+.large[
+Motivation: To provide alternative statistical inference methods by default.
+]
+
+.pull-left[
+![](img/image2.jpg)]
+
+.pull-right[
+![](img/image3.jpg)]
+
+---
+## Introducing **ggstatsplot**
+
+.large[
+Motivation: To follow best practices for statistical reporting.
+]
+
+For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
+
+.center[
+![](img/image4.jpg)]
+
+---
+## *ggbetweenstats()* - defaults
+
+.pull-left[
+```{r echo=TRUE, eval=FALSE}
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "p", 
+  messages = FALSE
+)
+```
+
+Default information:
+- statistical details
+- Bayes Factor
+- sample sizes
+- distribution summary
+]
+
+.pull-right[
+```{r echo=FALSE, eval=TRUE, fig.retina = 3}
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "p", 
+  messages = FALSE
+)
+```
+]
+
+---
+### Unpacking the Bayes Factor
+
+- A Bayes factor is the ratio of the likelihood of one particular hypothesis to the likelihood of another. It can be interpreted as a measure of the strength of evidence in favor of one theory among two competing theories.
+
+- That’s because the Bayes factor gives us a way to evaluate the data in favor of a null hypothesis, and to use external information to do so. It tells us what the weight of the evidence is in favor of a given hypothesis.
+
+- When we are comparing two hypotheses, H1 (the alternate hypothesis) and H0 (the null hypothesis), the Bayes Factor is often written as B10. It can be defined mathematically as
+
+.center[
+![:scale 50%](img/image5.jpg)]
+
+- The [**Schwarz criterion**](https://www.statisticshowto.com/bayesian-information-criterion/) is one of the easiest ways to calculate rough approximation of the Bayes Factor.
+
+
+---
+### How to interpret Bayes Factor
+
+A **Bayes Factor** can be any positive number. One of the most common interpretations is this one—first proposed by Harold Jeffereys (1961) and slightly modified by [Lee and Wagenmakers](https://www-tandfonline-com.libproxy.smu.edu.sg/doi/pdf/10.1080/00031305.1999.10474443?needAccess=true) in 2013:
+
+.center[
+![:scale 40%](img/image6.jpg)]
+
+---
+## ggbetweenstats - Changing the type of test
+
+.pull-left[
+```{r echo=TRUE, eval=FALSE}
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "np", 
+  messages = FALSE
+)
+```
+
+Changing the type of test:
+- "p" → parametric
+- "np" → non-parametric
+- "r" → robust
+- "bf" → bayes factor
+]
+
+.pull-right[
+```{r echo=FALSE, eval=TRUE, fig.retina = 3}
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "np", 
+  messages = FALSE
+)
+```
+]
+
+---
+## ggbetweenstats - Changing pairwise comparisons displayed
+
+.pull-left[
+- "ns" → only non-significant
+- "s" → only significant
+- "all" → everything
+
+```{r echo=TRUE, eval=FALSE}
+ggbetweenstats(
+  data = exam,
+  x = RACE, 
+  y = ENGLISH,
+  type = "np",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE, eval=TRUE, fig.retina = 3}
+ggbetweenstats(
+  data = exam,
+  x = RACE, 
+  y = ENGLISH,
+  type = "np",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "ns",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+```
+]
+
+---
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 70%](img/image7.jpg)]
+
+---
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 90%](img/image8.jpg)]
+
+---
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 70%](img/image9.jpg)]

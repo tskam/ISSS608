@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lesson 2: Choosing the Right Visualisation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lesson 2: Choosing the Right Visualisation
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2020-01-20 (updated: 2022-02-02)
+
+---
+
+
+
+
+# What will you learn from this lesson?
+.vlarge[
+- Visualising count
+- Visualising proportion
+    - Part-whole and ranking analysis 
+- Visualising distribution
+- Visualising deviation
+- Visualising relationships
+    - between two continuous variables
+    - between two categorical variables
+- Visualising relationship between sub-categories
+]
+
+---
+## Visualising Count
+### Bar Chart
+
+- A bar chart is used for plotting categorical data.
+- It can be mapped horizontally or vertically.
+- When displaying data using bar chart, it is a good practice to sort the count or frequency ascendingly or descendingly.   
+
+.center[
+![:scale 60%](img/image2a-1.jpg)]
+
+---
+## Visualising Proportion
+### A case for pie chart
+
+.center[
+![:scale 35%](img/image2a-2.jpg)]
+
+---
+## Visualising Proportion 
+### A case against pie chart
+
+- Avoid pie chart if the sub-groups are very similar because our eyes are not good in reading areas
+
+![:scale 85%](img/image2a-3.png)
+
+---
+## Visualising Proportion 
+### A case against pie chart
+
+- Avoid pie chart if you are comparing changes over time
+
+.pull-left[
+![](img/image2a-4a.jpg)]
+
+.pull-right[
+![:scale 90%](img/image2a-4b.jpg)]
+
+---
+## Visualising Proportion
+### Side-by-side bar chart 
+
+.pull-left[
+![:scale 75%](img/image2a-5.jpg)]
+
+---
+## Visualising Proportion
+### Stacked bar chart 
+
+.center[
+![:scale 85%](img/image2a-6.jpg)]
+
+---
+## Comparing Proportion
+### Age-sex pyramid
+
+.pull-left[
+.large[
+- An age-sex pyramid, also popularly know as population pyramid, breaks down a country's or location's population into male and female genders and age cohorts. 
+
+- Usually, you'll find the left side of the pyramid graphing the male population and the right side of the pyramid displaying the female population.
+]]
+
+.pull-right[
+![:scale 90%](img/image2a-7.jpg)]
+
+---
+## Part-to-Whole and Ranking Analysis
+### Pareto Chart
+
+.pull-left[
+- A Pareto chart is a special type of bar chart where the values being plotted are arranged in descending order.
+
+- Pareto chart was developed to illustrate the 80-20 Rule - that 80 percent of the problems stem from 20 percent of the various causes.
+
+- In Pareto chart there are two y-axises.  The primary y-axis is used to display the frequency counts of the sub-types and the secondary axis is used to display the cumulative frequency of the subtype.
+
+- The frequency count usually is represented as bar chart and the cumulative frequency is represented as line chart.
+]
+
+.pull-right[
+![](img/image2a-8.jpg)]
+
+---
+## Visualising Likert Scale Data
+### Diverging stacked bar chart
+
+.left-column[
+- What is likert scale?
+
+![](img/image2a-9a.jpg)
+
+.small[Reference: 
+- https://en.wikipedia.org/wiki/Likert_scale
+- Dwight Barry (2017) [Do not use averages with Likert scale data](https://bookdown.org/Rmadillo/likert/).
+- Heiberger RM, Robbins NB. [Design of diverging stacked bar charts for Likert scales and other applications](https://www.jstatsoft.org/article/view/v057i05/v57i05.pdf). Journal of Statistical Software. 2014;57(5): 1-32. 
+]
+
+]
+
+.right-column[
+![:scale 80%](img/image2a-9b.jpg)]
+
+---
+## What about line graph?
+### Lorenz curve
+
+.pull-left[
+.vlarge[
+- A graphical representation of the distribution of income or of wealth.
+]]
+
+.pull-right[
+![:scale 85%](img/image2a-10.JPG)]
+
+---
+## Visualising Distribution
+### Histogram
+
+.pull-left[
+- A histogram is a graphical display of tabular frequencies, shown as adjacent rectangles.
+
+- Each rectangle is erected over an interval, with an area equal to the frequency of the interval. 
+
+- The height of a rectangle is also equal to the frequency density of the interval, i.e. the frequency divided by the width of the interval. 
+
+- The total area of the histogram is equal to the number of data.]
+
+.pull-right[
+![](img/image2a-11.jpg)]
+
+---
+## Visualising Distribution
+### Histogram
+
+- It is important to note that the shape of a histogram can be affected by the number of bins or/and classification methods used.  
+
+.center[
+![:scale 60%](img/image2a-12.jpg)]
+
+---
+## Visualising Distribution
+### Density plot
+
+.pull-left[
+- To visualise the underlying probability distribution of the data by drawing an appropriate continuous curve.]
+
+.pull-right[
+![](img/image2a-13.jpg)]
+
+
+---
+## Deviation Analysis
+### Boxplot
+
+.pull-left[
+- A convenient way of graphically depicting groups of numerical data through their five-number summaries (the smallest observation, lower quartile (Q1), median (Q2), upper quartile (Q3), and largest observation). 
+
+- A box plot may also indicate which observations, if any, might be considered outliers. 
+]
+
+.pull-right[
+![:scale 115%](img/image2a-14.jpg)]
+
+---
+## Visualising Relationship Between Two Continuous Variables
+### Scatterplot 
+
+.pull-left[
+- A scatter plot or scattergraph is a type of mathematical diagram using Cartesian coordinates to display values for two variables for a set of data.
+- The data is displayed as a collection of points, each having the value of one variable determining the position on the horizontal axis and the value of the other variable determining the position on the vertical axis.
+- Also known as scatter chart, scattergram, scatter diagram or scatter graph.]
+
+.pull-right[
+![:scale 70%](img/image2a-15.jpg)]
+
+---
+## Visualising Relationship Between Two Continuous Variables
+
+.left-column[
+### Interpreting scatterplot
+]
+
+.right-column[
+.center[
+![:scale 60%](img/image2a-16.jpg)]]
+
+---
+## Visualising Relatinships
+### Caution: Not all relationships are linear
+
+.pull-left[
+![:scale 85%](img/image2a-17a.jpg)]
+
+--
+
+.pull-right[
+![:scale 85%](img/image2a-17b.jpg)
+]
+
+---
+## Visualising Relationships
+
+.pull-left[
+.vlarge[Warning!]
+
+![](img/image2a-18.jpg)
+
+.small[
+Source: Messerli (2012) "Chocolate Consumption, Cognitive Function, and Nobel Laureates", [*The New England Journal of Medicine*]( http://www.biostat.jhsph.edu/courses/bio621/misc/Chocolate%20consumption%20cognitive%20function%20and%20nobel%20laurates%20(NEJM).pdf)
+]] 
+
+--
+.pull-right[
+.vlarge[Correlation does not imply causation]
+
+
+![](img/image2a-19.jpg)]
+
+---
+## Visualising Relationship 
+### Quadrat analysis
+
+.center[
+![:scale 55%](img/image2a-20.jpg)]
+
+---
+## Visualising Relationship Between Two Categorical Variables
+### Mosaic Plot
+
+.pull-left[
+- A mosaic plot is a graphical display that allows you to examine the relationship among two or more categorical variables.  
+]
+
+.pull-right[
+![](img/image2a-21.jpg)]
+
+---
+## Visualising Relationship Between Sub-groups
+### Trellis
+
+- Trellised visualizations enable you to quickly recognize similarities or differences between different categories in the data. 
+- Each individual panel in a trellis visualization displays a subset of the original data table, where the subsets are defined by the categories available in a column or hierarchy.
+
+.center[
+![:scale 60%](img/image2a-22.jpg)]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
