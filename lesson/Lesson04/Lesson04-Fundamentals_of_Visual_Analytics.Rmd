@@ -22,12 +22,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # What will you learn from this lesson?
 .vlarge[
-- Visually Driven Analytics
-- Visualising uncertainty
+- Visual Analytics for Knowledge Discovery
+- Visual Analytics Approach for Statistical Testing
+- Visual Analytics for Building Better Models
+- Visualising Uncertainty
 ]
 
+???
+In this lesson, I am going to share with you how visual analytics approach can be used to complement conventional statistical testing and model building.  We will also examine a few methods for visualising uncertainty.    
+
 ---
-## Visually Driven Analytics (VDA)
+## Visually Analytics for Knowledge Discovery
 
 .large[
 Motivation: To combine data visualisation and statistical modeling]
@@ -36,7 +41,7 @@ Motivation: To combine data visualisation and statistical modeling]
 ![:scale 70%](img/image1.jpg)]
 
 ---
-### ggstatsplot methods
+## Visual Statistical Testing: ggstatsplot methods
 
 .large[
 To provide alternative statistical inference methods by default.
@@ -49,7 +54,7 @@ To provide alternative statistical inference methods by default.
 ![](img/image3.jpg)]
 
 ---
-### ggstatsplot methods
+## Visual Statistical Testing: ggstatsplot methods
 
 .large[
 To follow best practices for statistical reporting.
@@ -65,7 +70,7 @@ To follow best practices for statistical reporting.
 
 .pull-left[
 .large[
-Visualisation centric approach
+Boxplot revealing the mean and distribution of two samples. 
 
 ![](img/image4a.png)
 ]]
@@ -73,10 +78,97 @@ Visualisation centric approach
 --
 .pull-right[
 .large[
-Visually Driven Analytics approach
+Boxplot with two-sample mean test
 
 ![:scale 90%](img/image4b.png)
 ]]
+
+---
+### Visually-driven Correlation Analysis
+
+.pull-left[
+.large[
+Scatter plot showing the relationship between two continuous variables. 
+
+![:scale 85%](img/image5a.png)
+]]
+
+--
+.pull-right[
+.large[
+Scatter plot with significant test of correlation.
+
+![:scale 90%](img/image5b.png)
+]]
+
+---
+### Visually-driven Association (Independent) Analysis
+
+.pull-left[
+Mosaic plot showing the association between two categorical variables.
+
+![:scale 85%](img/image6a.png)
+]
+
+--
+.pull-right[
+Stacked bar chart with significant test of association.
+
+![:scale 95%](img/image6b.png)
+]
+
+---
+## Visual Analytics Appraoch for Building Exploratory Models
+### Model Diagnostic: checking for multicolinearity:
+
+.pull-left[
+Conventional statistical report
+
+
+![](img/image7a.png)
+]
+
+--
+.pull-right[
+Visual Analytics approach
+
+![](img/image7b.png)
+]
+
+---
+## Visual Analytics Appraoch for Building Exploratory Models
+ 
+.pull-left[
+.vlarge[Model Diagnostic: Checking normality assumption]
+
+![](img/image8a.png)
+]
+
+--
+.pull-right[
+.vlarge[Model Diagnostic: Checking model for homogeneity of variances]
+
+![](img/image8b.png)
+]
+
+---
+## Visual Analytics Appraoch for Building Exploratory Models
+### Analysing model parameters
+
+.pull-left[
+Conventional statistical report
+
+
+![](img/image9a.png)
+]
+
+--
+.pull-right[
+Visual Analytics approach
+
+![:scale 75%](img/image9b.png)
+]
+
 
 ---
 # Visualising Uncertainty

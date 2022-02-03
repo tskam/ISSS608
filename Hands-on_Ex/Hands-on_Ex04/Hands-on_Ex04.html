@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Hands-on Exercise 4: Visually-Drive Data Analysis with R
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-01-31)
+### 2020-2-15 (updated: 2022-02-02)
 
 ---
 
@@ -36,7 +36,8 @@ In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 
 ```r
-packages = c('infer', 'ggstatsplot', 'tidyverse')
+packages = c('infer', 'ggstatsplot', 'ggside', 
+             'tidyverse', 'vcd', 'vcdExtra', 'ggmosaic')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -191,6 +192,26 @@ ggbetweenstats(
 ]
 
 ---
+### Correlation Analysis
+
+.pull-left[
+
+```r
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-10-1.png" width="504" /&gt;
+]
+
+
+---
 ## ggbetweenstats - Summary of tests
 
 .center[
@@ -207,6 +228,53 @@ ggbetweenstats(
 
 .center[
 ![:scale 70%](img/image9.jpg)]
+
+---
+
+
+```r
+exam1 &lt;- exam %&gt;% 
+  mutate(MATHS_bins = cut(MATHS, 
+                          breaks = c(0,60,75,85,100))
+)
+```
+
+---
+
+
+```r
+ggplot(data = exam1) +
+  geom_mosaic(aes(x = product(GENDER), 
+                  fill=MATHS_bins))
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-12-1.png" width="504" /&gt;
+
+---
+
+
+```r
+ggbarstats(exam1, 
+           x = MATHS_bins, 
+           y = GENDER)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-13-1.png" width="504" /&gt;
+
+---
+
+
+```r
+vcd::mosaic(~ MATHS_bins + GENDER , 
+       data = exam1,
+       main = "Survival on the Titanic", 
+       shade = TRUE, 
+       legend = TRUE)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-14-1.png" width="504" /&gt;
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
