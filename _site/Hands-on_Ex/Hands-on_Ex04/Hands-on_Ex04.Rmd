@@ -46,7 +46,8 @@ style_duo_accent(
 In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 ```{r}
-packages = c('infer', 'ggstatsplot', 'tidyverse')
+packages = c('infer', 'ggstatsplot', 'ggside', 
+             'tidyverse', 'vcd', 'vcdExtra', 'ggmosaic')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -225,6 +226,32 @@ ggbetweenstats(
 ]
 
 ---
+### Correlation Analysis
+
+.pull-left[
+```{r eval=FALSE}
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+]
+
+
+---
 ## ggbetweenstats - Summary of tests
 
 .center[
@@ -241,3 +268,41 @@ ggbetweenstats(
 
 .center[
 ![:scale 70%](img/image9.jpg)]
+
+---
+
+```{r}
+exam1 <- exam %>% 
+  mutate(MATHS_bins = cut(MATHS, 
+                          breaks = c(0,60,75,85,100))
+)
+```
+
+---
+
+```{r}
+ggplot(data = exam1) +
+  geom_mosaic(aes(x = product(GENDER), 
+                  fill=MATHS_bins))
+```
+
+---
+
+```{r}
+ggbarstats(exam1, 
+           x = MATHS_bins, 
+           y = GENDER)
+
+```
+
+---
+
+```{r}
+vcd::mosaic(~ MATHS_bins + GENDER , 
+       data = exam1,
+       main = "Survival on the Titanic", 
+       shade = TRUE, 
+       legend = TRUE)
+```
+
+
