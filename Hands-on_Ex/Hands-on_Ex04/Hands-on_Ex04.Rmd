@@ -1,5 +1,5 @@
 ---
-title: "Hands-on Exercise 4: Visually-Drive Data Analysis with R"
+title: "Hands-on Exercise 4: VisualAnalytics with R"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -37,7 +37,7 @@ style_duo_accent(
 
 ## Content
 
-+ Visually-driven Confirmatory Data Analysis
++ Visual Statistical Testing with ggstatsplot
 + Visualising Uncertainty
 
 ---
@@ -46,8 +46,8 @@ style_duo_accent(
 In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 ```{r}
-packages = c('infer', 'ggstatsplot', 'ggside', 
-             'tidyverse', 'vcd', 'vcdExtra', 'ggmosaic')
+packages = c('ggstatsplot', 'ggside', 
+             'tidyverse')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -64,50 +64,32 @@ exam <- read_csv("data/Exam_data.csv")
 
 
 ---
-## Introducing **ggstatsplot**
+## Visual Statistical Analysis with **ggstatsplot** ![:scale 10%](img/image1.jpg)
 
 .large[
-Motivation: To combine data visualisation and statistical modeling]
+
++ [**ggstatsplot**](https://indrajeetpatil.github.io/ggstatsplot/index.html) is an extension of [**ggplot2**](https://ggplot2.tidyverse.org/) package for creating graphics with details from statistical tests included in the information-rich plots themselves.
+    + To provide alternative statistical inference methods by default.
+    + To follow best practices for statistical reporting. For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
 
 .center[
-![:scale 70%](img/image1.jpg)]
-
----
-## Introducing **ggstatsplot**
-
-.large[
-Motivation: To provide alternative statistical inference methods by default.
+![:scale 75%](img/image2.jpg)]
 ]
 
-.pull-left[
-![](img/image2.jpg)]
-
-.pull-right[
-![](img/image3.jpg)]
-
 ---
-## Introducing **ggstatsplot**
-
-.large[
-Motivation: To follow best practices for statistical reporting.
-]
-
-For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
-
-.center[
-![](img/image4.jpg)]
-
----
-## *ggbetweenstats()* - defaults
+### One-sample test: *gghistostats()* method
 
 .pull-left[
-```{r echo=TRUE, eval=FALSE}
-ggbetweenstats(
+In the code chunk below, [*gghistostats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/gghistostats.html) is used to to build an visual of one-sample test on English scores.
+
+```{r eval=FALSE}
+set.seed(1234)
+
+gghistostats(
   data = exam,
-  x = GENDER, 
-  y = MATHS,
-  type = "p", 
-  messages = FALSE
+  x = ENGLISH,
+  test.value = 60,
+  xlab = "English scores"
 )
 ```
 
@@ -116,20 +98,22 @@ Default information:
 - Bayes Factor
 - sample sizes
 - distribution summary
+
 ]
 
 .pull-right[
-```{r echo=FALSE, eval=TRUE, fig.retina = 3}
-ggbetweenstats(
+
+```{r echo=FALSE}
+set.seed(1234)
+
+gghistostats(
   data = exam,
-  x = GENDER, 
-  y = MATHS,
-  type = "p", 
-  messages = FALSE
+  x = ENGLISH,
+  test.value = 60,
+  xlab = "English scores"
 )
 ```
 ]
-
 ---
 ### Unpacking the Bayes Factor
 
@@ -154,24 +138,25 @@ A **Bayes Factor** can be any positive number. One of the most common interpreta
 ![:scale 40%](img/image6.jpg)]
 
 ---
-## ggbetweenstats - Changing the type of test
+### Two-sample mean test: *ggbetweenstats()*
 
 .pull-left[
+In the code chunk below, [*ggbetweenstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html) is used to build a visual for two-sample mean test of Maths scores by gender.
+
 ```{r echo=TRUE, eval=FALSE}
 ggbetweenstats(
   data = exam,
   x = GENDER, 
   y = MATHS,
-  type = "np", 
   messages = FALSE
 )
 ```
 
-Changing the type of test:
-- "p" → parametric
-- "np" → non-parametric
-- "r" → robust
-- "bf" → bayes factor
+Default information:
+- statistical details
+- Bayes Factor
+- sample sizes
+- distribution summary
 ]
 
 .pull-right[
@@ -180,19 +165,16 @@ ggbetweenstats(
   data = exam,
   x = GENDER, 
   y = MATHS,
-  type = "np", 
   messages = FALSE
 )
 ```
 ]
 
 ---
-## ggbetweenstats - Changing pairwise comparisons displayed
+### Oneway ANOVA Test: *ggbetweenstats()* method
 
 .pull-left[
-- "ns" → only non-significant
-- "s" → only significant
-- "all" → everything
+In the code chunk below, [*ggbetweenstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html) is used to build a visual for One-way ANOVA test on English score by race.
 
 ```{r echo=TRUE, eval=FALSE}
 ggbetweenstats(
@@ -207,6 +189,10 @@ ggbetweenstats(
   messages = FALSE
 )
 ```
+
+- "ns" → only non-significant
+- "s" → only significant
+- "all" → everything
 ]
 
 .pull-right[
@@ -226,9 +212,29 @@ ggbetweenstats(
 ]
 
 ---
-### Correlation Analysis
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 70%](img/image7.jpg)]
+
+---
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 90%](img/image8.jpg)]
+
+---
+## ggbetweenstats - Summary of tests
+
+.center[
+![:scale 70%](img/image9.jpg)]
+
+---
+### Significant Test of Correlation: *ggscatterstats()*
 
 .pull-left[
+In the code chunk below, [*ggscatterstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggscatterstats.html) is used to build a visual for Significant Test of Correlation between Maths scores and English scores.
+
 ```{r eval=FALSE}
 ggscatterstats(
   data = exam,
@@ -250,59 +256,201 @@ ggscatterstats(
 ```
 ]
 
-
 ---
-## ggbetweenstats - Summary of tests
+### Significant Test of Association (Depedence) : *ggbarstats()* methods
 
-.center[
-![:scale 70%](img/image7.jpg)]
+.pull-left[
 
----
-## ggbetweenstats - Summary of tests
-
-.center[
-![:scale 90%](img/image8.jpg)]
-
----
-## ggbetweenstats - Summary of tests
-
-.center[
-![:scale 70%](img/image9.jpg)]
-
----
+In the code chunk below, the Maths scores is binned into a 4-class variable by using [*cut()*](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cut).
 
 ```{r}
 exam1 <- exam %>% 
-  mutate(MATHS_bins = cut(MATHS, 
-                          breaks = c(0,60,75,85,100))
+  mutate(MATHS_bins = 
+           cut(MATHS, 
+               breaks = c(0,60,75,85,100))
 )
 ```
 
----
+In this code chunk below [*ggbarstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html) is used to build a visual for Significant Test of Association
 
-```{r}
-ggplot(data = exam1) +
-  geom_mosaic(aes(x = product(GENDER), 
-                  fill=MATHS_bins))
-```
-
----
-
-```{r}
+```{r eval=FALSE}
 ggbarstats(exam1, 
            x = MATHS_bins, 
            y = GENDER)
+```
+]
 
+.pull-right[
+```{r echo=FALSE}
+ggbarstats(exam1, 
+           x = MATHS_bins, 
+           y = GENDER)
+```
+
+]
+
+---
+## Toyota Corolla case study
+
+.pull-left[
+.large[
++ Build a model to discover factors affecting prices of used-cars by taking into consideration a set of explanatory variables.   
+]]
+
+.pull-right[
+![](img/image4.jpg)
+]
+---
+## Installing and loading the required libraries
+
+.large[
+Type the code chunk below to install and launch the necessary R packages
+] 
+
+```{r}
+packages = c('readxl', 'report', 'performance', 
+             'parameters', 'see')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
 ```
 
 ---
+## Importing Excel file: readxl methods ![:scale 5%](img/readxl.png)
+
+In the code chunk below, [*read_xls()*](https://readxl.tidyverse.org/reference/read_excel.html) of [**readxl**](https://readxl.tidyverse.org/) package is used to import the data worksheet of `ToyotaCorolla.xls` workbook into R.
 
 ```{r}
-vcd::mosaic(~ MATHS_bins + GENDER , 
-       data = exam1,
-       main = "Survival on the Titanic", 
-       shade = TRUE, 
-       legend = TRUE)
+car_resale <- read_xls("data/ToyotaCorolla.xls", 
+                       "data")
 ```
 
+Notice that the output object `car_resale` is a tibble data frame.
 
+
+---
+## Multiple Regression Model using lm()
+
+The code chunk below is used to calibrate a multiple linear regression model by using *lm()* of Base Stats of R.
+
+```{r}
+model <- lm(Price ~ Age_08_04 + Mfg_Year + KM + 
+              Weight + Guarantee_Period, data = car_resale)
+model
+```
+
+---
+## Model Diagnostic: checking for multicolinearity: 
+
+In the code chunk, [*check_collinearity()*](https://easystats.github.io/performance/reference/check_collinearity.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+.pull-left[
+```{r}
+check_collinearity(model)
+```
+]
+
+--
+.pull-right[
+```{r fig.height=5}
+check_c <- check_collinearity(model)
+plot(check_c)
+```
+]
+
+---
+## Model Diagnostic: checking normality assumption
+
+.pull-left[
+In the code chunk, [*check_normality()*](https://easystats.github.io/performance/reference/check_normality.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+```{r echo=FALSE}
+model1 <- lm(Price ~ Age_08_04 + KM + 
+              Weight + Guarantee_Period, data = car_resale)
+
+```
+
+```{r}
+check_n <- check_normality(model1)
+
+```
+]
+
+.pull-right[
+```{r fig.height=4}
+plot(check_n)
+```
+]
+---
+## Model Diagnostic: Check model for homogeneity of variances
+
+.pull-left[
+In the code chunk, [*check_heteroscedasticity()*](https://easystats.github.io/performance/reference/check_heteroscedasticity.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+```{r fig.height=4}
+check_h <- check_heteroscedasticity(model1)
+
+```
+]
+
+.pull-right[
+```{r fig.height=4}
+plot(check_h)
+```
+]
+
+---
+## Model Diagnostic: Complete check
+
+We can also perform the complete by using [*check_model()*](https://easystats.github.io/performance/reference/check_model.html).
+
+```{r fig.width=12, fig.height=6}
+check_model(model1)
+```
+
+---
+### Visualising Regression Parameters: see methods
+
+.pull-left[
+In the code below, plot() of see package and parameters() of parameters package is used to visualise the parameters of a regression model. 
+
+```{r eval=FALSE}
+plot(parameters(model1))
+```
+]
+
+.pull-left[
+
+```{r echo=FALSE}
+plot(parameters(model1))
+```
+]
+
+---
+### Visualising Regression Parameters: *ggcoefstats()* methods
+
+.pull-left[
+In the code below, [*ggcoefstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggcoefstats.html) of ggstatsplot package to visualise the parameters of a regression model. 
+
+```{r eval=FALSE}
+ggcoefstats(model1, 
+            output = "plot")
+```
+]
+
+.pull-left[
+
+```{r echo=FALSE}
+ggcoefstats(model1, 
+            output = "plot")
+```
+]
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Hands-on_Ex04.html")
+```

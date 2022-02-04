@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Hands-on Exercise 4: Visually-Drive Data Analysis with R</title>
+    <title>Hands-on Exercise 4: VisualAnalytics with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -12,10 +12,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Hands-on Exercise 4: Visually-Drive Data Analysis with R
+# Hands-on Exercise 4: VisualAnalytics with R
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-02-02)
+### 2020-2-15 (updated: 2022-02-05)
 
 ---
 
@@ -26,7 +26,7 @@ class: center, middle, inverse, title-slide
 
 ## Content
 
-+ Visually-driven Confirmatory Data Analysis
++ Visual Statistical Testing with ggstatsplot
 + Visualising Uncertainty
 
 ---
@@ -36,8 +36,8 @@ In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 
 ```r
-packages = c('infer', 'ggstatsplot', 'ggside', 
-             'tidyverse', 'vcd', 'vcdExtra', 'ggmosaic')
+packages = c('ggstatsplot', 'ggside', 
+             'tidyverse')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -55,51 +55,33 @@ exam &lt;- read_csv("data/Exam_data.csv")
 
 
 ---
-## Introducing **ggstatsplot**
+## Visual Statistical Analysis with **ggstatsplot** ![:scale 10%](img/image1.jpg)
 
 .large[
-Motivation: To combine data visualisation and statistical modeling]
+
++ [**ggstatsplot**](https://indrajeetpatil.github.io/ggstatsplot/index.html) is an extension of [**ggplot2**](https://ggplot2.tidyverse.org/) package for creating graphics with details from statistical tests included in the information-rich plots themselves.
+    + To provide alternative statistical inference methods by default.
+    + To follow best practices for statistical reporting. For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
 
 .center[
-![:scale 70%](img/image1.jpg)]
-
----
-## Introducing **ggstatsplot**
-
-.large[
-Motivation: To provide alternative statistical inference methods by default.
+![:scale 75%](img/image2.jpg)]
 ]
 
-.pull-left[
-![](img/image2.jpg)]
-
-.pull-right[
-![](img/image3.jpg)]
-
 ---
-## Introducing **ggstatsplot**
-
-.large[
-Motivation: To follow best practices for statistical reporting.
-]
-
-For all statistical tests reported in the plots, the default template abides by the [APA](https://my.ilstu.edu/~jhkahn/apastats.html) gold standard for statistical reporting. For example, here are results from a robust t-test:
-
-.center[
-![](img/image4.jpg)]
-
----
-## *ggbetweenstats()* - defaults
+### One-sample test: *gghistostats()* method
 
 .pull-left[
+In the code chunk below, [*gghistostats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/gghistostats.html) is used to to build an visual of one-sample test on English scores.
+
 
 ```r
-ggbetweenstats(
+set.seed(1234)
+
+gghistostats(
   data = exam,
-  x = GENDER, 
-  y = MATHS,
-  type = "p", 
-  messages = FALSE
+  x = ENGLISH,
+  test.value = 60,
+  xlab = "English scores"
 )
 ```
 
@@ -108,12 +90,13 @@ Default information:
 - Bayes Factor
 - sample sizes
 - distribution summary
+
 ]
 
 .pull-right[
+
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
 ]
-
 ---
 ### Unpacking the Bayes Factor
 
@@ -138,25 +121,26 @@ A **Bayes Factor** can be any positive number. One of the most common interpreta
 ![:scale 40%](img/image6.jpg)]
 
 ---
-## ggbetweenstats - Changing the type of test
+### Two-sample mean test: *ggbetweenstats()*
 
 .pull-left[
+In the code chunk below, [*ggbetweenstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html) is used to build a visual for two-sample mean test of Maths scores by gender.
+
 
 ```r
 ggbetweenstats(
   data = exam,
   x = GENDER, 
   y = MATHS,
-  type = "np", 
   messages = FALSE
 )
 ```
 
-Changing the type of test:
-- "p" → parametric
-- "np" → non-parametric
-- "r" → robust
-- "bf" → bayes factor
+Default information:
+- statistical details
+- Bayes Factor
+- sample sizes
+- distribution summary
 ]
 
 .pull-right[
@@ -164,12 +148,10 @@ Changing the type of test:
 ]
 
 ---
-## ggbetweenstats - Changing pairwise comparisons displayed
+### Oneway ANOVA Test: *ggbetweenstats()* method
 
 .pull-left[
-- "ns" → only non-significant
-- "s" → only significant
-- "all" → everything
+In the code chunk below, [*ggbetweenstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html) is used to build a visual for One-way ANOVA test on English score by race.
 
 
 ```r
@@ -185,31 +167,15 @@ ggbetweenstats(
   messages = FALSE
 )
 ```
+
+- "ns" → only non-significant
+- "s" → only significant
+- "all" → everything
 ]
 
 .pull-right[
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-8-1.png" width="504" /&gt;
 ]
-
----
-### Correlation Analysis
-
-.pull-left[
-
-```r
-ggscatterstats(
-  data = exam,
-  x = MATHS,
-  y = ENGLISH,
-  marginal = FALSE,
-  )
-```
-]
-
-.pull-right[
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-10-1.png" width="504" /&gt;
-]
-
 
 ---
 ## ggbetweenstats - Summary of tests
@@ -230,27 +196,43 @@ ggscatterstats(
 ![:scale 70%](img/image9.jpg)]
 
 ---
+### Significant Test of Correlation: *ggscatterstats()*
+
+.pull-left[
+In the code chunk below, [*ggscatterstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggscatterstats.html) is used to build a visual for Significant Test of Correlation between Maths scores and English scores.
+
+
+```r
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-10-1.png" width="504" /&gt;
+]
+
+---
+### Significant Test of Association (Depedence) : *ggbarstats()* methods
+
+.pull-left[
+
+In the code chunk below, the Maths scores is binned into a 4-class variable by using [*cut()*](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cut).
 
 
 ```r
 exam1 &lt;- exam %&gt;% 
-  mutate(MATHS_bins = cut(MATHS, 
-                          breaks = c(0,60,75,85,100))
+  mutate(MATHS_bins = 
+           cut(MATHS, 
+               breaks = c(0,60,75,85,100))
 )
 ```
 
----
-
-
-```r
-ggplot(data = exam1) +
-  geom_mosaic(aes(x = product(GENDER), 
-                  fill=MATHS_bins))
-```
-
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-12-1.png" width="504" /&gt;
-
----
+In this code chunk below [*ggbarstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html) is used to build a visual for Significant Test of Association
 
 
 ```r
@@ -258,21 +240,220 @@ ggbarstats(exam1,
            x = MATHS_bins, 
            y = GENDER)
 ```
+]
 
+.pull-right[
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-13-1.png" width="504" /&gt;
 
+]
+
 ---
+## Toyota Corolla case study
+
+.pull-left[
+.large[
++ Build a model to discover factors affecting prices of used-cars by taking into consideration a set of explanatory variables.   
+]]
+
+.pull-right[
+![](img/image4.jpg)
+]
+---
+## Installing and loading the required libraries
+
+.large[
+Type the code chunk below to install and launch the necessary R packages
+] 
 
 
 ```r
-vcd::mosaic(~ MATHS_bins + GENDER , 
-       data = exam1,
-       main = "Survival on the Titanic", 
-       shade = TRUE, 
-       legend = TRUE)
+packages = c('readxl', 'report', 'performance', 
+             'parameters', 'see')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
 ```
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-14-1.png" width="504" /&gt;
+---
+## Importing Excel file: readxl methods ![:scale 5%](img/readxl.png)
+
+In the code chunk below, [*read_xls()*](https://readxl.tidyverse.org/reference/read_excel.html) of [**readxl**](https://readxl.tidyverse.org/) package is used to import the data worksheet of `ToyotaCorolla.xls` workbook into R.
+
+
+```r
+car_resale &lt;- read_xls("data/ToyotaCorolla.xls", 
+                       "data")
+```
+
+Notice that the output object `car_resale` is a tibble data frame.
+
+
+---
+## Multiple Regression Model using lm()
+
+The code chunk below is used to calibrate a multiple linear regression model by using *lm()* of Base Stats of R.
+
+
+```r
+model &lt;- lm(Price ~ Age_08_04 + Mfg_Year + KM + 
+              Weight + Guarantee_Period, data = car_resale)
+model
+```
+
+```
+## 
+## Call:
+## lm(formula = Price ~ Age_08_04 + Mfg_Year + KM + Weight + Guarantee_Period, 
+##     data = car_resale)
+## 
+## Coefficients:
+##      (Intercept)         Age_08_04          Mfg_Year                KM  
+##       -2.637e+06        -1.409e+01         1.315e+03        -2.323e-02  
+##           Weight  Guarantee_Period  
+##        1.903e+01         2.770e+01
+```
+
+---
+## Model Diagnostic: checking for multicolinearity: 
+
+In the code chunk, [*check_collinearity()*](https://easystats.github.io/performance/reference/check_collinearity.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+.pull-left[
+
+```r
+check_collinearity(model)
+```
+
+```
+## # Check for Multicollinearity
+## 
+## Low Correlation
+## 
+##              Term  VIF Increased SE Tolerance
+##                KM 1.46         1.21      0.68
+##            Weight 1.41         1.19      0.71
+##  Guarantee_Period 1.04         1.02      0.97
+## 
+## High Correlation
+## 
+##       Term   VIF Increased SE Tolerance
+##  Age_08_04 31.07         5.57      0.03
+##   Mfg_Year 31.16         5.58      0.03
+```
+]
+
+--
+.pull-right[
+
+```r
+check_c &lt;- check_collinearity(model)
+plot(check_c)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-18-1.png" width="504" /&gt;
+]
+
+---
+## Model Diagnostic: checking normality assumption
+
+.pull-left[
+In the code chunk, [*check_normality()*](https://easystats.github.io/performance/reference/check_normality.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+
+
+
+```r
+check_n &lt;- check_normality(model1)
+```
+
+```
+## Warning: Non-normality of residuals detected (p &lt; .001).
+```
+]
+
+.pull-right[
+
+```r
+plot(check_n)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-21-1.png" width="504" /&gt;
+]
+---
+## Model Diagnostic: Check model for homogeneity of variances
+
+.pull-left[
+In the code chunk, [*check_heteroscedasticity()*](https://easystats.github.io/performance/reference/check_heteroscedasticity.html) of [**performance**](https://easystats.github.io/performance/index.html) package.
+
+
+```r
+check_h &lt;- check_heteroscedasticity(model1)
+```
+
+```
+## Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).
+```
+]
+
+.pull-right[
+
+```r
+plot(check_h)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+]
+
+---
+## Model Diagnostic: Complete check
+
+We can also perform the complete by using [*check_model()*](https://easystats.github.io/performance/reference/check_model.html).
+
+
+```r
+check_model(model1)
+```
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-24-1.png" width="864" /&gt;
+
+---
+### Visualising Regression Parameters: see methods
+
+.pull-left[
+In the code below, plot() of see package and parameters() of parameters package is used to visualise the parameters of a regression model. 
+
+
+```r
+plot(parameters(model1))
+```
+]
+
+.pull-left[
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-26-1.png" width="504" /&gt;
+]
+
+---
+### Visualising Regression Parameters: *ggcoefstats()* methods
+
+.pull-left[
+In the code below, [*ggcoefstats()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggcoefstats.html) of ggstatsplot package to visualise the parameters of a regression model. 
+
+
+```r
+ggcoefstats(model1, 
+            output = "plot")
+```
+]
+
+.pull-left[
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-28-1.png" width="504" /&gt;
+]
 
 
     </textarea>
