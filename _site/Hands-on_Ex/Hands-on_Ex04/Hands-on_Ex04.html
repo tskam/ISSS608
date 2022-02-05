@@ -37,7 +37,7 @@ In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 ```r
 packages = c('ggstatsplot', 'ggside', 
-             'tidyverse')
+             'tidyverse', 'ggdist')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -454,6 +454,41 @@ ggcoefstats(model1,
 
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-28-1.png" width="504" /&gt;
 ]
+
+---
+## Visualising Uncertainty: **ggdist** package 
+
+.pull-left[
++ [**ggdist**](https://mjskay.github.io/ggdist/index.html) is an R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualising distributions and uncertainty. 
++ It is designed for both frequentist and Bayesian uncertainty visualization, taking the view that uncertainty visualization can be unified through the perspective of distribution visualization: 
+    + for frequentist models, one visualises confidence distributions or bootstrap distributions (see vignette("freq-uncertainty-vis")); 
+    + for Bayesian models, one visualises probability distributions (see the tidybayes package, which builds on top of ggdist).
+]
+
+.pull-right[
+![](img/ggdist.png)
+]
+
+---
+### Visualising uncertainty between groups
+
+.pull-left[
+In the code chunk below, [*stat_eye()*](https://mjskay.github.io/ggdist/articles/slabinterval.html) of ggdist is used to build a visual for displaying distribution of maths scores by rase.
+
+
+```r
+exam %&gt;%
+  ggplot(aes(x = RACE, y = MATHS)) +
+  stat_eye() +
+  ggtitle("stat_eye()")
+```
+]
+
+.pull-right[
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-30-1.png" width="504" /&gt;
+]
+
 
 
     </textarea>
