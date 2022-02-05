@@ -482,7 +482,7 @@ exam %>%
 
 ```{r echo=FALSE}
 exam %>%
-  ggplot(aes(y = RACE, x = MATHS)) +
+  ggplot(aes(x = RACE, y = MATHS)) +
   stat_eye() +
   ggtitle("stat_eye()")
 ```
