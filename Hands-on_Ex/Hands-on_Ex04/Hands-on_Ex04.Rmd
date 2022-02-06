@@ -88,6 +88,7 @@ set.seed(1234)
 gghistostats(
   data = exam,
   x = ENGLISH,
+  type = "bayes",
   test.value = 60,
   xlab = "English scores"
 )
@@ -148,6 +149,7 @@ ggbetweenstats(
   data = exam,
   x = GENDER, 
   y = MATHS,
+  type = "np",
   messages = FALSE
 )
 ```
@@ -181,7 +183,7 @@ ggbetweenstats(
   data = exam,
   x = RACE, 
   y = ENGLISH,
-  type = "np",
+  type = "p",
   mean.ci = TRUE, 
   pairwise.comparisons = TRUE, 
   pairwise.display = "s",
@@ -201,10 +203,10 @@ ggbetweenstats(
   data = exam,
   x = RACE, 
   y = ENGLISH,
-  type = "np",
+  type = "p",
   mean.ci = TRUE, 
   pairwise.comparisons = TRUE, 
-  pairwise.display = "ns",
+  pairwise.display = "s",
   p.adjust.method = "fdr",
   messages = FALSE
 )
@@ -487,6 +489,32 @@ exam %>%
   ggtitle("stat_eye()")
 ```
 ]
+
+---
+###
+
+```{r}
+model1 %>%
+  tidy() %>%
+  ggplot(aes(y = term)) +
+  stat_dist_halfeye(
+    aes(dist = "student_t", arg1 = df.residual(model1), arg2 = estimate, arg3 = std.error)
+  )+
+ylab("condition")+
+labs(
+   title = "ggdist Exercise",
+   subtitle = "half-eye plots",
+   caption ='Visualization by DataCharm')+
+  theme(
+     text = element_text(family = "Times_New_Roman",face='bold')
+  )  
+
+```
+
+
+
+
+
 
 
 ```{r echo=FALSE, eval=FALSE}
