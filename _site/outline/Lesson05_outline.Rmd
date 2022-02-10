@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Lesson Slides and Hands-on Notes 
 
-- Lesson slides in [html](../lesson/Lesson05/Lesson05-Visual_Multivariate_Analysis.html) and [pdf](../lesson/Lesson05/Lesson05-Visual_Multivariate_Analysis.pdf) formats
+- Lesson slides in [html](../lesson/Lesson05/Lesson05-VMA.html) and [pdf](../lesson/Lesson05/Lesson05-VMA.pdf) formats
 
 - Handout of Hands-on Exercise 5 in [html](../Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05.html) and [pdf](../Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05.pdf) formats.
 
