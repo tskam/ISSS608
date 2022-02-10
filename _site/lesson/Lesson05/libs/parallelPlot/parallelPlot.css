@@ -1,0 +1,84 @@
+.parallelPlot svg {
+    font: 10px sans-serif;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #C2C2C2;
+}
+
+.parallelPlot .background path {
+    fill: none;
+    shape-rendering: optimizeSpeed;
+}
+
+.parallelPlot .foreground path {
+    fill: none;
+    shape-rendering: auto;
+}
+
+.parallelPlot .axisGroup line,
+.parallelPlot .axisGroup path {
+    fill: none;
+    shape-rendering: crispEdges;
+    stroke: black;
+}
+
+.parallelPlot .axisLabel {
+    cursor: pointer;
+}
+
+.parallelPlot .catGroup rect.category {
+    stroke: black;
+    stroke-opacity: 0.6;
+    shape-rendering: "crispEdges";
+    cursor : pointer
+}
+
+.parallelPlot .catGroup rect.category.active {
+    opacity: 1;
+}
+
+.parallelPlot .catGroup rect.category.inactive {
+    opacity: 0.3;
+}
+
+.parallelPlot .axisGroup text {
+    fill: black;
+    text-shadow: 0 1px 0 #D0D0D0, 1px 0 0 #D0D0D0, 0 -1px 0 #D0D0D0, -1px 0 0 #D0D0D0;
+}
+
+.parallelPlot .brushDim .overlay {
+    cursor : pointer
+}
+
+.parallelPlot div.sliderTooltip {
+    position: absolute;
+    padding: 5px;
+    font: 10px sans-serif;
+    color: black;
+    background: #C2C2C2;
+    opacity: 0.8;
+    border: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.parallelPlot g.dimension.input .axisLabel {
+    fill: rgb(7, 99, 7);
+}
+
+.parallelPlot g.dimension.output .axisLabel {
+    fill: rgb(6, 89, 167);
+}
+
+.parallelPlot g.editionCircles circle {
+    stroke: black;
+    stroke-width: 1;
+    fill: white;
+    cursor: row-resize;
+    shape-rendering: "auto";
+}

@@ -1,5 +1,5 @@
 ---
-title: "Hands-on Exercise 4: VisualAnalytics with R"
+title: "Hands-on Exercise 4: Visual Analytics with R"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -35,10 +35,18 @@ style_duo_accent(
 )
 ```
 
-## Content
+## Learning Outcome
 
-+ Visual Statistical Testing with ggstatsplot
-+ Visualising Uncertainty
+.vlarge[
+In this hands-on exercise, you will gain hands-on experience on using:
+
++ ggstatsplot to create visual graphics with reach statistical information,
+
++ ggdist to visualise uncertainty on data, and 
+
++ FunnelPlotR to visualise variation and its discontents
+]
+
 
 ---
 # Getting Started
@@ -47,7 +55,7 @@ In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 ```{r}
 packages = c('ggstatsplot', 'ggside', 
-             'tidyverse', 'ggdist')
+             'tidyverse', 'broom', 'ggdist')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -491,14 +499,62 @@ exam %>%
 ]
 
 ---
+stat_slab() and stat_pointinterval()
+
+
+.pull-left[
+```{r eval=FALSE}
+exam %>%
+  ggplot(aes(fill = RACE, 
+             color = RACE, 
+             x = MATHS)) +
+  stat_slab(alpha = .3) +
+  stat_pointinterval(
+    position = position_dodge(
+      width = .4, 
+      preserve = "single")) +
+  labs(
+    title = "stat_slab() and stat_pointinterval()", 
+    subtitle = "with position_dodge() applied to the intervals",
+    y = NULL
+  ) +
+  scale_y_continuous(breaks = NULL)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+exam %>%
+  ggplot(aes(fill = RACE, 
+             color = RACE, 
+             x = MATHS)) +
+  stat_slab(alpha = .3) +
+  stat_pointinterval(
+    position = position_dodge(
+      width = .4, 
+      preserve = "single")) +
+  labs(
+    title = "stat_slab() and stat_pointinterval()", 
+    subtitle = "with position_dodge() applied to the intervals",
+    y = NULL
+  ) +
+  scale_y_continuous(breaks = NULL)
+```
+]
+
+---
 ###
 
-```{r}
+.pull-left[
+```{r eval=FALSE}
 model1 %>%
   tidy() %>%
   ggplot(aes(y = term)) +
   stat_dist_halfeye(
-    aes(dist = "student_t", arg1 = df.residual(model1), arg2 = estimate, arg3 = std.error)
+    aes(dist = "student_t", 
+        arg1 = df.residual(model1), 
+        arg2 = estimate, 
+        arg3 = std.error)
   )+
 ylab("condition")+
 labs(
@@ -506,13 +562,34 @@ labs(
    subtitle = "half-eye plots",
    caption ='Visualization by DataCharm')+
   theme(
-     text = element_text(family = "Times_New_Roman",face='bold')
-  )  
-
+     text = element_text(
+       family = "Times_New_Roman",
+       face='bold'))  
 ```
+]
 
-
-
+.pull-right[
+```{r echo=FALSE}
+model1 %>%
+  tidy() %>%
+  ggplot(aes(y = term)) +
+  stat_dist_halfeye(
+    aes(dist = "student_t", 
+        arg1 = df.residual(model1), 
+        arg2 = estimate, 
+        arg3 = std.error)
+  )+
+ylab("condition")+
+labs(
+   title = "ggdist Exercise",
+   subtitle = "half-eye plots",
+   caption ='Visualization by DataCharm')+
+  theme(
+     text = element_text(
+       family = "Times_New_Roman",
+       face='bold'))  
+```
+]
 
 
 
