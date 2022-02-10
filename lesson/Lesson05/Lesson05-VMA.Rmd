@@ -364,7 +364,7 @@ In this slide, brushing is use to select several observations of interest.  With
 .center[
 ![:scale 55%](img/image5-19.jpg)]
 
-??? 
+???
 In this slide, colour and highlighting interactive functions is used to select observation of interest.
 
 ---
