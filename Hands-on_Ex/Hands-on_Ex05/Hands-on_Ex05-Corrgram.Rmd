@@ -46,7 +46,7 @@ Next, you will use the code chunk below to install and launch **corrplot**,  **g
 
 ```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
 
-packages = c('corrplot', 'qtlcharts', 'ggpubr', 'tidyverse', 'ggstatsplot')
+packages = c('corrplot', 'tidyverse', 'ggstatsplot')
 
 for(p in packages){library
   if(!require(p, character.only = T)){
