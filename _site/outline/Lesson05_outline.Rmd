@@ -30,7 +30,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson slides in [html](../lesson/Lesson05/Lesson05-VMA.html) and [pdf](../lesson/Lesson05/Lesson05-VMA.pdf) formats
 
-- Handout of Hands-on Exercise 5 in [html](../Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05.html) and [pdf](../Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05.pdf) formats.
+- Handout of Hands-on Exercise 5
+    + [Visualising Correlation Matrix with R](../Hands-on_Ex/Hands-on_Ex05/Hands-on_Ex05-Corrgram.html).
 
 
 
