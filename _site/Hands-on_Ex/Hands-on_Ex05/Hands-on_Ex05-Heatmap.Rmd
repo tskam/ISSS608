@@ -43,3 +43,95 @@ for(p in packages){library
   library(p, character.only = T)
 }
 ```
+
+# 3.0 Importing and Preparing The Data Set 
+
+In this hands-on exercise, the data of [World Happines 2018 report](https://worldhappiness.report/ed/2018/) will be used.  The data set is downloaded from [here](https://s3.amazonaws.com/happiness-report/2018/WHR2018Chapter2OnlineData.xls).  The original data set is in Microsoft Excel format.  It has been extracted and saved in csv file called **WHData-2018.csv**.   
+
+
+## 3.1 Importing the data set
+
+In the code chunk below, **read_csv()** of *readr* is used to import WHData-2018.csv into R and parsed it into tibble R data frame format.
+
+```{r, echo=TRUE, message=FALSE}
+wh <- read_csv("data/WHData-2018.csv")
+```
+
+The output tibbled data frame is called **wh**.
+
+
+## 3.2 Preparing the data
+
+Next, we need to change the rows by country name instead of row number by using the code chunk below
+
+```{r}
+row.names(wh) <- wh$Country
+```
+
+Notice that the row number has been replaced into the country name.
+
+
+## 3.3 Transforming the data frame into a matrix
+
+The data was loaded into a data frame, but it has to be a data matrix to make your heatmap. 
+
+The code chunk below will be used to transform *wh* data frame into a data matrix.
+
+```{r}
+wh1 <- dplyr::select(wh, c(3, 7:12))
+wh_matrix <- data.matrix(wh)
+```
+
+Notice that **wh_matrix** is in R matrix format. 
+
+
+# 4.0 Static Heatmap 
+
+There are many R packages and functions can be used to drawing static heatmaps, they are:
+
+- [heatmap()](https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/heatmap)of R stats package.  It draws a simple heatmap.
+- [heatmap.2()](https://www.rdocumentation.org/packages/gplots/versions/3.0.1.1/topics/heatmap.2) of **gplots** R package.  It draws an enhanced heatmap compared to the R base function.
+- [pheatmap()](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap) of [**pheatmap**](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12) R package.  **pheatmap** package also known as Pretty Heatmap.  The package provides functions to draws pretty heatmaps and provides more control to change the appearance of heatmaps.
+- [**ComplexHeatmap**](https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html) package of R/Bioconductor package.  The package draws, annotates and arranges complex heatmaps (very useful for genomic data analysis).  The full reference guide of the package is available [here](https://jokergoo.github.io/ComplexHeatmap-reference/book/).
+- [**superheat**](https://cran.r-project.org/web/packages/superheat/) package: A Graphical Tool for Exploring Complex Datasets Using Heatmaps.  A system for generating extendable and customizable heatmaps for exploring complex datasets, including big data and data with multiple data types.  The full reference guide of the package is available [here](https://rlbarter.github.io/superheat/).
+
+In this section, you will learn how to plot static heatmaps by using **heatmap()** of *R Stats* package.
+
+
+## 4.1 heatmap() of R Stats 
+
+In this sub-section, we will plot a heatmap by using *heatmap()* of Base Stats.  The code chunk is given below.
+
+```{r echo=TRUE, eval=TRUE}
+wh_heatmap <- heatmap(wh_matrix,
+                      Rowv=NA, Colv=NA)
+```
+
+***Note:***
+
+- By default, **heatmap()** plots a cluster heatmap.  The arguments ***Rowv=NA*** and ***Colv=NA*** are used to switch off the option of plotting the row and column dendrograms.    
+
+To plot a cluster heatmap, we just have to use the default as shown in the code chunk below.
+
+```{r echo=TRUE, eval=TRUE}
+wh_heatmap <- heatmap(wh_matrix)
+```
+
+**Note:**
+
+- The order of both rows and columns is different compare to the native wh_matrix. This is because heatmap do a reordering using clusterisation: it calculates the distance between each pair of rows and columns and try to order them by similarity. Moreover, the corresponding dendrogram are provided beside the heatmap. 
+
+
+Here, red cells denotes small values, and red small ones. This heatmap is not really informative. Indeed, the Happiness Score variable have relatively higher values, what makes that the other variables with small values all look the same. Thus, we need to normalize this matrix. This is done using the *scale* argument. It can be applied to rows or to columns following your needs.
+
+The code chunk below normalises the matrix column-wise.
+
+```{r echo=TRUE, eval=TRUE}
+wh_heatmap <- heatmap(wh_matrix,
+                      scale="column",
+                      cexRow = 0.6, 
+                      cexCol = 0.8,
+                      margins = c(10, 4))
+```
+
+Notice that the values are scaled now.  Also note that **margins** argument is used to ensure that the entire x-axis labels are displayed completely and, cexRow and cexCol arguments are used to define the font size used for y-axis and x-axis labels respectively.
