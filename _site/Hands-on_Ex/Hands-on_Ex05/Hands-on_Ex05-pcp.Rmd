@@ -1,0 +1,44 @@
+---
+title: 'Hands-On Exercise 8: Building Parallel Coordinates Plot'
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Information Systems,<br/>Singapore Management Uniiversity"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.retina = 3)
+```
+
+# 1.0 Overview
+
+Parallel coordinates plot is a data visualisation specially designed for visualising and analysing multivariate, numerical data.  It is ideal for comparing multiple variables together and seeing the relationships between them. For example, the variables contribute to Happiness Index. 
+
+In this hands-on exercise, you will learn how to plot parallel coordinate programmatically using appropriate R packages.
+
+# 2.0 Installing and Launching R Packages
+
+For this exercise, the **GGally**, **plotly R**, **parcoords** and **tidyverse** packages will be used.  
+
+The code chunks below are used to install and load the packages in R.
+
+```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+
+packages = c('GGally', 'plotly', 'parcoords', 'readr')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+}
+
+library(ggplot2)
+```
