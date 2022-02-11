@@ -129,3 +129,78 @@ text(0.5, 0.5, txt, cex = cex.cor * (1 + r) / 2)
 pairs(wine[,2:12], 
       upper.panel = panel.cor)
 ```
+
+# 5.0 Visualising Correlation Matrix: ggcormat()
+
+One of the major limitation of the correlation matrix is that the scatter plots appear very cluttered when the number of observations is relatively large (i.e. more than 500 observations).  To over come this problem, **Corrgram** data visualisation technique suggested by D. J. Murdoch and E. D. Chow (1996) and Friendly, M (2002) and will be used. 
+
+The are at least three R packages provide function to plot corrgram, they are:
+
+- [corrgram](https://cran.r-project.org/web/packages/corrgram/index.html) 
+- [ellipse](https://cran.r-project.org/web/packages/ellipse/index.html) 
+- [corrplot](https://cran.r-project.org/web/packages/corrplot/index.html)
+
+On top that, some R package like ggstatsplot package also provides functions for building corrgram.  
+
+In this section, you will learn how to visualising correlation matrix by using [*ggcorrmat()*](https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html) of [**ggstatsplot**](https://indrajeetpatil.github.io/ggstatsplot/index.html) package.
+
+## 5.1 The basic plot
+
+On of the advantage of using *ggcorrmat()* over many other methods to visualise a correlation matrix is it's ability to provide a comprehensive and yet professional statistical report as shown in the figure below.
+
+```{r fig.width=7, fig.height=7}
+ggstatsplot::ggcorrmat(
+  data = wine, 
+  cor.vars = 1:11,
+  ggcorrplot.args = list(outline.color = "black", 
+                         hc.order = TRUE,
+                         tl.cex = 10),
+  title    = "Correlogram for wine dataset",
+  subtitle = "Four pairs are no significant at p < 0.05"
+)
+```
+
+Things to learn from the code chunk above:
+
++ `cor.vars` argument is used to compute the correlation matrix needed to build the corrgram.
++ `ggcorrplot.args` argument provide additional (mostly aesthetic) arguments that will be passed to [`ggcorrplot::ggcorrplot`](http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2) function. The list should avoid any of the following arguments since they are already internally being used: `corr`, `method`, `p.mat`, `sig.level`, `ggtheme`, `colors`, `lab`, `pch`, `legend.title`, `digits`. 
+
+The sample sub-code chunk can be used to control specific component of the plot such as the font size of the x-axis, y-axis, and the statistical report. 
+
+```{r eval=FALSE}
+ggplot.component = list(
+    theme(text=element_text(size=5),
+      axis.text.x = element_text(size = 8),
+      axis.text.y = element_text(size = 8)))
+```
+
+## 5.2 Building multiple plots
+
+Since ggstasplot is an extension of ggplot2, it also supports faceting.  However the feature is not available in *ggcorrmat()* but in the [*grouped_ggcorrmat()*](https://indrajeetpatil.github.io/ggstatsplot/reference/grouped_ggcorrmat.html) of **ggstatsplot**.  
+
+```{r fig.width=14, fig.height=12}
+grouped_ggcorrmat(
+  data = wine,
+  cor.vars = 1:11,
+  grouping.var = type,
+  type = "robust",
+  p.adjust.method = "holm",
+  plotgrid.args = list(ncol = 2),
+  ggcorrplot.args = list(outline.color = "black", 
+                         hc.order = TRUE,
+                         tl.cex = 10),
+  annotation.args = list(
+    tag_levels = "a",
+    title = "Correlogram for wine dataset",
+    subtitle = "The measures are: alcohol, sulphates, fixed acidity, citric acid, chlorides, residual sugar, density, free sulfur dioxide and volatile acidity",
+    caption = "Dataset: UCI Machine Learning Repository"
+  )
+)
+
+```
+
+Things to learn from the code chunk above:
+
++ to build a facet plot, the only argument needed is `grouping.var`.
++ Behind *group_ggcorrmat()*, **patchwork** package is used to create the multiplot. `plotgrid.args` argument provides a list of additional arguments passed to [*patchwork::wrap_plots*](https://patchwork.data-imaginist.com/reference/wrap_plots.html), except for guides argument which is already separately specified earlier.
++ Likewise, `annotation.args` argument is calling [*plot annotation arguments*](https://patchwork.data-imaginist.com/reference/plot_annotation.html) of patchwork package.  

@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-10-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-8-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1498,6 +1498,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#drawing-the-lower-corner">4.2 Drawing the lower corner</a></li>
 <li><a href="#including-with-correlation-coefficients">4.3 Including with correlation coefficients</a></li>
 </ul></li>
+<li><a href="#visualising-correlation-matrix-ggcormat">5.0 Visualising Correlation Matrix: ggcormat()</a>
+<ul>
+<li><a href="#the-basic-plot">5.1 The basic plot</a></li>
+<li><a href="#building-multiple-plots">5.2 Building multiple plots</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -1602,6 +1607,80 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
+<h1 id="visualising-correlation-matrix-ggcormat">5.0 Visualising Correlation Matrix: ggcormat()</h1>
+<p>One of the major limitation of the correlation matrix is that the scatter plots appear very cluttered when the number of observations is relatively large (i.e. more than 500 observations). To over come this problem, <strong>Corrgram</strong> data visualisation technique suggested by D. J. Murdoch and E. D. Chow (1996) and Friendly, M (2002) and will be used.</p>
+<p>The are at least three R packages provide function to plot corrgram, they are:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/corrgram/index.html">corrgram</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ellipse/index.html">ellipse</a></li>
+<li><a href="https://cran.r-project.org/web/packages/corrplot/index.html">corrplot</a></li>
+</ul>
+<p>On top that, some R package like ggstatsplot package also provides functions for building corrgram.</p>
+<p>In this section, you will learn how to visualising correlation matrix by using <a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html"><em>ggcorrmat()</em></a> of <a href="https://indrajeetpatil.github.io/ggstatsplot/index.html"><strong>ggstatsplot</strong></a> package.</p>
+<h2 id="the-basic-plot">5.1 The basic plot</h2>
+<p>On of the advantage of using <em>ggcorrmat()</em> over many other methods to visualise a correlation matrix is it’s ability to provide a comprehensive and yet professional statistical report as shown in the figure below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggstatsplot</span><span class='fu'>::</span><span class='fu'><a href='https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html'>ggcorrmat</a></span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>wine</span>, 
+  cor.vars <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>,
+  ggcorrplot.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>outline.color <span class='op'>=</span> <span class='st'>"black"</span>, 
+                         hc.order <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                         tl.cex <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,
+  title    <span class='op'>=</span> <span class='st'>"Correlogram for wine dataset"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Four pairs are no significant at p &lt; 0.05"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<p>Things to learn from the code chunk above:</p>
+<ul>
+<li><code>cor.vars</code> argument is used to compute the correlation matrix needed to build the corrgram.</li>
+<li><code>ggcorrplot.args</code> argument provide additional (mostly aesthetic) arguments that will be passed to <a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2"><code>ggcorrplot::ggcorrplot</code></a> function. The list should avoid any of the following arguments since they are already internally being used: <code>corr</code>, <code>method</code>, <code>p.mat</code>, <code>sig.level</code>, <code>ggtheme</code>, <code>colors</code>, <code>lab</code>, <code>pch</code>, <code>legend.title</code>, <code>digits</code>.</li>
+</ul>
+<p>The sample sub-code chunk can be used to control specific component of the plot such as the font size of the x-axis, y-axis, and the statistical report.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ggplot.component</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    <span class='fu'>theme</span><span class='op'>(</span>text<span class='op'>=</span><span class='fu'>element_text</span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>,
+      axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span>,
+      axis.text.y <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="building-multiple-plots">5.2 Building multiple plots</h2>
+<p>Since ggstasplot is an extension of ggplot2, it also supports faceting. However the feature is not available in <em>ggcorrmat()</em> but in the <a href="https://indrajeetpatil.github.io/ggstatsplot/reference/grouped_ggcorrmat.html"><em>grouped_ggcorrmat()</em></a> of <strong>ggstatsplot</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>grouped_ggcorrmat</span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>wine</span>,
+  cor.vars <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>,
+  grouping.var <span class='op'>=</span> <span class='va'>type</span>,
+  type <span class='op'>=</span> <span class='st'>"robust"</span>,
+  p.adjust.method <span class='op'>=</span> <span class='st'>"holm"</span>,
+  plotgrid.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>,
+  ggcorrplot.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>outline.color <span class='op'>=</span> <span class='st'>"black"</span>, 
+                         hc.order <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                         tl.cex <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,
+  annotation.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    tag_levels <span class='op'>=</span> <span class='st'>"a"</span>,
+    title <span class='op'>=</span> <span class='st'>"Correlogram for wine dataset"</span>,
+    subtitle <span class='op'>=</span> <span class='st'>"The measures are: alcohol, sulphates, fixed acidity, citric acid, chlorides, residual sugar, density, free sulfur dioxide and volatile acidity"</span>,
+    caption <span class='op'>=</span> <span class='st'>"Dataset: UCI Machine Learning Repository"</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-10-1.png" width="1344" /></p>
+</div>
+<p>Things to learn from the code chunk above:</p>
+<ul>
+<li>to build a facet plot, the only argument needed is <code>grouping.var</code>.</li>
+<li>Behind <em>group_ggcorrmat()</em>, <strong>patchwork</strong> package is used to create the multiplot. <code>plotgrid.args</code> argument provides a list of additional arguments passed to <a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html"><em>patchwork::wrap_plots</em></a>, except for guides argument which is already separately specified earlier.</li>
+<li>Likewise, <code>annotation.args</code> argument is calling <a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html"><em>plot annotation arguments</em></a> of patchwork package.<br />
+</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
