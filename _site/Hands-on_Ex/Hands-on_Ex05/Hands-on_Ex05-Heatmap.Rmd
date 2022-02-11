@@ -1,0 +1,45 @@
+---
+title: "Building Heatmap with R"
+description: |
+  In this hands-on exercise, you will gain hand-on experience on building heatmap for visualising and analysing multivariate continuous variables with R.
+author:
+  - name: Dr. KAM Tin Seong, <br>Associate Professor of Information Systems (Practice)
+    url: https://www.smu.edu.sg/faculty/profile/9618/KAM-Tin-Seong
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE, fig.retina = 3)
+```
+
+# 1.0 Overview
+
+Heatmaps visualise data through variations in colouring. When applied to a tabular format, heatmaps are useful for cross-examining multivariate data, through placing variables in the columns and observation (or records) in rowa and colouring the cells within the table. Heatmaps are good for showing variance across multiple variables, revealing any patterns, displaying whether any variables are similar to each other, and for detecting if any correlations exist in-between them.
+
+In this hands-on exercise, you will gain hands-on experience on using R to plot static and interactive heatmap for visualising and analysing multivariate data.
+
+
+#  2.0 Installing and Launching R Packages
+
+Before you get started, you are required:
+
+- to start a new R project, and
+- to create a new R Markdown document.
+
+Next, you will use the code chunk below to install and launch **seriation**,  **heatmaply**, **dendextend** and **tidyverse** in RStudio.
+
+```{r}
+
+packages = c('seriation', 'dendextend', 'heatmaply', 'tidyverse')
+
+for(p in packages){library
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
