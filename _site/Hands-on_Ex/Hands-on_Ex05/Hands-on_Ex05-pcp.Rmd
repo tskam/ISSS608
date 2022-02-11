@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 Parallel coordinates plot is a data visualisation specially designed for visualising and analysing multivariate, numerical data.  It is ideal for comparing multiple variables together and seeing the relationships between them. For example, the variables contribute to Happiness Index. 
 
-In this hands-on exercise, you will learn how to plot parallel coordinate programmatically using appropriate R packages.
+In this hands-on exercise, you will learn how to plot parallel coordinates plot programmatically by using appropriate R packages.
 
 # 2.0 Installing and Launching R Packages
 
@@ -30,15 +30,113 @@ For this exercise, the **GGally**, **plotly R**, **parcoords** and **tidyverse**
 
 The code chunks below are used to install and load the packages in R.
 
-```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+```{r}
+packages = c('GGally', 'plotly', 'parcoords', 'parallelPlot', 'tidyverse')
 
-packages = c('GGally', 'plotly', 'parcoords', 'readr')
-
-for(p in packages){
+for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
   }
+  library(p,character.only = T)
 }
-
-library(ggplot2)
 ```
+
+# 3.0  Data Preparation
+
+In this hands-on exercise, the World Happinees 2018 (http://worldhappiness.report/ed/2018/) data will be used.  The data set is download at https://s3.amazonaws.com/happiness-report/2018/WHR2018Chapter2OnlineData.xls.  The original data set is in Microsoft Excel format.  It has been extracted and saved in csv file called **WHData-2018.csv**. 
+
+
+# 3.1 Importing World Happiness Data Set 
+
+In this section, you will learn how to visualise and analyse multiple continuous variables using correlation matrix, parallel coordinate plot and heatmap.  World Happiness Report 2018 dataset (WHData-2018.csv) will be used in this section.
+
+First, important the data into R by using the code below.
+
+```{r, echo=TRUE, message=FALSE}
+wh <- read_csv("data/WHData-2018.csv")
+```
+
+# 4.0 Working with *ggparcoord()* of **GGally** package
+
+## 4.1 Plotting a simple parallel coordinates
+
+The code chunk below is used to plot a basic parallel coordinates by using [*ggparcoord()*](https://ggobi.github.io/ggally/reference/ggparcoord.html) of **GGally** package.
+
+```{r fig.width=13, fig.height=6}
+ggparcoord(data = wh, 
+           columns = c(7:12))
+```
+
+## 4.2 Plotting a parallel coordinates with boxplot
+
+- Underlay univariate boxplots, add title, use uniminmax scaling
+
+```{r, echo=TRUE, fig.width=13, fig.height=5}
+ggparcoord(data = wh, 
+           columns = c(7:12), 
+           groupColumn = 2,
+           scale = "uniminmax",
+           alphaLines = 0.2,
+           boxplot = TRUE, 
+           title = "Parallel Coord. Plot of World Happines Attributes")
+```
+
+## 4.3 Parallel coordinates with facet
+
+- Underlay univariate boxplots, add title, use uniminmax scaling
+
+```{r, echo=TRUE, fig.width=14, fig.height=6}
+ggparcoord(data = wh, 
+           columns = c(7:12), 
+           groupColumn = 2,
+           scale = "uniminmax", 
+           boxplot = TRUE, 
+           title = "Parallel Coord. Plot of World Happines Attributes") +
+  facet_wrap(~ Region)
+```
+
+# 5.0 Plotting Interactive Parallel Coordinates: parcoords methods
+
+## 5.1 Getting to know **parcoords** package
+
+**parcoords** is a htmlwidget for d3 parallel coordinates plot.  It gives R users the very well designed and interactive parallel-coordinates chart for d3 with the infrastructure, flexibility, and robustness of htmlwidgets.
+
+## 5.2 Plotting an interactive parallel coordinates
+
+```{r, fig.width=10, fig.height=5}
+parcoords(
+ wh[,7:12],
+ reorderable = T,
+ brushMode = '1D-axes')
+```
+
+```{r, fig.width=10, fig.height=6}
+parcoords(
+ wh[,7:12],
+ rownames = FALSE,
+ reorderable = T,
+ brushMode = '1D-axes')
+```
+
+---
+# 6.0 Plotting Interactive Parallel Coordinates Plot: parallelPlot methods
+
+[**parallelPlot**](https://cran.r-project.org/web/packages/parallelPlot/) is an R package specially designed to plot a parallel coordinates plot by using 'htmlwidgets' package and [d3.js](https://d3js.org/).  In this section, you will learn how to use functions provided in parallelPlot package to build interactive parallel coordinates plot.
+
+
+```{r echo=FALSE, fig.align='center', fig.width=12, fig.height=6}
+histoVisibility <- rep(TRUE, ncol(wh[,7:12]))
+parallelPlot(wh[,7:12], histoVisibility = histoVisibility)
+```
+
+???
+In this slide, the colour and highlighting interativity function are used to highlight observation of interest.
+
+
+
+# References
+
+- [*ggparcoord* function] (http://ggobi.github.io/ggally/rd.html#ggparcoord) of [GGally](http://ggobi.github.io/ggally/index.html#ggally) package
+
+- [**parcoords** user guide](https://cran.r-project.org/web/packages/parcoords/parcoords.pdf)
+- [Introduction to **parcoords**](https://cran.r-project.org/web/packages/parcoords/vignettes/introduction-to-parcoords-.html)
