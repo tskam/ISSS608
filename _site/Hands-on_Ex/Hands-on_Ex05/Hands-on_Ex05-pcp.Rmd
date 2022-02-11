@@ -1,5 +1,5 @@
 ---
-title: 'Hands-On Exercise 8: Building Parallel Coordinates Plot'
+title: 'Hands-On Exercise 5: Building Parallel Coordinates Plot with R'
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Information Systems,<br/>Singapore Management Uniiversity"
