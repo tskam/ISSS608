@@ -60,7 +60,6 @@ for(p in packages){library
 
 In this hands-on exercise, the [Wine Quality Data Set](https://archive.ics.uci.edu/ml/datasets/wine+quality) of UCI Machine Learning Repository will be used.  The data set consists of 13 variables and 6497 observations.  For the purpose of this exercise, we have combined the red wine and white wine data into one data file.  It is called wine_quality and is in csv file format.  
 
-
 ## 3.1 Importing Data
 
 First, let us import the data into R by using *read_csv()*  of **readr** package.  
@@ -72,82 +71,14 @@ wine <- read_csv("data/wine_quality.csv")
 
 Notice that beside quality and type, the rest of the variables are numerical and continuous data type. 
 
-
-# 4.0 Univariate EDA with Histogram
-
-In the figure below, multiple histograms are plottted to reveal the distribution of the selected variables in the wine quality data sets.  
-
-```{r, echo=FALSE, message=FALSE, fig.width=12, fig.height=6}
-fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ca <- ggplot(data=wine, aes(x= `citric acid`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ch <- ggplot(data=wine, aes(x= `chlorides`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-density <- ggplot(data=wine, aes(x= density)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-pH <- ggplot(data=wine, aes(x= pH)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-sulphates <- ggplot(data=wine, aes(x= sulphates)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-alcohol <- ggplot(data=wine, aes(x= alcohol)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-
-ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
-          ncol = 4, nrow = 3)
-```
-
-The code chunks used to create the data visualisation consists of two main parts.  First, we will create the individual histograms using the code chunk below.
-
-```{r, echo=TRUE, eval=FALSE, message=FALSE}
-fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ca <- ggplot(data=wine, aes(x= `citric acid`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ch <- ggplot(data=wine, aes(x= `chlorides`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-density <- ggplot(data=wine, aes(x= density)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-pH <- ggplot(data=wine, aes(x= pH)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-sulphates <- ggplot(data=wine, aes(x= sulphates)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-alcohol <- ggplot(data=wine, aes(x= alcohol)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-```
-
-Next, the [*ggarrange*](https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html) function of [**ggpur**](https://rpkgs.datanovia.com/ggpubr/) package is used to group these histograms together.
-
-```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.width=12, fig.height=6}
-ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
-          ncol = 4, nrow = 3)
-```
-
-
-# 5.0 Creating Correlation Matrix: *pairs()* method
+# 4.0 Building Correlation Matrix: *pairs()* method
 
 There are more than one way to build scatterplot matrix with R.  In this section, you will learn how to create a scatterplot matrix by using the *pairs* function of R Graphics.
 
 Before you continue to the next step, you should read the syntax description of [*pairs*](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html)function.
 
 
-## 5.1 Creating a basic correlation matrix
+## 4.1 Building a basic correlation matrix
 
 Figure below shows the scatter plot matrix of Wine Quality Data.  It is a 11 by 11 matrix.
 
@@ -159,4 +90,42 @@ The required input of *pairs()* can be a matrix or data frame.  The code chunk u
 
 ```{r, echo=TRUE, eval=FALSE, fig.width=7, fig.height=7}
 pairs(wine[,2:12])
+```
+
+## 4.2 Drawing the lower corner
+
+*pairs* function of R Graphics provided many customisation arguments.  For example, it is a common practice to show either the upper half or lower half of the correlation matrix instead of both.  This is because a correlation matrix is symmetric.  
+
+To show the lower half of the correlation matrix, the upper.panel argument will be used as shown in the code chunk below.
+
+```{r, echo=TRUE, eval=TRUE, fig.width=7, fig.height=7}
+pairs(wine[,2:12], upper.panel = NULL)
+```
+
+Similarly, you can display the upper half of the correlation matrix by using the code chun below.
+
+```{r, echo=TRUE, eval=TRUE, fig.width=7, fig.height=7}
+pairs(wine[,2:12], lower.panel = NULL)
+```
+
+## 4.3 Including with correlation coefficients
+
+To show the correlation coefficient of each pair of variables instead of a scatter plot, [*panel.cor*](https://www.rdocumentation.org/packages/xcms/versions/1.48.0/topics/panel.cor) function will be used.  This will also show higher correlations in a larger font.  
+
+Don't worry about the details for now-just type this code into your R session or script.  Let's have more fun way to display the correlation matrix.
+
+```{r, echo=TRUE, eval=TRUE, fig.width=7, fig.height=7}
+panel.cor <- function(x, y, digits=2, prefix="", cex.cor, ...) {
+usr <- par("usr")
+on.exit(par(usr))
+par(usr = c(0, 1, 0, 1))
+r <- abs(cor(x, y, use="complete.obs"))
+txt <- format(c(r, 0.123456789), digits=digits)[1]
+txt <- paste(prefix, txt, sep="")
+if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
+text(0.5, 0.5, txt, cex = cex.cor * (1 + r) / 2)
+}
+
+pairs(wine[,2:12], 
+      upper.panel = panel.cor)
 ```

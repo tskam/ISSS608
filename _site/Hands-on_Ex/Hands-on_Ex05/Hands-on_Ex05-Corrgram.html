@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1492,10 +1492,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#importing-data">3.1 Importing Data</a></li>
 </ul></li>
-<li><a href="#univariate-eda-with-histogram">4.0 Univariate EDA with Histogram</a></li>
-<li><a href="#creating-correlation-matrix-pairs-method">5.0 Creating Correlation Matrix: <em>pairs()</em> method</a>
+<li><a href="#building-correlation-matrix-pairs-method">4.0 Building Correlation Matrix: <em>pairs()</em> method</a>
 <ul>
-<li><a href="#creating-a-basic-correlation-matrix">5.1 Creating a basic correlation matrix</a></li>
+<li><a href="#building-a-basic-correlation-matrix">4.1 Building a basic correlation matrix</a></li>
+<li><a href="#drawing-the-lower-corner">4.2 Drawing the lower corner</a></li>
+<li><a href="#including-with-correlation-coefficients">4.3 Including with correlation coefficients</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -1546,54 +1547,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <p>Notice that beside quality and type, the rest of the variables are numerical and continuous data type.</p>
-<h1 id="univariate-eda-with-histogram">4.0 Univariate EDA with Histogram</h1>
-<p>In the figure below, multiple histograms are plottted to reveal the distribution of the selected variables in the wine quality data sets.</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png" width="1152" /></p>
-</div>
-<p>The code chunks used to create the data visualisation consists of two main parts. First, we will create the individual histograms using the code chunk below.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>fa</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`fixed acidity`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>va</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`volatile acidity`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>ca</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`citric acid`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>rs</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`residual sugar`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>ch</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`chlorides`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>fSO2</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`free sulfur dioxide`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>tSO2</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>`total sulfur dioxide`</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>density</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>density</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>pH</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>pH</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>sulphates</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>sulphates</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-<span class='va'>alcohol</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>wine</span>, <span class='fu'>aes</span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>alcohol</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins<span class='op'>=</span><span class='fl'>20</span>, color<span class='op'>=</span><span class='st'>"black"</span>, fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>Next, the <a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html"><em>ggarrange</em></a> function of <a href="https://rpkgs.datanovia.com/ggpubr/"><strong>ggpur</strong></a> package is used to group these histograms together.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggarrange</span><span class='op'>(</span><span class='va'>fa</span>, <span class='va'>va</span>, <span class='va'>ca</span>, <span class='va'>rs</span>, <span class='va'>ch</span>, <span class='va'>fSO2</span>, <span class='va'>tSO2</span>, <span class='va'>density</span>, <span class='va'>pH</span>, <span class='va'>sulphates</span>, <span class='va'>alcohol</span>, 
-          ncol <span class='op'>=</span> <span class='fl'>4</span>, nrow <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h1 id="creating-correlation-matrix-pairs-method">5.0 Creating Correlation Matrix: <em>pairs()</em> method</h1>
+<h1 id="building-correlation-matrix-pairs-method">4.0 Building Correlation Matrix: <em>pairs()</em> method</h1>
 <p>There are more than one way to build scatterplot matrix with R. In this section, you will learn how to create a scatterplot matrix by using the <em>pairs</em> function of R Graphics.</p>
 <p>Before you continue to the next step, you should read the syntax description of <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html"><em>pairs</em></a>function.</p>
-<h2 id="creating-a-basic-correlation-matrix">5.1 Creating a basic correlation matrix</h2>
+<h2 id="building-a-basic-correlation-matrix">4.1 Building a basic correlation matrix</h2>
 <p>Figure below shows the scatter plot matrix of Wine Quality Data. It is a 11 by 11 matrix.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p>The required input of <em>pairs()</em> can be a matrix or data frame. The code chunk used to create the scatterplot matrix is relatively simple. It uses the default <em>pairs</em> function. Columns 2 to 12 of wine dataframe is used to build the scatterplot matrix. The variables are: fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates and alcohol.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1601,6 +1561,46 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>wine</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>12</span><span class='op'>]</span><span class='op'>)</span>
 </code></pre>
 </div>
+</div>
+<h2 id="drawing-the-lower-corner">4.2 Drawing the lower corner</h2>
+<p><em>pairs</em> function of R Graphics provided many customisation arguments. For example, it is a common practice to show either the upper half or lower half of the correlation matrix instead of both. This is because a correlation matrix is symmetric.</p>
+<p>To show the lower half of the correlation matrix, the upper.panel argument will be used as shown in the code chunk below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>wine</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>12</span><span class='op'>]</span>, upper.panel <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<p>Similarly, you can display the upper half of the correlation matrix by using the code chun below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>wine</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>12</span><span class='op'>]</span>, lower.panel <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<h2 id="including-with-correlation-coefficients">4.3 Including with correlation coefficients</h2>
+<p>To show the correlation coefficient of each pair of variables instead of a scatter plot, <a href="https://www.rdocumentation.org/packages/xcms/versions/1.48.0/topics/panel.cor"><em>panel.cor</em></a> function will be used. This will also show higher correlations in a larger font.</p>
+<p>Don’t worry about the details for now-just type this code into your R session or script. Let’s have more fun way to display the correlation matrix.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>panel.cor</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>digits</span><span class='op'>=</span><span class='fl'>2</span>, <span class='va'>prefix</span><span class='op'>=</span><span class='st'>""</span>, <span class='va'>cex.cor</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>usr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='st'>"usr"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/on.exit.html'>on.exit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='va'>usr</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>usr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, use<span class='op'>=</span><span class='st'>"complete.obs"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>txt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>r</span>, <span class='fl'>0.123456789</span><span class='op'>)</span>, digits<span class='op'>=</span><span class='va'>digits</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
+<span class='va'>txt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>prefix</span>, <span class='va'>txt</span>, sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span>
+<span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/missing.html'>missing</a></span><span class='op'>(</span><span class='va'>cex.cor</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>cex.cor</span> <span class='op'>&lt;-</span> <span class='fl'>0.8</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/graphics/strwidth.html'>strwidth</a></span><span class='op'>(</span><span class='va'>txt</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='va'>txt</span>, cex <span class='op'>=</span> <span class='va'>cex.cor</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>+</span> <span class='va'>r</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>wine</span><span class='op'>[</span>,<span class='fl'>2</span><span class='op'>:</span><span class='fl'>12</span><span class='op'>]</span>, 
+      upper.panel <span class='op'>=</span> <span class='va'>panel.cor</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
