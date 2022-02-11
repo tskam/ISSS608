@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/VPCI2020.csv","data/WHData-2018.csv","data/wine_quality.csv","Hands-on_Ex05-Corrgram_files/anchor-4.2.2/anchor.min.js","Hands-on_Ex05-Corrgram_files/bowser-1.9.3/bowser.min.js","Hands-on_Ex05-Corrgram_files/distill-2.2.21/template.v2.js","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-10-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-12-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-13-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-14-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-15-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-16-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-18-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-21-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-22-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-3-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-5-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-6-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png","Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-8-1.png","Hands-on_Ex05-Corrgram_files/header-attrs-2.11/header-attrs.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.js","Hands-on_Ex05-Corrgram_files/jquery-3.6.0/jquery-3.6.0.min.map","Hands-on_Ex05-Corrgram_files/popper-2.6.0/popper.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-bundle.umd.min.js","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy-light-border.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.css","Hands-on_Ex05-Corrgram_files/tippy-6.2.7/tippy.umd.min.js","Hands-on_Ex05-Corrgram_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1498,6 +1498,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#drawing-the-lower-corner">4.2 Drawing the lower corner</a></li>
 <li><a href="#including-with-correlation-coefficients">4.3 Including with correlation coefficients</a></li>
 </ul></li>
+<li><a href="#visualising-correlation-matrix-ggcormat">5.0 Visualising Correlation Matrix: ggcormat()</a>
+<ul>
+<li><a href="#the-basic-plot">5.1 The basic plot</a></li>
+<li><a href="#building-multiple-plots">5.2 Building multiple plots</a></li>
+</ul></li>
+<li><a href="#visualising-correlation-matrix-using-corrplot-package">6.0 Visualising Correlation Matrix using <strong>corrplot</strong> Package</a>
+<ul>
+<li><a href="#getting-started-with-corrplot">6.1 Getting started with corrplot</a></li>
+<li><a href="#working-with-visual-geometrics">6.2 Working with visual geometrics</a></li>
+<li><a href="#working-with-layout">6.3 Working with layout</a></li>
+<li><a href="#working-with-mixed-layout">6.4 Working with mixed layout</a></li>
+<li><a href="#combining-corrgram-with-the-significant-test">6.5 Combining corrgram with the significant test</a></li>
+<li><a href="#reorder-a-corrgram">6.6 Reorder a corrgram</a>
+<ul>
+<li><a href="#reordering-a-correlation-matrix-using-hclust">6.6.1 Reordering a correlation matrix using <strong>hclust</strong></a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -1601,6 +1618,221 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 <p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<h1 id="visualising-correlation-matrix-ggcormat">5.0 Visualising Correlation Matrix: ggcormat()</h1>
+<p>One of the major limitation of the correlation matrix is that the scatter plots appear very cluttered when the number of observations is relatively large (i.e. more than 500 observations). To over come this problem, <strong>Corrgram</strong> data visualisation technique suggested by D. J. Murdoch and E. D. Chow (1996) and Friendly, M (2002) and will be used.</p>
+<p>The are at least three R packages provide function to plot corrgram, they are:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/corrgram/index.html">corrgram</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ellipse/index.html">ellipse</a></li>
+<li><a href="https://cran.r-project.org/web/packages/corrplot/index.html">corrplot</a></li>
+</ul>
+<p>On top that, some R package like ggstatsplot package also provides functions for building corrgram.</p>
+<p>In this section, you will learn how to visualising correlation matrix by using <a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html"><em>ggcorrmat()</em></a> of <a href="https://indrajeetpatil.github.io/ggstatsplot/index.html"><strong>ggstatsplot</strong></a> package.</p>
+<h2 id="the-basic-plot">5.1 The basic plot</h2>
+<p>On of the advantage of using <em>ggcorrmat()</em> over many other methods to visualise a correlation matrix is it’s ability to provide a comprehensive and yet professional statistical report as shown in the figure below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggstatsplot</span><span class='fu'>::</span><span class='fu'><a href='https://indrajeetpatil.github.io/ggstatsplot/reference/ggcorrmat.html'>ggcorrmat</a></span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>wine</span>, 
+  cor.vars <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>,
+  ggcorrplot.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>outline.color <span class='op'>=</span> <span class='st'>"black"</span>, 
+                         hc.order <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                         tl.cex <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,
+  title    <span class='op'>=</span> <span class='st'>"Correlogram for wine dataset"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Four pairs are no significant at p &lt; 0.05"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<p>Things to learn from the code chunk above:</p>
+<ul>
+<li><code>cor.vars</code> argument is used to compute the correlation matrix needed to build the corrgram.</li>
+<li><code>ggcorrplot.args</code> argument provide additional (mostly aesthetic) arguments that will be passed to <a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2"><code>ggcorrplot::ggcorrplot</code></a> function. The list should avoid any of the following arguments since they are already internally being used: <code>corr</code>, <code>method</code>, <code>p.mat</code>, <code>sig.level</code>, <code>ggtheme</code>, <code>colors</code>, <code>lab</code>, <code>pch</code>, <code>legend.title</code>, <code>digits</code>.</li>
+</ul>
+<p>The sample sub-code chunk can be used to control specific component of the plot such as the font size of the x-axis, y-axis, and the statistical report.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ggplot.component</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    <span class='fu'>theme</span><span class='op'>(</span>text<span class='op'>=</span><span class='fu'>element_text</span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>,
+      axis.text.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span>,
+      axis.text.y <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="building-multiple-plots">5.2 Building multiple plots</h2>
+<p>Since ggstasplot is an extension of ggplot2, it also supports faceting. However the feature is not available in <em>ggcorrmat()</em> but in the <a href="https://indrajeetpatil.github.io/ggstatsplot/reference/grouped_ggcorrmat.html"><em>grouped_ggcorrmat()</em></a> of <strong>ggstatsplot</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>grouped_ggcorrmat</span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>wine</span>,
+  cor.vars <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span>,
+  grouping.var <span class='op'>=</span> <span class='va'>type</span>,
+  type <span class='op'>=</span> <span class='st'>"robust"</span>,
+  p.adjust.method <span class='op'>=</span> <span class='st'>"holm"</span>,
+  plotgrid.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>,
+  ggcorrplot.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>outline.color <span class='op'>=</span> <span class='st'>"black"</span>, 
+                         hc.order <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                         tl.cex <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,
+  annotation.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    tag_levels <span class='op'>=</span> <span class='st'>"a"</span>,
+    title <span class='op'>=</span> <span class='st'>"Correlogram for wine dataset"</span>,
+    subtitle <span class='op'>=</span> <span class='st'>"The measures are: alcohol, sulphates, fixed acidity, citric acid, chlorides, residual sugar, density, free sulfur dioxide and volatile acidity"</span>,
+    caption <span class='op'>=</span> <span class='st'>"Dataset: UCI Machine Learning Repository"</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-10-1.png" width="1344" /></p>
+</div>
+<p>Things to learn from the code chunk above:</p>
+<ul>
+<li>to build a facet plot, the only argument needed is <code>grouping.var</code>.</li>
+<li>Behind <em>group_ggcorrmat()</em>, <strong>patchwork</strong> package is used to create the multiplot. <code>plotgrid.args</code> argument provides a list of additional arguments passed to <a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html"><em>patchwork::wrap_plots</em></a>, except for guides argument which is already separately specified earlier.</li>
+<li>Likewise, <code>annotation.args</code> argument is calling <a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html"><em>plot annotation arguments</em></a> of patchwork package.</li>
+</ul>
+<h1 id="visualising-correlation-matrix-using-corrplot-package">6.0 Visualising Correlation Matrix using <strong>corrplot</strong> Package</h1>
+<p>In this hands-on exercise, we will focus on corrplot. However, you are encouraged to explore the other two packages too.</p>
+<p>Before getting started, you are required to read <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">An Introduction to corrplot Package</a> in order to gain basic understanding of <strong>corrplot</strong> package.</p>
+<h2 id="getting-started-with-corrplot">6.1 Getting started with corrplot</h2>
+<p>Before we can plot a corrgram using <em>corrplot()</em>, we need to compute the correlation matrix of wine data frame.</p>
+<p>In the code chunk below, <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/cor"><em>cor()</em></a> of R Stats is used to compute the correlation matrix of wine data frame.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>wine.cor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>wine</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>12</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Next, <a href="https://www.rdocumentation.org/packages/corrplot/versions/0.2-0/topics/corrplot"><em>corrplot()</em></a> is used to plot the corrgram by using all the default setting as shown in the code chunk below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-12-1.png" width="576" /></p>
+</div>
+<p>Notice that the default visual object used to plot the corrgram is circle. The default layout of the corrgram is a symmetric matrix. The default colour scheme is diverging blue-red. Blue colours are used to represent pair variables with positive correlation coefficients and red colours are used to represent pair variables with negative correlation coefficients. The intensity of the colour or also know as <strong>saturation</strong> is used to represent the strength of the correlation coefficient. Darker colours indicate relatively stronger linear relationship between the paired variables. On the other hand, lighter colours indicates relatively weaker linear relationship.</p>
+<h2 id="working-with-visual-geometrics">6.2 Working with visual geometrics</h2>
+<p>In <strong>corrplot</strong> package, there are seven visual geometrics (parameter method) can be used to encode the attribute values. They are: circle, square, ellipse, number, shade, color and pie. The default is circle. As shown in the previous section, the default visual geometric of corrplot matrix is circle. However, this default setting can be changed by using the <em>method</em> argument as shown in the code chunk below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+         method <span class='op'>=</span> <span class='st'>"ellipse"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-13-1.png" width="576" /></p>
+</div>
+<p>Feel free to change the <em>method</em> argument to other supported visual geometrics.</p>
+<h2 id="working-with-layout">6.3 Working with layout</h2>
+<p><em>corrplor()</em> supports three layout types, namely: “full”, “upper” or “lower”. The default is “full” which display full matrix. The default setting can be changed by using the <em>type</em> argument of <em>corrplot()</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+         method <span class='op'>=</span> <span class='st'>"ellipse"</span>, 
+         type<span class='op'>=</span><span class='st'>"lower"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-14-1.png" width="576" /></p>
+</div>
+<p>The default layout of the corrgram can be further customised. For example, arguments <em>diag</em> and <em>tl.col</em> are used to turn off the diagonal cells and to change the axis text label colour to black colour respectively as shown in the code chunk and figure below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+         method <span class='op'>=</span> <span class='st'>"ellipse"</span>, 
+         type<span class='op'>=</span><span class='st'>"lower"</span>,
+         diag <span class='op'>=</span> <span class='cn'>FALSE</span>,
+         tl.col <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-15-1.png" width="576" /></p>
+</div>
+<p>Please feel free to experiment with other layout design argument such as <em>tl.pos</em>, <em>tl.cex</em>, <em>tl.offset</em>, <em>cl.pos</em>, <em>cl.cex</em> and <em>cl.offset</em>, just to mention a few of them.</p>
+<h2 id="working-with-mixed-layout">6.4 Working with mixed layout</h2>
+<p>With <strong>corrplot</strong> package, it is possible to design corrgram with mixed visual matrix of one half and numerical matrix on the other half. In order to create a coorgram with mixed layout, the <a href="https://www.rdocumentation.org/packages/corrplot/versions/0.84/topics/corrplot.mixed"><em>corrplot.mixed()</em></a>, a wrapped function for mixed visualisation style will be used.</p>
+<p>Figure below shows a mixed layout corrgram plotted using wine quality data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-16-1.png" width="576" /></p>
+</div>
+<p>The code chunk used to plot the corrgram are shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot.mixed</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+               lower <span class='op'>=</span> <span class='st'>"ellipse"</span>, 
+               upper <span class='op'>=</span> <span class='st'>"number"</span>,
+               tl.pos <span class='op'>=</span> <span class='st'>"lt"</span>,
+               diag <span class='op'>=</span> <span class='st'>"l"</span>,
+               tl.col <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Notice that argument <em>lower</em> and <em>upper</em> are used to define the visualisation method used. In this case ellipse is used to map the lower half of the corrgram and numerical matrix (i.e. number) is used to map the upper half of the corrgram. The argument <em>tl.pos</em>, on the other, is used to specify the placement of the axis label. Lastly, the <em>diag</em> argument is used to specify the glyph on the principal diagonal of the corrgram.</p>
+<h2 id="combining-corrgram-with-the-significant-test">6.5 Combining corrgram with the significant test</h2>
+<p>In statistical analysis, we are also interested to know which pair of variables their correlation coefficients are statistically significant.</p>
+<p>Figure below shows a corrgram combined with the significant test. The corrgram reveals that not all correlation pairs are statistically significant. For example the correlation between total sulfur dioxide and free surfur dioxide is statistically significant at significant level of 0.1 but not the pair between total sulfur dioxide and citric acid.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-18-1.png" width="576" /></p>
+</div>
+<p>With corrplot package, we can use the <em>cor.mtest()</em> to compute the p-values and confidence interval for each pair of variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>wine.sig</span> <span class='op'>=</span> <span class='fu'>cor.mtest</span><span class='op'>(</span><span class='va'>wine.cor</span>, conf.level<span class='op'>=</span> <span class='fl'>.95</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>We can then use the <em>p.mat</em> argument of <em>corrplot</em> function as shown in the code chunk below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span>,
+         method <span class='op'>=</span> <span class='st'>"number"</span>,
+         type <span class='op'>=</span> <span class='st'>"lower"</span>,
+         diag <span class='op'>=</span> <span class='cn'>FALSE</span>,
+         tl.col <span class='op'>=</span> <span class='st'>"black"</span>,
+         tl.srt <span class='op'>=</span> <span class='fl'>45</span>,
+         p.mat <span class='op'>=</span> <span class='va'>wine.sig</span><span class='op'>$</span><span class='va'>p</span>,
+         sig.level <span class='op'>=</span> <span class='fl'>.05</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="reorder-a-corrgram">6.6 Reorder a corrgram</h2>
+<p>Matrix reorder is very important for mining the hiden structure and pattern in a corrgram. By default, the order of attributes of a corrgram is sorted according to the correlation matrix (i.e. “original”). The default setting can be over-write by using the <em>order</em> argument of <em>corrplot()</em>. Currently, <strong>corrplot</strong> package support four sorting methods, they are:</p>
+<ul>
+<li>“AOE” is for the angular order of the eigenvectors. See Michael Friendly (2002) for details.</li>
+<li>“FPC” for the first principal component order.</li>
+<li>“hclust” for hierarchical clustering order, and “hclust.method” for the agglomeration method to be used.
+<ul>
+<li>“hclust.method” should be one of “ward”, “single”, “complete”, “average”, “mcquitty”, “median” or “centroid”.</li>
+</ul></li>
+<li>“alphabet” for alphabetical order.</li>
+</ul>
+<p>“AOE”, “FPC”, “hclust”, “alphabet”. More algorithms can be found in <strong>seriation</strong> package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot.mixed</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+               lower <span class='op'>=</span> <span class='st'>"ellipse"</span>, 
+               upper <span class='op'>=</span> <span class='st'>"number"</span>,
+               tl.pos <span class='op'>=</span> <span class='st'>"lt"</span>,
+               diag <span class='op'>=</span> <span class='st'>"l"</span>,
+               order<span class='op'>=</span><span class='st'>"AOE"</span>,
+               tl.col <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-21-1.png" width="576" /></p>
+</div>
+<h3 id="reordering-a-correlation-matrix-using-hclust">6.6.1 Reordering a correlation matrix using <strong>hclust</strong></h3>
+<p>If using <strong>hclust</strong>, <strong><em>corrplot()</em></strong> can draw rectangles around the corrgram based on the results of hierarchical clustering.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>corrplot</span><span class='op'>(</span><span class='va'>wine.cor</span>, 
+         method <span class='op'>=</span> <span class='st'>"ellipse"</span>, 
+         tl.pos <span class='op'>=</span> <span class='st'>"lt"</span>,
+         tl.col <span class='op'>=</span> <span class='st'>"black"</span>,
+         order<span class='op'>=</span><span class='st'>"hclust"</span>,
+         hclust.method <span class='op'>=</span> <span class='st'>"ward.D"</span>,
+         addrect <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Hands-on_Ex05-Corrgram_files/figure-html5/unnamed-chunk-22-1.png" width="576" /></p>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
