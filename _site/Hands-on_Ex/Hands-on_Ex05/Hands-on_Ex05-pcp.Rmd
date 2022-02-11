@@ -124,13 +124,25 @@ parcoords(
 [**parallelPlot**](https://cran.r-project.org/web/packages/parallelPlot/) is an R package specially designed to plot a parallel coordinates plot by using 'htmlwidgets' package and [d3.js](https://d3js.org/).  In this section, you will learn how to use functions provided in parallelPlot package to build interactive parallel coordinates plot.
 
 
-```{r echo=FALSE, fig.align='center', fig.width=12, fig.height=6}
+## 6.1 The basic plot
+
+The code chunk below plot an interactive parallel coordinates plot by using *parallelPlot()*.
+
+```{r fig.align='center', fig.width=12, fig.height=6}
+parallelPlot(wh[,7:12])
+```
+
+
+## 6.2 Parallel coordinates plot with hitogram
+
+In the code chunk below, `histoVisibility` argument is used to plot histogram along the axis of each variables.  
+
+```{r fig.align='center', fig.width=12, fig.height=6}
 histoVisibility <- rep(TRUE, ncol(wh[,7:12]))
 parallelPlot(wh[,7:12], histoVisibility = histoVisibility)
 ```
 
-???
-In this slide, the colour and highlighting interativity function are used to highlight observation of interest.
+
 
 
 
