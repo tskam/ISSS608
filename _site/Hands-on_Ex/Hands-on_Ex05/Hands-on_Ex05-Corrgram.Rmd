@@ -34,3 +34,129 @@ When the data is large, both in terms of the number of observations and the numb
 - Reordering the variables in a correlation matrix so that "similar" variables are positioned adjacently, facilitating perception. 
 
 In this hands-on exercise, you will learn how to plot data visualisation for visualising correlation matrix with R.  It consists of three main sections.  First, you will learn how to create correlation matrix using [*pairs()*](https://www.rdocumentation.org/packages/graphics/versions/3.6.0/topics/pairs) of R Graphics.  Next, you will learn how to plot corrgram using **corrplot** package of R. Lastly, you will learn how to create an interactive correlation matrix using plotly R. 
+
+#  2.0 Installing and Launching R Packages
+
+Before you get started, you are required:
+
+- to start a new R project, and
+- to create a new R Markdown document.
+
+Next, you will use the code chunk below to install and launch **corrplot**,  **ggpubr**, **plotly** and **tidyverse** in RStudio.
+
+```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+
+packages = c('corrplot', 'qtlcharts', 'ggpubr', 'tidyverse', 'ggstatsplot')
+
+for(p in packages){library
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+# 3.0 Importing and Preparing The Data Set 
+
+In this hands-on exercise, the [Wine Quality Data Set](https://archive.ics.uci.edu/ml/datasets/wine+quality) of UCI Machine Learning Repository will be used.  The data set consists of 13 variables and 6497 observations.  For the purpose of this exercise, we have combined the red wine and white wine data into one data file.  It is called wine_quality and is in csv file format.  
+
+
+## 3.1 Importing Data
+
+First, let us import the data into R by using *read_csv()*  of **readr** package.  
+
+
+```{r, echo=TRUE, message=FALSE}
+wine <- read_csv("data/wine_quality.csv")
+```
+
+Notice that beside quality and type, the rest of the variables are numerical and continuous data type. 
+
+
+# 4.0 Univariate EDA with Histogram
+
+In the figure below, multiple histograms are plottted to reveal the distribution of the selected variables in the wine quality data sets.  
+
+```{r, echo=FALSE, message=FALSE, fig.width=12, fig.height=6}
+fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ca <- ggplot(data=wine, aes(x= `citric acid`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ch <- ggplot(data=wine, aes(x= `chlorides`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+density <- ggplot(data=wine, aes(x= density)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+pH <- ggplot(data=wine, aes(x= pH)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+sulphates <- ggplot(data=wine, aes(x= sulphates)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+alcohol <- ggplot(data=wine, aes(x= alcohol)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
+          ncol = 4, nrow = 3)
+```
+
+The code chunks used to create the data visualisation consists of two main parts.  First, we will create the individual histograms using the code chunk below.
+
+```{r, echo=TRUE, eval=FALSE, message=FALSE}
+fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ca <- ggplot(data=wine, aes(x= `citric acid`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+ch <- ggplot(data=wine, aes(x= `chlorides`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+density <- ggplot(data=wine, aes(x= density)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+pH <- ggplot(data=wine, aes(x= pH)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+sulphates <- ggplot(data=wine, aes(x= sulphates)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+alcohol <- ggplot(data=wine, aes(x= alcohol)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+```
+
+Next, the [*ggarrange*](https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html) function of [**ggpur**](https://rpkgs.datanovia.com/ggpubr/) package is used to group these histograms together.
+
+```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.width=12, fig.height=6}
+ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
+          ncol = 4, nrow = 3)
+```
+
+
+# 5.0 Creating Correlation Matrix: *pairs()* method
+
+There are more than one way to build scatterplot matrix with R.  In this section, you will learn how to create a scatterplot matrix by using the *pairs* function of R Graphics.
+
+Before you continue to the next step, you should read the syntax description of [*pairs*](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/pairs.html)function.
+
+
+## 5.1 Creating a basic correlation matrix
+
+Figure below shows the scatter plot matrix of Wine Quality Data.  It is a 11 by 11 matrix.
+
+```{r, echo=FALSE, eval=TRUE, fig.width=7, fig.height=7}
+pairs(wine[,2:12])
+```
+
+The required input of *pairs()* can be a matrix or data frame.  The code chunk used to create the scatterplot matrix is relatively simple.  It uses the default *pairs* function.  Columns 2 to 12 of wine dataframe is used to build the scatterplot matrix.  The variables are: fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates and alcohol.
+
+```{r, echo=TRUE, eval=FALSE, fig.width=7, fig.height=7}
+pairs(wine[,2:12])
+```
