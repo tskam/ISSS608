@@ -83,7 +83,7 @@ Before you continue to the next step, you should read the syntax description of 
 Figure below shows the scatter plot matrix of Wine Quality Data.  It is a 11 by 11 matrix.
 
 ```{r, echo=FALSE, eval=TRUE, fig.width=7, fig.height=7}
-pairs(wine[,2:12])
+pairs(wine[,1:11])
 ```
 
 The required input of *pairs()* can be a matrix or data frame.  The code chunk used to create the scatterplot matrix is relatively simple.  It uses the default *pairs* function.  Columns 2 to 12 of wine dataframe is used to build the scatterplot matrix.  The variables are: fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates and alcohol.
@@ -147,6 +147,16 @@ In this section, you will learn how to visualising correlation matrix by using [
 ## 5.1 The basic plot
 
 On of the advantage of using *ggcorrmat()* over many other methods to visualise a correlation matrix is it's ability to provide a comprehensive and yet professional statistical report as shown in the figure below.
+
+```{r fig.width=7, fig.height=7}
+ggstatsplot::ggcorrmat(
+  data = wine, 
+  cor.vars = 1:11)
+```
+
+
+
+
 
 ```{r fig.width=7, fig.height=7}
 ggstatsplot::ggcorrmat(
@@ -218,7 +228,7 @@ Before we can plot a corrgram using *corrplot()*, we need to compute the correla
 In the code chunk below, [*cor()*](https://www.rdocumentation.org/packages/stats/versions/3.6.0/topics/cor) of R Stats is used to compute the correlation matrix of wine data frame.   
 
 ```{r, echo=TRUE, eval=TRUE, fig.width=6, fig.height=6}
-wine.cor <- cor(wine[, 2:12])
+wine.cor <- cor(wine[, 1:11])
 ```
 
 Next, [*corrplot()*](https://www.rdocumentation.org/packages/corrplot/versions/0.2-0/topics/corrplot) is used to plot the corrgram by using all the default setting as shown in the code chunk below.
