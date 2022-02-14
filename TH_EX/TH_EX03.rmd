@@ -1,0 +1,65 @@
+---
+title: "Take-home Exercise 3"
+description: |
+  Putting Visual Analytics into Practical Used
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# The Task
+
+In this take-home exercise, you are required to apply appropriate data visualisation techniques you had learned in Lesson 3 or Lesson 4 to accomplish either one of the task given below:  
+
+1.  Create a data visualisation showing average rating and proportion of cocoa percent (% chocolate) greater than or equal to 70% by top 15 company location.  For the purpose of this task, *chocolate.csv* should be used.
+
+2. Create a data visualisation to provide an unbiased comparison of order returned by state.  For the purpose of this task, *Superstore-2021.xls* should be used.
+
+3. Create a data visualisation to segment kid drinks and other by nutrition indicators. For the purpose of this task, *starbucks_drink.csv* should be used.
+
+Note: 
+
++ All the data files are available in the **Take-home Exercise 3** folder of course eLearn.
++ For Task 1 or Task 2, refer to Lesson 3: Fundamental of Visual Analytics and for Task 3 refer to Lesson 4: Visual Multivariate Analysis
+
+# Submission Instructions 
+
+This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually. 
+
+- The take-home exercise submission must be written by using **distill for R Markdown**.  It can be in either [distill article](https://distill.pub/guide/) or [distill blog ](https://rstudio.github.io/distill/blog.html) format. You are required to publish the exercise on [Netlify](https://www.netlify.com/) and provide the link on the take-home exercise submission page on elearn. 
+- You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.
+ 
+### Submission date 
+ 
+Your completed take-home exercise is due on **20th February 2022, by 11:59pm evening**.
+
+# Peer Learning
+
+   
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/take-home.html")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
