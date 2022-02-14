@@ -1,7 +1,7 @@
 ---
 title: "Take-home Exercise 3"
 description: |
-  Putting Visual Analytics into Practical Used
+  Putting Visual Analytics into Practical Use
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
