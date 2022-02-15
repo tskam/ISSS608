@@ -583,16 +583,21 @@ ggplot(my_sum) +
 ### Visualizing the uncertainty of point estimates: **ggdist** methods
 
 .pull-left[
-In the code chunk below, [*stat_pointinterval()*](https://mjskay.github.io/ggdist/reference/stat_pointinterval.html) of **ggdist** is used to build a visual for displaying distribution of maths scores by race.
+In the code chunk below, [`stat_pointinterval()`](https://mjskay.github.io/ggdist/reference/stat_pointinterval.html) of **ggdist** is used to build a visual for displaying distribution of maths scores by race.
 
 
 ```r
 exam %&gt;%
   ggplot(aes(x = RACE, 
              y = MATHS)) +
-  stat_pointinterval() +
-  ggtitle("stat_eye()")
+* stat_pointinterval(
+*   show.legend = TRUE) +
+  labs(
+    title = "Visualising confidence intervals of mean math score",
+    subtitle = "Mean Point + Multiple-interval plot")
 ```
+
+Gentle advice: This function comes with many arguments, students are advised to read the syntax reference for more detail.
 ]
 
 .pull-right[
@@ -601,68 +606,32 @@ exam %&gt;%
 ]
 
 ---
-stat_slab() and stat_pointinterval()
-
+### Visualizing the uncertainty of point estimates: **ggdist** methods
 
 .pull-left[
+In the code chunk below, [`stat_gradientinterval()`](https://mjskay.github.io/ggdist/reference/stat_gradientinterval.html) of **ggdist** is used to build a visual for displaying distribution of maths scores by race.
+
 
 ```r
 exam %&gt;%
-  ggplot(aes(fill = RACE, 
-             color = RACE, 
-             x = MATHS)) +
-  stat_slab(alpha = .3) +
-  stat_pointinterval(
-    position = position_dodge(
-      width = .4, 
-      preserve = "single")) +
+  ggplot(aes(x = RACE, 
+             y = MATHS)) +
+* stat_gradientinterval(
+*   fill = "skyblue",
+*   show.legend = TRUE
+* ) +
   labs(
-    title = "stat_slab() and stat_pointinterval()", 
-    subtitle = "with position_dodge() applied to the intervals",
-    y = NULL
-  ) +
-  scale_y_continuous(breaks = NULL)
+    title = "Visualising confidence intervals of mean math score",
+    subtitle = "Gradient + interval plot")
 ```
+
+Gentle advice: This function comes with many arguments, students are advised to read the syntax reference for more detail.
 ]
 
 .pull-right[
+
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-37-1.png" width="504" /&gt;
 ]
-
----
-###
-
-.pull-left[
-
-```r
-model1 %&gt;%
-  tidy() %&gt;%
-  ggplot(aes(y = term)) +
-  stat_dist_halfeye(
-    aes(dist = "student_t", 
-        arg1 = df.residual(model1), 
-        arg2 = estimate, 
-        arg3 = std.error)
-  )+
-ylab("condition")+
-labs(
-   title = "ggdist Exercise",
-   subtitle = "half-eye plots",
-   caption ='Visualization by DataCharm')+
-  theme(
-     text = element_text(
-       family = "Times_New_Roman",
-       face='bold'))  
-```
-]
-
-.pull-right[
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-39-1.png" width="504" /&gt;
-]
-
-## 
-
-
 
 
     </textarea>
