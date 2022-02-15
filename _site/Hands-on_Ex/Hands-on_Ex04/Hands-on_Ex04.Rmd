@@ -461,6 +461,138 @@ ggcoefstats(model1,
 ]
 
 ---
+## Visualizing the uncertainty of point estimates
+
+.pull-left[
+.large[
++ A point estimate is a single number, such as a mean.
++ Uncertainty is expressed as standard error, confidence interval, or credible interval
++ Important:
+    + Don't confuse the uncertainty of a point estimate with the variation in the sample
+]]
+
+---
+### Visualizing the uncertainty of point estimates: ggplot2 methods
+
+.pull-left[
+The code chubk below computes the count of observations, mean, standard deviation and standard error of a variable.  
+
+```{r}
+my_sum <- exam %>%
+  group_by(RACE) %>%
+  summarise(
+    n=n(),
+    mean=mean(MATHS),
+    sd=sd(MATHS)
+    ) %>%
+  mutate(se=sd/sqrt(n-1))
+```
+
+Note: For the mathematical explanation, please refer to Slide 20 of Lesson 4. ]
+
+---
+### Visualizing the uncertainty of point estimates: ggplot2 methods
+
+.pull-left[
+The code chunk below is used to reveal the standard error of mean maths score by race .
+
+```{r eval=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=RACE, 
+        ymin=mean-se, 
+        ymax=mean+se), 
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("Standard error of mean 
+          maths score by rac")
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=RACE, 
+        ymin=mean-se, 
+        ymax=mean+se), 
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("Standard error of mean maths score by race")
+```
+]
+
+---
+### Visualizing the uncertainty of point estimates: **ggplot2** methods
+
+.pull-left[
+To plot the 95% confidence interval of mean maths score by race, we just need to modify the codes highlighted in the code chunk below.
+
+```{r eval=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=RACE, 
+        ymin=mean-1.98*se,   #<<
+        ymax=mean+1.98*se),  #<<
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("95% confidence interval 
+          of mean maths score by race")
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=RACE, 
+        ymin=mean-1.98*se, 
+        ymax=mean+1.98*se), 
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("95% confidence interval of mean maths score by race")
+```
+]
+
+---
 ## Visualising Uncertainty: **ggdist** package 
 
 .pull-left[
@@ -474,16 +606,18 @@ ggcoefstats(model1,
 ![](img/ggdist.png)
 ]
 
+
 ---
-### Visualising uncertainty between groups
+### Visualizing the uncertainty of point estimates: **ggdist** methods
 
 .pull-left[
-In the code chunk below, [*stat_eye()*](https://mjskay.github.io/ggdist/articles/slabinterval.html) of ggdist is used to build a visual for displaying distribution of maths scores by race.
+In the code chunk below, [*stat_pointinterval()*](https://mjskay.github.io/ggdist/reference/stat_pointinterval.html) of **ggdist** is used to build a visual for displaying distribution of maths scores by race.
 
 ```{r eval=FALSE}
 exam %>%
-  ggplot(aes(x = RACE, y = MATHS)) +
-  stat_eye() +
+  ggplot(aes(x = RACE, 
+             y = MATHS)) +
+  stat_pointinterval() +
   ggtitle("stat_eye()")
 ```
 ]
@@ -493,7 +627,7 @@ exam %>%
 ```{r echo=FALSE}
 exam %>%
   ggplot(aes(x = RACE, y = MATHS)) +
-  stat_eye() +
+  stat_pointinterval() +
   ggtitle("stat_eye()")
 ```
 ]
@@ -591,6 +725,7 @@ labs(
 ```
 ]
 
+## 
 
 
 
