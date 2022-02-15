@@ -43,7 +43,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson slides in [html](../lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.html) and [pdf](../lesson/Lesson04/Lesson04-Fundamentals_of_Visual_Analytics.pdf) formats
 
-- Handout of Hands-on Exercise 4 in [html](../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04.html) and [pdf](../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04.pdf) formats.
+- Handout of Hands-on Exercise 4
+    + [Hands-on Exercise 4](../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04.html).
+    + [Hands-on Exercise 4: Building Funnel Plot with R](../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04-FunnelPlot.html)
 
 
 ## Core Readings
