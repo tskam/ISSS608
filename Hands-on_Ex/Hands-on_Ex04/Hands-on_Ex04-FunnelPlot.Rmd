@@ -1,0 +1,249 @@
+---
+title: 'Hands-On Exercise 4: Building Funnel Plot with R'
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Information Systems,<br/>Singapore Management Uniiversity"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.retina = 3)
+```
+
+## 1.0 Overview
+
+   
+
+By the end of this hands-on exercise, you will gain hands-on experience on:
+
++ plotting funnel plots by using **funnelPlotR** package, 
++ plotting static funnel plot by using ggplot2 package, and 
++ plotting interactive funnel plot by using both **plotly R** and **ggplot2** packages.  
+
+## 2.0 Installing and Launching R Packages
+
+In this exercise, four R packages will be used.  They are:
+
++ **readr** for importing csv into R.
++ **FunnelPlotR** for creating funnel plot.
++ **ggplot2** for creating funnel plot manually.
++ **plotly** for creating interactive funnel plot.
+
+```{r}
+packages = c('tidyverse', 'FunnelPlotR', 'plotly', 'knitr')
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+}
+```
+
+## 3.0 Importing Data 
+
+In this section, COVID-19_DKI_Jakarta will be used.  The data was downloaded from [Open Data Covid-19 Provinsi DKI Jakarta portal](https://riwayat-file-covid-19-dki-jakarta-jakartagis.hub.arcgis.com/).  For this hands-on exercise, we are going to compare the cumulative COVID-19 cases and death by sub-district (i.e. kelurahan) as at 31st July 2021, DKI Jakarta.  
+
+The code chunk below imports the data into R and save it into a tibble data frame object called *covid19*.
+
+```{r}
+covid19 <- read_csv("data/COVID-19_DKI_Jakarta.csv") %>%
+  mutate_if(is.character, as.factor)
+```
+
+```{r echo=FALSE}
+kable(head(covid19))
+```
+
+## 4.0 FunnelPlotR methods
+
+[**FunnelPlotR**](https://nhs-r-community.github.io/FunnelPlotR/) package uses ggplot to generate funnel plots. It requires a `numerator` (events of interest), `denominator` (population to be considered) and `group`. The key arguments selected for customisation are:
+
++ `limit`: plot limits (95 or 99).
++ `label_outliers`: to label outliers (true or false).
++ `Poisson_limits`: to add Poisson limits to the plot.
++ `OD_adjust`: to add overdispersed limits to the plot.
++ `xrange` and `yrange`: to specify the range to display for axes, acts like a zoom function.
++ Other aesthetic components such as graph title, axis labels etc.
+
+
+### 4.1 FunnelPlotR methods: The basic plot
+
+The code chunk below plots a funnel plot. 
+
+```{r layout="l-body-outset"}
+funnel_plot(
+  numerator = covid19$Positive,
+  denominator = covid19$Death,
+  group = covid19$`Sub-district`
+)
+```
+
+Things to learn from the code chunk above.
+
++ `group` in this function is different from the scatterplot. Here, it defines the level of the points to be plotted i.e. Sub-district, District or City. If Cityc is chosen, there are only six data points.
++ By default, `data_type`argument is "SR".
++ `limit`: Plot limits, accepted values are: 95 or 99, corresponding to 95% or 99.8% quantiles of the distribution. 
+
+### 4.2 FunnelPlotR methods: Makeover 1
+
+The code chunk below plots a funnel plot. 
+
+```{r}
+funnel_plot(
+  numerator = covid19$Death,
+  denominator = covid19$Positive,
+  group = covid19$`Sub-district`,
+  data_type = "PR",     #<<
+  xrange = c(0, 6500),  #<<
+  yrange = c(0, 0.05)   #<<
+)
+```
+
+Things to learn from the code chunk above.
++ `data_type` argument is used to change from default "SR" to "PR" (i.e. proportions).
++ `xrange` and `yrange` are used to set the range of x-axis and y-axis 
+
+### 4.3 FunnelPlotR methods: Makeover 2
+
+The code chunk below plots a funnel plot. 
+
+```{r}
+funnel_plot(
+  numerator = covid19$Death,
+  denominator = covid19$Positive,
+  group = covid19$`Sub-district`,
+  data_type = "PR",   
+  xrange = c(0, 6500),  
+  yrange = c(0, 0.05),
+  label = NA,
+  title = "Cumulative COVID-19 Fatality Rate by Cumulative Total Number of COVID-19 Positive Cases", #<<           
+  x_label = "Cumulative COVID-19 Positive Cases", #<<
+  y_label = "Cumulative Fatality Rate"  #<<
+)
+```
+
+Things to learn from the code chunk above.
+
++ `label = NA` argument is to removed the default label outliers feature.
++ `title` argument is used to add plot title.
++ `x_label` and `y_label` arguments are used to add/edit x-axis and y-axis titles.
+
+
+
+## 5.0 Funnel Plot for Fair Visual Comparison: ggplot2 methods
+
+
+### 5.1 
+
+To plot the funnel plot from scratch, the control limits needs to be calculated and overlaid on the base point plot.
+
+```{r}
+df <- covid19 %>%
+  mutate(rate = Death / Positive) %>%
+  mutate(rate.se = sqrt((rate*(1-rate)) / (Positive))) %>%
+  filter(rate > 0)
+```
+
+
+```{r}
+fit.mean <- weighted.mean(df$rate, 1/df$rate.se^2)
+```
+
+### 5.2 Calculate lower and upper limits for 95% and 99.9% CI
+
+```{r}
+number.seq <- seq(1, max(df$Positive), 1)
+number.ll95 <- fit.mean - 1.96 * sqrt((fit.mean*(1-fit.mean)) / (number.seq)) 
+number.ul95 <- fit.mean + 1.96 * sqrt((fit.mean*(1-fit.mean)) / (number.seq)) 
+number.ll999 <- fit.mean - 3.29 * sqrt((fit.mean*(1-fit.mean)) / (number.seq)) 
+number.ul999 <- fit.mean + 3.29 * sqrt((fit.mean*(1-fit.mean)) / (number.seq)) 
+dfCI <- data.frame(number.ll95, number.ul95, number.ll999, number.ul999, number.seq, fit.mean)
+```
+
+### 5.3 Plotting a static funnel plot
+
+I
+
+```{r}
+p <- ggplot(df, 
+       aes(x = Positive, 
+           y = rate)) +
+  geom_point(aes(label=`Sub-district`), 
+             alpha=0.4) +
+  geom_line(data = dfCI, 
+            aes(x = number.seq, 
+                y = number.ll95), 
+            size = 0.4, 
+            colour = "grey40", 
+            linetype = "dashed") +
+  geom_line(data = dfCI, 
+            aes(x = number.seq, 
+                y = number.ul95), 
+            size = 0.4, 
+            colour = "grey40", 
+            linetype = "dashed") +
+  geom_line(data = dfCI, 
+            aes(x = number.seq, 
+                y = number.ll999), 
+            size = 0.4, 
+            colour = "grey40") +
+  geom_line(data = dfCI, 
+            aes(x = number.seq, 
+                y = number.ul999), 
+            size = 0.4, 
+            colour = "grey40") +
+  geom_hline(data = dfCI, 
+             aes(yintercept = fit.mean), 
+             size = 0.4, 
+             colour = "grey40") + 
+    coord_cartesian(ylim=c(0,0.05)) +
+  annotate("text", x = 1, y = -0.13, label = "95%", size = 3, colour = "grey40") + # label 95% CI
+  annotate("text", x = 4.5, y = -0.18, label = "99%", size = 3, colour = "grey40") + # label 99% CI
+  ggtitle("Cumulative Fatality Rate by Cumulative Number of COVID-19 Cases") +
+  xlab("Cumulative Number of COVID-19 Cases") + 
+  ylab("Cumulative Fatality Rate") +
+  theme_light() +
+  theme(plot.title = element_text(size=12),
+        legend.position = c(0.91,0.85), # place legend within the plot area
+        legend.title = element_text(size=7),
+        legend.text = element_text(size=7),
+        legend.background = element_rect(colour = "grey60", linetype = "dotted"),
+        legend.key.height = unit(0.3, "cm"))
+p
+```
+
+### 5.3 Interactive Funnel Plot: plotly + ggplot2
+
+The funnel plot created using ggplot2 functions can be made interactive with `ggplotly()` of **plotly** r package.
+
+
+```{r}
+fp_ggplotly <- ggplotly(p,
+  tooltip = c("label", 
+              "x", 
+              "y"))
+fp_ggplotly
+```
+
+
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Hands-on_Ex04.html")
+```
+
+
+# References
+
+- [*ggparcoord()*](http://ggobi.github.io/ggally/reference/ggparcoord.html) of [**GGally**](http://ggobi.github.io/ggally/index.html) package
+
+- [**parcoords** user guide](https://cran.r-project.org/web/packages/parcoords/parcoords.pdf)
+
+- [**parallelPlot**](https://cran.r-project.org/web/packages/parallelPlot/parallelPlot.pdf)
