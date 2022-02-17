@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # The Task
 
-In this take-home exercise, you are required to apply appropriate data visualisation techniques you had learned in Lesson 3 or Lesson 4 to accomplish either one of the task given below:  
+In this take-home exercise, you are required to apply appropriate data visualisation techniques you had learned in **Lesson 4** or **Lesson 5** to accomplish either one of the task given below:  
 
 1.  Create a data visualisation showing average rating and proportion of cocoa percent (% chocolate) greater than or equal to 70% by top 15 company location.  For the purpose of this task, *chocolate.csv* should be used.
 
@@ -23,7 +23,7 @@ In this take-home exercise, you are required to apply appropriate data visualisa
 Note: 
 
 + All the data files are available in the **Take-home Exercise 3** folder of course eLearn.
-+ For Task 1 or Task 2, refer to Lesson 3: Fundamental of Visual Analytics and for Task 3 refer to Lesson 4: Visual Multivariate Analysis
++ For Task 1 or Task 2, refer to **Lesson 4: Fundamental of Visual Analytics** and for Task 3 refer to **Lesson 5: Visual Multivariate Analysis**.
 
 # Submission Instructions 
 

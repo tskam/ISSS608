@@ -246,6 +246,6 @@ pagedown::chrome_print("Hands-on_Ex04.html")
 
 - [Changing funnel plot options](https://nhs-r-community.github.io/FunnelPlotR/articles/changing_funnel_plot_options.html)
 
-- [ggplot2]() package.
+- [ggplot2](https://ggplot2.tidyverse.org/) package.
 
 
