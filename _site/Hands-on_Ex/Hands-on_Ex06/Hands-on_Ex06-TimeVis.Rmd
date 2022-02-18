@@ -1,0 +1,335 @@
+---
+title: "Hands-on Exercise 6: Visualising and Analysing Time-oriented Data with R"
+subtitle: ""
+author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-2-15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.retina=3,
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+## Learning Outcome
+
+.vlarge[
+In this hands-on exercise, you will gain hands-on experience on:
+
++ plotting a calender heatmap by using ggplot2 functions,
+
++ plotting a cycle plot by using ggplot2 function, 
+
++ plotting a horizon chart
+]
+
+---
+## Getting Started
+
+.pull-left[
+Write a code chunk to check, install and launch the following R packages:
++ 'scales', 
++ 'viridis', 
++ 'lubridate', 
++ 'ggthemes', 
++ 'gridExtra',
++ 'tidyverse', 
++ 'readxl', 
++ 'knitr',
++ data.table]
+
+--
+.pull-right[
+The solution:
+
+```{r}
+packages = c('scales', 'viridis', 
+             'lubridate', 'ggthemes', 
+             'gridExtra', 'tidyverse', 
+             'readxl', 'knitr',
+             'data.table')
+
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p,character.only = T)
+}
+```
+]
+
+---
+## Calendar Heatmap
+
+.pull-left[
+In this section, you will learn how to create a calender heatmap using ggplot2 function.  For the purpose of this hands-on exercise, *eventlog.csv* file will be used.
+
+--
+### Importing Data
+
+First, you will use the code chunk below to import ***eventlog.csv*** file into R environment and called the data frame as ***attacks***. 
+
+```{r}
+attacks <- read_csv("data/eventlog.csv")
+```
+]
+
+---
+### Examining the data structure 
+
+.pull-left[
+It is always a good practice to examine the imported data frame before further analysis is performed.
+
+For example, *kable()* can be used to review the structure of the imported data frame.
+
+```{r eval=FALSE}
+kable(head(attacks))
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+kable(head(attacks))
+```
+]
+
+---
+### Deriving the *day of the week* and *hour of the day* variables 
+
+A quick exploratory data analysis on this attacker data is what were the "working hours" by country, and we can visualize this with a calendar heatmap. To create the heatmap, we'll need the weekday and hour of each event, or as granular as you want to get.
+
+The function below converts each time with the appropriate timezone, the timezone parameter, tz, only takes a single value, then extract its weekdays and hour
+
+```{r, echo=TRUE}
+make_hr_wkday <- function(ts, sc, tz) {
+  real_times <- ymd_hms(ts, 
+                        tz = tz[1], 
+                        quiet = TRUE)
+  dt <- data.table(source_country = sc,
+                   wkday = weekdays(real_times),
+                   hour = hour(real_times))
+  return(dt)
+  }
+```
+
+
+---
+##  Converting weekday and hour into factor so they'll be ordered when plotting
+
+```{r}
+wkday_levels <- c('Sunday', 'Monday', 
+                  'Tuesday', 'Wednesday', 
+                  'Thursday', 'Friday', 
+                  'Saturday')
+
+attacks <- attacks %>%
+  group_by(tz) %>%
+  do(make_hr_wkday(.$timestamp, 
+                   .$source_country, 
+                   .$tz ) ) %>% 
+  ungroup() %>% 
+  mutate(wkday = factor(wkday, 
+                        levels = wkday_levels),
+         hour  = factor(hour, 
+                        levels = 0:23))
+```
+
+---
+## The tidy data
+
+.pull-left[
+```{r echo=FALSE}
+kable(head(attacks))
+```
+]
+
+---
+## The Calendar Heatmaps
+
+.pull-left[
+
+```{r eval=FALSE}
+grouped <- attacks %>% 
+  count(wkday, hour) %>% 
+  ungroup()
+
+ggplot(grouped, 
+       aes(hour, 
+           wkday, 
+           fill = n)) + 
+geom_tile(color = "white", 
+          size = 0.1) + 
+theme_tufte(base_family = "Helvetica") + 
+coord_equal() + 
+scale_fill_viridis(name = "# of Events", 
+                   label = comma) + 
+labs(x = NULL, 
+     y = NULL, 
+     title = "Events per day of week & time of day") +
+theme(axis.ticks = element_blank(),
+      plot.title = element_text(hjust = 0.5),
+      legend.title = element_text(size = 8),
+      legend.text = element_text(size = 6) )
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+grouped <- attacks %>% 
+  count(wkday, hour) %>% 
+  ungroup()
+
+ggplot(grouped, 
+       aes(hour, 
+           wkday, 
+           fill = n)) + 
+geom_tile(color = "white", 
+          size = 0.1) + 
+theme_tufte(base_family = "Helvetica") + 
+coord_equal() + 
+scale_fill_viridis(name = "# of Events", 
+                   label = comma) + 
+labs(x = NULL, 
+     y = NULL, 
+     title = "Events per weekday & time of day") +
+theme( axis.ticks = element_blank(),
+       plot.title = element_text(hjust = 0.5),
+       legend.title = element_text(size = 8),
+       legend.text = element_text(size = 6) )
+```
+]
+
+???
+Then we can simply group the count by hour and wkday and plot it, since we know that we have values for every combination there's no need to further preprocess the data.
+
+---
+## Cycle Plot
+
+In this session, you will learn how to create a cycle plot using ggplot2 function.  For the purpose of this hands-on exercise, *arrivals_by_air.xlsx* will be used.  
+
+--
+.pull-left[
+### Data Import
+
+The code chunk below imports *arrivals_by_air.xlsx* by using `read_excel()` of **readxl** packag and save it as a tibble data frame called *air*.  
+
+```{r}
+air <- read_excel("data/arrivals_by_air.xlsx")
+```
+]
+
+--
+.pull-right[
+### Deriving month and year fields
+
+Next, two new fields called *month* and *year* are derived from *Month-Year* field.
+
+```{r}
+air$month <- factor(month(air$`Month-Year`), 
+                    levels=1:12, 
+                    labels=month.abb, 
+                    ordered=TRUE) 
+air$year <- year(ymd(air$`Month-Year`))
+```
+]
+
+---
+### Extracting the target country
+
+.pull-left[
+Next, the code chunk below is use the necessary data
+
+```{r}
+New_Zealand <- air %>% 
+  select(`New Zealand`, 
+         month, 
+         year) %>%
+  filter(year >= 2010)
+```
+]
+
+---
+### Computing year average arrivals by month
+
+.pull-left[
+The code chunk below uses `group-by()` and `summarise()` of **dplyr** to compute year average arrivals by month.
+
+```{r}
+hline.data <- New_Zealand %>% 
+  group_by(month) %>%
+  summarise(avgvalue = mean(`New Zealand`))
+```
+]
+
+---
+### Plotting the cycle plot
+
+.pull-left[
+The code chunk below is used to plot the cycle plot.
+
+```{r eval=FALSE}
+ggplot() + 
+  geom_line(data=New_Zealand,
+            aes(x=year, 
+                y=`New Zealand`, 
+                group=month), 
+            colour="black") +
+  geom_hline(aes(yintercept=avgvalue), 
+             data=hline.data, 
+             linetype=6, 
+             colour="red", 
+             size=0.5) + 
+  facet_grid(~month) +
+  labs(axis.text.x = element_blank()) +
+  xlab("") +
+  ylab("No. of Visitors")
+```
+]
+
+---
+### The cycle plot
+
+```{r echo=FALSE, fig.width = 15}
+ggplot() + 
+  geom_line(data=New_Zealand,
+            aes(x=year, 
+                y=`New Zealand`, 
+                group=month), 
+            colour="black") +
+  geom_hline(aes(yintercept=avgvalue), 
+             data=hline.data, 
+             linetype=6, 
+             colour="red", 
+             size=0.5) + 
+  facet_grid(~month) +
+  labs(axis.text.x = element_blank()) +
+  xlab("") +
+  ylab("No. of Visitors")
+```
+
+

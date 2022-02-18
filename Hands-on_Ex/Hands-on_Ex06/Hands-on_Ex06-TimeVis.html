@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Exercise 6: Visualising and Analysing Time-oriented Data with R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Exercise 6: Visualising and Analysing Time-oriented Data with R
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2020-2-15 (updated: 2022-02-18)
+
+---
+
+
+
+
+
+
+## Learning Outcome
+
+.vlarge[
+In this hands-on exercise, you will gain hands-on experience on:
+
++ plotting a calender heatmap by using ggplot2 functions,
+
++ plotting a cycle plot by using ggplot2 function, 
+
++ plotting a horizon chart
+]
+
+---
+## Getting Started
+
+.pull-left[
+Write a code chunk to check, install and launch the following R packages:
++ 'scales', 
++ 'viridis', 
++ 'lubridate', 
++ 'ggthemes', 
++ 'gridExtra',
++ 'tidyverse', 
++ 'readxl', 
++ 'knitr',
++ data.table]
+
+--
+.pull-right[
+The solution:
+
+
+```r
+packages = c('scales', 'viridis', 
+             'lubridate', 'ggthemes', 
+             'gridExtra', 'tidyverse', 
+             'readxl', 'knitr',
+             'data.table')
+
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p,character.only = T)
+}
+```
+]
+
+---
+## Calendar Heatmap
+
+.pull-left[
+In this section, you will learn how to create a calender heatmap using ggplot2 function.  For the purpose of this hands-on exercise, *eventlog.csv* file will be used.
+
+--
+### Importing Data
+
+First, you will use the code chunk below to import ***eventlog.csv*** file into R environment and called the data frame as ***attacks***. 
+
+
+```r
+attacks &lt;- read_csv("data/eventlog.csv")
+```
+]
+
+---
+### Examining the data structure 
+
+.pull-left[
+It is always a good practice to examine the imported data frame before further analysis is performed.
+
+For example, *kable()* can be used to review the structure of the imported data frame.
+
+
+```r
+kable(head(attacks))
+```
+]
+
+.pull-right[
+
+|timestamp           |source_country |tz              |
+|:-------------------|:--------------|:---------------|
+|2015-03-12 15:59:16 |CN             |Asia/Shanghai   |
+|2015-03-12 16:00:48 |FR             |Europe/Paris    |
+|2015-03-12 16:02:26 |CN             |Asia/Shanghai   |
+|2015-03-12 16:02:38 |US             |America/Chicago |
+|2015-03-12 16:03:22 |CN             |Asia/Shanghai   |
+|2015-03-12 16:03:45 |CN             |Asia/Shanghai   |
+]
+
+---
+### Deriving the *day of the week* and *hour of the day* variables 
+
+A quick exploratory data analysis on this attacker data is what were the "working hours" by country, and we can visualize this with a calendar heatmap. To create the heatmap, we'll need the weekday and hour of each event, or as granular as you want to get.
+
+The function below converts each time with the appropriate timezone, the timezone parameter, tz, only takes a single value, then extract its weekdays and hour
+
+
+```r
+make_hr_wkday &lt;- function(ts, sc, tz) {
+  real_times &lt;- ymd_hms(ts, 
+                        tz = tz[1], 
+                        quiet = TRUE)
+  dt &lt;- data.table(source_country = sc,
+                   wkday = weekdays(real_times),
+                   hour = hour(real_times))
+  return(dt)
+  }
+```
+
+
+---
+##  Converting weekday and hour into factor so they'll be ordered when plotting
+
+
+```r
+wkday_levels &lt;- c('Sunday', 'Monday', 
+                  'Tuesday', 'Wednesday', 
+                  'Thursday', 'Friday', 
+                  'Saturday')
+
+attacks &lt;- attacks %&gt;%
+  group_by(tz) %&gt;%
+  do(make_hr_wkday(.$timestamp, 
+                   .$source_country, 
+                   .$tz ) ) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(wkday = factor(wkday, 
+                        levels = wkday_levels),
+         hour  = factor(hour, 
+                        levels = 0:23))
+```
+
+---
+## The tidy data
+
+.pull-left[
+
+|tz           |source_country |wkday    |hour |
+|:------------|:--------------|:--------|:----|
+|Africa/Cairo |BG             |Saturday |20   |
+|Africa/Cairo |TW             |Sunday   |6    |
+|Africa/Cairo |TW             |Sunday   |8    |
+|Africa/Cairo |CN             |Sunday   |11   |
+|Africa/Cairo |US             |Sunday   |15   |
+|Africa/Cairo |CA             |Monday   |11   |
+]
+
+---
+## The Calendar Heatmaps
+
+.pull-left[
+
+
+```r
+grouped &lt;- attacks %&gt;% 
+  count(wkday, hour) %&gt;% 
+  ungroup()
+
+ggplot(grouped, 
+       aes(hour, 
+           wkday, 
+           fill = n)) + 
+geom_tile(color = "white", 
+          size = 0.1) + 
+theme_tufte(base_family = "Helvetica") + 
+coord_equal() + 
+scale_fill_viridis(name = "# of Events", 
+                   label = comma) + 
+labs(x = NULL, 
+     y = NULL, 
+     title = "Events per day of week &amp; time of day") +
+theme(axis.ticks = element_blank(),
+      plot.title = element_text(hjust = 0.5),
+      legend.title = element_text(size = 8),
+      legend.text = element_text(size = 6) )
+```
+]
+
+.pull-right[
+
+&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-9-1.png" width="504" /&gt;
+]
+
+???
+Then we can simply group the count by hour and wkday and plot it, since we know that we have values for every combination there's no need to further preprocess the data.
+
+---
+## Cycle Plot
+
+In this session, you will learn how to create a cycle plot using ggplot2 function.  For the purpose of this hands-on exercise, *arrivals_by_air.xlsx* will be used.  
+
+--
+.pull-left[
+### Data Import
+
+The code chunk below imports *arrivals_by_air.xlsx* by using `read_excel()` of **readxl** packag and save it as a tibble data frame called *air*.  
+
+
+```r
+air &lt;- read_excel("data/arrivals_by_air.xlsx")
+```
+]
+
+--
+.pull-right[
+### Deriving month and year fields
+
+Next, two new fields called *month* and *year* are derived from *Month-Year* field.
+
+
+```r
+air$month &lt;- factor(month(air$`Month-Year`), 
+                    levels=1:12, 
+                    labels=month.abb, 
+                    ordered=TRUE) 
+air$year &lt;- year(ymd(air$`Month-Year`))
+```
+]
+
+---
+### Extracting the target country
+
+.pull-left[
+Next, the code chunk below is use the necessary data
+
+
+```r
+New_Zealand &lt;- air %&gt;% 
+  select(`New Zealand`, 
+         month, 
+         year) %&gt;%
+  filter(year &gt;= 2010)
+```
+]
+
+---
+### Computing year average arrivals by month
+
+.pull-left[
+The code chunk below uses `group-by()` and `summarise()` of **dplyr** to compute year average arrivals by month.
+
+
+```r
+hline.data &lt;- New_Zealand %&gt;% 
+  group_by(month) %&gt;%
+  summarise(avgvalue = mean(`New Zealand`))
+```
+]
+
+---
+### Plotting the cycle plot
+
+.pull-left[
+The code chunk below is used to plot the cycle plot.
+
+
+```r
+ggplot() + 
+  geom_line(data=New_Zealand,
+            aes(x=year, 
+                y=`New Zealand`, 
+                group=month), 
+            colour="black") +
+  geom_hline(aes(yintercept=avgvalue), 
+             data=hline.data, 
+             linetype=6, 
+             colour="red", 
+             size=0.5) + 
+  facet_grid(~month) +
+  labs(axis.text.x = element_blank()) +
+  xlab("") +
+  ylab("No. of Visitors")
+```
+]
+
+---
+### The cycle plot
+
+&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-15-1.png" width="1080" /&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
