@@ -1,0 +1,307 @@
+XCOORD,YCOORD,NAME,ADDRESS,OUTLET_TYPE,Gp1Gp2Win
+103.846879,1.28351522,Kis Store,18 Cross Street Marsh & McLennan Centre #B1-01   Singapore 048423,Outlet,47
+103.849282,1.28289703,Singapore Turf Club China Square,51 Telok Ayer Street   Singapore 048441,Outlet,1
+103.852059,1.28361982,Tay Sui Lan Agency,11 Collyer Quay The Arcade #02-13   Singapore 049317,Outlet,59
+103.849243,1.28606825,7-Eleven Circular Rd,58 Circular Rd #01-01   Singapore 049413,Outlet,12
+103.846433,1.28497694,Feng Yuen Agency Enterprise,150 South Bridge Rd Fook Hai Building #B1-26   Singapore 058727,Outlet,29
+103.84333,1.28294317,Vitatron & Medical Co,60 Smith St   Singapore 058963,Outlet,28
+103.842585,1.28412863,Oversea Emporium (Pte) Ltd,1 Park Rd People's Park Complex #02-70   Singapore 059108,Outlet,20
+103.843181,1.28474568,Singapore Turf Club Majestic,80 Eu Tong Sen Street   Singapore 059810,Outlet,0
+103.84066,1.28170809,Subramaniam Store,100 Eu Tong Sen St Pearl's Centre #01-30   Singapore 059812,Outlet,23
+103.840692,1.28153754,Singapore Turf Club Pearl Centre,100A Eu Tong Sen St Pearls Centre #04-01 / #05-00   Singapore 059813,Outlet,0
+103.847576,1.2796854,7-Eleven McCallum Street,3 McCallum Street   Singapore 069044,Outlet,14
+103.845165,1.28121771,7-Eleven Erskine Road,7 Erskine Rd   Singapore 069320,Outlet,15
+103.845955,1.27585667,Singapore Turf Club International Plaza,10 Anson Rd International Plaza #03-13/26   Singapore 079903,Outlet,12
+103.843006,1.27623808,NTUC FP Tanjong Pagar,Blk 5 Tanjong Pagar Rd Tanjong Pagar Plaza #01-01   Singapore 081005,Outlet,48
+103.825878,1.27446978,Lucky Hill,Blk 112 Bukit Purmei Rd #01-209   Singapore 090112,Outlet,16
+103.820228,1.26423843,NTUC FP - CHEERS HARBOURFRONT,1 Maritime Square Harbourfront Centre #01-82   Singapore 099253,Outlet,32
+103.812005,1.27570676,Goh Geok Kwee Agency,Blk 61 Telok Blangah Heights #01-107   Singapore 100061,Outlet,14
+103.810298,1.28096681,Everbright Services,Blk 108 Depot Rd #01-17   Singapore 100108,Outlet,15
+103.808981,1.2733807,NTUC FP Telok Blangah,Blk 78A Telok Blangah St 32 #01-01   Singapore 101078,Outlet,24
+103.770595,1.32189102,7-Eleven Clementi Street 11,Blk 109 Clementi St 11 #01-15   Singapore 120109,Outlet,11
+103.771361,1.31427266,NTUC FP Clementi Ave 2,Blk 352 Clementi Ave 2 #01-141/143   Singapore 120352,Outlet,34
+103.76568,1.31264809,NTUC FP Clementi Ave 3,Blk 451 Clementi Ave 3 #01-307   Singapore 120451,Outlet,25
+103.758864,1.31127874,OCN (Singapore) Pte Ltd,Blk 501 West Coast Dr #01-266   Singapore 120501,Outlet,27
+103.762107,1.30836936,Sheng Moh Fruits & Prov Store,29 Jln Mas Puteh   Singapore 128632,Outlet,31
+103.78455,1.30735354,Chuan Hao Dept Store,Blk 19A Dover Crescent #01-04   Singapore 131019,Outlet,12
+103.797359,1.30042715,Chua Yan Kee,Blk 49 Tanglin Halt Rd #01-349   Singapore 142049,Outlet,21
+103.810972,1.29270253,NTUC FP Dawson,Blk 57 Dawson Road #01-07 Dawson Place   Singapore 142057,Outlet,8
+103.808256,1.28648818,Keppel Credit Union Co-operative Ltd,Blk 1 Jln Bukit Merah #01-4536   Singapore 150001,Outlet,10
+103.804019,1.28685131,Thiam Hoon Traders,Blk 123 Bukit Merah Lane 1 #01-110   Singapore 150123,Outlet,32
+103.81769,1.28315093,NTUC FP Bukit Merah,Blk 166 Bukit Merah Central #01-3527   Singapore 150166,Outlet,30
+103.818881,1.28331071,Singapore Turf Club Bukit Merah,Blk169 Jalan Bukit Merah #01-20   Singapore 150169,Outlet,3
+103.82153,1.28513503,Seah Koon Huat,Blk 116 Bukit Merah View #01-233   Singapore 151116,Outlet,36
+103.826803,1.28976475,NTUC FP Havelock Rd,Blk 50 Havelock Rd #01-755   Singapore 160050,Outlet,16
+103.832505,1.28424366,Ong Eng Siang Trading,Blk 71 Seng Poh Rd #01-43   Singapore 160071,Outlet,26
+103.827401,1.27955058,Papillon Florist Pte Ltd,Blk 133 Jln Bukit Merah #01-1520   Singapore 160133,Outlet,13
+103.827351,1.28613037,NTUC FP Tiong Bahru Plaza,302 Tiong Bahru Rd Tiong Bahru Plaza #B1-01/02   Singapore 168732,Outlet,29
+103.829279,1.28508692,7-Eleven Kim Tian,8 Kim Tian Rd   Singapore 169247,Outlet,13
+103.850803,1.29232339,Precise Optics,111 North Bridge Rd Peninsula Plaza #02-42   Singapore 179098,Outlet,35
+103.857782,1.30191294,Wong Teck Chow Enterprise Pte Ltd,390 Victoria St Golden Landmark Shopping Centre #01-33   Singapore 188061,Outlet,13
+103.854495,1.30145299,Delisia Agency Pte Ltd,149 Rochor Rd Fu Lu Shou Complex #B1-26   Singapore 188425,Outlet,52
+103.861413,1.30362436,Kwek Lee Eng Agency,200 Jln Sultan Textile Centre #01-29   Singapore 199018,Outlet,30
+103.865284,1.30285776,Pinthely Floral Centre,5001 Beach Road #02-35 Golden Mile Complex   Singapore 199588,Outlet,28
+103.854889,1.30731535,Hin Teck Leong Trading Co,Blk 640 Rowell Rd #01-68   Singapore 200640,Outlet,17
+103.857736,1.30830215,Teo Khar Bee Agency,87 Maude Rd #01-01   Singapore 208358,Outlet,23
+103.859959,1.31272278,7-Eleven Foch Road,27 Foch Rd Hoa Nam Building #01-07/08   Singapore 209264,Outlet,10
+103.850822,1.31559747,7-Eleven Owen Road,Blk 45 Owen Rd #01-295   Singapore 210045,Outlet,23
+103.855144,1.31253699,Singapore Turf Club Rangoon,Blk 677 Rangoon Rd #02-00   Singapore 210677,Outlet,3
+103.855259,1.31370645,Rangoon Provision Shop,681 Race Course Road #01-309   Singapore 210681,Outlet,21
+103.840726,1.30200263,Cheng Tai Boon Beng,5 Koek Rd Cuppage Plaza #B1-22   Singapore 228796,Outlet,17
+103.845067,1.30082072,7-Eleven Plaza Singapura,68 Orchard Rd Plaza Singapura #01-51   Singapore 238839,Outlet,15
+103.834005,1.30446379,Ram's Shop 1996,304 Orchard Rd Lucky Plaza #B1-119   Singapore 238863,Outlet,45
+103.829116,1.30699671,Uni-Foto Pte Ltd,400 Orchard Rd Orchard Towers #B1-11   Singapore 238875,Outlet,24
+103.838534,1.29727531,NTUC FP Killiney Rd,131 Killiney Rd CGH Building #01-01/02/03   Singapore 239571,Outlet,13
+103.842601,1.29216466,Cold Storage UE Square,81 Clemenceau Ave UE Square #02-18   Singapore 239917,Outlet,6
+103.810002,1.3238337,NTUC FP Coronation,587 Bukit Timah Rd Coronation Shopping Plaza #01-01   Singapore 269707,Outlet,23
+103.792388,1.30855291,Singapore Turf Club Holland Drive,Blk 47 Holland Drive #01-385   Singapore 270047,Outlet,5
+103.7951,1.33110793,7-Eleven Sixth Avenue,6 Sixth Ave   Singapore 276472,Outlet,25
+103.793772,1.33765069,7-Eleven Turf City,200 Turf Club Rd Turf City #01-49/50   Singapore 287994,Outlet,11
+103.84418,1.32066697,NTUC FP Square 2,10 Sinaran Dr Square 2 #04-47/48/49   Singapore 307506,Outlet,25
+103.85755,1.33523423,Chong Hoe Tong,Blk 21 Lor 7 Toa Payoh #01-290   Singapore 310021,Outlet,23
+103.85242,1.33443253,Yeo Soon Huat,Blk 70 Lor 4 Toa Payoh #01-347   Singapore 310070,Outlet,17
+103.848984,1.33888334,Evercool Engineering,Blk 95 Lor 4 Toa Payoh #01-50   Singapore 310095,Outlet,23
+103.850483,1.33166183,NTUC FP Toa Payoh,Blk 192 Lor 4 Toa Payoh #02-674   Singapore 310192,Outlet,25
+103.857935,1.33858938,A P Mini Mart,Blk 234 Lor 8 Toa Payoh #01-286   Singapore 310234,Outlet,17
+103.847068,1.33301368,NTUC FP Toa Payoh HDB Centre,Blk 500 Lor 6 Toa Payoh HDB Centre #01-33   Singapore 310500,Outlet,34
+103.851566,1.33028647,Balestier Khalsa Football Club,297 Lor 6 Toa Payoh Toa Payoh Stadium   Singapore 319389,Outlet,9
+103.857769,1.32470588,Chwee Huat Trading,Blk 74 Whampoa Dr #01-322   Singapore 320074,Outlet,7
+103.851308,1.32485173,NTUC FP Shaw Plaza,360 Balestier Rd Shaw Plaza #B1-01   Singapore 329783,Outlet,20
+103.862313,1.31861288,Tan Wee Fong Trading,Blk 24 Bendemeer Rd #01-529   Singapore 330024,Outlet,39
+103.87039,1.32099294,NTUC FP Kallang Bahru,Blk 71 Kallang Bahru #01-529   Singapore 330071,Outlet,26
+103.872582,1.32886992,FairPrice Xpress MacPherson,"114 MacPherson Rd, Exxon-Mobil   Singapore 348504",Outlet,14
+103.866015,1.33383296,B.H. Mini Mart,Blk 137 Potong Pasir Ave 3 #01-142   Singapore 350137,Outlet,15
+103.885527,1.33155135,Chop Yeo Thong Heng,Blk 83 MacPherson Lane #01-249   Singapore 360083,Outlet,12
+103.871647,1.31545272,Lim Heng Ee,Blk 16 Upp Boon Keng Rd #01-1113   Singapore 380016,Outlet,18
+103.880072,1.31783079,Wanrise,Blk 53 Sims Place #01-172   Singapore 380053,Outlet,37
+103.886335,1.31920343,Li Thoe Trading,Blk 119 Aljunied Ave 2 #01-78   Singapore 380119,Outlet,44
+103.887422,1.31431433,Lee Wah TV & Electric Co,623 Geylang Rd   Singapore 389561,Outlet,32
+103.901952,1.33066596,Ng Teo Guan Self Service,Blk 301 Ubi Ave 1 #01-251   Singapore 400301,Outlet,48
+103.902726,1.32128818,7-Eleven Eunos,Blk 1A Eunos Crescent #01-2469/2471   Singapore 401001,Outlet,42
+103.89494,1.31894037,NTUC FP Singapore Post Centre,10 Eunos Rd 8 Singapore Post Centre #B2-13   Singapore 408600,Outlet,10
+103.89494,1.31894037,Singapore Turf Club Singapore Post Centre,10 Eunos Road 8 #03-01 Singapore Post Centre   Singapore 408600,Outlet,0
+103.893477,1.31480227,Vijaya Darshana Agency,810 Geylang Rd City Plaza #01-58/59   Singapore 409286,Outlet,24
+103.898827,1.3162075,7-Eleven Changi,38-A Changi Rd   Singapore 419701,Outlet,17
+103.904387,1.30644697,TST Medical Hall,448 Joo Chiat Rd   Singapore 427661,Outlet,28
+103.896129,1.31560417,Cheers Haig Rd,Blk 12 Haig Rd #01-333/335   Singapore 430012,Outlet,11
+103.901162,1.30379813,Whampoa Tat Lee Trading,865 Mountbatten Rd Katong Shopping Centre #01-26   Singapore 437844,Outlet,14
+103.915375,1.3056048,Tan Boon Tin Agency,Blk 56 Marine Terrace #01-253   Singapore 440056,Outlet,20
+103.905282,1.30108003,Cold Storage Parkway Parade,80 Marine Parade Rd Parkway Parade #B1-84   Singapore 449269,Outlet,16
+103.907177,1.30133747,NTUC FP Marine Parade,6 Marine Parade Central   Singapore 449411,Outlet,41
+103.914496,1.31907962,Cheng Chew Wah Agency,20 Frankel Terrace   Singapore 458022,Outlet,19
+103.935564,1.32014904,Yeo Kean Fatt Dept Store,Blk 17 Bedok South Rd #01-583   Singapore 460017,Outlet,20
+103.943971,1.31983786,Hock Soon Ann,Block 73 Bedok South Ave 3 #01-454   Singapore 460073,Outlet,6
+103.938221,1.33295684,NTUC FP Bedok North St 4,Blk 89 Bedok North St 4 #01-77/79   Singapore 460089,Outlet,29
+103.937347,1.32919472,7-Eleven Bedok North,Blk 123 Bedok North St 2 #01-158   Singapore 460123,Outlet,15
+103.931635,1.3259232,NTUC FP Bedok North St 1,Blk 212 Bedok North St 1 #01-147   Singapore 460212,Outlet,37
+103.933485,1.32605925,Singapore Turf Club Bedok Centre,Blk 215 Bedok North St 1 #02-87   Singapore 460215,Outlet,2
+103.930682,1.32839985,Choice Decor Bedok North,Blk 416 Bedok North Ave 2 #01-31   Singapore 460416,Outlet,12
+103.925308,1.33131111,Cheers Bedok North,Blk 539 Bedok North St 3 #01-625   Singapore 460539,Outlet,23
+103.924146,1.32328851,Prime Chai Chee,25A Chai Chee Rd #01-459   Singapore 461025,Outlet,12
+103.941572,1.32425201,NTUC FP New Upper Changi,Blk 57 New Upp Changi Rd #01-1334/1338   Singapore 461057,Outlet,31
+103.940696,1.32405899,Cheers New Upper Changi Road,Blk 59 New Upp Changi Rd #01-1272   Singapore 461059,Outlet,16
+103.947268,1.33127234,Chua Seng Dept Store,343 Bedok Rd   Singapore 469526,Outlet,30
+103.938858,1.32604714,Geylang United Football Club,"1 Bedok North Street 2, Bedok Stadium Gate 3,   Singapore 469642",Outlet,15
+103.914146,1.33205053,Xie Sheng Dept Service Co,Blk 632 Bedok Reservoir Rd #01-820   Singapore 470632,Outlet,30
+103.922279,1.337744,Nel's Store,Blk 741 Bedok Reservoir Rd #01-3073   Singapore 470741,Outlet,27
+103.963887,1.33482755,NTUC FP Changi Business Park Hypermarket,8 Changi Business Park Ave 1 #01-51 & #02-51   Singapore 486018,Outlet,0
+103.987663,1.38886915,Cheers Changi Village,Blk 4 Changi Village Rd #01-2074   Singapore 500004,Outlet,40
+103.957952,1.36893289,Laura's Gifts,Blk 442 Pasir Ris Dr 6 #01-42   Singapore 510442,Outlet,28
+103.941989,1.37857026,Chng Siow Eng Agency,Blk 625 Elias Rd Elias Mall #01-316   Singapore 510625,Outlet,26
+103.949801,1.3725194,NTUC FP Pasir Ris White Sands,1 Pasir Ris Central St 3 White Sands #B1-10   Singapore 518457,Outlet,26
+103.954282,1.3775994,NTUC FP Downtown East,1 Pasir Ris Close #E02-03 E ! Hub   Singapore 519599,Outlet,8
+103.953126,1.36032332,NTUC FP Tampines St 44,Blk 475 Tampines St 44 #01-145   Singapore 520475,Outlet,23
+103.945109,1.35580573,Jake Merchandise Associates,Blk 503 Tampines Central 1 #01-283   Singapore 520503,Outlet,32
+103.932711,1.34904075,Tampines Rovers Football Club,Blk 824 Tampines St 81 #01-14   Singapore 520824,Outlet,29
+103.934831,1.3488295,Tampines Trading,Blk 828 Tampines St 81 #01-234   Singapore 520828,Outlet,45
+103.948129,1.34836437,NTUC FP Tampines St 11,Blk 107 Tampines St 11 #01-353/359   Singapore 521107,Outlet,23
+103.944285,1.34607675,Mee Lee Cheong Pte Ltd,Blk 139 Tampines St 11 #01-32   Singapore 521139,Outlet,40
+103.934429,1.35539306,NTUC FP Tampines Street 83,Blk 866A #01-K1 Tampines St 83   Singapore 521866,Outlet,10
+103.953024,1.35343545,Lee Eng Trading Store,Blk 201B Tampines St 21 #01-1083   Singapore 522201,Outlet,44
+103.953543,1.34254833,NTUC FP Eastpoint Mall,3 Simei St 6 Eastpoint Mall #B1-04   Singapore 528833,Outlet,32
+103.943785,1.35236113,NTUC FP Century Square,"NTUC FP Century Square, 2 Tampines Central 5 #B1-07/08/17   Singapore 529509",Outlet,1
+103.944696,1.35258025,NTUC FP Tampines Mall,4 Tampines Central 5 Tampines Mall #B1-12   Singapore 529510,Outlet,35
+103.893508,1.36233044,Fatt Chye Heng Trading,Blk 7 Hougang Ave 3 #01-48   Singapore 530007,Outlet,41
+103.89073,1.36485921,Cheers Hougang Ave 3,Blk 23 Hougang Ave 3 #01-281   Singapore 530023,Outlet,5
+103.886259,1.35338732,Tan Kai Huat Provision Shop,Blk 123 Hougang Ave 1 #01-1408   Singapore 530123,Outlet,17
+103.884038,1.35757558,NTUC FP Hougang St 21,Blk 202 Hougang St 21 #01-00   Singapore 530202,Outlet,19
+103.885947,1.37502592,Tong Aik Huat,Blk 685 Hougang St 61 #01-160   Singapore 530685,Outlet,44
+103.893647,1.37160444,Cheers - Hougang Central,Blk 810 Hougang Central #01-214   Singapore 530810,Outlet,22
+103.879333,1.38082899,Shop N Save Buangkok Cresent,Blk 982 Buangkok Cresent #01-01   Singapore 530982,Outlet,9
+103.886432,1.33843716,Nalayanee Trading Enterprise,127 Upp Paya Lebar Rd   Singapore 534839,Outlet,23
+103.87945,1.37566728,NTUC FP Hougang Point,1 Hougang St 91 Hougang Point Central Place #02- 01   Singapore 538692,Outlet,24
+103.887847,1.37931783,Dawn Florist,21 Hougang St 51 Hougang Green Shopping Mall #01-04A   Singapore 538719,Outlet,25
+103.893788,1.37248309,NTUC FP Hougang Mall,90 Hougang Ave 10 NTUC Hougang Mall #B1-07   Singapore 538766,Outlet,32
+103.88596,1.36949729,Hougang United Football Club,100 Hougang Ave 2 Hougang Stadium   Singapore 538856,Outlet,16
+103.901981,1.38544135,Seah Geok Eng Agency,Blk 118 Rivervale Dr Rivervale Plaza #01-15   Singapore 540118,Outlet,42
+103.895957,1.39484838,Prime Compassvale St,Blk 263 Compassvale St #01-01   Singapore 540263,Outlet,15
+103.897071,1.38192135,Shop N Save Compassvale Bow,Blk 266 Compassvale Bow #01-02   Singapore 540266,Outlet,12
+103.895064,1.39205431,Cold Storage Compass Point,1 Seng Kang Square #B1-38 Compass Point Shopping Centre   Singapore 545078,Outlet,21
+103.904473,1.39221733,NTUC FP Rivervale Mall,11 Rivervale Crescent Rivervale Mall #03-01   Singapore 545082,Outlet,24
+103.873366,1.35633276,Kiamly Trading,Blk 211 Serangoon Ave 4 #01-06   Singapore 550211,Outlet,5
+103.869978,1.35366189,Chua Hong Kim Trading,Blk 237 Serangoon Ave 3 #01-106   Singapore 550237,Outlet,31
+103.870961,1.35317171,Singapore Turf Club Serangoon Ave 3,Blk 267 Serangoon Ave 3 #02-01 & #03-02   Singapore 550267,Outlet,4
+103.873036,1.36979942,NTUC FP Serangoon North,Blk 152B Serangoon North Ave 1 #01-384   Singapore 552152,Outlet,27
+103.872929,1.35031308,NTUC FP Serangoon Central Hypermart,23 Serangoon Central #03-42 NEX   Singapore 556083,Outlet,12
+103.866024,1.36469241,Gerk Chwee Trading,4 Kensington Park Rd   Singapore 557256,Outlet,31
+103.839713,1.37456825,Tuck Lee Long,Blk 159 Ang Mo Kio Ave 4 #01-536   Singapore 560159,Outlet,31
+103.848919,1.36382298,Seng Yeok Chan Agency,Blk 338 Ang Mo Kio Ave 1 #01-1657   Singapore 560338,Outlet,33
+103.854588,1.3620913,Springdale Garments Co,Blk 408 Ang Mo Kio Ave 10 #01-795   Singapore 560408,Outlet,33
+103.85459,1.37381205,Clifford Gift Shop,Blk 532 Ang Mo Kio Ave 10 #01-2459   Singapore 560532,Outlet,42
+103.856383,1.37061246,Premier Security Cooperative Society Ltd,Blk 574 Ang Mo Kio Ave 10 #01-1823   Singapore 560574,Outlet,11
+103.847156,1.36929795,7-Eleven Big Mac Centre,51 Ang Mo Kio Ave 3 Big Mac Centre #01-01A   Singapore 569922,Outlet,18
+103.848411,1.36918418,NTUC FP Ang Mo Kio Hypermarket,53 Ang Mo Kio Ave 3 Ang Mo Kio Hub #B2-26   Singapore 569933,Outlet,32
+103.839173,1.35696633,Choice Decor Co-Operative Society Ltd,Blk 22 Sin Ming Rd #01-232   Singapore 570022,Outlet,21
+103.849692,1.34888848,NTUC FP Bishan St 13,Blk 510 Bishan St 13 #01-520   Singapore 570510,Outlet,26
+103.849548,1.34930259,Nan Huat Wine Store,Blk 513 Bishan St 13 #01-508   Singapore 570513,Outlet,40
+103.834629,1.35346233,7-Eleven Sin Ming,244H Upp Thomson Rd   Singapore 574369,Outlet,17
+103.830945,1.35465019,NTUC FP Thomson Plaza,301 Upp Thomson Rd Thomson Plaza #03-25/31   Singapore 574408,Outlet,24
+103.829255,1.37157994,7-Eleven Jln Leban,14 Jln Leban Sembawang Hill Estates   Singapore 577553,Outlet,28
+103.776539,1.34241264,Shop N Save Beauty World,144 Upp Bukit Timah Rd Beauty World Centre #B1-01   Singapore 588177,Outlet,10
+103.778585,1.33863165,NTUC FP Bukit Timah Plaza,1 Jln Anak Bukit Bukit Timah Plaza #B1-01   Singapore 588996,Outlet,21
+103.773958,1.34056761,Yong Lai Peck Trading,64 Jln Jurong Kechil   Singapore 598585,Outlet,20
+103.738562,1.32228375,Lee Ah Lan Trading,Blk 61 Teban Gardens Road #01-05 Teban Place   Singapore 600061,Outlet,14
+103.739691,1.33379423,NTUC FP Jurong East,Blk 135 Jurong East St 13 #01-337   Singapore 600135,Outlet,55
+103.738307,1.34419053,Kim Chwee Trading,Blk 256 Jurong East St 24 #01-385   Singapore 600256,Outlet,41
+103.730404,1.34493531,S E Store,Blk 352 Jurong East St 31 #01-121   Singapore 600352,Outlet,27
+103.722453,1.33205939,NTUC FP Yung Kuang,Blk 63-66 Yung Kuang Rd #01-119/02-119   Singapore 610063,Outlet,30
+103.720462,1.33484487,The Little Plaza,Blk 399 Yung Sheng Road #01-07 Taman Jurong Shopping Centre   Singapore 610399,Outlet,30
+103.725222,1.32546821,Superbowl Jurong Pte Ltd,3 Yuan Ching Rd   Singapore 618642,Outlet,28
+103.652209,1.31720417,Tuas View,71 Pioneer Rd Tuas Amenity Centre #02-02/03   Singapore 639591,Outlet,27
+103.712473,1.34637376,NTUC FP Boon Lay,Blk 221 Boon Lay Place Boon Lay Shopping Complex #02-200   Singapore 640221,Outlet,35
+103.697182,1.3416803,Giant Pioneer Mall,Blk 638 Jurong West St 61 Pioneer Mall #03-01   Singapore 640638,Outlet,20
+103.69146,1.34138531,PFG Framing And Trading,Blk 960 Jurong West St 92 #01-182   Singapore 640960,Outlet,37
+103.705368,1.33940387,FairPrice Xtra Jurong Point 2,63 Jurong West Central 3 #03-01 Jurong Point Shopping Centre   Singapore 648331,Outlet,27
+103.706685,1.339452,NTUC FP Jurong Point,1 Jurong West Central 2 Jurong Point #B1-09   Singapore 648886,Outlet,32
+103.745732,1.35041553,7-Eleven Bukit Batok West,Blk 132 Bukit Batok West Ave 6 #01-304   Singapore 650132,Outlet,16
+103.744189,1.3487934,Tan Ah Leck Trading,Blk 151 Bukit Batok St 11 #01-254   Singapore 650151,Outlet,41
+103.75736,1.34725431,Everstream Trading,Blk 283 Bukit Batok East Ave 3 #01-281   Singapore 650283,Outlet,29
+103.749556,1.34899204,NTUC FP Bukit Batok MRT Station,10 Bukit Batok Central Bukit Batok MRT Station #01-08   Singapore 659958,Outlet,22
+103.760218,1.38509602,NTUC FP Senja,Blk 628 Senja Rd Senja Grand #01-01   Singapore 670628,Outlet,8
+103.766228,1.38540569,Shop N Save Greenridge,Blk 524A Jelapang Rd Greenridge Shopping Centre #03-13/18   Singapore 671524,Outlet,12
+103.76441,1.37991651,NTUC FP Bukit Panjang Plaza,1 Jelebu Rd Bukit Panjang Plaza #02-11/12   Singapore 677743,Outlet,22
+103.760042,1.38060512,GIANT - JUNCTION 10,"1, WOODLANDS ROAD, #02-01, JUNCTION 10   Singapore 677899",Outlet,0
+103.744549,1.3767775,Prime Keat Hong,Blk 253 Choa Chu Kang Avenue 1 #01-07 to 10 Keat Hong Shopping Centre   Singapore 680253,Outlet,2
+103.739015,1.37789728,Giant Sunshine Place,475 Choa Chu Kang Ave 3 Sunshine Place #01-01/10   Singapore 680475,Outlet,14
+103.7431,1.39207389,NTUC FP Limbang Shopping Centre,Blk 533 Choa Chu Kang St 51 Limbang Shopping Centre #01-11   Singapore 680533,Outlet,21
+103.749797,1.40313356,7-Eleven Choa Chu Kang Drive,Blk 689B Choa Chu Kang Dr #01-306   Singapore 682689,Outlet,22
+103.748046,1.3907776,Singapore Armed Forces Football Club,1 Choa Chu Kang St 53 Choa Chu Kang Stadium #02-06   Singapore 689236,Outlet,5
+103.74663,1.39709429,NTUC FP Yew Tee,"21, 23 & 25 Choa Chu Kang North 6 #B1-01 to 07 Yew Tee Point   Singapore 689715",Outlet,38
+103.745039,1.38495924,NTUC FP Lot 1 Shoppers Mall,21 Choa Chu Kang Ave 4 Lot 1 Shoppers Mall #B1-05   Singapore 689812,Outlet,19
+103.777386,1.44362012,Soh Choo Trading,Blk 19 Marsiling Lane #01-303   Singapore 730019,Outlet,23
+103.777672,1.43868442,Golden Lagoon Trading,Blk 136 Marsiling Road #01-2182   Singapore 730136,Outlet,7
+103.7741,1.43035905,Sangara Trading,Blk 305 Woodlands St 31 #01-63   Singapore 730305,Outlet,18
+103.801471,1.43974273,Prime Woodlands,Blk 678 Woodlands Ave 6 #01-716   Singapore 730678,Outlet,29
+103.798219,1.44581298,Tay Ah Tho Trading,Blk 768 Woodlands Ave 6 Woodlands Mart #01-21   Singapore 730768,Outlet,17
+103.786928,1.4350371,NTUC FP Woodlands Civic Centre,900 South Woodlands Dr Woodlands Civic Centre #B1-01   Singapore 730900,Outlet,20
+103.769655,1.44142182,Cheers Woodlands Centre,Blk 5A Woodlands Centre Rd #02-182A   Singapore 731005,Outlet,36
+103.762491,1.42222507,Singapore Turf Club Racecourse,1 Turf Club Ave Singapore Racecourse   Singapore 738078,Outlet,0
+103.78601,1.43609204,Metro Woodlands,1 Woodlands Square Causeway Point #01-18/19   Singapore 738099,Outlet,20
+103.780425,1.43500258,Woodlands Wellington Football Club,1 Woodlands St 12 Woodlands Stadium   Singapore 738619,Outlet,8
+103.774004,1.43263481,NTUC FP Marsiling MRT Station,71 Woodlands Ave 3 Marsiling MRT Station #01-01   Singapore 739044,Outlet,13
+103.781122,1.42870732,NTUC FP Woodgrove,30 Woodlands Ave 1 The Woodgrove #01-11   Singapore 739065,Outlet,16
+103.819764,1.44843625,NTUC FP Sun Plaza,30 Sembawang Dr Sun Plaza #B1-01/02   Singapore 757713,Outlet,40
+103.824832,1.44185325,Giant Sembawang Shopping Centre,604 Sembawang Road Sembawang Shopping Centre #B1-25   Singapore 758459,Outlet,4
+103.828763,1.4306183,7-Eleven Yishun,Blk 102 Yishun Ave 5 #01-137   Singapore 760102,Outlet,80
+103.837858,1.43591598,Teo Sook Cheng Agency,Blk 293 Yishun St 22 #01-225   Singapore 760293,Outlet,44
+103.835547,1.42170562,Afro Asia Co Pte Ltd,"Blk 604, Yishun Street 61, #01-323   Singapore 760604",Outlet,15
+103.827704,1.42621097,Poon Long Heng,Blk 716 Yishun St 71 #01-276   Singapore 760716,Outlet,21
+103.835388,1.41690162,NTUC FP Yishun Ring Rd,Blk 849 Yishun Ring Rd #01-3701/3703   Singapore 760849,Outlet,31
+103.834974,1.42919806,NTUC FP Yishun,301 Yishun Ave 2 Yishun MRT Station #01-02   Singapore 769093,Outlet,35
+103.835785,1.42969827,Cold Storage Northpoint,930 Yishun Ave 2 #B1-09/12 Northpoint Shopping Centre   Singapore 769098,Outlet,15
+103.818134,1.39896103,7-Eleven Upp Thomson,912 Upp Thomson Rd   Singapore 787113,Outlet,29
+103.908884,1.39646804,Prime Punggol Field,Blk 108 Punggol Field #01-02   Singapore 820108,Outlet,29
+103.912976,1.39418409,NTUC FP Punggol Plaza,Blk 168 Punggol Field Rd Punggol Plaza #03-01   Singapore 820168,Outlet,21
+103.858851,1.28395329,Livewire (Marina Bay Sands),"2 Bayfront Avenue, #01-01 The Shoppes at Marina Bay Sands   Singapore 018972",Branch,5
+103.857414,1.29469062,Singapore Pools Suntec City,3 Temasek Boulevard Suntec City Tower 3 #01-138   Singapore 038983,Branch,17
+103.84398,1.28576963,Singapore Pools People's Park Centre,"101 Upp Cross St, People's Park Centre, #01-12   Singapore 058357",Branch,60
+103.844998,1.28523325,Singapore Pools Chinatown Point Branch,"133 New Bridge Road, Chinatown Point #01-36   Singapore 059413",Branch,0
+103.839259,1.27702982,Singapore Pools Everton Park Branch,Blk 7 Everton Park #01-15   Singapore 080007,Branch,14
+103.842685,1.27557187,Singapore Pools Tanjong Pagar Branch,Blk 1 Tanjong Pagar Plaza #01-49/50   Singapore 082001,Branch,42
+103.818475,1.27814968,Singapore Pools Telok Blangah Crescent Branch,Blk 6 Telok Blangah Crescent #01-418   Singapore 090006,Branch,15
+103.821672,1.25616346,Livewire (Resorts World Sentosa),26 Sentosa Gateway #B1-208   Singapore 098138,Branch,11
+103.766819,1.31511255,Singapore Pools Clementi N3 Branch,Blk 325 Clementi Ave 5 #01-145   Singapore 120325,Branch,26
+103.764926,1.31251012,Singapore Pools Clementi Town Centre Branch,Blk 446 Clementi Ave 3 #01-183   Singapore 120446,Branch,28
+103.763762,1.30291072,Singapore Pools Clementi N7 Branch,Blk 722 Clementi West St 2 #01-164   Singapore 120722,Branch,42
+103.796138,1.30098719,Singapore Pools Commonwealth Dr Branch,Blk 74 Commonwealth Dr #01-459   Singapore 140074,Branch,24
+103.80003,1.30697367,Singapore Pools Commonwealth Crescent Branch,Blk 116 Commonwealth Crescent #01-135   Singapore 140116,Branch,25
+103.815456,1.28903702,Singapore Pools Lengkok Bahru Branch,Blk 63B Lengkok Bahru #01-364   Singapore 152063,Branch,20
+103.827174,1.28830978,Singapore Pools Beo Crescent Branch,Blk 36 Beo Crescent #01-45   Singapore 160036,Branch,15
+103.841576,1.28708103,Singapore Pools Chin Swee Branch,Blk 52 Chin Swee Rd #01-65/69   Singapore 160052,Branch,20
+103.831093,1.27728264,Singapore Pools Silat Ave Branch,Blk 147 Silat Ave #01-24   Singapore 160147,Branch,11
+103.855151,1.30200219,Singapore Pools Rochor Centre Branch,1 Rochor Rd Rochor Centre #01-626/628   Singapore 180001,Branch,39
+103.849285,1.3000838,SportsBuzz (PoMo),1 Selegie Rd PoMo #01-01   Singapore 188306,Branch,44
+103.852876,1.30302299,Singapore Pools Sim Lim Square Branch,1 Rochor Canal Rd Sim Lim Square #B1-37   Singapore 188504,Branch,30
+103.860888,1.30780706,Singapore Pools King George's Ave Branch,Blk 803 King George's Ave #01-200/202   Singapore 200803,Branch,33
+103.84957,1.30114713,Singapore Pools Peace Centre Branch,1 Sophia Rd Peace Centre #01-24/25   Singapore 228149,Branch,26
+103.831853,1.29341063,Singapore Pools Great World City Branch,1 Kim Seng Promenade #B1-13C Great World City   Singapore 237994,Branch,6
+103.805378,1.31642862,Singapore Pools Empress Rd Branch,Blk 8 Empress Rd #01-35   Singapore 260008,Branch,11
+103.788547,1.31010129,Singapore Pools Ghim Moh Branch,Blk 21 Ghim Moh Rd #01-161   Singapore 270021,Branch,27
+103.792697,1.30877778,Singapore Pools Holland Drive Branch,Blk 46 Holland Dr #01-371/373   Singapore 270046,Branch,22
+103.848429,1.33631396,Singapore Pools Lor 4 Toa Payoh Branch,Blk 85B Lor 4 Toa Payoh #01-340   Singapore 310085,Branch,27
+103.845493,1.34121956,Singapore Pools Lor 1 Toa Payoh Branch,Blk 111 Lor 1 Toa Payoh #01-354   Singapore 310111,Branch,21
+103.854334,1.3406522,Singapore Pools Lor 8 Toa Payoh Branch,Blk 212 Lor 8 Toa Payoh #01-39   Singapore 310212,Branch,16
+103.842857,1.32588313,Singapore Pools Balestier Rd Branch,Blk 2 Balestier Rd #01-641   Singapore 320002,Branch,9
+103.855172,1.32325421,Singapore Pools Whampoa Dr Branch,Blk 88 Whampoa Dr #01-857   Singapore 320088,Branch,33
+103.869152,1.32353182,Singapore Pools Geylang Bahru Branch,Blk 57 Geylang Bahru #01-3503   Singapore 330057,Branch,19
+103.86799,1.332709,Singapore Pools Potong Pasir Branch,Blk 148 Potong Pasir Ave 1 #01-73   Singapore 350148,Branch,9
+103.879533,1.3317105,Singapore Pools MacPherson Branch,401 MacPherson Rd Hotel Windsor Shopping Centre #01-01   Singapore 368125,Branch,17
+103.887145,1.32697311,Singapore Pools 64 Circuit Rd Branch,Blk 64 Circuit Rd #01-355   Singapore 370064,Branch,17
+103.88586,1.32354118,Singapore Pools 88 Circuit Rd Branch,Blk 88 Circuit Rd #01-961   Singapore 370088,Branch,16
+103.872154,1.31474596,Singapore Pools Upp Boon Keng Branch,Blk 18 Upp Boon Keng Rd #01-1149/1151   Singapore 380018,Branch,17
+103.883269,1.31549064,Singapore Pools Lor 25A Geylang Branch,62 Lor 25A Geylang   Singapore 388251,Branch,39
+103.874201,1.31140425,Singapore Pools Geylang Rd Branch,149 Geylang Rd #01-02   Singapore 389233,Branch,15
+103.884728,1.308132,Singapore Pools Jln Tiga Branch,Blk 43 Jln Tiga #01-08   Singapore 390043,Branch,26
+103.908086,1.317921,Singapore Pools Changi Rd Branch,324K Changi Rd   Singapore 419799,Branch,13
+103.883611,1.30236531,Singapore Pools Jln Batu Branch,Blk 7 Jln Batu #01-99   Singapore 431007,Branch,17
+103.922074,1.31200753,Singapore Pools Siglap Branch,697B East Coast Road   Singapore 459060,Branch,29
+103.93018,1.325984,Singapore Pools Bedok Town Centre Branch,Blk 204 Bedok North Street 1 #01-415   Singapore 460204,Branch,5
+103.931091,1.33306648,Singapore Pools Bedok North Branch,Blk 509 Bedok North St 3 #01-129   Singapore 460509,Branch,13
+103.925429,1.32535369,Singapore Pools Chai Chee Branch,Blk 36 Chai Chee Ave #01-167   Singapore 461036,Branch,14
+103.934207,1.32334112,Singapore Pools New Upper Changi Branch,Blk 26 New Upp Changi Rd #01-666/668   Singapore 462026,Branch,18
+103.964636,1.36706634,Singapore Pools Pasir Ris N2 Branch,Blk 258 Pasir Ris St 21 Loyang Point #02-311   Singapore 510258,Branch,42
+103.93663,1.37978377,Singapore Pools Pasir Ris N7 Branch,Blk 735 Pasir Ris St 72 Pasir Ris West Plaza #01-358   Singapore 510735,Branch,27
+103.953279,1.36162702,Singapore Pools Tampines N4 Branch,Blk 481 Tampines St 44 #01-277   Singapore 520481,Branch,11
+103.960104,1.35435887,Singapore Pools Tampines Mart Branch,11 Tampines St 32 Tampines Mart #01-03   Singapore 529287,Branch,28
+103.890681,1.35370313,Singapore Pools Hougang N1 Branch,Blk 106 Hougang Ave 1 #01-1209/1211   Singapore 530106,Branch,63
+103.887676,1.35925697,Singapore Pools Hougang N2 Branch,Blk 211 Hougang St 21 #01-309   Singapore 530211,Branch,18
+103.89716,1.36695485,Singapore Pools Hougang N3 Branch,Blk 322 Hougang Ave 5 #01-70   Singapore 530322,Branch,29
+103.875648,1.35057718,Singapore Pools Lorong Lew Lian Branch,Blk 2 Lor Lew Lian #01-46   Singapore 531002,Branch,16
+103.888499,1.36294134,Singapore Pools Upp Serangoon Branch,1028 Upper Serangoon Rd   Singapore 534766,Branch,13
+103.886424,1.389546,Singapore Pools Anchorvale Rd Branch,Blk 308 Anchorvale Rd #01-05   Singapore 540308,Branch,21
+103.871214,1.35406215,Singapore Pools Serangoon Central Branch,Blk 254 Serangoon Central Dr #01-209   Singapore 550254,Branch,32
+103.871406,1.37366788,Prime Serangoon North,Blk 542B Serangoon North Ave 3 #02-01   Singapore 552542,Branch,0
+103.844515,1.36845752,Singapore Pools Ang Mo Kio N2 Branch,Blk 202 Ang Mo Kio Ave 3 #01-1662/1664   Singapore 560202,Branch,25
+103.855969,1.36748218,Singapore Pools Ang Mo Kio N4 Branch,Blk 447 Ang Mo Kio Ave 10 #01-1685   Singapore 560447,Branch,25
+103.841068,1.38053647,Singapore Pools Ang Mo Kio N6 Branch,Blk 630 Ang Mo Kio Ave 4 #01-968   Singapore 560630,Branch,31
+103.84645,1.37278377,Singapore Pools Ang Mo Kio N7 Branch,Blk 726 Ang Mo Kio Ave 6 #01-4158   Singapore 560726,Branch,27
+103.839281,1.36749437,Singapore Pools Ang Mo Kio N2A Branch,Blk 226A Ang Mo Kio Ave 1 #01-625   Singapore 561226,Branch,22
+103.854643,1.34566607,Singapore Pools Bishan N1 Branch,Blk 152 Bishan St 11 #01-211   Singapore 570152,Branch,14
+103.843955,1.35746475,Singapore Pools Bishan N2 Branch,Blk 279 Bishan St 24 #01-52   Singapore 570279,Branch,21
+103.836068,1.35176914,Singapore Pools Upp Thomson Branch,200 Upp Thomson Rd Thomson Imperial Court #01-06   Singapore 574424,Branch,17
+103.775237,1.34248946,Singapore Pools Cheong Chin Nam Rd Branch,5 Cheong Chin Nam Rd   Singapore 599730,Branch,11
+103.742652,1.32052027,Singapore Pools Teban Gardens Branch,Blk 37 Teban Gardens Rd #01-308   Singapore 600037,Branch,29
+103.730773,1.34484856,Singapore Pools Jurong East Branch,Blk 351 Jurong East St 31 #01-93   Singapore 600351,Branch,37
+103.747242,1.33431671,Singapore Pools IMM Branch,"2 Jurong East St 21 #02-25, IMM Building   Singapore 609601",Branch,10
+103.703725,1.35361178,Singapore Pools Jurong West N2 Branch,Blk 276 Jurong West 25 #01-05   Singapore 640276,Branch,21
+103.724307,1.34833336,Singapore Pools Jurong West N4 Branch,Blk 498 Jurong West St 41 #01-472   Singapore 640498,Branch,45
+103.718725,1.34873283,Singapore Pools Jurong West N5 Branch,Blk 508 Jurong West St 52 #01-166   Singapore 640508,Branch,54
+103.69774,1.34874165,Singapore Pools Gek Poh Shopping Centre,Blk 762 Jurong West Street 75 Gek Poh Shopping Centre #01-338   Singapore 640762,Branch,30
+103.747635,1.36216681,Singapore Pools Bukit Batok N3 Branch,Blk 324 Bukit Batok St 33 #01-47   Singapore 650324,Branch,11
+103.750602,1.35756505,Singapore Pools Bukit Gombak Branch,Blk 374 Bukit Batok St 31 #01-170   Singapore 650374,Branch,30
+103.751358,1.34899153,Singapore Pools Bukit Batok Central Branch,Blk 641 Bukit Batok Central #01-46   Singapore 650641,Branch,37
+103.773212,1.37850874,Singapore Pools Bukit Panjang Branch,Blk 257 Bangkit Rd #01-49   Singapore 670257,Branch,42
+103.770755,1.38374468,Singapore Pools Fajar Rd Branch,Blk 445 Fajar Rd Fajar Shopping Centre #02-540   Singapore 670445,Branch,19
+103.75258,1.38041181,Singapore Pools Teck Whye Branch,Blk 141 Teck Whye Lane #01-271   Singapore 680141,Branch,34
+103.743796,1.38454839,Singapore Pools Choa Chu Kang Branch,Blk 303 Choa Chu Kang Ave 4 #01-721   Singapore 680303,Branch,41
+103.7741,1.43035905,Singapore Pools Woodlands N3 Branch,Blk 305 Woodlands St 31 #01-77   Singapore 730305,Branch,9
+103.793934,1.43086337,Singapore Pools Woodlands N5 Branch,Blk 548 Woodlands Dr 44 Vista Point #02-04   Singapore 730548,Branch,15
+103.790826,1.4428457,Singapore Pools Woodlands N8 Branch,Blk 883 Woodlands St 82 #01-472   Singapore 730883,Branch,35
+103.795316,1.43711856,Singapore Pools Woodlands 888 Plaza Branch,Blk 888 Woodlands Dr 50 888 Plaza #01-711   Singapore 730888,Branch,32
+103.770526,1.44121023,Singapore Pools Woodlands Centre,1A Woodlands Centre Road #01-26   Singapore 731001,Branch,3
+103.762491,1.42222507,SportsBuzz (Kranji),"Lotus Lounge, Level 2, 1 Turf Club Avenue Singapore Racecourse   Singapore 738078",Branch,0
+103.822563,1.45025304,Singapore Pools Canberra Link Branch,Blk 505 Canberra Link #01-02   Singapore 750505,Branch,20
+103.827669,1.43054995,Singapore Pools Yishun N1 Branch,Blk 101 Yishun Ave 5 #01-37   Singapore 760101,Branch,40
+103.83998,1.43409258,Singapore Pools Yishun N2 Branch,Blk 256 Yishun Ring Rd #01-1001   Singapore 760256,Branch,15
+103.84587,1.42443181,Singapore Pools Yishun N4 Branch,Blk 415 Yishun Ave 11 #01-311   Singapore 760415,Branch,21
+103.833276,1.42540164,Singapore Pools Yishun N7 Branch,Blk 761 Yishun St 72 #01-340   Singapore 760761,Branch,11
