@@ -1,0 +1,61 @@
+---
+title: "Take-home Exercise 4: Visualising and Analysing Time-series Financial Data"
+description: |
+  In this take-home exercise, you are going reveal the impact of COVID-19 on the stock prices of top 40 companies in Singapore by market capitalisation.
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# The Task
+
+In this take-home exercise, you are required to perform the tasks below:  
+
+1.  Script stock prices of [top 40 companies in Singapore by market capitalisation](https://companiesmarketcap.com/singapore/largest-companies-in-singapore-by-market-cap/) between 1st January 2020 - 31st December 2021 by using [tidyquant](https://business-science.github.io/tidyquant/index.html) R package.  
+    + For how to script historical stock price from Yahoo Finance by using tidyquant package, you can refer to [this article](https://giniceseah.netlify.app/posts/2021-06-18-scraping-of-financial-dataset/#tidyquant-package). 
+
+2.  Using either calender heatmap or horizon graph, prepare a data visualisation showing the historical stock prices by the top 40 companies by market capitalisation.
+    + For horizon graph, you can refer to [ggHoriPlot](https://rivasiker.github.io/ggHoriPlot/index.html), a ggplot2 based R package specially designed for plotting horizon graph.
+    + For calender heatmap, you can refer to [ggTimeSeries](https://cran.r-project.org/web/packages/ggTimeSeries/index.html), a ggplot2 extension provides additional display mediums for time series visualisations.
+
+# Submission Instructions 
+
+This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually. 
+
+- The take-home exercise submission must be written by using **distill for R Markdown**.  It can be in either [distill article](https://distill.pub/guide/) or [distill blog ](https://rstudio.github.io/distill/blog.html) format. You are required to publish the exercise on [Netlify](https://www.netlify.com/) and provide the link on the take-home exercise submission page on elearn. 
+- You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.
+ 
+### Submission date 
+ 
+Your completed take-home exercise is due on **27th February 2022, by 11:59pm evening**.
+
+# Peer Learning
+
+   
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("_site/take-home.html")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
