@@ -47,21 +47,19 @@ style_duo_accent(
 ## Ex 1:Mapping Geospatial Point Data with R
 
 .pull-left[
-.large[
-- In this hands-on exercise, you will learn how to create proportional symbol map by using **tmap** package.
+In this hands-on exercise, you will learn how to create proportional symbol map by using **tmap** package.
 
 - By the end of this hands-on exercise, you will be able:
     - to import an aspatial data in R by using **readr** pakage,
     - to convert it into simple point feature by using **sf** package, and
     - to create interactive proportional symbol maps by using **tmap** package.
-]]
+]
 
 ---
 ## Getting Started
 
 .pull-left[
-.large[
-Write the code chunk to check, install and launch  **readr**, **sf** and **tmap** packages of R]]
+Write a code chunk to check, install and launch  **readr**, **sf** and **tmap** packages of R]
 
 --
 .pull-right[
@@ -82,12 +80,14 @@ for (p in packages){
 ## Importing the data
 
 .pull-left[
-.large[
-- Write the code chunk to import *SGPools_svy21.csv* into R.
+
+- Next, you are required to write a code chunk to import *SGPools_svy21.csv* into R by using `read_csv()` of **readr** package. You can called the tibble data frame object *sgpools*.
 ]
 
 --
-- The solution:
+.pull-right[
+
+The solution:
 
 ```{r echo = FALSE}
 sgpools <- read_csv(
@@ -137,11 +137,11 @@ tm_bubbles(col = "red",
 ```
 
 Things to learn from the code chunk:
-- *tmap_mode()* is used to switch the display from static mode (i.e. "plot") to interactive mode (i.e. "view").
+- `tmap_mode()` is used to switch the display from static mode (i.e. "plot") to interactive mode (i.e. "view").
 
-- *tm_shape()* is used to create a **tmap-element** that specifies a spatial data object (i.e. point).
+- `tm_shape()` is used to create a **tmap-element** that specifies a spatial data object (i.e. point).
 
-- *tm_bubble()* is used to create a **tmap-element** that draws bubbles or small dots. Both colors and sizes of the bubbles can be mapped to data variables.
+- `tm_bubble()` is used to create a **tmap-element** that draws bubbles or small dots. Both colors and sizes of the bubbles can be mapped to data variables.
 ]]
 
 .pull-right[
@@ -206,6 +206,7 @@ tm_bubbles(col = "OUTLET TYPE",
           size = "Gp1Gp2 Winnings",
           border.col = "black",
           border.lwd = 0.5)
+tmap_mode("plot")
 ```
 
 ]
@@ -236,9 +237,9 @@ tm_shape(sgpools_sf) +
 
 - By the end of this hands-on exercise, you will be able:
     - to import an aspatial data in R by using **readr** pakage,
-    - to import geospatial data (ESRI shapefile) into R as simple feature objects using *sf* package,
-    - to perform data wrangling using *dplyr* and *tidyr* packages,
-    - to plot choropleth maps using *tmap* package.
+    - to import geospatial data (ESRI shapefile) into R as simple feature objects using [**sf**](https://r-spatial.github.io/sf/index.html) package,
+    - to perform data wrangling using **dplyr** and **tidyr** packages,
+    - to plot choropleth maps using **tmap** package.
 ]
 
 ---
@@ -247,15 +248,15 @@ tm_shape(sgpools_sf) +
 .large[
 Two data set will be used to create the choropleth map, they are:
 
-* URA Master Plan subzone boundary in shapefile format (i.e. MP14_SUBZONE_WEB_PL).  This is a geospatial data.  It consists of the geographical boundary of Singapore at the planning subzone level.  The data is based on URA Master Plan 2014.
+* URA Master Plan subzone boundary in shapefile format (i.e. *MP14_SUBZONE_WEB_PL*).  This is a geospatial data.  It consists of the geographical boundary of Singapore at the planning subzone level.  The data is based on URA Master Plan 2014.
 
-* Singapore Residents by Planning Area/Subzone, Age Group and Sex, June 2000 - 2018 in csv format (i.e. respopagsex2000to2018.csv).  This is an aspatial data fie.  Although it does not contain any coordinates values, but it's PA and SZ fields can be used as unique identifiers to georeference to *MP14_SUBZONE_WEB_PL* shapefile. 
+* Singapore Residents by Planning Area/Subzone, Age Group and Sex, June 2000 - 2018 in csv format (i.e. *respopagsex2000to2018.csv*).  This is an aspatial data fie.  Although it does not contain any coordinates values, but it's PA and SZ fields can be used as unique identifiers to georeference to *MP14_SUBZONE_WEB_PL* shapefile. 
 ]
 
 ---
 ### Importing geospatial data into R
 
-The code chunk below uses the *st_read()* function of *sf* package to import *MP14_SUBZONE_WEB_PL* shapfile into R as a simple feature data frame called *mpsz*.   
+The code chunk below uses the [`st_read()`](https://r-spatial.github.io/sf/reference/st_read.html) function of *sf* package to import *MP14_SUBZONE_WEB_PL* shapfile into R as a simple feature data frame called *mpsz*.   
 
 ```{r}
 mpsz <- st_read(dsn = "data/geospatial", 
@@ -267,7 +268,7 @@ mpsz <- st_read(dsn = "data/geospatial",
 
 Next, we will import *respopagsex2000to2018.csv* file into RStudio and save the file into an R dataframe called *popagsex*.  
 
-The task will be performed by using *read_csv()* function of **readr** package as shown in the code chunk below.   
+The task will be performed by using `read_csv()` function of **readr** package as shown in the code chunk below.   
 
 ```{r}
 popagsex <- read_csv("data/aspatial/respopagsex2000to2018.csv")
@@ -286,8 +287,8 @@ Before a thematic map can be prepared, you need to preform the following data pr
 
 The following data wrangling and transformation functions will be used:
 
-- *spread()* of **tidyr** package, and 
-- *mutate()*, *filter()*, and *select()* of **dplyr** package 
+- `spread()` of **tidyr** package, and 
+- `mutate()`, `filter()`, and `select()` of **dplyr** package 
 ]
 
 .pull-right[
@@ -319,7 +320,7 @@ mutate_at(.vars = vars(PA, SZ),
 ### Joining the attribute data and geospatial data
 
 .large[
-Next, *left_join()* of **dplyr** is used to join the geographical data and attribute table using planning subzone name e.g. *SUBZONE_N* and *SZ* as the common identifier.
+Next, `left_join()` of **dplyr** is used to join the geographical data and attribute table using planning subzone name e.g. *SUBZONE_N* and *SZ* as the common identifier.
 
 
 ```{r}
@@ -333,7 +334,7 @@ mpsz_agemale2018 <- left_join(mpsz,
 ## Plotting a choropleth map quickly by using *qtm()*
 
 .pull-left[
-The easiest and quickest to draw a choropleth map using **tmap** is using *qtm()*.  It is concise and provides a good default visualisation in many cases. 
+The easiest and quickest to draw a choropleth map using **tmap** is using `qtm()`.  It is concise and provides a good default visualisation in many cases. 
 
 The code chunk below will draw a cartographic standard choropleth map as shown below.
 
@@ -345,9 +346,9 @@ qtm(mpsz_agemale2018,
 
 Things to learn from the code chunk above:
 
-- *tmap_mode()* with "plot" option is used to produce a static map.
+- `tmap_mode()` with "plot" option is used to produce a static map.
 
-- *fill* argument is used to map the attribute (i.e. DEPENDENCY)
+- `fill` argument is used to map the attribute (i.e. DEPENDENCY)
 ]
 
 .pull-right[
@@ -362,9 +363,9 @@ qtm(mpsz_agemale2018,
 ## Drawing a base map
 
 .pull-left[
-The basic building block of **tmap** is *tm_shape()* followed by one or more layer elemments such as *tm_fill()* and *tm_polygons()*.  
+The basic building block of **tmap** is `tm_shape()` followed by one or more layer elemments such as `tm_fill()` and `tm_polygons()`.  
 
-In the code chunk below, *tm_shpae()* is used to define the input data (i.e *mpsz_agmale2018*) and *tm_polygons()* is used draw the planning subzone polygons 
+In the code chunk below, `tm_shape()` is used to define the input data (i.e *mpsz_agmale2018*) and `tm_polygons()` is used draw the planning subzone polygons 
 
 ```{r eval=FALSE}
 tm_shape(mpsz_agemale2018) +
@@ -384,17 +385,17 @@ tm_shape(mpsz_agemale2018) +
 ]
 
 ---
-## Drawing a choropleth map using *tm_polygons()*
+## Drawing a choropleth map using `tm_polygons()`
 
 .pull-left[
-To draw a choropleth map showing the geographical distribution of a selected variable by planning subzone, we just need to assign the target variable such as *DEPENDENCY* to *tm_polygons()*.
+To draw a choropleth map showing the geographical distribution of a selected variable by planning subzone, we just need to assign the target variable such as *DEPENDENCY* to `tm_polygons()`.
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018)+
   tm_polygons("DEPENDENCY")#<<
 ```
 
-Things to learn from *tm_polygons()*:
+Things to learn from `tm_polygons()`:
 
 - By default, 5 bins will be used.
 - The default data classification method used is called "pretty".
@@ -410,12 +411,12 @@ tm_shape(mpsz_agemale2018)+
 ]
 
 ---
-### Drawing a choropleth map using *tm_fill()* and *tm_border()**
+### Drawing a choropleth map using `tm_fill()` and `tm_border()`
 
 .pull-left[
-Actually, *tm_polygons()* is a wrapper of *tm_fill()* and *tm_border()*.  *tm_fill()* shades the polygons by using the default colour scheme and *tm_borders()* adds the borders of the shapefile onto the choropleth map.
+Actually, `tm_polygons()` is a wrapper of `tm_fill()` and `tm_border()`.  `tm_fill()` shades the polygons by using the default colour scheme and `tm_borders()` adds the borders of the shapefile onto the choropleth map.
 
-The code chunk below draw a choropleth map by using *tm_fill()* alone.
+The code chunk below draw a choropleth map by using `tm_fill()` alone.
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018)+
@@ -433,10 +434,10 @@ tm_shape(mpsz_agemale2018)+
 ]
 
 ---
-### Drawing a choropleth map using *tm_border()**
+### Drawing a choropleth map using `tm_border()`
 
 .pull-left[
-To add the boundary of the planning subzones, *tm_border*s will be used as shown in the code chunk below.
+To add the boundary of the planning subzones, `tm_border()` will be used as shown in the code chunk below.
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018)+
@@ -469,7 +470,7 @@ Most choropleth maps employ some method of data classification. The point of cla
 
 **tmap** provides a total ten data classification methods, namely: *fixed*, *sd*, *equal*, *pretty* (default), *quantile*, *kmeans*, *hclust*, *bclust*, *fisher*, and *jenks*.
 
-To define a data classification method, the *style* argument of *tm_fill()* or *tm_polygons()* will be used.
+To define a data classification method, the `style` argument of `tm_fill()` or `tm_polygons()` will be used.
 
 The code chunk below shows a quantile data classification with 8 classes are used.
 
@@ -528,7 +529,7 @@ tm_shape(mpsz_agemale2018)+
 .pull-left[
 **tmap** supports colour ramps either defined by the user or a set of predefined colour ramps from the **RColorBrewer** package.
 
-To change the colour, we assign the prefered colour to *palette* argument of *tm_fill()* as shown in the code chunk below.
+To change the colour, we assign the preferred colour to `palette` argument of `tm_fill()` as shown in the code chunk below.
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018)+
@@ -637,7 +638,7 @@ tm_shape(mpsz_agemale2018)+
 ### Map style
 
 .pull-left[
-**tmap** allows a wide variety of layout settings to be changed.  They can be called by using *tmap_style()*.   
+**tmap** allows a wide variety of layout settings to be changed.  They can be called by using `tmap_style()`.   
 
 The code chunk below shows the *classic* style
 is used.
@@ -668,7 +669,7 @@ tm_shape(mpsz_agemale2018)+
 
 Beside map style, **tmap** also also provides arguments to draw other map furniture such as compass, scale bar and grid lines.
 
-In the code chunk below, *tm_compass()*, *tm_scale_bar()* and *tm_grid()* are used to add compass, scale bar and grid lines onto the choropleth map. 
+In the code chunk below, `tm_compass()`, `tm_scale_bar()` and `tm_grid()` are used to add compass, scale bar and grid lines onto the choropleth map. 
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018)+
@@ -701,7 +702,7 @@ tmap_style("white")
 
 The output plot
 
-```{r, fig.width=12, fig.height=6, echo=FALSE}
+```{r, fig.width=12, fig.height=5, echo=FALSE}
 tm_shape(mpsz_agemale2018)+
   tm_fill("DEPENDENCY", 
           style = "quantile", 
@@ -721,9 +722,9 @@ tm_shape(mpsz_agemale2018)+
              position = c("left", "bottom"))
 ```
 
-To reset the default style, the code chunk use the code chunk below.
+To reset back to the default style, the code chunk below should be used..
 
-```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+```{r eval=FALSE}
 tmap_style("white")
 ```
 
@@ -735,14 +736,14 @@ Small multiple maps, also refered to facet maps, are composed of many maps arran
 In **tmap**, small multiple maps can be plotted in three ways:
 
 - by assigning multiple values to at least one of the asthetic arguments,
-- by defining a group-by variable in *tm_facets()*, and
-- by creating multiple stand-alone maps with *tmap_arrange()*.
+- by defining a group-by variable in `tm_facets()`, and
+- by creating multiple stand-alone maps with `tmap_arrange()`.
 
 ---
 ### By assigning multiple values to at least one of the aesthetic arguments
 
 .pull-left[
-In this example, small multiple choropleth maps are created by defining ***ncols*** in **tm_fill()**
+In this example, small multiple choropleth maps are created by defining `ncols` in `tm_fill()`.
 
 
 ```{r, eval=FALSE}
@@ -796,10 +797,10 @@ tm_shape(mpsz_agemale2018)+
 ]
 
 ---
-### By defining a group-by variable in *tm_facets()*
+### By defining a group-by variable in `tm_facets()`
 
 .pull-left[
-In this example, multiple small choropleth maps are created by using **tm_facets()**. 
+In this example, multiple small choropleth maps are created by using `tm_facets()`. 
 
 ```{r, eval=FALSE}
 tm_shape(mpsz_agemale2018) +
@@ -837,10 +838,10 @@ tm_shape(mpsz_agemale2018) +
 ]
 
 ---
-### By creating multiple stand-alone maps with *tmap_arrange()*
+### By creating multiple stand-alone maps with `tmap_arrange()`
 
 .pull-left[
-In this example, multiple small choropleth maps are created by creating multiple stand-alone maps with **tmap_arrange()**. 
+In this example, multiple small choropleth maps are created by creating multiple stand-alone maps with `tmap_arrange()`. 
 
 ```{r, eval=FALSE}
 youngmap <- tm_shape(mpsz_agemale2018)+ 
@@ -853,12 +854,20 @@ agedmap <- tm_shape(mpsz_agemale2018)+
               style = "quantile", 
               palette = "Blues")
 
-tmap_arrange(youngmap, agedmap, asp=1, ncol=2) #<<
+tmap_arrange(youngmap, #<< 
+             agedmap,  #<< 
+             asp=1,    #<<
+             ncol=2)   #<<
 ```
 ]
 
-.pull-right[
-```{r, echo=FALSE}
+---
+### By creating multiple stand-alone maps with `tmap_arrange()`
+
+.large[
+The output choropleth maps]
+
+```{r, echo=FALSE, fig.width=15, fig.height=7}
 youngmap <- tm_shape(mpsz_agemale2018)+ 
   tm_polygons("YOUNG", 
               style = "quantile", 
@@ -869,9 +878,12 @@ agedmap <- tm_shape(mpsz_agemale2018)+
               style = "quantile", 
               palette = "Blues")
 
-tmap_arrange(youngmap, agedmap, asp=1, ncol=2)
+tmap_arrange(youngmap, 
+             agedmap, 
+             asp=1, 
+             ncol=2)
 ```
-]
+
 
 ---
 ## Mappping Spatial Object Meeting a Selection Criterion
@@ -919,16 +931,9 @@ tm_shape(mpsz_agemale2018[mpsz_agemale2018$REGION_N=="CENTRAL REGION", ])+
 ]
 
 
-```{r}
-
-
-```
-
-
-
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("ISSS608-Hands-on_Ex07.html")
+pagedown::chrome_print("Hands-on_Ex07.html")
 ```
 
 
