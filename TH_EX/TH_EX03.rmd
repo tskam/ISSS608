@@ -38,6 +38,37 @@ Your completed take-home exercise is due on **20th February 2022, by 11:59pm eve
 
 # Peer Learning
 
++ [ANG BI LIAN](https://bilian-mitb2021.netlify.app/th_ex/th_ex03/take-home_ex03)
++ [ANNIE CHAN WA LAM](https://anniecwl.netlify.app/takehomeex3/takehome-ex3)
++ [CLEMENT ONG SHI QI](https://isss608cosq.netlify.app/th_ex/th_ex03/th_ex03)
++ [FEI JIAHUI](https://fjhva.netlify.app/th_ex/th_ex03/th_ex03)
++ [FOO LI JING FARAH](https://farahfoo.netlify.app/th_ex/th_ex03/th_ex03) 
++ [GONG SHUFEN](https://va2022.netlify.app/th_ex/th_ex03/th_ex03_distill)
++ [HE QIYUN](https://qyva.netlify.app/th_ex/th_ex03/exercise3)
++ [JIANG MINGJUN](https://isss608mj.netlify.app/assigment/takehome03/takehome3.html)
++ [KARISHMA YADAV](https://karishma-smu.netlify.app/th_exercise/th_ex03/takehome_ex03)
++ [KWONG MEI LIN](https://github.com/kwongml/ISSS608_VA/tree/master/TH_Ex/TH_Ex03)
++ [LIN SHUYAN](https://lins-92-isss608.netlify.app/th_ex/th_ex03/th_ex03)
++ [LIU CHENTAO](https://amberjourney.netlify.app/th_ex/th_ex3/take-home-exercise_3)
++ [MAK HAN REN](https://makhanren.netlify.app/th_ex/th_ex03/th_ex03)
++ [MIN XIAOQI](https://mxqvisualanalytics.netlify.app/th_ex/take_home_ex03/take_home_ex_03)
++ [NG JIANYUAN CAINE](https://ngcaine.netlify.app/takehomeexercise/ex03/takehomeexercise03)
++ [REYNARD LAM KUAN TING](https://reynard.netlify.app/th_ex/th_ex03/th_ex03)
++ [SEAH XING XIAN](https://sxingxian-va.netlify.app/th_ex/th_ex03/)
++ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/takehomeex/3/thex3)
++ [SIA HENG GUANG](https://hengguang-608.netlify.app/takehome_exercise/ex003/ex003)
++ [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/th_ex/th_ex03/take_home_ex03)
++ [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex03/th_ex03)
++ [TAN JIT KAI](https://tjkva2022.netlify.app/th_ex/th_ex03/th_ex03)
++ [TAN MAY HUA MELISSA  MELISSA XU](https://mviz.netlify.app/takehome_ex03/takehome_ex03)
++ [TAN YAN RU](https://yanrutanfirstsite.netlify.app/th_ex/take-home%20ex03/take_home_ex03)
++ [TING PEILING](https://eloquent-va.netlify.app/th_ex/th_ex03/th_ex03_cocoa)
++ [TING YEN-HSIN](https://yhting2021.netlify.app/th_ex/th_ex04/th_ex04-1)
++ [YANG NENGJIE BENNIE](https://isss608bennie.netlify.app/takehomeex/thex3/thex3)
++ [ZHANG JIEYUAN](https://jyvisualanalytics.netlify.app/takehomeex/takehomeex3/ex3)
++ [ZHANG YI](https://isss608.netlify.app/posts/2022-02-15-take-home-exercise-3/)
++ [ZHOU YIOU](https://isss608-2022-yiou.netlify.app/th_ex/takehome_ex03/th3)
+
    
 
 ```{r echo=FALSE, eval=FALSE}

@@ -63,7 +63,7 @@ Your completed take-home exercise is due on **4th February 2022, by 11:59pm even
 + [YANG NENGJIE BENNIE](https://isss608bennie.netlify.app/takehomeex/thex2/thex2)
 + [ZHANG JIEYUAN](https://jyvisualanalytics.netlify.app/takehomeex/takehomeex2/ex2)
 + [ZHANG YI](https://isss608.netlify.app/posts/2022-02-04-take-home-exercise-2/)
-+ [ZHOU YIOU]()   
++ [ZHOU YIOU](https://isss608-2022-yiou.netlify.app/th_ex/takehome_ex02/th2)   
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
