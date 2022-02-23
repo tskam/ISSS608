@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Exercise 7: Analytical Mapping with R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Exercise 7: Analytical Mapping with R
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2019/11/25 (updated: 2022-02-23)
+
+---
+
+
+
+
+## Content
+
+.vlarge[
+- Percentile Map
+- Box Map
+- Rate Map
+- Relative Risk Map
+] 
+
+---
+## Limitation of Statistical Map: Maps lie!
+
+Although both choropleth maps were created using the same variable (i.e. aged population) but the choropleth maps produced look very different.  This is because the choropleth maps were created using two different data classification methods.  For the choropleth map on the left, quantile classification method was used and for choropleth on the right, equal interval classification method was used.   
+
+
+
+
+
+
+.pull-left[
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-3-1.png" width="504" /&gt;
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-4-1.png" width="504" /&gt;
+]
+
+&gt;**Challenge:** 
+- How to identify planning subzones with extreme high or low numbers of aged population?
+
+---
+## Visualising Extreme Values 
+
+.pull-left[
+.large[
+- **Boxplot**is one one the popular Exploratory Data Analysis (EDA) technique used to show the statistics and distribution of data values.]
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-5-1.png" width="288" style="display: block; margin: auto;" /&gt;
+]
+--
+.pull-right[
+.large[The code chunk is:]
+
+```r
+ggplot(data=mpszpop2020, 
+       aes(x = "", 
+           y = AGED)) +
+  geom_boxplot()
+```
+
+.large[
+Despite its usefulness, boxplot is not able to reveal the spatial distribution of these outliers.
+]]
+
+---
+## Extreme Value Maps
+
+.vlarge[
+- Extreme value maps are variations of common choropleth maps where the classification is designed to highlight extreme values at the lower and upper end of the scale, with the goal of identifying outliers. 
+
+- These maps were developed in the spirit of spatializing EDA, i.e., adding spatial features to commonly used approaches in non-spatial EDA (Anselin 1994).
+]
+
+---
+## Percentile Map
+
+.pull-left[
+.large[
++ The percentile map is a special type of quantile map with six specific categories: 0-1%,1-10%, 10-50%,50-90%,90-99%, and 99-100%. 
++ The corresponding breakpoints can be derived by means of the base R quantile command, passing an explicit vector of cumulative probabilities as c(0,.01,.1,.5,.9,.99,1). 
++ Note that the begin and endpoint need to be included.
+]]
+
+.pull-right[
+![](img/image1.png)
+]
+---
+### Extracting a variable from an sf data frame
+
+Step 1: Exclude records with NA by using the code chunl below.
+
+
+```r
+mpszpop2020a &lt;- mpszpop2020 %&gt;%
+  drop_na()
+```
+
+Step 2:
+
+
+```r
+percent &lt;- c(0,.01,.1,.5,.9,.99,1)
+var &lt;- mpszpop2020a["DEPENDENCY"] %&gt;%
+  st_set_geometry(NULL)
+quantile(var[,1], percent)
+```
+
+```
+##         0%         1%        10%        50%        90%        99%       100% 
+##  0.0000000  0.1377778  0.5686120  0.7024793  0.8474114  1.2100000 19.0000000
+```
+
+---
+### Why Writing Functions?
+
+.vlarge[
+Writing a function has three big advantages over using copy-and-paste:
+
+- You can give a function an evocative name that makes your code easier to understand.
+- As requirements change, you only need to update code in one place, instead of many.
+- You eliminate the chance of making incidental mistakes when you copy and paste (i.e. updating a variable name in one place, but not in another).
+]
+
+.small[
+Source: [Chapter 19: Functions](https://r4ds.had.co.nz/functions.html#functions) of **R for Data Science**.
+]
+
+---
+### Creating the get.var function
+
+.pull-left[
+
+```r
+get.var &lt;- function(vname,df) {
+  v &lt;- df[vname] %&gt;% 
+    st_set_geometry(NULL)
+  v &lt;- unname(v[,1])
+  return(v)
+}
+```
+]
+.pull-right[
+The code chunk on the left is an R function to extract a variable as a vector out of an sf data frame.
+- arguments:
+    - vname: variable name (as character, in quotes)
+    - df: name of sf data frame
+- returns:
+    - v: vector with values (without a column name)
+]
+---
+## Plotting a percentile map using tmap functions
+
+.pull-left[
+&gt;**Challenge:** 
+- Using the steps you learned in Hands-on Exercise 3, plot a percentile map as shown below.
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-10-1.png" width="504" /&gt;
+]
+
+--
+.pull-right[
+
+```r
+percent &lt;- c(0,.01,.1,.5,.9,.99,1)
+var &lt;- get.var("DEPENDENCY", mpszpop2020a)
+bperc &lt;- quantile(var,percent)
+tm_shape(mpszpop2020) +
+  tm_polygons() +
+tm_shape(mpszpop2020a) +
+  tm_fill("DEPENDENCY",
+          title="DEPENDENCY",
+          breaks=bperc,
+          palette="Blues",
+          labels=c("&lt; 1%", "1% - 10%",
+                   "10% - 50%", 
+                   "50% - 90%",
+                   "90% - 99%", 
+                   "&gt; 99%"))  +
+  tm_borders() +
+  tm_layout(title = "Percentile Map", 
+            title.position = c("right",
+                               "bottom"))
+```
+]
+
+---
+### A percentile mapping function
+
+
+```r
+percentmap &lt;- function(vnam, df, legtitle=NA, mtitle="Percentile Map"){
+  percent &lt;- c(0,.01,.1,.5,.9,.99,1)
+  var &lt;- get.var(vnam,df)
+  bperc &lt;- quantile(var,percent)
+  tm_shape(mpszpop2020) +
+  tm_polygons() +
+  tm_shape(df) +
+     tm_fill(vnam,
+             title=legtitle,
+             breaks=bperc,
+             palette="Blues",
+          labels=c("&lt; 1%", "1% - 10%", "10% - 50%", "50% - 90%", "90% - 99%", "&gt; 99%"))  +
+  tm_borders() +
+  tm_layout(title = mtitle, title.position = c("right","bottom"))
+}
+```
+
+---
+### Test drive the percentile mapping function
+
+To run the function, type the code chunk as shown below.
+
+
+```r
+youngmap &lt;- percentmap("YOUNG", mpszpop2020a)
+agedmap &lt;- percentmap("AGED", mpszpop2020a)
+```
+
+---
+## Box map
+
+- Displaying summary statistics on a choropleth map by using the basic principles of boxplot.
+
+![:scale 75%](img/image2.png)
+
+- To create a box map, a custom breaks specification will be used. However, there is a complication. The break points for the box map vary depending on whether lower or upper outliers are present.
+
+???
+In essence, a box map is an augmented quartile map, with an additional lower and upper category. When there are lower outliers, then the starting point for the breaks is the minimum value, and the second break is the lower fence. In contrast, when there are no lower outliers, then the starting point for the breaks will be the lower fence, and the second break is the minimum value (there will be no observations that fall in the interval between the lower fence and the minimum value).
+
+
+---
+### Creating the boxbreaks function
+
+.pull-left[
+
+```r
+boxbreaks &lt;- function(v,mult=1.5) {
+  qv &lt;- unname(quantile(v))
+  iqr &lt;- qv[4] - qv[2]
+  upfence &lt;- qv[4] + mult * iqr
+  lofence &lt;- qv[2] - mult * iqr
+  # initialize break points vector
+  bb &lt;- vector(mode="numeric",length=7)
+  # logic for lower and upper fences
+  if (lofence &lt; qv[1]) {  # no lower outliers
+    bb[1] &lt;- lofence
+    bb[2] &lt;- floor(qv[1])
+  } else {
+    bb[2] &lt;- lofence
+    bb[1] &lt;- qv[1]
+  }
+  if (upfence &gt; qv[5]) { # no upper outliers
+    bb[7] &lt;- upfence
+    bb[6] &lt;- ceiling(qv[5])
+  } else {
+    bb[6] &lt;- upfence
+    bb[7] &lt;- qv[5]
+  }
+  bb[3:5] &lt;- qv[2:4]
+  return(bb)
+}
+```
+]
+
+.pull-right[
+The code chunk on the left is an R function that creating break points for a box map.
+- arguments:
+    - v: vector with observations
+    - mult: multiplier for IQR (default 1.5)
+- returns:
+    - bb: vector with 7 break points compute quartile and fences
+]
+
+---
+### Creating the get.var function
+
+.pull-left[
+
+```r
+get.var &lt;- function(vname,df) {
+  v &lt;- df[vname] %&gt;% st_set_geometry(NULL)
+  v &lt;- unname(v[,1])
+  return(v)
+}
+```
+]
+.pull-right[
+The code chunk on the left is an R function to extract a variable as a vector out of an sf data frame.
+- arguments:
+    - vname: variable name (as character, in quotes)
+    - df: name of sf data frame
+- returns:
+    - v: vector with values (without a column name)
+]
+
+---
+## Test drive the newly created function
+
+.pull-left[
+.large[
+Let's test the newly created function]
+
+
+```r
+var &lt;- get.var("AGED", mpszpop2020) 
+boxbreaks(var)
+```
+]
+--
+.pull-right[
+.large[
+Let's exclude AGED = NA by using the code chunk below. 
+]
+
+
+```r
+mpszpop2020a &lt;- mpszpop2020 %&gt;%
+  filter(AGED&gt;=0)
+var &lt;- get.var("AGED", mpszpop2020a)
+boxbreaks(var)
+```
+
+```
+## [1] -4330     0   515  2080  3745  8590 20240
+```
+]
+
+---
+## Boxmap function
+
+.pull-left[
+
+
+```r
+boxmap &lt;- function(vnam, df, 
+                   legtitle=NA,
+                   mtitle="Box Map",
+                   mult=1.5){
+  var &lt;- get.var(vnam,df)
+  bb &lt;- boxbreaks(var)
+  tm_shape(df) +
+     tm_fill(vnam,title=legtitle,
+             breaks=bb,
+             palette="Blues",
+          labels = c("lower outlier", 
+                     "&lt; 25%", 
+                     "25% - 50%", 
+                     "50% - 75%",
+                     "&gt; 75%", 
+                     "upper outlier"))  +
+  tm_borders() +
+  tm_layout(title = mtitle, 
+            title.position = c("right",
+                               "bottom"))
+}
+```
+]
+
+.pull-right[
+The code chunk on the left is an R function to create a box map.
+- arguments:
+    - vnam: variable name (as character, in quotes)
+    - df: simple features polygon layer
+    - legtitle: legend title
+    - mtitle: map title
+    - mult: multiplier for IQR
+- returns:
+    - a tmap-element (plots a map)
+]
+
+---
+### The box map of AGED population
+
+.pull-left[
+
+```r
+boxmap("ECONOMY ACTIVE", mpszpop2020a)
+```
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-19-1.png" width="504" /&gt;
+]
+
+.pull-right[
+- The box map reveals that there are six upper outliers (i.e. planning subzone with extremely high numbers of aged population)
+
+- Four of the upper outliers are located at the eastern region and they are closed to each others.
+
+- There is no lower outlier.
+]
+
+--
+.center[
+.vlarge[But why some planning subzones were eaten by rats? Can you fix it?
+]]
+
+---
+### Tidy version of boxmap
+
+
+
+
+```r
+boxmap("ECONOMY ACTIVE", mpszpop2020a)
+```
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-21-1.png" width="864" /&gt;
+
+
+
+---
+## Choropleth Map for Rates
+
+.pull-left[
+.large[
+In much of our readings we have now seen the importance to map rates rather than counts of things, and that is for the simple reason that population is not equally distributed in space. That means that if we do not account for how many people are somewhere, we end up mapping population size rather than our topic of interest.
+]
+]
+
+.pull-right[
+![:scale 90%](img/image3.jpg)
+]
+
+---
+### Comparing distribution of total and aged population, 2020
+
+.pull-left[
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-22-1.png" width="504" /&gt;
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+]
+
+---
+### Raw rate map
+
+.pull-left[
+- First, compute the raw rate by using the code chunk below:
+
+
+```r
+mpszpop2020a &lt;- mpszpop2020 %&gt;%
+  mutate(`AGED%` = (`AGED`
+/`TOTAL`)*100) %&gt;%
+  filter(`AGED%` &gt;= 0)
+```
+
+Next, the boxmap function will be used to plot the raw rate map as shown in the code chunk below.
+
+
+```r
+var &lt;- get.var("AGED%", mpszpop2020a)
+boxbreaks(var)
+boxmap("AGED%",mpszpop2020a)
+```
+
+]
+
+--
+.pull-right[
+
+```
+## [1] -2.17276  0.00000 11.28169 16.48199 20.25132 33.70576 95.00000
+```
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-26-1.png" width="504" /&gt;
+]
+
+---
+### Comparing Absolute and Rate Choropleth Maps
+
+.pull-left[
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-27-1.png" width="504" /&gt;
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-28-1.png" width="504" /&gt;
+]
+
+---
+## Relative Risk Map
+
+.pull-left[
+- A commonly used notion in demography and public health analysis is the concept of a **standardized mortality rate** (SMR), sometimes also referred to as **relative risk** or **excess risk**. 
+- The idea is to compare the observed mortality rate to a national (or regional) standard. More specifically, the observed number of events is compared to the number of events that would be expected had a reference risk been applied.
+]
+
+.pull-right[
+Formally, this is expressed as:
+
+.center[
+![:scale 30%](img/image4.jpg)
+]
+
+which yields the expected number of events for each area i as:
+
+.center[
+![:scale 30%](img/image5.jpg)
+]
+
+The relative risk then follows as the ratio of the observed number of events (e.g., aged) over the expected number:
+
+.center[
+![:scale 30%](img/image6.jpg)
+]]
+
+---
+
+```r
+mpszpop2020long &lt;- mpszpop2020 %&gt;% 
+  pivot_longer(
+    cols = 19:20,
+  names_to = "TYPE",
+  values_to = "COUNT"
+)
+```
+
+
+
+```r
+tm_shape(mpszpop2020long) +
+  tm_fill("COUNT",
+          n = 5,
+          style = "quantile") +
+  tm_borders(alpha = 0.5) +
+  tm_facets(by= "TYPE",
+            nrow = 1,
+            sync = TRUE)
+```
+
+&lt;img src="Hands-on_Ex07-AMap_files/figure-html/unnamed-chunk-30-1.png" width="504" /&gt;
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
