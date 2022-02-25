@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Hands-on Exercise 7: Analytical Mapping with R
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2019/11/25 (updated: 2022-02-23)
+### 2019/11/25 (updated: 2022-02-25)
 
 ---
 
@@ -522,13 +522,13 @@ The relative risk then follows as the ratio of the observed number of events (e.
 
 ---
 
+
+
 ```r
 mpszpop2020long &lt;- mpszpop2020 %&gt;% 
-  pivot_longer(
-    cols = 19:20,
-  names_to = "TYPE",
-  values_to = "COUNT"
-)
+  pivot_longer(cols = 19:20,
+               names_to = "TYPE",
+               values_to = "COUNT")
 ```
 
 

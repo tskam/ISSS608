@@ -577,31 +577,7 @@ The relative risk then follows as the ratio of the observed number of events (e.
 ![:scale 30%](img/image6.jpg)
 ]]
 
----
-```{r}
-mpszpop2020long <- mpszpop2020 %>% 
-  pivot_longer(
-    cols = 19:20,
-  names_to = "TYPE",
-  values_to = "COUNT"
-)
-```
-
-
-```{r}
-tm_shape(mpszpop2020long) +
-  tm_fill("COUNT",
-          n = 5,
-          style = "quantile") +
-  tm_borders(alpha = 0.5) +
-  tm_facets(by= "TYPE",
-            nrow = 1,
-            sync = TRUE)
-```
-
-
-
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("In-class_Ex03.html")
+pagedown::chrome_print("Hands-on_Ex07-AMap.html")
 ```

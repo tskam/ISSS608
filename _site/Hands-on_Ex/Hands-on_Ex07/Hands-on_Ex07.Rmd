@@ -906,7 +906,7 @@ tm_shape(mpsz_agemale2018[mpsz_agemale2018$REGION_N=="CENTRAL REGION", ]) + #<<
             frame = FALSE) +
   tm_borders(alpha = 0.5)
 ```
-]
+
 
 ---
 ## Mappping Spatial Object Meeting a Selection Criterion
@@ -928,7 +928,7 @@ tm_shape(mpsz_agemale2018[mpsz_agemale2018$REGION_N=="CENTRAL REGION", ])+
             frame = FALSE) +
   tm_borders(alpha = 0.5)
 ```
-]
+
 
 
 ```{r echo=FALSE, eval=FALSE}
