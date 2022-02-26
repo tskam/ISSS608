@@ -27,7 +27,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson slides in [html](../lesson/Lesson07/Lesson07-GeoVA.html) and [pdf](../lesson/Lesson07/Lesson07-GeoVA.pdf) formats
 
-- Handout of Hands-on Exercise 7 in [html](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.html) and [pdf](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.pdf) formats.
+- Handout of Hands-on Exercise 7: Handling and Visualising Geographical Data in [html](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.html) and [pdf](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07.pdf) formats.
+
+- Handout of Hands-on Exercise 7: Analytical Mapping in [html](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07-AMap.html) and [pdf](../Hands-on_Ex/Hands-on_Ex07/Hands-on_Ex07-AMap.pdf) formats.
 
 
 
