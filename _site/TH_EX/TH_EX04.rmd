@@ -34,6 +34,36 @@ Your completed take-home exercise is due on **27th February 2022, by 11:59pm eve
 
 # Peer Learning
 
++ [ANG BI LIAN](https://bilian-mitb2021.netlify.app/th_ex/th_ex04/take-home_ex04)
++ [ANNIE CHAN WA LAM](https://anniecwl.netlify.app/takehomeex4/takehome-ex4)
++ [CLEMENT ONG SHI QI](https://isss608cosq.netlify.app/th_ex/th_ex04/th_ex04)
++ [FEI JIAHUI]()
++ [FOO LI JING FARAH]() 
++ [GONG SHUFEN](https://va2022.netlify.app/th_ex/th_ex04/th_ex04_distill)
++ [HE QIYUN]()
++ [JIANG MINGJUN]()
++ [KARISHMA YADAV](https://karishma-smu.netlify.app/th_exercise/th_ex04/th_ex04)
++ [KWONG MEI LIN](https://kml-va.netlify.app/th_ex/th_ex04/th_ex04)
++ [LIN SHUYAN](https://lins-92-isss608.netlify.app/th_ex/th_ex04/th_ex04)
++ [LIU CHENTAO]()
++ [MAK HAN REN](https://makhanren.netlify.app/th_ex/th_ex04/th_ex04)
++ [MIN XIAOQI]()
++ [NG JIANYUAN CAINE](https://ngcaine.netlify.app/takehomeexercise/ex04/takehomeexercise04)
++ [REYNARD LAM KUAN TING](https://reynard.netlify.app/th_ex/th_ex04/th_ex04)
++ [SEAH XING XIAN](https://sxingxian-va.netlify.app/TH_ex/th_ex04)
++ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/takehomeex/4/thex4)
++ [SIA HENG GUANG](https://hengguang-608.netlify.app/takehome_exercise/ex004/ex004)
++ [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/th_ex/th_ex04/take_home_ex04)
++ [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex04/th_ex04)
++ [TAN JIT KAI]()
++ [TAN MAY HUA MELISSA  MELISSA XU](https://mviz.netlify.app/takehome_ex04/takehome_ex04)
++ [TAN YAN RU](https://yanrutanfirstsite.netlify.app/th_ex/take-home%20ex04/take-home-ex04)
++ [TING PEILING](https://eloquent-va.netlify.app/th_ex/th_ex04/th_ex04_stock_price)
++ [TING YEN-HSIN](https://yhting2021.netlify.app/th_ex/th_ex05/th_ex05)
++ [YANG NENGJIE BENNIE](https://isss608bennie.netlify.app/takehomeex/thex4/thex4)
++ [ZHANG JIEYUAN](https://jyvisualanalytics.netlify.app/takehomeex/takehomeex4/ex4)
++ [ZHANG YI]()
++ [ZHOU YIOU](https://isss608-2022-yiou.netlify.app/th_ex/takehome_ex04/th4)
    
 
 ```{r echo=FALSE, eval=FALSE}
