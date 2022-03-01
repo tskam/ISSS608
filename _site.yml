@@ -19,9 +19,9 @@ navbar:
   right:
     - text: "Shiny Workshop"
       menu:
-        - text: "Getting to Know Shiny"
+        - text: "R Shiny basic"
           href: "ShinyWorkshop/Shiny1/Shiny1.html"
-        - text: "Beyond Basic"
+        - text: "Beyond the basic"
           href: "ShinyWorkshop/Shiny2/Shiny2.html"
         - text: "Customising Shiny"
           href: "ShinyWorkshop/Shiny3/Shiny3.html"
