@@ -21,6 +21,10 @@ navbar:
       menu:
         - text: "Getting to Know Shiny"
           href: "ShinyWorkshop/Shiny1/Shiny1.html"
+        - text: "Beyond Basic"
+          href: "ShinyWorkshop/Shiny2/Shiny2.html"
+        - text: "Customising Shiny"
+          href: "ShinyWorkshop/Shiny3/Shiny3.html"
     - text: "Tableau Resources"
       href: Tableau.html
     - text: "R Resouces"

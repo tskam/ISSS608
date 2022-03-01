@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Getting to Know Shiny</title>
+    <title>Building Web-enabled Visual Analytics Application with R Shiny: R Shiny basic</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -12,10 +12,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Getting to Know Shiny
+# Building Web-enabled Visual Analytics Application with R Shiny: R Shiny basic
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2019/11/25 (updated: 2022-02-28)
+### 2019/11/25 (updated: 2022-03-01)
 
 ---
 
@@ -553,21 +553,6 @@ ui &lt;- fluidPage(
 ```
 
 ---
-## Shiny *Output()*
-### Adding *dataTableOutput()*
-
-.large[
-- ui: Add an output defining where the data table should appear.]
-
-
-```r
-mainPanel(
-            plotOutput("distPlot"),
-*           DT::dataTableOutput(outputId = "examtable")
-        )
-```
-
----
 ## Shiny server.R
 ### Building an output
 
@@ -634,16 +619,27 @@ server &lt;- function(input, output){
                            color="black", 
                            fill="light blue")
     })
-    
-*   output$examtable &lt;- DT::renderDataTable({
-*       if(input$show_data){
-*           DT::datatable(data = exam %&gt;% select(1:7),
-*                         options= list(pageLength = 10),
-*                         rownames = FALSE)
-        }
-    })    
 }
 ```
+
+---
+## Shiny server.R
+### Building a complete output: The revised version 
+
+
+```r
+server &lt;- function(input, output){
+    output$distPlot &lt;- renderPlot({
+      ggplot(exam, 
+*            aes_string(x = input$variable)) +
+        geom_histogram(bins = input$bin,
+                       color="black", 
+                       fill="light blue")
+      })
+}
+```
+
++ Notice that [`aes_string()`](https://ggplot2.tidyverse.org/reference/aes_.html) instead of `aes()` of ggplot2 is used.  To understand the differences between `aes_string()` and `aes()`, please refer to this [link](https://stackoverflow.com/questions/28897577/what-is-the-difference-between-aes-and-aes-string-ggplot2-in-r).  
 
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Getting to Know Shiny"
+title: "Building Web-enabled Visual Analytics Application with R Shiny: R Shiny basic"
 subtitle: ""  
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -560,20 +560,6 @@ ui <- fluidPage(
 ```
 
 ---
-## Shiny *Output()*
-### Adding *dataTableOutput()*
-
-.large[
-- ui: Add an output defining where the data table should appear.]
-
-```{r echo=TRUE, eval=FALSE}
-mainPanel(
-            plotOutput("distPlot"),
-            DT::dataTableOutput(outputId = "examtable") #<<
-        )
-```
-
----
 ## Shiny server.R
 ### Building an output
 
@@ -639,16 +625,26 @@ server <- function(input, output){
                            color="black", 
                            fill="light blue")
     })
-    
-    output$examtable <- DT::renderDataTable({               #<<
-        if(input$show_data){                                #<<
-            DT::datatable(data = exam %>% select(1:7),      #<<
-                          options= list(pageLength = 10),   #<<
-                          rownames = FALSE)                 #<<
-        }
-    })    
 }
 ```
+
+---
+## Shiny server.R
+### Building a complete output: The revised version 
+
+```{r, echo=TRUE, eval=FALSE}
+server <- function(input, output){
+    output$distPlot <- renderPlot({
+      ggplot(exam, 
+             aes_string(x = input$variable)) + #<<
+        geom_histogram(bins = input$bin,
+                       color="black", 
+                       fill="light blue")
+      })
+}
+```
+
++ Notice that [`aes_string()`](https://ggplot2.tidyverse.org/reference/aes_.html) instead of `aes()` of ggplot2 is used.  To understand the differences between `aes_string()` and `aes()`, please refer to this [link](https://stackoverflow.com/questions/28897577/what-is-the-difference-between-aes-and-aes-string-ggplot2-in-r).  
 
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Advanced Shiny Methods"
+title: "Building Web-enabled Visual Analytics Application with R Shiny: Beyond the basic"
 subtitle: ""  
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -928,5 +928,5 @@ shinyApp (ui=ui, server=server)
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson12-Advanced_Shiny.html")
+pagedown::chrome_print("Shiny2.html")
 ```
