@@ -4,7 +4,7 @@
     <title>Building Web-enabled Visual Analytics Application with R Shiny: Beyond the basic</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <meta name="date" content="2022-03-02" />
+    <meta name="date" content="2022-03-03" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Building Web-enabled Visual Analytics Application with R Shiny: Beyond the basic
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 02 March 2022
+### 03 March 2022
 
 ---
 
@@ -158,18 +158,14 @@ ui &lt;- fluidPage(
   titlePanel("Multi-pages Layout"),
   tabsetPanel(
     tabPanel("Import data", 
-             fileInput("file", "Data", 
-                       buttonLabel = "Upload..."),
-             textInput("delim", 
-                       "Delimiter (leave blank to guess)",
-                       ""),
-             numericInput("skip", "Rows to skip", 
-                          0, min = 0),
-             numericInput("rows", "Rows to preview", 
-                          10, min = 1)
+             fileInput("file", "Data", buttonLabel = "Upload..."),
+             textInput("delim", "Delimiter (leave blank to guess)", ""),
+             numericInput("skip", "Rows to skip", 0, min = 0),
+             numericInput("rows", "Rows to preview", 10, min = 1)
     ),
-    tabPanel("Set parameters"),
-    tabPanel("Visualise results")
+    tabPanel("Variable selection"),
+    tabPanel("Model calibration"),
+    tabPanel("Model evaluation")
   )
 )
 ```
@@ -249,7 +245,7 @@ ui &lt;- navbarPage(
 
 .pull-left[
 + Shiny v1.6 and higher integrates with the [**bslib**](https://rstudio.github.io/bslib/) package providing easy access to modern versions of [Bootstrap](https://getbootstrap.com/), [Bootswatch](https://bootswatch.com/) themes, as well as custom themes that can even be modified in real time!
-+ To use **bslib** in your own Shiny app, pass a `bs_theme()` object to the theme argument of the relevant page layout function, such as `navbarPage()` or `fluidPage()`. 
++ To use **bslib** in your own Shiny app, pass a [`bs_theme()`](https://rstudio.github.io/bslib/reference/bs_theme.html) object to the theme argument of the relevant page layout function, such as `navbarPage()` or `fluidPage()`. 
 + Inside `bs_theme()`, you can specify a version of Bootstrap and (optionally) a Bootswatch theme (e.g. cyborg)
 
 
@@ -271,7 +267,7 @@ ui &lt;- fluidPage(
 ---
 ### Custom themes
 
-`bs_theme()` provides direct access to Bootstrap’s main colors &amp; fonts as well as any of the 100s of more specific theming options. Also, when it comes to custom font(s) that may not be available on the end users machine, make sure to leverage {bslib}’s helper functions like [`font_google()`](https://fonts.google.com/), `font_link()`, and `font_face()`, which assist in including font file(s) in an convenient, efficient, and responsible way.
+[`bs_theme()`](https://rstudio.github.io/bslib/reference/bs_theme.html) provides direct access to Bootstrap’s main colors &amp; fonts as well as any of the 100s of more specific theming options. Also, when it comes to custom font(s) that may not be available on the end users machine, make sure to leverage {bslib}’s helper functions like [`font_google()`](https://fonts.google.com/), `font_link()`, and `font_face()`, which assist in including font file(s) in an convenient, efficient, and responsible way.
 
 
 ```r
