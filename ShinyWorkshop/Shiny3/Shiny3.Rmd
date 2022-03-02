@@ -749,5 +749,5 @@ In this hands-on Exercise, you will learn how to work with the interactive debug
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Lesson13-Advanced_Shiny_II.html")
+pagedown::chrome_print("Shiny3.html")
 ```
