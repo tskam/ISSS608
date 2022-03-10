@@ -12,13 +12,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## The Data Visualisation
 
-![](img/image2.jpg)
+This [interactive data visualisation](https://public.tableau.com/views/prototype1_16468762782120/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link) aims to reveal inter- and intra-zonal public bus flows at the planning sub-zone level of January 2022. 
 
-Source: [Department of Statistics, Singapore](https://www.singstat.gov.sg/modules/infographics/singapore-international-trade)
 
 ## The Task
 
-1. Critic the data visualisation from both its clarity and aesthetics.  At least three from each evaluation criterion.  (15 marks)
+1. Critic the data visualisation from its clarity, aesthetics and interactive design.  At least three from each evaluation criterion.  (15 marks)
 2. With reference to the critics above, suggest alternative graphical presentation to improve the current design.  Sketch out the proposed design.  The proposed alternative design should include **appropriate interactive techniques**.  Support your design by describing the advantages or which part of the issue(s) your alternative design try to overcome.  (15 marks)
 3. Using Tableau, design the proposed data visualisation.  (25 marks)
 4. Provide step-by-step description on how the data visualisation was prepared.  (30 marks)
@@ -26,239 +25,22 @@ Source: [Department of Statistics, Singapore](https://www.singstat.gov.sg/module
 (15 marks)
 
 ### Additional design instruction
-1. The study period should be between January 2011-December 2020.  No additional data sets are required.
-2. Focus on telling data story using appropriate statistical graphic methods, graphical design principles and interactive techniques, including animation.
+1. Only data provided should be used, no additional data sets are required.
+2. Focus on telling data story using appropriate statistical graphic methods, graphical design principles and interactive techniques, including animation if necessary.
 
 
 ## Data Source
-The data visualisation above is created by using data provided by Department of Statistics, Singapore (DOS).  The data are available under the sub-section of [Merchandise Trade by Region/Market](https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data).  For the purpose of this dataviz makeover exercise, you should download the data by clicking on the link **Download all in Excel** on the same webpage.   
+Two data sets are provided for this exercise.  They are:
+
++ *origin_destination_bus_SZ_202201.csv*, this data set was downloaded from LTA Datamall and URA region, planning area and planning subzone information were added by using GIS Overlay operation.
++ *MP14_SUBZONE_WEB_PL*, this data provides URA Master Plan 2014 Planning Subzone boundary map in ESRI shapefile format.  It was downloaded from data.gov.sg.
+
 
 ## Submission deadline
-Submission deadline: **20th June 2021 (Sunday), mid-night 11:59pm**.
+Submission deadline: **27th March 2022 (Sunday), mid-night 11:59pm**.
 
 ## Submission
-### G1
 
-- AHMAD FADY GANIS
-    - [DataViz Makeover write-up on Netlify](https://fadyganis.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/fady.ganis/viz/DataVizMakeover2-AhmadFadyGanis/TotalMerchandiseTrade)
-
-- ARCHIE QUIAMBAO DOLIT
-    - [DataViz Makeover write-up on Netlify](https://adolit-vaa.netlify.app/posts/2021-06-20-dataviz-makeover-02/) and [Tableau Public link](https://public.tableau.com/app/profile/adolit/viz/DataViz_Makeover02/SGTradeDashboard)
-
-- ARYAH UMRALKAR CHOPRA
-    - [DataViz Makeover write-up on Netlify](https://arychopra.netlify.app/) and [Tableau Public link](https://public.tableau.com/profile/aryah.umralkar.chopra#!/)
-
-- CHEN YUXI
-    - [DataViz Makeover write-up on Netlify](https://yuxich.netlify.app/posts/2021-06-10-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yuxi5876/viz/SingaporesTopMerchandiseTradingPartners2011-2020/Dashboard)
-
-- CONNIE XIA YI JING
-    - [DataViz Makeover write-up on Netlify](https://connie-xia.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/connie.xia/viz/DataVizMakeover2_16241926546890/Dashboard1)
-
-- HONG YUN TING
-    - [DataViz Makeover write-up on Netlify](https://hongyunting.netlify.app/posts/2021-06-13-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/hong.yun.ting/viz/DataVizMakeover2_16241905700430/NetImporterExporter)
-
-- HUANG LINYA
-    - [DataViz Makeover write-up on Netlify](https://linyahuang.netlify.app/posts/datamakeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/linya.huang/viz/Data_Makeover2/Dashboard1)
-
-- HUANG SHAN
-    - [DataViz Makeover write-up on Netlify](https://hs-visual.netlify.app/) and [Tableau Public link](https://public.tableau.com/app/profile/huang.shan1260/viz/Makeover2_16241977100290/Dashboard2)
-
-- JOVINKA HARTANTO
-    - [DataViz Makeover write-up on Netlify](https://dataviz1jovinka.netlify.app/posts/2021-06-10-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/jovinka.hartanto3850/viz/datavizmakeover2-Final/Dashboard1)
-
-- KELLY KOH KIA WOON
-    - [DataViz Makeover write-up on Netlify](https://kellykkw.netlify.app/posts/2021-06-12-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/kelly2850/viz/DatavizMakeover2_16241730883380/Dashboard) 
-
-- KEVIN MAGIC RIALUBIN SUNGA
-    - [DataViz Makeover write-up on Netlify](https://kevinsunga.netlify.app/posts/2021-06-19-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/kevin.sunga/viz/dataviz_makeover_2_final/Dashboard)
-
-- LI SHUXIAN
-    - [DataViz Makeover write-up on Netlify](https://wizardly-cori-b85456.netlify.app/posts/2021-06-20-biz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/shuxian.jovina.li/viz/Makeover2_16241728914600/Dashboard1)
-
-- LI YUHONG
-    - [DataViz Makeover write-up on Netlify](https://yuhongliblog.netlify.app/posts/2021-06-13-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/li.yuhong/viz/Book1_16241968478040/MerchandiseTrade)
-
-- LI YUMENG
-    - [DataViz Makeover write-up on Netlify](https://nicetry.netlify.app/posts/dataviz-makeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/lemon5793/viz/MerchandiseTradePerformance/InteractiveBubblePlot)
-
-- LIAN YINGZHEN JOANNA
-    - [DataViz Makeover write-up on Netlify](https://60c61ced6748be0007db04e3--datavizmakeover.netlify.app/posts/2021-06-07-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/joanna.lian/viz/DataViz2_16235105075420/Story1)
-
-- LIANG YINGFANG
-    - [DataViz Makeover write-up on Netlify](https://isss608blog.netlify.app/posts/dataviz2/) and [Tableau Public link](https://public.tableau.com/app/profile/yingfang.liang/viz/dataviz2_16240930416840/SingaporeMerchandiseTradebyRegion)
-
-- LIM JIAHUI
-    - [DataViz Makeover write-up on Netlify](https://limjiahui.netlify.app/posts/2021-05-22-dataviz-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lim.jiahui/viz/dataviz2_v2/Dashboard2)
-
-- LIM JIN RU
-    - [DataViz Makeover write-up on Netlify](https://jinru-1906-datavizmakeover-2.netlify.app/posts/2021-06-19-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lim.jin.ru.alethea./viz/DataVizMakeOver2/Dashboard4)
-
-- LIM YONG KAI
-    - [DataViz Makeover write-up on Netlify](https://limyongkai.netlify.app/posts/2021-06-12-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lim.yong.kai/viz/viz2_16238675163570/Dashboard5)
-
-- LIU YANGGUANG
-    - [DataViz Makeover write-up on Netlify](https://ygliu.netlify.app/posts/2021-06-14-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/liu.yangguang/viz/bubbleplot_16241846284400/Dashboard1)
-
-- LOH YUN JIA STELLA
-    - [DataViz Makeover write-up on Netlify](https://datavizmakeover1.netlify.app/posts/2021-06-08-dataviz-makeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/stella.loh.yun.jia/viz/Makeover2_StellaLoh/OverviewofSingaporesTrade)
-
-- LUO HAOYU
-    - [DataViz Makeover write-up on Netlify](https://r4dsa-lhy.netlify.app/posts/2021-06-20-datavizmakeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/luo.haoyu/viz/Makeover2_16241983716320/Dashboard1)
-
-- MANMIT SINGH S/O NARMAL SINGH
-    - [DataViz Makeover write-up on Netlify](https://gallant-hawking-d63d10.netlify.app/posts/2021-06-18-dataviz-2/) and [Tableau Public link](https://public.tableau.com/app/profile/manmit.singh/viz/Data-Viz2-SingaporesTradewithtop10partners/Singaporestradingpartners)
-
-- MAYURAPRIYANN ARULMOZHI BASKARAN
-    - [DataViz Makeover write-up on Netlify](https://mayurviz.netlify.app/posts/2021-06-17-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/mayur4143/viz/DataVizMakeover2_16241304925730/Dashboard2)
-
-- NG DING XUAN ARNOLD
-    - [DataViz Makeover write-up on Netlify](https://arnoldndx.netlify.app/posts/2021-06-20-dataviz2/) and [Tableau Public link](https://public.tableau.com/app/profile/arnold.ng6549/viz/datavizmakeover2_16242002706520/Dashboard1)
-
-- NG YEN NGEE
-    - [DataViz Makeover write-up on Netlify](https://yenngee-visual-analytics.netlify.app/posts/2021-06-13-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yen.ngee/viz/Viz_v2_1/MerchandiseTradingPartners)
-
-- NIKITHA BANDA
-    - [DataViz Makeover write-up on Netlify](https://blogdataviz.netlify.app/posts/2021-06-18-dataviz-makeover-2-blog/) and [Tableau Public link](https://public.tableau.com/app/profile/nikitha4057/viz/DataViz2_16241913007550/MotionBubblePlot)
-
-- NURULASYIQAH BINTE MOHAMMAD TAHA
-    - [DataViz Makeover write-up on Netlify](https://vasq.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/nurulasyiqah.md.taha/viz/SingaporeMajorTradePartners/Tradevalueandbalance)
-
-- OH YAO WEI AARON
-    - [DataViz Makeover write-up on Netlify](https://aaronoh743.netlify.app/posts/2021-06-09-datavizmakeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/aaron.oh/viz/DataVizMakeover2_16239487110470/Dashboard1)
-
-- ONG CHEE HONG
-    - [DataViz Makeover write-up on Netlify](https://chdataviz.netlify.app/posts/2021-06-18-dataviz-2/) and [Tableau Public link](https://public.tableau.com/app/profile/chee.hong/viz/SingaporeMerchandiseTradeJan2011-Dec2020/Dashboard1)
-
-- RHODA TONG MIN TING
-    - [DataViz Makeover write-up on Netlify](https://mttong.netlify.app/posts/2021-06-06-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/mt.tong/viz/DataVizMakeover2_16240837165630/TradeDB)
-
-- RYAN CHAN WEIYAO
-    - [DataViz Makeover write-up on Netlify](https://ryan-chan.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/ryan.chan8444/viz/DataVizMakeover2_16241161747500/Dashboard1)
-
-- SHEN XIAOJING
-    - [DataViz Makeover write-up on Netlify](https://xiaojingshen.netlify.app/posts/2021-06-16-my-2nd-post/) and [Tableau Public link](https://public.tableau.com/app/profile/xiaojing.shen/viz/Book2_16239835623390/Dashboard1)
-
-- SYED AHMAD ZAKI BIN SYED SAKAF AL-ATTAS
-    - [DataViz Makeover write-up on Netlify](https://syedahmadzakidataviz.netlify.app/posts/2021-06-08-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/zaki.syed/viz/DataViz2_16239151424830/Main)
-
-- TAN CHEE SENG DAVMES
-    - [DataViz Makeover write-up on Netlify](https://dtcs.netlify.app/posts/2021-06-13-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/davmes.tan/viz/DataViz2a/Dashboard1)
-
-- TAN CHOO THYE
-    - [DataViz Makeover write-up on Netlify](https://funplaywdata06.netlify.app/posts/2021-06-06-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/tantiger/viz/DataVizM2/Dashboard1)
-
-- TAN KAR YEE
-    - [DataViz Makeover write-up on Netlify](https://isss608-karyeetan.netlify.app/posts/2021-06-19-dataviz2/) and [Tableau Public link](https://public.tableau.com/app/profile/tan.kar.yee/viz/Dataviz2v4/Dashboard1)
-
-- WANG QINYU
-    - [DataViz Makeover write-up on Netlify](https://wangqy075.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/qinyu.wang/viz/Makeover2_16241930132380/Dashboard1)
-
-- XU DAN
-    - [DataViz Makeover write-up on Netlify](https://github.com/gitxudan/DataViz_blog/tree/master/_posts/2021-06-20-dataviz-makeover-2) and [Tableau Public link](https://public.tableau.com/app/profile/xu.dan3204/viz/MonthlySingaporeMerchandiseTrade/Dashboard1)
-
-- YAN RUIYUN
-    - [DataViz Makeover write-up on Netlify](https://optimistic-ritchie-9926db.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/ry.y/viz/Viz2_16241991641160/Dashboard2)
-
-- YANG XU
-    - [DataViz Makeover write-up on Netlify](https://visualdataviz.netlify.app/posts/2021-06-20-makeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/cryshelle.yang.xu/viz/DataViz2_16242029410430/Dashboard1)
-
-- YEO CHIA GUAN ANDY
-    - [DataViz Makeover write-up on Netlify](https://andyyeodataviz.netlify.app/posts/2021-06-10-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/andy.yeo4334/viz/DataViz2_16240842559590/Dashboard1)
-
-- YEO DING RUN
-    - [DataViz Makeover write-up on Netlify](https://yeodingrundarius-r4dsa.netlify.app/posts/2021-06-07-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yeo.ding.run.darius/viz/DataVizMakeover2-SingaporesMerchandiseTradePerformancebyMarkets2011to2020/MerchandiseTradeDashboard)
-
-- YU YAXIN
-    - [DataViz Makeover write-up on Netlify](https://determined-jepsen-0f6bf9.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/mavis.yu/viz/82countries/Dashboard1)
-
-- ZHANG YING
-    - [DataViz Makeover write-up on Netlify](https://alicia-zhang.netlify.app/posts/2021-06-16-data-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/zhang.ying7125/viz/Diz2/Dashboard1)
-
-- ZHONG LINLI
-    - [DataViz Makeover write-up on Netlify](https://linlizhong.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/linli.zhong/viz/Makeover2_16240946903300/TradePerformance)
-
-### G2
-
-- BAI YINING
-    - [DataViz Makeover write-up on Netlify](https://yiningmakeover1.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yining.bai/viz/dataviz_makeover2/Dashboard2)
-
-- DONG FANG
-    - [DataViz Makeover write-up on Netlify](https://dongfang-regina.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/dong.fang.regina/viz/DataVizMakeover2_16239465641540/Dashboard1)
-    
-- JESSICA TAN SOO CHENG
-    - [DataViz Makeover write-up on Netlify](https://competent-lalande-bf2cc0.netlify.app/posts/2021-06-19-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/jessica.tan2849/viz/DataViz2_16239512887800/Dashboard1)
-    
-- JOYCE WOON SHI HUI
-    - [DataViz Makeover write-up on Netlify](https://jwdataviz.netlify.app/posts/2021-06-18-dataviz-2/) and [Tableau Public link](https://public.tableau.com/app/profile/joyce.woon/viz/DataViz2_16240401638120/Dashboard1)
-    
-- LANG SHUANG
-    - [DataViz Makeover write-up on Netlify](https://my608work.netlify.app/posts/2021-06-23-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lang.shuang.lesley/viz/Book1_16246636508970/BubbleChart)
-    
-- LEE SULING
-    - [DataViz Makeover write-up on Netlify](https://60cf5868f84f1d0007eb4cab--sulingdataviz.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/suling.lee/viz/DataViz2_SlopeGraph_Barchart/RankingofTradePartners)
-    
-- LI NAN
-    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link](https://public.tableau.com/app/profile/nan.li5041/viz/DataViz2FinalEdition/Dashboard1)
-    
-- LI YUETING
-    - [DataViz Makeover write-up on Netlify](https://yuetingli.netlify.app/posts/2021-06-20-datavis-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yueting.li/viz/MerchandiseTradeofdifferentCountries_makeover2/DataVisMakeover2)
-    
-- LI ZHEN
-    - [DataViz Makeover write-up on Netlify](https://visualizationzhen.netlify.app/posts/2021-06-18-dataviz-makeover2/) and [Tableau Public link](https://public.tableau.com/app/profile/zhen.li7736/viz/makeover2_16241157051710/makeover2)  
-    
-- LIN PEIRONG
-    - [DataViz Makeover write-up on Netlify](https://perry-dataviz.netlify.app/posts/2021-06-14-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/peirong.lin/viz/Visualization2_16241789703960/Visulaization2)
-    
-- LIU MANYE
-    - [DataViz Makeover write-up on Netlify](https://dataviz-lmy.netlify.app/posts/2021-06-09-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/manye.liu/viz/FinalVisualization_16241799600890/Dashboard)
-    
-- LIU NIAN
-    - [DataViz Makeover write-up on Netlify]() and [Tableau Public link](https://public.tableau.com/app/profile/nian.liu1906/viz/Thetradingvolumeevolutionoftop10partnerswithSingaporeinpast10years/Tradingpartnerevolution)
-    
-- LU DI
-    - [DataViz Makeover write-up on Netlify](https://ludi1234.netlify.app/posts/2021-06-12-dataviz-makeover-1/) and [Tableau Public link](https://public.tableau.com/app/profile/di.lu7592/viz/VIZ2_16239421492530/Dashboard1)
-    
-- MAO XIAOZHU
-    - [DataViz Makeover write-up on Netlify](https://xiaozhumdataviz.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/xiaozhu.mao/viz/DataViz_assign2/interactivedashboard)
-    
-- MIAO LU
-    - [DataViz Makeover write-up on Netlify](https://miaolu.netlify.app/post/2021-6-16-makover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/lu.miao/viz/makeover2-new/Dashboard1)
-    
-- MISHRA AMRITA
-    - [DataViz Makeover write-up on Netlify](https://amritamishradatablog.netlify.app/posts/2021-06-20-dataviz2/) and [Tableau Public link](https://public.tableau.com/app/profile/amrita.mishra/viz/Tableau_DataViz2/TradeDashboard)
-
-- QIAN ZIWEI
-    - [DataViz Makeover write-up on Netlify](https://qian-makeover-2.netlify.app/posts/2021-06-10-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/qian.ziwei/viz/Makeover2_16234698864380/Makeover2)
-
-- SNG KAH LEONG
-    - [DataViz Makeover write-up on Netlify](https://klsngdatavizmakeover2.netlify.app/posts/2021-06-18-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/klsng/viz/DataVizMakeover2Finalv14/InteractiveandAnimationversionofSingaporeTradeBalancePerformancewithItsTradingPartners)
-    
-- TANG HUINING
-    - [DataViz Makeover write-up on Netlify](https://myhardwork.netlify.app/posts/2021-06-20-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/huining.tang/viz/DataViz-2_16241911265180/Dashboard1)
-    
-- TANG YUE
-    - [DataViz Makeover write-up on Netlify](https://datavizwork.netlify.app/posts/2021-06-16-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/yue.tang/viz/DataDiz_Makeover3/Dashboard1)
-    
-- VERTIKA PODDAR
-    - [DataViz Makeover write-up on Netlify](https://vertika.netlify.app/posts/2021-06-13-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/vertika.poddar/viz/DataVizMakeover2-DecodingtheDecadeofInternationalTrade/Dashboard1)
-    
-- WANG JIAYI
-    - [DataViz Makeover write-up on Netlify](https://datavisual-wjy.netlify.app/posts/2021-06-15-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/jiayi.wang5053/viz/Book1_16241075361940/Dashboard2)
-    
-- WANG XIYU
-    - [DataViz Makeover write-up on Netlify](https://isss608wangxiyu.netlify.app/) and [Tableau Public link](https://public.tableau.com/app/profile/wang.xiyu/viz/DataVizMakeover2_16241216210990/Dashboard1)
-    
-- YIN XIAOLAN
-    - [DataViz Makeover write-up on Netlify](https://isss608xiaolanyin.netlify.app/posts/2021-06-15-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/xiaolan.yin/viz/DataVizMakeover2_16241928322120/TradePerformanceViz)
-    
-- ZHANG XINRU
-    - [DataViz Makeover write-up on Netlify](https://datavizblogzhangxinru.netlify.app/posts/2021-06-20-daraviz-makerover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/zhang.xinru/viz/trademakeover/Dashboard12)
-    
-- ZHANG YOUZHEN
-    - [DataViz Makeover write-up on Netlify](https://dataviz-1.netlify.app/posts/2021-06-10-dataviz-makeover-2/) and [Tableau Public link](https://public.tableau.com/app/profile/zhang.youzhen/viz/makeover-2-3rd/Dashboard1)
-    
-- ZHONG PING
-    - [DataViz Makeover write-up on Netlify](https://makeover1final.netlify.app/) and [Tableau Public link](https://public.tableau.com/app/profile/zhong.ping/viz/makeover2_1_16238966092570/MERCHANDISETRADEPERFORMANCEWITHMAJORTRADINGPARTNERS2011-2020_1)
 
 ## Peer Learning
 

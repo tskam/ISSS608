@@ -66,7 +66,7 @@ Write a code chunk to check, install and launch  **readr**, **sf** and **tmap** 
 The solution:
 
 ```{r echo=FALSE, eval=TRUE}
-packages = c('sf', 'tmap', 'tidyverse')
+packages = c('sf', 'tmap', 'biscale', 'tidyverse')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -929,6 +929,44 @@ tm_shape(mpsz_agemale2018[mpsz_agemale2018$REGION_N=="CENTRAL REGION", ])+
   tm_borders(alpha = 0.5)
 ```
 
+---
+### Computing bivariate classification
+
+```{r}
+bidata <- bi_class(popagsex2018_male, 
+                   x = AGED, 
+                   y = YOUNG, 
+                   style = "quantile", 
+                   dim = 3)
+```
+
+---
+### Derive bi-classification legend
+
+```{r}
+legend <- bi_legend(pal = "DkBlue",
+                    dim = 3,
+                    xlab = "Higher % White ",
+                    ylab = "Higher Income ",
+                    size = 8)
+```
+
+
+```{r}
+ggplot() +
+  geom_sf(data = bidata, 
+          mapping = aes(fill = bi_class), 
+          color = "white", 
+          size = 0.1, 
+          show.legend = FALSE) +
+  bi_scale_fill(pal = "DkBlue", 
+                dim = 3) +
+  labs(
+    title = "Race and Income in St. Louis, MO",
+    subtitle = "Dark Blue (DkBlue) Palette"
+  ) +
+  bi_theme()
+```
 
 
 ```{r echo=FALSE, eval=FALSE}
