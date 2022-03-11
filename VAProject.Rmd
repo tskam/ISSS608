@@ -90,10 +90,6 @@ Project teams are encouraged to use [posterdown](https://github.com/brentthorne/
 
 **Note:** The poster will be considered a final deliverable, so don't forget to apply good visual design and data visualisation principles and best practice to your poster.
 
-
-
-
-
 ### Final Deliverables
 
 The final deliverable will include: 
@@ -118,8 +114,6 @@ The visual analytics project will account for 30% of your final grade in the cou
 - ShinyApp 50%
  
 The course instructor will consider strongly the novelty of the idea (If it has never been done before, you will get lots of credit!), how it addresses the problem at hand, the methodology you employ in doing the research, and your technical skill in implementing the idea. 
-
-
 
 ### Grading criteria for poster
 
@@ -164,7 +158,45 @@ Note that the following examples are for references purposes.  You are urge to u
 
 # Project Groups
 
+Group 1: [Jiak Ba Buay: An Insight into the Belly of our Nation](https://isss608-g1-visualanalytics.netlify.app/)
 
++ Abstract:
+
+Group 2: [VA Project](https://group2vaproject2022janterm.netlify.app/) 
+
++ Abstract:
+
+Group 3: [Visual Analytics Project Proposal](https://isss608vaprojectg3.netlify.app/website/proposal/proposal)
+
++ Abstract:
+
+Group 4: [Project: Visual Analytics on Singapore Merchandise Trade](https://group4-apr2022.netlify.app/)
+
++ Abstract:
+
+Group 5: [How to spot a Golden Goose (a.k.a. Profitable Rental Property) in Singapore](https://singaporegoldengoose.netlify.app/index.html)
+
++ Abstract:
+
+Group 6: [ShinyCoin](https://shinycoin.netlify.app/)
+
++ Abstract:
+
+Group 7: [Department Store Sales App](https://viz-analytics-t7-t2-22.netlify.app/)
+
++ Abstract:
+
+Group 8: [Making Smart Real Estate Decisions using Visual Analytics](https://g8vaproject.netlify.app/)
+
++ Abstract:
+
+Group 9: [O List E-Commerce Project](https://isss608team12.netlify.app/)
+
++ Abstract:
+
+Group 10: [Data Visualisation Group Project: An analysis on Government Procrument](https://isss608-group10.netlify.app/)
+
++ Abstract:
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
