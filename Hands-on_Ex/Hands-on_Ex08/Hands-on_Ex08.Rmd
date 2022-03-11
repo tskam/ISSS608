@@ -947,7 +947,145 @@ visNetwork(GAStech_nodes,
 ```
 ]
 
+---
+## Visualising Flows Between Entities: Chord Diagram method
 
+.pull-left[
++ In this hands-on exercise, you will learn how to visualise flows or interaction between entities such as international and national migration, international trade, remittance flows, arms trades by using **chord diagram**.
+
++ Two R packages will be used, they are:
+    + [**circlize**](https://cran.r-project.org/web/packages/circlize/index.html), in particular the [`chordDiagram()`](https://jokergoo.github.io/circlize_book/book/the-chorddiagram-function.html).
+    + [*chorddiag*](https://github.com/mattflor/chorddiag) package.  Notice that this package is not in R cran.  You need to install it by using the code chunk below.
+
+```{r eval=FALSE}
+devtools::install_github("mattflor/chorddiag")
+```
+
++ Before using them, remember to include both packages in the `library()`.
+]
+
+--
+.pull-right[
++  In this hands-on exercise, *bilateral_migration2017.csv* will be used.  It is download from [Migration and Remittances Data](https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data) page of The World Bank.
+
++ Use the code chunk below to important the data and save it as a tibble data frame called *mig_data*.
+
+```{r}
+mig_data <- read_csv(
+  "data/bilateral_migration2017.csv")
+```
+]
+
+---
+### Data preparation 
+
+.pull-left[
++ In the original data, the destination countries are stored as column.  The code chunk below uses `pivot_longer()` of **dplyr** to pivot them into a single column called *Destination*.  A new column called *Migrants* will be used to store the migrant values.
+
+
+```{r}
+mig_data <- mig_data %>%
+  pivot_longer(cols = c(2:215),
+               names_to = "Destination",
+               values_to = "Migrants",)
+```
+]
+
+--
+.pull-right[
+Next, the code chunk below will be used to convert the Origin and Destination data type from **Character** into **Factor**.
+
+```{r}
+mig_data$`Origin` <- as.factor(
+  mig_data$Origin)
+mig_data$`Destination` <- as.factor(
+  mig_data$Destination)
+```
+]
+
+---
+### Data preparation
+
+.pull-left[
++ There are a total of 214 countries which is too many to display, `filter()` will be used to exclude flows that are less than 1000000.
+
+```{r}
+mig_data_selected <-mig_data %>% 
+  filter(Migrants >= 1000000)
+```
+]
+
+--
+.pull-right[
++ Both `chordDiagram()` and `chorddiag()` require the input data in an [**adjacency matrix**](https://en.wikipedia.org/wiki/Adjacency_matrix) format.  The code chunk below will be used to convert the tibble data frame into an adjacency matrix.     
+  
+```{r}
+adj_matrix <- as.matrix(
+  as_adjacency_matrix(
+    as_tbl_graph(mig_data_selected),
+    attr = "Migrants"))
+```
+]
+
+---
+### Plotting static chord diagram 
+
+.pull-left[
+The code chunk below uses chordDiagram() of circlize package to plot a static chord diagram.
+
+```{r eval=FALSE}
+library(circlize)
+ 
+# Make the circular plot
+chordDiagram(adj_matrix, 
+             transparency = 0.5)
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+library(circlize)
+chordDiagram(adj_matrix, 
+             transparency = 0.5)
+```
+]
+
+---
+### Plotting an interactive chord diagram
+
+```{r eval=FALSE}
+library(chorddiag)
+chorddiag(data = adj_matrix,
+                 groupnamePadding = 30,
+                 groupPadding = 3,
+                 groupColors = c("#ffffe5", "#fff7bc", "#fee391", "#fec44f", "#fe9929", 
+                                 "#ec7014", "#cc4c02", "#8c2d04"),
+                 groupnameFontsize = 13 ,
+                 showTicks = FALSE,
+                 margin=150,
+                 tooltipGroupConnector = "    &#x25B6;    ",
+                 chordedgeColor = "#B3B6B7")
+```
+
+---
+### Plotting an interactive chord diagram
+
+The interactive chord diagram.
+
+```{r echo=FALSE}
+library(chorddiag)
+chorddiag(data = adj_matrix,
+                 groupnamePadding = 30,
+                 groupPadding = 3,
+                 groupColors = c("#ffffe5", "#fff7bc", "#fee391", "#fec44f", "#fe9929", 
+                                 "#ec7014", "#cc4c02", "#8c2d04"),
+                 groupnameFontsize = 13 ,
+                 showTicks = FALSE,
+                 margin=150,
+                 tooltipGroupConnector = "    &#x25B6;    ",
+          chordedgeColor = "#B3B6B7")
+```
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
