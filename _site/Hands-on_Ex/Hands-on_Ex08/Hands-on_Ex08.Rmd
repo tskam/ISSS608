@@ -380,7 +380,7 @@ The code chunks below will be used to plot the network graph using Fruchterman a
 
 ```{r, echo=TRUE, eval=FALSE}
 g <- ggraph(GAStech_graph, 
-            layout = "fr") +
+            layout = "dh") +
   geom_edge_link(aes()) +
   geom_node_point(aes())
 
