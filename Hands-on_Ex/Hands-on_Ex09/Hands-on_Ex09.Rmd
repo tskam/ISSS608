@@ -704,5 +704,5 @@ ggraph(bigram_graph,
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("In-class_Ex10-TextVA.html")
+pagedown::chrome_print("Hands-on_Ex09.html")
 ```
