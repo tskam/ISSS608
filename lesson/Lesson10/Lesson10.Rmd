@@ -307,6 +307,7 @@ knitr::opts_chunk$set(fig.retina=3,
 # Best Practices for Dashboard Design
 ## Common mistakes in dashboard design
 
+.large[
 - Exceeding the boundaries of a single page
 
 - Supplying inadequate context for the data
@@ -322,112 +323,127 @@ knitr::opts_chunk$set(fig.retina=3,
 - Using poorly designed display media
 
 - Encoding quantitative data inaccurately
+]
 
 ---
 ## Common mistakes in dashboard design
 
+.large[
 - Exceeding the boundaries of a single page and requiring the viewer to scroll
+]
 
 .center[
 ![:scale 60%](img/image10-24.png)]
 
 ---
 ## Common mistakes in dashboard design
-
+.large[
 - Fragmenting data into separate screen
-
+]
 .center[
 ![:scale 60%](img/image10-25.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Displaying excessive detail or precision
-
+]
 .center[
 ![:scale 60%](img/image10-26.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Introducing meaningless variety
-
+]
 .center[
 ![:scale 60%](img/image10-27.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Arranging the data poorly
-
+]
 .center[
 ![:scale 60%](img/image10-28.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Highlighting important data ineffectively or not
-
+]
 .center[
 ![:scale 50%](img/image10-29.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Cluttering the display with useless decoration
-
+]
 .center[
 ![:scale 60%](img/image10-30.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Misusing or overusing colour
-
+]
 .center[
 ![:scale 60%](img/image10-31.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Designing an unattractive visual display
-
+]
 .center[
 ![:scale 60%](img/image10-32.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Design that failed to reveal KPIs effectively
-
+]
 .center[
 ![:scale 60%](img/image10-33.png)]
 
-
 ---
 ## Alternative dashboard design
+.large[
 - Design that reveals KPIs effectively
-
+]
 .center[
 ![:scale 55%](img/image10-34.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Design with poor layout and clarity
-
+]
 .center[
 ![:scale 40%](img/image10-35.png)]
 
 ---
 ## Alternative dashboard design
+.large[
 - Design with good layout and clarity
-
+]
 .center[
 ![:scale 70%](img/image10-36.png)]
 
 ---
 ## Common mistakes in dashboard design
+.large[
 - Design with poor visual aestheticsness
-
+]
 .center[
-![:scale 70%](img/image10-37.png)]
+![:scale 65%](img/image10-37.png)]
 
 ---
 ## Alternative dashboard design
+.large[
 - Design with good visual aestheticsness
-
+]
 .center[
 ![:scale 55%](img/image10-38.png)]
 
@@ -450,7 +466,7 @@ knitr::opts_chunk$set(fig.retina=3,
 
 ---
 # References
-## Dashboard Design
+### Dashboard Design
 
 - Dashboard Design for Rich and Rapid Monitoring (http://www.perceptualedge.com/articles/visual_business_intelligence/dd_for_rapid_monitoring.pdf)
 
@@ -466,7 +482,7 @@ knitr::opts_chunk$set(fig.retina=3,
 
 ---
 # References
-## Bullet Chart & Sparklines
+### Bullet Chart & Sparklines
 
 - Bullet graph @wiki (https://en.wikipedia.org/wiki/Bullet_graph)
 
