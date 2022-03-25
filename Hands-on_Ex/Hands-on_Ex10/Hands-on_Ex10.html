@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Exercise 10: Information Dashboard Design: R methods</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Exercise 10: Information Dashboard Design: R methods
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+
+---
+
+
+
+
+
+
+## Overview
+
+.large[
+By the end of this hands-on exercise, you will be able to:
+
+- create bullet chart by using ggplot2,
+- create sparklines by using ggplot2  ,
+- build industry standard dashboard by using R Shiny. 
+]
+
+---
+## Importing Microsoft Access database
+
+### The data set
+For the purpose of this study, a personal database in Microsoft Access mdb format called *Coffee Chain* will be used.
+
+--
+### Importing database into R
+
+In the code chunk below, `odbcConnectAccess()` of [**RODBC**](https://cran.r-project.org/web/packages/RODBC/index.html) package is used used to import a database query table into R. 
+
+
+```r
+library(RODBC)
+con &lt;- odbcConnectAccess('data/Coffee Chain.mdb')
+coffeechain &lt;- sqlFetch(con, 'CoffeeChain Query')
+write_rds(coffeechain, "data/CoffeeChain.rds")
+odbcClose(con)
+```
+
+Note: Before running the code chunk, you need to change the R system to 32bit version.  This is because the `odbcConnectAccess()` is based on 32bit and not 64bit 
+
+---
+## Getting started
+
+.pull-left[
+.large[
+For the purpose of this hands-on exercise, the following R packages will be used.
+
+
+```r
+packages = c('tidyverse', 'lubridate', 
+             'ggthemes')
+
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p,character.only = T)
+}
+```
+]]
+
+--
+.pull-right[
+.large[
+The code chunk below is used to import *CoffeeChain.rds* into R. 
+
+
+
+```r
+coffeechain &lt;- read_rds("data/CoffeeChain.rds")
+```
+
+Note: This step is optional if *coffeechain* is already available in R.
+]]
+
+---
+### Data Preparation
+
+.pull-left[
+The code chunk below is used to aggregate Sales and Budgeted Sales at the Product level.
+
+
+```r
+product &lt;- coffeechain %&gt;%
+  group_by(`Product`) %&gt;%
+  summarise(`target` = sum(`Budget Sales`),
+            `current` = sum(`Sales`)) %&gt;%
+  ungroup()
+```
+]
+
+---
+### Bullet chart in ggplot2 
+
+.pull-left[
+The code chunk below is used to plot the bullet charts using ggplot2 functions.
+
+
+```r
+ggplot(product, aes(Product, current)) + 
+  geom_col(aes(Product, max(target) * 1.01),
+           fill="grey85", width=0.85) +
+  geom_col(aes(Product, target * 0.75),
+           fill="grey60", width=0.85) +
+  geom_col(aes(Product, target * 0.5),
+           fill="grey50", width=0.85) +
+  geom_col(aes(Product, current), 
+           width=0.35,
+           fill = "black") + 
+  geom_errorbar(aes(y = target,
+                    x = Product, 
+                    ymin = target,
+                    ymax= target), 
+                width = .4,
+                colour = "red",
+                size = 1) +
+  coord_flip()
+```
+]
+
+--
+.pull-right[
+&lt;img src="Hands-on_Ex10_files/figure-html/unnamed-chunk-6-1.png" width="100%" /&gt;
+]
+
+---
+## Plotting sparklines using ggplot2
+
+.pull-left[
+In this section, you will learn how to plot sparklines by using ggplot2.
+
+Preparing the data
+
+
+```r
+sales_report &lt;- coffeechain %&gt;%
+  filter(Date &gt;= "2013-01-01") %&gt;%
+  mutate(Month = month(Date)) %&gt;%
+  group_by(Month, Product) %&gt;%
+  summarise(Sales = sum(Sales)) %&gt;%
+  ungroup() %&gt;%
+  select(Month, Product, Sales)
+```
+]
+
+.pull-right[
+The code chunk below is used to compute the minimum, maximum and end othe the month sales.
+
+
+```r
+mins &lt;- group_by(sales_report, Product) %&gt;% 
+  slice(which.min(Sales))
+maxs &lt;- group_by(sales_report, Product) %&gt;% 
+  slice(which.max(Sales))
+ends &lt;- group_by(sales_report, Product) %&gt;% 
+  filter(Month == max(Month))
+```
+
+The code chunk below is used to compute the 25 and 75 quantiles.  
+
+
+```r
+quarts &lt;- sales_report %&gt;%
+  group_by(Product) %&gt;%
+  summarise(quart1 = quantile(Sales, 
+                              0.25),
+            quart2 = quantile(Sales, 
+                              0.75)) %&gt;%
+  right_join(sales_report)
+```
+]
+
+---
+### sparklines in ggplot2
+The code chunk used.
+
+
+```r
+ggplot(sales_report, aes(x=Month, y=Sales)) + 
+  facet_grid(Product ~ ., scales = "free_y") + 
+  geom_ribbon(data = quarts, aes(ymin = quart1, max = quart2), 
+              fill = 'grey90') +
+  geom_line(size=0.3) +
+  geom_point(data = mins, col = 'red') +
+  geom_point(data = maxs, col = 'blue') +
+  geom_text(data = mins, aes(label = Sales), vjust = -1) +
+  geom_text(data = maxs, aes(label = Sales), vjust = 2.5) +
+  geom_text(data = ends, aes(label = Sales), hjust = 0, nudge_x = 0.5) +
+  geom_text(data = ends, aes(label = Product), hjust = 0, nudge_x = 1) +
+  expand_limits(x = max(sales_report$Month) + 
+                  (0.25 * (max(sales_report$Month) - min(sales_report$Month)))) +
+  scale_x_continuous(breaks = seq(1, 12, 1)) +
+  scale_y_continuous(expand = c(0.1, 0)) +
+  theme_tufte(base_size = 3, base_family = "Helvetica") +
+  theme(axis.title=element_blank(), axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), strip.text = element_blank())
+```
+
+---
+### sparklines in ggplot2
+The output
+
+&lt;img src="Hands-on_Ex10_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

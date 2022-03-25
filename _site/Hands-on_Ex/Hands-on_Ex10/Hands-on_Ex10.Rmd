@@ -1,0 +1,221 @@
+---
+title: "Presentation Ninja"
+subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
+author: 
+  - "Yihui Xie"
+  - "Garrick Aden-Buie"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r}
+library(htmltools)
+
+# not that you would want to do this but illustrates the usage of helper functions
+browsable(
+  dui_add_deps(
+    tags$div(
+      dui_chr(
+        dui_sparkline(
+          data = runif(100),
+          components = list(
+            dui_sparklineseries(strokeDasharray = "3,3"),
+            dui_sparkpointseries(points = list("min","max"))
+          )
+        )
+      )
+    )
+  )
+)
+
+
+library(dplyr)
+library(htmltools)
+library(dataui)
+
+data("diamonds", package="ggplot2")
+
+hist_all <- hist(diamonds$price, breaks = 20, plot = FALSE)
+
+dat <- diamonds %>%
+  group_by(cut) %>%
+  summarize(
+    n = n(),
+    mean_price = mean(price),
+    hist = list(unclass(hist(price, breaks = hist_all$breaks, plot = FALSE)))
+  )
+
+# calculate max so all sparklines use same scale
+max_density <- max(unlist(lapply(dat$hist, function(x) {x$density})))
+
+# convert hist column to character version of data-ui htmlwidget
+dat <- dat %>%
+  mutate(hist = lapply(hist, function(h){
+    dui_chr(
+      dui_sparkline(
+        data = h$density,
+        max = max_density,
+        height = 80,
+        margin = list(top = 0, bottom = 0, left = 20, right = 0),
+        components = list(
+          dui_sparkbarseries(),
+          dui_tooltip(
+            list(
+              dui_sparkhorizontalrefline(
+                stroke = "#ccc",
+                strokeDasharray = "4,4"
+              ),
+              dui_sparkpointseries(
+                renderLabel = htmlwidgets::JS("(d) => d ? (d*100000).toFixed(2) + '%' : null"),
+                labelPosition = "right"
+              )
+            )
+          )
+        )
+      )
+    )
+  }))
+
+# datatable
+library(DT)
+DT::datatable(
+  dat,
+  escape = FALSE,
+  options = list(
+    fnDrawCallback = htmlwidgets::JS('function(){ HTMLWidgets.staticRender()}')
+  )
+) %>%
+  formatCurrency("mean_price", digits = 0) %>%
+  formatRound("n", digits = 0) %>%
+  dui_add_deps()
+
+```
+
+```{r}
+library(dataui)
+library(dplyr)
+library(reactable)
+
+data <- chickwts %>%
+  group_by(feed) %>%
+  summarise(weight = list(weight))
+
+binValues = hist(chickwts$weight, breaks=15, plot = FALSE)$breaks
+
+fillColors = scales::brewer_pal(type="qual", palette="Set2")(8)
+
+reactable(
+  data,
+  columns = list(
+    feed = colDef(maxWidth = 100),
+    weight = colDef(
+      minWidth = 400,
+      cell = function(values, index) {
+        dui_histogram(
+          height = 200,
+          width = 400,
+          binValues = binValues,
+          renderTooltip = htmlwidgets::JS(htmltools::HTML('
+function (_ref) {
+  var event = _ref.event,
+      datum = _ref.datum,
+      data = _ref.data,
+      color = _ref.color;
+  return React.createElement(
+    "div",
+    null,
+    React.createElement(
+      "strong",
+      { style: { color: color } },
+      datum.bin0,
+      " to ",
+      datum.bin1
+    ),
+    React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "strong",
+        null,
+        "count "
+      ),
+      datum.count
+    ),
+    React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "strong",
+        null,
+        "cumulative "
+      ),
+      datum.cumulative.toFixed(0)
+    ),
+    React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "strong",
+        null,
+        "density "
+      ),
+      datum.density.toFixed(0)
+    )
+  );
+}
+          ')),
+# reactR::babel_transform equivalent of the above
+#            htmlwidgets::JS(reactR::babel_transform("
+#{({ event, datum, data, color }) => (
+#  <div>
+#    <strong style={{ color }}>{datum.bin0} to {datum.bin1}</strong>
+#    <div><strong>count </strong>{datum.count}</div>
+#    <div><strong>cumulative </strong>{datum.cumulative.toFixed(0)}</div>
+#    <div><strong>density </strong>{datum.density.toFixed(0)}</div>
+#  </div>
+#)}
+#          ")),
+          components = list(
+            dui_barseries(rawData = values, fill = fillColors[index]),
+            dui_densityseries(rawData = values, stroke = fillColors[index], fill = fillColors[index]),
+            dui_xaxis()
+          )
+        )
+      }
+    )
+  ),
+  width = 600
+)
+
+```
+
