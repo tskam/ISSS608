@@ -53,7 +53,7 @@ Your completed take-home exercise is due on **28th January 2022, by 11:59pm even
 + [NG JIANYUAN CAINE](https://ngcaine.netlify.app/takehomeexercise/ex01/takehomeexercise01)
 + [REYNARD LAM KUAN TING](https://reynard.netlify.app/th_ex/th_ex01/th_ex01)
 + SEAH XING XIAN [Task 1](https://sxingxian-va.netlify.app/in-class_ex/in-class_ex02/in-class_ex02_distill) and [Task 2](https://sxingxian-va.netlify.app/in-class_ex/in-class_ex02/in-class_ex02_pyramid_distill)
-+ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/thex1)
++ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/takehomeex/1/thex1)
 + [SIA HENG GUANG](https://hengguang-608.netlify.app/takehome_exercise/ex001/ex001)
 + [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/th_ex/th_ex01/th_ex01)
 + [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex01/th_ex01)
