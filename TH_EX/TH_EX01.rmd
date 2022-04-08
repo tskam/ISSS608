@@ -43,7 +43,7 @@ Your completed take-home exercise is due on **28th January 2022, by 11:59pm even
 + FOO LI JING FARAH [Task 1](https://farahfoo.netlify.app/th_ex/th_ex02/th_ex02) and [Task 2](https://farahfoo.netlify.app/th_ex/th_ex02/th_ex02_pyramid).
 + [GONG SHUFEN](https://va2022.netlify.app/th_ex/th_ex01/th_ex01_distill)
 + [HE QIYUN](https://qyva.netlify.app/th_ex/th_ex01_graded/take-home-exercise1)
-+ JIANG MINGJUN
++ [JIANG MINGJUN](https://isss608mj.netlify.app/assigment/takehome01/takehome1.html)
 + [KARISHMA YADAV](https://karishma-smu.netlify.app/th_exercise/th_ex01/th_ex01)
 + [KWONG MEI LIN](https://kml-va.netlify.app/th_ex/th_ex01/th_ex01)
 + [LIN SHUYAN](https://lins-92-isss608.netlify.app/th_ex/th_ex01/th_ex01)

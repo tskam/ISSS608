@@ -39,10 +39,40 @@ Two data sets are provided for this exercise.  They are:
 ## Submission deadline
 Submission deadline: **27th March 2022 (Sunday), mid-night 11:59pm**.
 
-## Submission
-
-
 ## Peer Learning
+
++ ANG BI LIAN: [Web Writeup](https://bilian-mitb2021.netlify.app/th_ex/dataviz2/dataviz2) and [Table Public](https://public.tableau.com/app/profile/bi.lian/viz/DataViz2_16483865919080/Story1?publish=yes) page
++ ANNIE CHAN WA LAM: [Web Writeup](https://anniecwl.netlify.app/dataviz_makeover/dataviz_makeover_2/dataviz_makeover__2) and [Table Public](https://public.tableau.com/app/profile/annie5186/viz/DataVizMakeOver_2_270322/Dashboard1) page
++ CLEMENT ONG SHI QI: [Web Writeup](https://isss608cosq.netlify.app/dataviz/datavizmakeover2/dataviz_makeover2) and [Table Public](https://public.tableau.com/app/profile/clement8621/viz/DataViz_MakeOver2_Storyboard_allDashboard/FullStoryofAllDashboards?publish=yes) page
++ FEI JIAHUI: [Web Writeup](https://fjhva.netlify.app/dataviz%20makeover/dataviz%20makeover%202/dataviz-makeover-2) and [Table Public](https://public.tableau.com/app/profile/fei.jiahui/viz/DataVizMakeover2_16471059148730/Dashboard1) page
++ FOO LI JING FARAH: [Web Writeup](https://farahfoo.netlify.app/dataviz_makeover/dataviz2) and [Table Public](https://public.tableau.com/app/profile/frostbear/viz/SingaporeBustripsAnalysis/OriginDashboard) page
++ GONG SHUFEN: [Web Writeup](https://va2022.netlify.app/dv_ex/dv_ex02/dv_ex02_distill) and [Table Public](https://public.tableau.com/app/profile/amy3598/viz/Dataviz2_16484045956840/Dashboard1) page
++ HE QIYUN: [Web Writeup](https://qyva.netlify.app/datavismakeover/2/datavismakeover2) and [Table Public](https://public.tableau.com/app/profile/qiyun.he/viz/DataVisMakeOver2/Dashboard1) page
++ JIANG MINGJUN: [Web Writeup](https://isss608mj.netlify.app/DataViz2.html) and [Table Public](https://public.tableau.com/app/profile/jiang.mingjun/viz/DATAVIZ2_16483955902870/FINAL?publish=yes) page
++ KARISHMA YADAV: [Web Writeup](https://karishma-smu.netlify.app/dataviz_makeovers/dataviz_makeover_2/dataviz_makeover_2) and [Table Public](https://public.tableau.com/app/profile/karishma.yadav2567/viz/BUS-TRIPSACROSSPLANNINGSUB-ZONESSINGAPORE/DestinationSub-Zone?publish=yes) page
++ KWONG MEI LIN: [Web Writeup](https://kml-va.netlify.app/dvm/dvm_02/dvm_02) and [Table Public](https://public.tableau.com/app/profile/mei.lin.kwong/viz/DatavizMakeover2_16483315684060/BusTripOrigin-Destination-Jan2022?publish=yes) page
++ LIN SHUYAN: [Web Writeup](https://lins-92-isss608.netlify.app/data_viz/data_viz_2/data_viz_2) and [Table Public](https://public.tableau.com/app/profile/lin.shuyan/viz/data-viz02/MatrixDash?publish=yes) page
++ LIU CHENTAO: [Web Writeup](https://amberjourney.netlify.app/data_viz/data_visualization) and [Table Public](https://public.tableau.com/app/profile/amber4086/viz/ODViz_Extract/Dashboard?publish=yes) page
++ MAK HAN REN: [Web Writeup](https://makhanren.netlify.app/data_viz/data_viz02/dataviz02) and [Table Public](https://public.tableau.com/app/profile/mak.han.ren/viz/DatavizMakeover2_16483571473050/Dashboard1) page
++ MIN XIAOQI: [Web Writeup](https://mxqvisual.netlify.app/dataviz/dataviz2/dataviz2) and [Table Public](https://public.tableau.com/app/profile/xiaoqi.min/viz/DataViz2_16482587836840/Dashboard1) page
++ NG JIANYUAN CAINE: [Web Writeup](https://ngcaine.netlify.app/datavizmakeover/datavizmakeover02/datavizmakeover02) and [Table Public](https://public.tableau.com/app/profile/caine.ng/viz/DatavizMakeover2_16480065813330/Dashboard1#8) page
++ REYNARD LAM KUAN TING: [Web Writeup](https://reynard.netlify.app/th_ex/dataviz02/dataviz02) and [Table Public](https://public.tableau.com/app/profile/reynard.lam/viz/Book1_16446752440660/Dashboard1) page
++ SEAH XING XIAN: [Web Writeup](https://sxingxian-va.netlify.app/dataviz/dataviz2/) and [Table Public](https://public.tableau.com/views/TableauVA02/OverviewDashboardofOrigin-Destination?:language=en-US&:display_count=n&:origin=viz_share_link) page
++ SEAN SAMUEL PRAJS: [Web Writeup](https://myanalyticsartgallery2.netlify.app/datavizmakeover/2/datavizmakeover2_seansamuelprajs) and [Table Public](https://public.tableau.com/app/profile/sean.prajs/viz/DataVizMakeover2_SeanSamuelPrajs/Dashboard1?publish=yes) page
++ SIA HENG GUANG: [Web Writeup](https://hengguang-608.netlify.app/dataviz_makeover/ex002/ex002) and [Table Public](https://public.tableau.com/app/profile/heng.guang.sia/viz/DataVisualisation2-BusTrips/Dashboard1) page
++ SUN SHENGMEI: [Web Writeup](https://isss608visualanalyticssun.netlify.app/dataviz/dataviz2/dataviz2) and [Table Public](https://public.tableau.com/app/profile/sun.shengmei/viz/DataViz2_16483875359340/Dashboard1) page
++ TAN HUI QI RANICE: [Web Writeup](https://isss608-ranice.netlify.app/dataviz/dataviz02/dataviz02) and [Table Public](https://public.tableau.com/app/profile/ranice1917/viz/DataViz2_16483105302570/Dashboard) page
++ TAN JIT KAI: [Web Writeup](https://tjkva2022.netlify.app/dataviz/dvm02/dvm02) and [Table Public](https://public.tableau.com/views/DataVizMakeover02_16482936627430/DataViz2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link) page
++ TAN MAY HUA MELISSA  MELISSA XU: [Web Writeup](https://mviz.netlify.app/dataviz_02/dataviz_02) and [Table Public](https://public.tableau.com/app/profile/melissa.tan5282/viz/DataViz2_ODFLOWS/EXPLORATIONOFBUSTRIPSINSINGAPOREJAN2022) page
++ TAN YAN RU: [Web Writeup](https://yanrutanfirstsite.netlify.app/dataviz/dataviz_02/dataviz_02) and [Table Public](https://public.tableau.com/app/profile/tan.yan.ru/viz/Datazix_02_test/Dashboard1) page
++ TING PEILING: [Web Writeup](https://eloquent-va.netlify.app/dv_makeover/DV_Makeover_02/DV_Makeover_02_Trips.html) and [Table Public](https://public.tableau.com/app/profile/peiling8697/viz/BusTrips/BusTrips_Dashboard) page
++ TING YEN-HSIN: [Web Writeup](https://yhting2021.netlify.app/dataviz/dataviz_02/dataviz_02) and [Table Public](https://public.tableau.com/app/profile/ting.yen.hsin7876/viz/DataViz_02_3/PublicBusFlows) page
++ YANG NENGJIE BENNIE: [Web Writeup](https://isss608bennie.netlify.app/dataviz%20makeover/dataviz%20makeover%202/dvm2) and [Table Public](https://public.tableau.com/app/profile/bennie5728/viz/DataViz2_16477740577560/Dashboard) page
++ ZHANG JIEYUAN: [Web Writeup](https://jyvisualanalytics.netlify.app/dataviz_makeover/dataviz_makeover1/makeover1) and [Table Public](https://public.tableau.com/views/DataVizMakeover2_16483011358330/NumberofTrips?:language=en-US&:display_count=n&:origin=viz_share_link) page
++ ZHANG YI: [Web Writeup](https://isss608.netlify.app/posts/2022-03-24-dataviz-makeover-2/) and [Table Public](https://public.tableau.com/app/profile/zhang.yi5280/viz/data_viz2_16483944108200/Dashboard1) page
++ ZHOU YIOU: [Web Writeup](https://eo-dataviz2.netlify.app/dv2/dv2.html) and [Table Public](https://public.tableau.com/app/profile/yiou3293/viz/dv2_16483948171100/Story1) page
+
+
 
 ### Quality of Critic
 
