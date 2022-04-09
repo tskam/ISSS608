@@ -158,7 +158,7 @@ Note that the following examples are for references purposes.  You are urge to u
 
 # Project Groups
 
-Group 1: [Jiak Ba Buay: An Insight into the Belly of our Nation](https://isss608-g1-visualanalytics.netlify.app/)
+Group 1: [Money Not Enough: A Deep Dive into Singapore’s Shopping Basket ](https://moneynoenough.netlify.app/)
 
 + Abstract:
 
