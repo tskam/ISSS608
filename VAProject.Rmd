@@ -162,11 +162,11 @@ Group 1: [Money Not Enough: A Deep Dive into Singapore’s Shopping Basket ](htt
 
 + Abstract:
 
-Group 2: [VA Project](https://group2vaproject2022janterm.netlify.app/) 
+Group 2: [Shiny App for Visualising Accident Data](https://group2vaproject2022janterm.netlify.app/) 
 
 + Abstract:
 
-Group 3: [Visual Analytics Project Proposal](https://isss608vaprojectg3.netlify.app/website/proposal/proposal)
+Group 3: [Sugar Price Analyzer](https://isss608vaprojectg3.netlify.app/)
 
 + Abstract:
 
