@@ -31,8 +31,8 @@
       "description": " ",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n16/4\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n23/4\r\nDesigning Graphs to Enlighten\r\n\r\n3.\r\n30/4\r\nInteractivity in Visual Analytics\r\n\r\n4.\r\n7/5\r\nFundamentals of Visual Analytics\r\n\r\n5.\r\n14/5\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n21/5\r\nIt’s About Time\r\n\r\nR.\r\n28/5\r\nRecess\r\n\r\n7. 8.\r\n4/6 [ 11/6\r\nGeoVisual Analytics](outline/Lesson07_outline.html) Network Data Visualisation and Analysis\r\n\r\n9.\r\n18/6\r\nText Data Visualisation and Analysis\r\n\r\n10.\r\n25/6\r\nInformation Dashboard Design\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-04-11T14:36:58+08:00"
+      "contents": "\r\nWeek\r\nDate\r\nTopic\r\nRemarks\r\n1.\r\n16/4\r\nIntroduction to Visual Analytics\r\n\r\n2.\r\n23/4\r\nDesigning Graphs to Enlighten\r\n\r\n3.\r\n30/4\r\nInteractivity in Visual Analytics\r\n\r\n4.\r\n7/5\r\nFundamentals of Visual Analytics\r\n\r\n5.\r\n14/5\r\nVisual Multivariate Analysis\r\n\r\n6.\r\n21/5\r\nIt’s About Time\r\n\r\nR.\r\n28/5\r\nRecess\r\n\r\n7.\r\n4/6\r\nGeoVisual Analytics\r\n\r\n8.\r\n11/6\r\nNetwork Data Visualisation and Analysis\r\n\r\n9.\r\n18/6\r\nText Data Visualisation and Analysis\r\n\r\n10.\r\n25/6\r\nInformation Dashboard Design\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-04-11T14:51:04+08:00"
     },
     {
       "path": "R.html",

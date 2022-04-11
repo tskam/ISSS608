@@ -26,7 +26,8 @@ Week Date  Topic                                                                
 
 R.   28/5  [Recess]()
         
-7.   4/6  [GeoVisual Analytics](outline/Lesson07_outline.html)                       
+7.   4/6   [GeoVisual Analytics](outline/Lesson07_outline.html)                       
+
 8.   11/6  [Network Data Visualisation and Analysis](outline/Lesson08_outline.html)
 
 9.   18/6  [Text Data Visualisation and Analysis](outline/Lesson09_outline.html)
