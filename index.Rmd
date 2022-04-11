@@ -18,7 +18,7 @@ Welcome to the home page for **ISSS608 Visual Analytics and Applications**. All 
 Instructor: [Dr. Kam Tin Seong](https://www.smu.edu.sg/faculty/profile/9618/KAM-Tin-Seong), Associate Professor of Information Systems (Practice)  
 Lesson: Saturday 12:00pm to 3:15pm
 
-Venue: SCIS Seminar Rm B1-1 except 5/2 and 12/2 at YPHSL CR B1-09  
+Venue: SCIS Seminar Rm B1-1  
 Syllabus: [click here](syllabus.html)  
 Upcoming lectures and assignments: [click here](lesson.html)
 
