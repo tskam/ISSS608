@@ -38,7 +38,14 @@ The purpose of the makeover is to improve on the original visualisation. Focus o
     - [DataViz Makeover 1 handout](others/ISSS608_AY2020-21T2_DataViz1.pdf), [sample web article](https://kaichinlim.netlify.app/posts/2021-01-24-dataviz-makeover-1/) and [Tableau Public](https://public.tableau.com/profile/kai.chin#!/vizhome/DataViz1_16113674336320/Sheet1?publish=yes) submission.
 - DataViz Makeover AY2020-2021 Term 3
   - [DataViz Makeover 1](DataViz-AY2020-21T3/DataViz1.html)
-
+- DataViz Makeover AY2021-22 January Term
+  - DataViz Makeover 1: 
+      - [LIN SHUYAN](https://lins-92-isss608.netlify.app/data_viz/data_viz_1/data_viz_1) Best make-over design, simple but yet functional.
+      - [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/dataviz/dataviz1/dataviz1) Interesting makeover design and very detail step-by-step description especially on how to work with Tableau Data Prep.
+  - DataViz Makeover 2
+      - [Ang Bi Lian](https://bilian-mitb2021.netlify.app/th_ex/dataviz2/dataviz2) Effective used of Tableau Story.
+      - [Lin Shuyan](https://lins-92-isss608.netlify.app/data_viz/data_viz_2/data_viz_2) Creative implementation of linked views.
+      - [Min Xiaoqi](https://mxqvisual.netlify.app/dataviz/dataviz2/dataviz2) Effective used of interactive tooltip. 
 
 ### From external sources
 - [Makeover Monday](https://www.makeovermonday.co.uk/), especially:
