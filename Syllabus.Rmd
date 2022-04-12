@@ -82,7 +82,7 @@ During lesson, students are required to complete a series of hands-on exercises 
 
 ### DataViz Makeover
 
-Each fortnight, I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you will be able to retell the story more effectively, or find a new story in the data. I am curious to see the different approaches all of you take.
+There are two dataviz makeover exercises that are due throughout the term. I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you will be able to retell the story more effectively, or find a new story in the data. I am curious to see the different approaches all of you take.
 
 The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you can make it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
 
