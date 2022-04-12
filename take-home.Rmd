@@ -19,11 +19,11 @@ The take-home exercise provides students the opportunity to revise and practice 
 The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.  Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.  
 
 ## Take-home Exercises 
-- [Take-home Exercise 1](TH_EX/TH_EX01.html)
-- [Take-home Exercise 2](TH_EX/TH_EX02.html)
-- [Take-home Exercise 3](TH_EX/TH_EX03.html)
-- [Take-home Exercise 4](TH_EX/TH_EX04.html)
-- [Take-home Exercise 5](TH_EX/TH_EX05.html)
+- [Take-home Exercise 1]()
+- [Take-home Exercise 2]()
+- [Take-home Exercise 3]()
+- [Take-home Exercise 4]()
+- [Take-home Exercise 5]()
 
 ## Submission Instructions 
 
@@ -35,6 +35,14 @@ This is an individual assignment. You are required to work on the take-home exer
 ## Submission date 
  
 Your completed take-home exercise is due at **11:59pm on every Friday**.
+
+## Learning from seniors
+
+### AY2021-22 April Term
+
+#### Take-home Exercise 1
+- [Ang Bi Lian](https://bilian-mitb2021.netlify.app/th_ex/th_ex01/take-home_ex01)
+- [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex01/th_ex01)
 
 
 ```{r echo=FALSE, eval=FALSE}
