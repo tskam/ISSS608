@@ -1472,7 +1472,7 @@ ggplot(data=exam_data,
 .pull-right[
 A within group scatterplot with reference lines.
 
-```{r, echo=FALSE, fig.width=6, fig.height=6}
+```{r, echo=FALSE, fig.width=5, fig.height=5}
 ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
   geom_point() +
   coord_cartesian(xlim=c(0,100),
