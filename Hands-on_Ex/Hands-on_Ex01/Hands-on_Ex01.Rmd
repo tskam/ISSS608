@@ -1,5 +1,5 @@
 ---
-title: "In-Class Exercise 1: Programming Elegant DataVis with ggplot2"
+title: "Hands-on Exercise 1: Programming Elegant DataVis with ggplot2"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -1472,7 +1472,7 @@ ggplot(data=exam_data,
 .pull-right[
 A within group scatterplot with reference lines.
 
-```{r, echo=FALSE, fig.width=6, fig.height=6}
+```{r, echo=FALSE, fig.width=5, fig.height=5}
 ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
   geom_point() +
   coord_cartesian(xlim=c(0,100),
