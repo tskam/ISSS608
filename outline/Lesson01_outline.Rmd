@@ -51,7 +51,15 @@ To read before class:
 * J.J. Thomas and K.A. Cook, eds. (2005) [Illuminating the Path: The Research and Development Agenda for Visual Analytics](https://ils.unc.edu/courses/2017_fall/inls641_001/books/RD_Agenda_VisualAnalytics.pdf), IEEE CS Press.
 
 
-## Trellis Display
+## Statistical Graphics Methods
+
+### Bar chart and boxplot
+
+Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), **PR&M**, Volume8, Issue3, pp. 268-272. 
+
+Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), **PLoS Biology**.
+
+### Trellis Display
 
 * [The Visual Design and Control of Trellis Display](https://www-jstor-org.libproxy.smu.edu.sg/stable/1390777?seq=1#metadata_info_tab_contents)
 * [Trellis display](https://onlinelibrary-wiley-com.libproxy.smu.edu.sg/doi/full/10.1002/wics.121)
