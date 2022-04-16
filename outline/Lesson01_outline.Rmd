@@ -26,6 +26,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson slides in [html](../lesson/Lesson01/Lesson01-Intro_to_VAA.html) and [pdf](../lesson/Lesson01/Lesson01-Intro_to_VAA.pdf) formats
 
+- Lesson 1 (Supplement): Choosing the Right Visualisation in [html](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.html) and [pdf](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.pdf) formats.
+
 - Handout of In-class Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
 
 
