@@ -26,8 +26,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson 2: Designing Graphs to Enlighten in [html](../lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.html) and [pdf](../lesson/Lesson02/Lesson02-Designing-Graphs-to-Enlighten.pdf) formats
 
-- Lesson 2: Choosing the Right Visualisation in [html](../lesson/Lesson02/Lesson02a-Choosing-the-Right-Visualisation.html) and [pdf](../lesson/Lesson02/Lesson02a-Choosing-the-Right-Visualisation.pdf) formats.
-
 - Handout of Hands-on Exercise 2 in [html](https://r4dsa.netlify.app/posts/2022-01-23-creating-a-pareto-chart-using-ggplot/) formats.
 
 
