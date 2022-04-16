@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 2: Choosing the Right Visualisation'
+title: 'Lesson 1 (Supplement): Choosing the Right Visualisation'
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
@@ -32,6 +32,14 @@ knitr::opts_chunk$set(echo = FALSE)
     - between two categorical variables
 - Visualising relationship between sub-categories
 ]
+
+---
+## Choosing the Right Visualisation
+
+.center[
+![:scale 85%](img/image1a-1.jpg)
+]
+
 
 ---
 ## Visualising Count

@@ -55,9 +55,15 @@ To read before class:
 
 ### Bar chart and boxplot
 
-Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), **PR&M**, Volume8, Issue3, pp. 268-272. 
+Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. 
 
-Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), **PLoS Biology**.
+Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), *PLoS Biology*.
+
+[Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA.
+
+Leland Wilkinson (1999) ["Dot Plot"](http://moderngraphics11.pbworks.com/f/wilkinson_1999.DotPlots.pdf), *Statistical Computing and Graphics*, Vol. 53, No. 3, pp. 276-281.
+
+Allen M, Poggiali D, Whitaker K et al. ["Raincloud plots: a multi-platform tool for robust data visualization"](https://wellcomeopenresearch.org/articles/4-63) [version 2; peer review: 2 approved]. *Wellcome Open Res* 2021, pp. 4:63. 
 
 ### Trellis Display
 
