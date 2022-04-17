@@ -26,21 +26,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lesson slides in [html](../lesson/Lesson01/Lesson01-Intro_to_VAA.html) and [pdf](../lesson/Lesson01/Lesson01-Intro_to_VAA.pdf) formats
 
-- Lesson 1 (Supplement): Choosing the Right Visualisation in [html](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.html) and [pdf](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.pdf) formats.
+- Lesson 1 (Supplement): Choosing the Right Visualisation in [html](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.html) and [pdf](../lesson/Lesson01/Lesson01a-Choosing-the-Right-Visualisation.pdf) formats. ![](img/new1.jpg)
 
 - Handout of In-class Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
 
 
-## Self-reading Before Meet-up
+## Self-reading Before Lesson
 
-To read before class:
+### Webinars
 
-## Webinars
-
-### Highly Recommended TED Talk
 * [The best Hans Rosling talks you’ve ever seen](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen?referrer=playlist-the_best_hans_rosling_talks_yo).
-
-### Others
 * [VIVA – What is Visual Analytics?](https://www.youtube.com/watch?v=LYKO_6KPZCM/)
 * [Why Visual Analytics](https://www.youtube.com/watch?v=5uGRGqCFryg/) 
 * [Visual Analytics - Mastering the Information Age](https://www.youtube.com/watch?v=5i3xbitEVfs/)
@@ -51,21 +46,18 @@ To read before class:
 * Chabot, C (2009) "[Demystifying Visual Analytics](https://www-computer-org.libproxy.smu.edu.sg/csdl/magazine/cg/2009/02/mcg2009020084/13rRUy3gn3z)", ''IEEE Computer Graphics and Applications'', March 2009, Vol.29(2), pp.84-87. 
 * [The 5 Most Influential Data Visualizations of All Time](https://www.tableau.com/sites/default/files/whitepapers/the_5_most_influential_data_visualizations_of_all_time.pdf)
 * J.J. Thomas and K.A. Cook, eds. (2005) [Illuminating the Path: The Research and Development Agenda for Visual Analytics](https://ils.unc.edu/courses/2017_fall/inls641_001/books/RD_Agenda_VisualAnalytics.pdf), IEEE CS Press.
-
+* Jun, Yuan et. al. (2020) "A survey of visual analytics techniques for machine learning", *Computational Visual Media*. [doi.org/10.1007/s41095-020-0191-7](https://doi.org/10.1007/s41095-020-0191-7). ![](img/new1.jpg)
+* Cui, Wenqiang (2019) "[Visual Analytics: A Comprehensive Overview](https://ntnuopen.ntnu.no/ntnu-xmlui/bitstream/handle/11250/2608888/08740868.pdf?sequence=2)", IEEE Access. ![](img/new1.jpg)
 
 ## Statistical Graphics Methods
 
 ### Bar chart and boxplot
 
-Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. 
-
-Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), *PLoS Biology*.
-
-[Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA.
-
-Leland Wilkinson (1999) ["Dot Plot"](http://moderngraphics11.pbworks.com/f/wilkinson_1999.DotPlots.pdf), *Statistical Computing and Graphics*, Vol. 53, No. 3, pp. 276-281.
-
-Allen M, Poggiali D, Whitaker K et al. ["Raincloud plots: a multi-platform tool for robust data visualization"](https://wellcomeopenresearch.org/articles/4-63) [version 2; peer review: 2 approved]. *Wellcome Open Res* 2021, pp. 4:63. 
+* Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. ![](img/new1.jpg)
+* Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), *PLoS Biology*. ![](img/new1.jpg)
+* [Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA. ![](img/new1.jpg)
+* Leland Wilkinson (1999) ["Dot Plot"](http://moderngraphics11.pbworks.com/f/wilkinson_1999.DotPlots.pdf), *Statistical Computing and Graphics*, Vol. 53, No. 3, pp. 276-281. ![](img/new1.jpg)
+* Allen M, Poggiali D, Whitaker K et al. ["Raincloud plots: a multi-platform tool for robust data. visualization"](https://wellcomeopenresearch.org/articles/4-63) [version 2; peer review: 2 approved]. *Wellcome Open Res* 2021, pp. 4:63. ![](img/new1.jpg)
 
 ### Trellis Display
 
