@@ -30,6 +30,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Handout of In-class Exercise 1 in [html](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html) and [pdf](../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.pdf) formats.
 
+## In-class Exercise
+
+- [git in RStudio](https://r4dsa.netlify.app/posts/2021-05-22-git-in-rstudio/) ![](img/new1.jpg)
+- [Solving git(GitHub) token issue](https://r4dsa.netlify.app/posts/2021-05-23-git-token/) ![](img/new1.jpg)
+- [Building a website with distall for RMarkdown](https://r4dsa.netlify.app/posts/2022-01-06-building-a-website-with-distall-for-rmarkdown/) ![](img/new1.jpg)
 
 ## Self-reading Before Lesson
 
