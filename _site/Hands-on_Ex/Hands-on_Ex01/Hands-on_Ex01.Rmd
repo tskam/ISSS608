@@ -92,7 +92,7 @@ Reference: [Introduction to the Tidyverse: How to be a tidy data scientist](http
 
 .pull-right[
 ```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
-packages = c('tidyverse')
+packages = c('tidyverse', 'ggdist', 'gghalves')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -1487,6 +1487,136 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
              size=1)
 ```
 ]
+
+---
+## Beyond Basic Statistical Graphic
+### Split violin plots
+
+In this exercise, you will learn how to plot split violin plots shown on Slide 22 of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
+
+```{r echo=FALSE, fig.width=10, fig.height=5}
+ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
+  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) +
+  geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
+               position = position_dodge(.175)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) +
+  scale_fill_brewer(palette = "Dark2", name = "Language group") +
+  theme_minimal()
+```
+
+---
+## Beyond Basic Statistical Graphic
+### Split violin plots
+
+The steps and code chunks used:
+
+- Install **introdataviz** by using the code chunk below.
+
+```{r eval=FALSE}
+devtools::install_github("psyteachr/introdataviz")
+```
+
+- Code chunk used to create the split violin plots
+
+```{r eval=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
+  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) +
+  geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
+               position = position_dodge(.175)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) +
+  scale_fill_brewer(palette = "Dark2", name = "Language group")
+```
+
+.small[
+Credit: I learned this trick from [6.1 Split-violin plots](https://psyteachr.github.io/introdataviz/advanced-plots.html#split-violin-plots) of **Data visualisation using R, for researchers who don’t use R**.]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+```{r eval=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.2,
+               position = position_nudge(x = .15)
+  ) +
+  stat_dots(side = "left", 
+            dotsize = .8, 
+            justification = 1.1, 
+            binwidth = .1) + 
+  coord_flip()
+```
+]
+
+.pull-left[
+```{r echo=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  ggdist::stat_halfeye(
+    adjust = .33, ## bandwidth
+    width = .67, 
+    color = NA, ## remove slab interval
+    position = position_nudge(x = .15)
+  ) +
+  gghalves::geom_half_point(
+    side = "l", 
+    range_scale = .3, 
+    alpha = .5, size = 3
+  ) + coord_flip()
+```
+]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+```{r eval=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = 0.1,
+               position = position_nudge(x = .15)
+  ) +
+  geom_half_point(side = "l", 
+                  range_scale = .3, 
+                  alpha = .5, 
+                  size = 3
+  ) + 
+  coord_flip()
+```
+]
+
+.pull-left[
+```{r echo=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  ggdist::stat_halfeye(
+    adjust = .33, ## bandwidth
+    width = .67, 
+    color = NA, ## remove slab interval
+    position = position_nudge(x = .15)
+  ) +
+  gghalves::geom_half_point(
+    side = "l", 
+    range_scale = .3, 
+    alpha = .5, size = 3
+  ) + coord_flip()
+```
+]
+
 
 ---
 # ggplot2 extensions
