@@ -12,11 +12,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # The Task
 
-In this take-home exercise, you are required to apply the skills you had learned in last two lessons to create data visualisation by using ggplot2.  There are two data visualisation you are required to prepared.  They are:
+In this take-home exercise, you are required to apply the skills you had learned in Lesson 1 and Hands-on Exercise 1 to reveal the demographic of the [city of Engagement, Ohio USA](https://vast-challenge.github.io/2022/) by using appropriate static statistical graphics methods.  The data should be processed by using appropriate **tidyverse** family of packages and the statistical graphics must be prepared using **ggplot2** and its extensions.
 
-+ A pareto chart showing showing the distribution of returns by product sub-category.  Note that the superstore-2021.xls file should be used to accomlish this task.
+### Survival Tip
 
-+ A age-sex pyramid showing the demographic structure of Singapore by age cohort and gender.  For this task, the data entitle *Singapore Residents by Planning Area / Subzone, Age Group, Sex and Type of Dwelling, June 2021* should be used.  The data set is available at [Department of Statistics](https://www.singstat.gov.sg/) home page.   
+Start with *Participant*s data file in the Attributes folder.
 
 # Submission Instructions 
 
@@ -27,7 +27,7 @@ This is an individual assignment. You are required to work on the take-home exer
  
 ### Submission date 
  
-Your completed take-home exercise is due on **28th January 2022, by 11:59pm evening**.
+Your completed take-home exercise is due on **24th April 2022, by 11:59pm evening**.
 
 ### Learning from the senior
 
@@ -36,36 +36,7 @@ Your completed take-home exercise is due on **28th January 2022, by 11:59pm even
 
 # Peer Learning
 
-+ [ANG BI LIAN](https://bilian-mitb2021.netlify.app/th_ex/th_ex01/take-home_ex01)
-+ [ANNIE CHAN WA LAM](https://anniecwl.netlify.app/takehomeex1/takehome-ex1)
-+ [CLEMENT ONG SHI QI](https://isss608cosq.netlify.app/th_ex/th_ex01/th_ex01)
-+ [FEI JIAHUI](https://fjhva.netlify.app/th_ex/th_ex01/th_ex01a)
-+ FOO LI JING FARAH [Task 1](https://farahfoo.netlify.app/th_ex/th_ex02/th_ex02) and [Task 2](https://farahfoo.netlify.app/th_ex/th_ex02/th_ex02_pyramid).
-+ [GONG SHUFEN](https://va2022.netlify.app/th_ex/th_ex01/th_ex01_distill)
-+ [HE QIYUN](https://qyva.netlify.app/th_ex/th_ex01_graded/take-home-exercise1)
-+ [JIANG MINGJUN](https://isss608mj.netlify.app/assigment/takehome01/takehome1.html)
-+ [KARISHMA YADAV](https://karishma-smu.netlify.app/th_exercise/th_ex01/th_ex01)
-+ [KWONG MEI LIN](https://kml-va.netlify.app/th_ex/th_ex01/th_ex01)
-+ [LIN SHUYAN](https://lins-92-isss608.netlify.app/th_ex/th_ex01/th_ex01)
-+ [LIU CHENTAO](https://amberjourney.netlify.app/th_ex/th_ex1/take-home-exercise_1)
-+ [MAK HAN REN](https://makhanren.netlify.app/th_ex/th_ex01/th_ex01_distill)
-+ [MIN XIAOQI](https://mxqvisualanalytics.netlify.app/th_ex/take_home_ex01/take_home_ex01)
-+ [NG JIANYUAN CAINE](https://ngcaine.netlify.app/takehomeexercise/ex01/takehomeexercise01)
-+ [REYNARD LAM KUAN TING](https://reynard.netlify.app/th_ex/th_ex01/th_ex01)
-+ SEAH XING XIAN [Task 1](https://sxingxian-va.netlify.app/in-class_ex/in-class_ex02/in-class_ex02_distill) and [Task 2](https://sxingxian-va.netlify.app/in-class_ex/in-class_ex02/in-class_ex02_pyramid_distill)
-+ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/takehomeex/1/thex1)
-+ [SIA HENG GUANG](https://hengguang-608.netlify.app/takehome_exercise/ex001/ex001)
-+ [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/th_ex/th_ex01/th_ex01)
-+ [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex01/th_ex01)
-+ [TAN JIT KAI](https://tjkva2022.netlify.app/th_ex/th_ex01/th_ex01)
-+ [TAN MAY HUA MELISSA  MELISSA XU](https://mviz.netlify.app/takehome_ex01/takehome_ex01)
-+ [TAN YAN RU](https://yanrutanfirstsite.netlify.app/th_ex/take-home%20ex01/take-home-ex01)
-+ TING PEILING [Task 1](https://eloquent-va.netlify.app/th_ex/th_ex01/th_ex01_pareto_chart) and [Task 2](https://eloquent-va.netlify.app/th_ex/th_ex01/th_ex01_age_sex_pyramid)
-+ [TING YEN-HSIN](https://yhting2021.netlify.app/th_ex/th_ex02/th_ex02)
-+ [YANG NENGJIE BENNIE](https://isss608bennie.netlify.app/takehomeex/thex1/thex1)
-+ [ZHANG JIEYUAN](https://jyvisualanalytics.netlify.app/takehomeex/takehomeex1/ex1)
-+ [ZHANG YI](https://isss608-take-home-ex.netlify.app/posts/2022-01-25-take-home-exercise-1/)
-+ [ZHOU YIOU](https://isss608-2022-yiou.netlify.app/th_ex/takehome_ex01/th1)
+
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
