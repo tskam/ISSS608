@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Hands-on Exercise 1: Programming Elegant DataVis with ggplot2
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-04-17)
+### 2020-2-15 (updated: 2022-04-18)
 
 ---
 
@@ -1297,7 +1297,7 @@ A within group scatterplot with reference lines.
 ## Beyond Basic Statistical Graphic
 ### Split violin plots
 
-In this exercise, you will learn how to plot split violin plots shown on Slide 22 of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
+In this exercise, you will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
 
 &lt;img src="Hands-on_Ex01_files/figure-html/unnamed-chunk-83-1.png" width="720" /&gt;
 
@@ -1370,7 +1370,7 @@ ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   stat_halfeye(adjust = .33, 
                width = .67, 
                color = NA,
-               justification = 1,
+               justification = 0.1,
                position = position_nudge(x = .15)
   ) +
   geom_half_point(side = "l", 

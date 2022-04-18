@@ -1492,7 +1492,7 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ## Beyond Basic Statistical Graphic
 ### Split violin plots
 
-In this exercise, you will learn how to plot split violin plots shown on Slide 22 of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
+In this exercise, you will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
 
 ```{r echo=FALSE, fig.width=10, fig.height=5}
 ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
