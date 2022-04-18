@@ -19,7 +19,7 @@ The take-home exercise provides students the opportunity to revise and practice 
 The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.  Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.  
 
 ## Take-home Exercises 
-- [Take-home Exercise 1]()
+- [Take-home Exercise 1](TH_EX/TH_EX01.html)
 - [Take-home Exercise 2]()
 - [Take-home Exercise 3]()
 - [Take-home Exercise 4]()
