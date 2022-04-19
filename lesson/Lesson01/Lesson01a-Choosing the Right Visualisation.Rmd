@@ -191,6 +191,24 @@ knitr::opts_chunk$set(echo = FALSE)
 .pull-right[
 ![](img/image2a-13.jpg)]
 
+---
+## Visualising Distribution: Ridge Plot
+
+.pull-left[
+- Ridgeline Plot or Joy Plot is a kind of chart that is used to visualize distributions of several groups of a category. 
+- Each category or group of a category produces a density curve overlapping with each other creating a beautiful piece of the plot.
+
+.small[Reference: 
+- [Introducing Ridgeline Plots (formerly Joyplots)](https://blog.revolutionanalytics.com/2017/07/joyplots.html)
+- [Visualizing distributions along the horizontal axis](https://clauswilke.com/dataviz/boxplots-violins.html#boxplots-violins-horizontal)
+]]
+
+.pull-right[
+![:scale 80%](img/image2a-13a.jpg)
+
+
+]
+
 
 ---
 ## Deviation Analysis
@@ -246,8 +264,6 @@ knitr::opts_chunk$set(echo = FALSE)
 .pull-right[
 ![](img/image2a-14d.png)
 ]
-
----
 
 
 

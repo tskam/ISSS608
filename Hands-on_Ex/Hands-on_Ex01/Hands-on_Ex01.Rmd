@@ -92,7 +92,7 @@ Reference: [Introduction to the Tidyverse: How to be a tidy data scientist](http
 
 .pull-right[
 ```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
-packages = c('tidyverse', 'ggdist', 'gghalves')
+packages = c('tidyverse', 'ggdist', 'gghalves', 'ggridges')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -1492,11 +1492,11 @@ ggplot(data=exam_data, aes(x=MATHS, y=ENGLISH)) +
 ## Beyond Basic Statistical Graphic
 ### Split violin plots
 
-In this exercise, you will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.
+This hands-on exercise introduces [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.  You will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of **introdataviz** package .
 
 ```{r echo=FALSE, fig.width=10, fig.height=5}
 ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
-  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) +
+  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) + 
   geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
   stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
                position = position_dodge(.175)) +
@@ -1522,7 +1522,7 @@ devtools::install_github("psyteachr/introdataviz")
 
 ```{r eval=FALSE}
 ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
-  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) +
+  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) + #<<
   geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
   stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
                position = position_dodge(.175)) +
@@ -1538,21 +1538,21 @@ Credit: I learned this trick from [6.1 Split-violin plots](https://psyteachr.git
 ## Beyond Basic Statistical Graphic: rainclound plots
 
 .pull-left[
+This hands-on exercise introduces [**ggdist**](https://mjskay.github.io/ggdist/index.html) package. You will learn how to create raincloud plots as shown on [Slide 23](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1.
+
+- First, [`stat_halfeye()`](https://mjskay.github.io/ggdist/reference/stat_halfeye.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create a half violin plot on the right of the vertical axis.
+
 ```{r eval=FALSE}
 ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   scale_y_continuous(breaks = seq(0, 100, 20), 
                      limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.2,
-               position = position_nudge(x = .15)
-  ) +
-  stat_dots(side = "left", 
-            dotsize = .8, 
-            justification = 1.1, 
-            binwidth = .1) + 
-  coord_flip()
+  stat_halfeye(adjust = .33, #<<
+               width = .67,  #<<
+               color = NA,   #<<
+               justification = -0.01, #<<
+               position = position_nudge(   #<<
+                 x = .15)  #<<
+  ) #<<
 ```
 ]
 
@@ -1561,17 +1561,12 @@ ggplot(exam_data, aes(x = RACE, y = MATHS)) +
 ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   scale_y_continuous(breaks = seq(0, 100, 20), 
                      limits = c(0, 100)) + 
-  ggdist::stat_halfeye(
-    adjust = .33, ## bandwidth
-    width = .67, 
-    color = NA, ## remove slab interval
-    position = position_nudge(x = .15)
-  ) +
-  gghalves::geom_half_point(
-    side = "l", 
-    range_scale = .3, 
-    alpha = .5, size = 3
-  ) + coord_flip()
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(x = .15)
+  ) 
 ```
 ]
 
@@ -1579,6 +1574,8 @@ ggplot(exam_data, aes(x = RACE, y = MATHS)) +
 ## Beyond Basic Statistical Graphic: rainclound plots
 
 .pull-left[
+Next, [`stat_dots()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create the dot plots on the left.
+
 ```{r eval=FALSE}
 ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   scale_y_continuous(breaks = seq(0, 100, 20), 
@@ -1586,37 +1583,206 @@ ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   stat_halfeye(adjust = .33, 
                width = .67, 
                color = NA,
-               justification = 0.1,
-               position = position_nudge(x = .15)
-  ) +
-  geom_half_point(side = "l", 
-                  range_scale = .3, 
-                  alpha = .5, 
-                  size = 3
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
   ) + 
-  coord_flip()
+  stat_dots(side = "left",  #<<   
+            justification = 1.1, #<< 
+            binwidth = .25,  #<<
+            dotsize = 5)  #<<
+  
 ```
 ]
 
-.pull-left[
+.pull-right[
 ```{r echo=FALSE}
 ggplot(exam_data, aes(x = RACE, y = MATHS)) +
   scale_y_continuous(breaks = seq(0, 100, 20), 
                      limits = c(0, 100)) + 
-  ggdist::stat_halfeye(
-    adjust = .33, ## bandwidth
-    width = .67, 
-    color = NA, ## remove slab interval
-    position = position_nudge(x = .15)
-  ) +
-  gghalves::geom_half_point(
-    side = "l", 
-    range_scale = .3, 
-    alpha = .5, size = 3
-  ) + coord_flip()
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  stat_dots(side = "left", 
+            justification = 1.1, 
+            binwidth = .25,
+            dotsize = 5) 
 ```
 ]
 
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+Lastly, [`coord_flip()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of **ggplot2** is used to rotate the vertical raincloud plots into horizontal raincloud plots.
+
+```{r eval=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  stat_dots(side = "left", 
+            justification = 1.1, 
+            binwidth = .25,
+            dotsize = 5) +
+  coord_flip() #<<
+  
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  stat_dots(side = "left", 
+            justification = 1.1, 
+            binwidth = .25,
+            dotsize = 5) +
+  coord_flip()
+```
+]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+In this alternative design, boxplots are added by using [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) of ggplot2.
+
+```{r eval=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  geom_boxplot(          #<<
+    width = .25,         #<<
+    outlier.shape = NA   #<<
+  ) +                    #<<     
+  stat_dots(side = "left", 
+            justification = 1.2, 
+            binwidth = .25,
+            dotsize = 5) +
+  coord_flip()
+  
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  geom_boxplot(
+    width = .25, 
+    outlier.shape = NA
+  ) +
+  stat_dots(side = "left", 
+            justification = 1.2, 
+            binwidth = .25,
+            dotsize = 5) +
+  coord_flip()
+```
+]
+
+---
+## Beyond Basic Statistical Graphic: ridgeplot
+
+.pull-left[
+This hands-on exercise introduces [**ggridge**](https://wilkelab.org/ggridges/index.html), an ggplot2 extension specially designed to provide additional geom for plotting ridge lines and ridge density plots beside others.
+
+The code chunk below uses [`geom_density_ridges()`](https://wilkelab.org/ggridges/reference/geom_density_ridges.html) to create a basic ridge density plot. 
+
+```{r eval=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges() #<<
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges()
+```
+]
+
+---
+## Beyond Basic Statistical Graphic: ridgeplot
+
+.pull-left[
+- Trailing tails can be cut off using the `rel_min_height` aesthetic. This aesthetic sets a percent cutoff relative to the highest point of any of the density curves. A value of 0.01 usually works well, but you may have to modify this parameter for different datasets.
+
+```{r eval=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges(rel_min_height = 0.01) #<<
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges(rel_min_height = 0.01)
+```
+]
+
+---
+## Beyond Basic Statistical Graphic: ridgeplot
+
+.pull-left[
+- The `scale` parameter control the extent to which the different densities overlap. A setting of *scale=1* for example, means the tallest density curve just touches the baseline of the next higher one. Smaller values create a separation between the curves, and larger values create more overlap.
+
+```{r eval=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges(rel_min_height = 0.01,
+                      scale = 1) #<<
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges(rel_min_height = 0.01,
+                      scale = 1)
+```
+]
 
 ---
 # ggplot2 extensions
