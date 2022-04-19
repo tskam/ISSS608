@@ -1715,10 +1715,12 @@ ggplot(exam_data, aes(x = RACE, y = MATHS)) +
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridgeplot
+## Beyond Basic Statistical Graphic: ridge plot
 
 .pull-left[
-This hands-on exercise introduces [**ggridge**](https://wilkelab.org/ggridges/index.html), an ggplot2 extension specially designed to provide additional geom for plotting ridge lines and ridge density plots beside others.
+This hands-on exercise introduces [**ggridge**](https://wilkelab.org/ggridges/index.html), an ggplot2 extension specially designed to create [ridge plot](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#17).
+
+ggridges package provides two main geoms, namely: `geom_ridgeline` and `geom_density_ridges`. The former takes height values directly to draw ridgelines, and the latter first estimates data densities and then draws those using ridgelines.
 
 The code chunk below uses [`geom_density_ridges()`](https://wilkelab.org/ggridges/reference/geom_density_ridges.html) to create a basic ridge density plot. 
 
@@ -1739,7 +1741,7 @@ ggplot(exam_data,
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridgeplot
+## Beyond Basic Statistical Graphic: ridge plot
 
 .pull-left[
 - Trailing tails can be cut off using the `rel_min_height` aesthetic. This aesthetic sets a percent cutoff relative to the highest point of any of the density curves. A value of 0.01 usually works well, but you may have to modify this parameter for different datasets.
@@ -1761,7 +1763,7 @@ ggplot(exam_data,
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridgeplot
+## Beyond Basic Statistical Graphic: ridge plot
 
 .pull-left[
 - The `scale` parameter control the extent to which the different densities overlap. A setting of *scale=1* for example, means the tallest density curve just touches the baseline of the next higher one. Smaller values create a separation between the curves, and larger values create more overlap.
@@ -1785,30 +1787,57 @@ ggplot(exam_data,
 ]
 
 ---
-# ggplot2 extensions
+## Beyond Basic Statistical Graphic: ridge plot
 
-.large[
-- [ggtext](https://wilkelab.org/ggtext/articles/introduction.html): To improve text rendering support for ggplot2.
+.pull-left[
+- ggridges package provides a stat [`stat_density_ridges`](https://wilkelab.org/ggridges/reference/stat_density_ridges.html) that replaces stat_density in the context of ridgeline plots.
 
-- [ggrepel](https://ggrepel.slowkow.com/index.html): To provide geoms for ggplot2 to repel overlapping text labels.
+In the code chunk below, `stat_density_ridges()` is used to create probability ridge plot.
 
-- [ggforce](https://ggforce.data-imaginist.com/index.html): To aid in visual data investigations. This focus has led to a lack of facilities for composing specialised plots. 'ggforce' aims to be a collection of mainly new stats and geoms that fills this gap.
+```{r eval=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS,
+           fill = 0.5 - abs(0.5 - stat(ecdf)))) + #<<
+  stat_density_ridges(                            #<<
+    geom = "density_ridges_gradient",             #<<
+    calc_ecdf = TRUE,                             #<< 
+    rel_min_height = 0.001) +                      
+  scale_fill_viridis_c(name = "Tail probability", #<<
+                       direction = -1)            #<<  
 
-- [geomtextpath](https://allancameron.github.io/geomtextpath/index.html): To provide text-based geom layers in ggplot2 that enable plotting text follow a curved path.
+```
+]
 
-- [patchwork](https://patchwork.data-imaginist.com/index.html): To make it ridiculously simple to combine separate ggplots into the same graphic.
+.pull-right[
+```{r echo=FALSE}
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS,
+           fill = 0.5 - abs(0.5 - stat(ecdf)))) + 
+  stat_density_ridges(                            
+    geom = "density_ridges_gradient",             
+    calc_ecdf = TRUE,                              
+    rel_min_height = 0.001) +                      
+  scale_fill_viridis_c(name = "Tail probability", 
+                       direction = -1)
+```
 ]
 
 ---
 # Reference
 
-Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
++ Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
 
-Winston Chang (2013) **R Graphics Cookbook 2nd edition**. (Online version https://r-graphics.org/).
++ Winston Chang (2013) **R Graphics Cookbook 2nd edition**. (Online version https://r-graphics.org/).
 
-Package 'ggplot2' (https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf)
++ [ggplot2](https://ggplot2.tidyverse.org/index.html): A system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-Healy, Kieran (2019) **Data Visualization: A practical introduction** (online version https://socviz.co/)
++ Healy, Kieran (2019) **Data Visualization: A practical introduction** (online version https://socviz.co/)
+
+## ggplot2 Extension
+
++ [ggridge](https://wilkelab.org/ggridges/index.html): An ggplot2 extension specially designed for creating ridge plot.
+
++ [ggdist](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty.
 
 
 ```{r echo=FALSE, eval=FALSE}
