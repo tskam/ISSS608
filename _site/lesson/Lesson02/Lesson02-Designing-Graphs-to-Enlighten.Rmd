@@ -27,8 +27,8 @@ knitr::opts_chunk$set(echo = FALSE)
 - The Devil is in the data
 - Human perception and information processing
 - Perceptual and design principles for effective visual analytics
-- Principles and Practical Guides for Data Visualisation Design
-- Data Visualisation Critics framework
+- Principles and practical guides for data visualisation design
+- Data visualisation critics framework
 ]
 
 ???
