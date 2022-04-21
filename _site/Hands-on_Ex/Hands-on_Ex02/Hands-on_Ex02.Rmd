@@ -419,6 +419,13 @@ ggplot(exam_data,
 ]
 
 ---
+## Creating Composite Graphics
+
+In this section, you will learn how to use functions provided by patchwork,  
+
+
+
+---
 ## Reference
 
 + [ggridge](https://wilkelab.org/ggridges/index.html): An ggplot2 extension specially designed for creating ridge plot.
