@@ -58,6 +58,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Bar chart and boxplot
 
+* [Understanding Pie Charts](https://eagereyes.org/techniques/pie-charts)
 * Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. ![](img/new1.jpg)
 * Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), *PLoS Biology*. ![](img/new1.jpg)
 * [Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA. ![](img/new1.jpg)
