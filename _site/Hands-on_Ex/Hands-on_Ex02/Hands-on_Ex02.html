@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Exercise 2: Beyond ggplot2 Fundamentals</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/text.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Exercise 2: Beyond ggplot2 Fundamentals
+### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+### School of Computing and Information Systems,<br/>Singapore Management University
+### 2020-2-15 (updated: 2022-04-20)
+
+---
+
+
+
+
+# Content
+
+.large[
+- Introducing Tidyverse 
+
+- *ggplot2*, The Layered Grammar of Graphics
+    - The Essential Grammatical Elements in ggplot2
+    - Designing Analytical Graphics with ggplot2
+- ggplot Wizardry 
+]
+
+---
+# Getting started
+## Installing and loading the required libraries
+
+.pull-left[
+.large[
+- Before we get started, it is important for us to ensure that the required R packages have been installed.  If yes, we will load the R pacakges.  If they have yet to be installed, we will install the R packages and load them onto R environment.
+
+- The chunk code on the right will do the trick.
+]] 
+
+.pull-right[
+
+```r
+packages = c('tidyverse', 'ggdist', 'gghalves', 'ggridges')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+]
+
+---
+## Importing data
+
+.pull-left[
+.large[
+- The code chunk below imports *exam_data.csv* into R environment using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) function of [**readr**](https://readr.tidyverse.org/) package.
+
+- **readr** is one of the tidyverse package.
+
+
+```r
+exam_data &lt;- read_csv("data/Exam_data.csv")
+```
+]]
+
+.pull-right[
+.large[
+- Year end examination grades of a cohort of primary 3 students from a local school.
+
+- There are a total of seven attributes.  Four of them are categorical data type and the other three are in continuous data type.
+    - The categorical attributes are: ID, CLASS, GENDER and RACE.
+    - The continuous attributes are: MATHS, ENGLISH and SCIENCE.
+]]
+
+---
+## Beyond Basic Statistical Graphic
+### Split violin plots
+
+This hands-on exercise introduces [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.  You will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of **introdataviz** package .
+
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-3-1.png" width="720" /&gt;
+
+---
+## Beyond Basic Statistical Graphic
+### Split violin plots
+
+The steps and code chunks used:
+
+- Install **introdataviz** by using the code chunk below.
+
+
+```r
+devtools::install_github("psyteachr/introdataviz")
+```
+
+- Code chunk used to create the split violin plots
+
+
+```r
+ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
+* introdataviz::geom_split_violin(alpha = .4, trim = FALSE) +
+  geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
+  stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
+               position = position_dodge(.175)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) +
+  scale_fill_brewer(palette = "Dark2", name = "Language group")
+```
+
+.small[
+Credit: I learned this trick from [6.1 Split-violin plots](https://psyteachr.github.io/introdataviz/advanced-plots.html#split-violin-plots) of **Data visualisation using R, for researchers who don’t use R**.]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+This hands-on exercise introduces [**ggdist**](https://mjskay.github.io/ggdist/index.html) package. You will learn how to create raincloud plots as shown on [Slide 23](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1.
+
+- First, [`stat_halfeye()`](https://mjskay.github.io/ggdist/reference/stat_halfeye.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create a half violin plot on the right of the vertical axis.
+
+
+```r
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+* stat_halfeye(adjust = .33,
+*              width = .67,
+*              color = NA,
+*              justification = -0.01,
+*              position = position_nudge(
+*                x = .15)
+* )
+```
+]
+
+.pull-left[
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-7-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+Next, [`stat_dots()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create the dot plots on the left.
+
+
+```r
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+* stat_dots(side = "left",
+*           justification = 1.1,
+*           binwidth = .25,
+*           dotsize = 5)
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-9-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+Lastly, [`coord_flip()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of **ggplot2** is used to rotate the vertical raincloud plots into horizontal raincloud plots.
+
+
+```r
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+  stat_dots(side = "left", 
+            justification = 1.1, 
+            binwidth = .25,
+            dotsize = 5) +
+* coord_flip()
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-11-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: rainclound plots
+
+.pull-left[
+In this alternative design, boxplots are added by using [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) of ggplot2.
+
+
+```r
+ggplot(exam_data, aes(x = RACE, y = MATHS)) +
+  scale_y_continuous(breaks = seq(0, 100, 20), 
+                     limits = c(0, 100)) + 
+  stat_halfeye(adjust = .33, 
+               width = .67, 
+               color = NA,
+               justification = -.01,
+               position = position_nudge(
+                 x = .15)
+  ) + 
+* geom_boxplot(
+*   width = .25,
+*   outlier.shape = NA
+* ) +
+  stat_dots(side = "left", 
+            justification = 1.2, 
+            binwidth = .25,
+            dotsize = 5) +
+  coord_flip()
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-13-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: ridge plot
+
+.pull-left[
+This hands-on exercise introduces [**ggridge**](https://wilkelab.org/ggridges/index.html), an ggplot2 extension specially designed to create [ridge plot](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#17).
+
+ggridges package provides two main geoms, namely: `geom_ridgeline` and `geom_density_ridges`. The former takes height values directly to draw ridgelines, and the latter first estimates data densities and then draws those using ridgelines.
+
+The code chunk below uses [`geom_density_ridges()`](https://wilkelab.org/ggridges/reference/geom_density_ridges.html) to create a basic ridge density plot. 
+
+
+```r
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+* geom_density_ridges()
+```
+]
+
+.pull-right[
+
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-15-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: ridge plot
+
+.pull-left[
+- Trailing tails can be cut off using the `rel_min_height` aesthetic. This aesthetic sets a percent cutoff relative to the highest point of any of the density curves. A value of 0.01 usually works well, but you may have to modify this parameter for different datasets.
+
+
+```r
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+* geom_density_ridges(rel_min_height = 0.01)
+```
+]
+
+.pull-right[
+
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-17-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: ridge plot
+
+.pull-left[
+- The `scale` parameter control the extent to which the different densities overlap. A setting of *scale=1* for example, means the tallest density curve just touches the baseline of the next higher one. Smaller values create a separation between the curves, and larger values create more overlap.
+
+
+```r
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS)) + 
+  geom_density_ridges(rel_min_height = 0.01,
+*                     scale = 1)
+```
+]
+
+.pull-right[
+
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-19-1.png" width="504" /&gt;
+]
+
+---
+## Beyond Basic Statistical Graphic: ridge plot
+
+.pull-left[
+- ggridges package provides a stat [`stat_density_ridges`](https://wilkelab.org/ggridges/reference/stat_density_ridges.html) that replaces stat_density in the context of ridgeline plots.
+
+In the code chunk below, `stat_density_ridges()` is used to create probability ridge plot.
+
+
+```r
+ggplot(exam_data, 
+       aes(x = MATHS, y = CLASS,
+*          fill = 0.5 - abs(0.5 - stat(ecdf)))) +
+* stat_density_ridges(
+*   geom = "density_ridges_gradient",
+*   calc_ecdf = TRUE,
+    rel_min_height = 0.001) +                      
+* scale_fill_viridis_c(name = "Tail probability",
+*                      direction = -1)
+```
+]
+
+.pull-right[
+&lt;img src="Hands-on_Ex02_files/figure-html/unnamed-chunk-21-1.png" width="504" /&gt;
+]
+
+---
+## Reference
+
++ [ggridge](https://wilkelab.org/ggridges/index.html): An ggplot2 extension specially designed for creating ridge plot.
+
++ [ggdist](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty.
+    + [Introduction to ggridges](https://wilkelab.org/ggridges/articles/introduction.html)
+    + [Gallery of ggridges examples](https://wilkelab.org/ggridges/articles/gallery.html)
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="js/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
