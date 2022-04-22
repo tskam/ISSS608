@@ -29,12 +29,11 @@ knitr::opts_chunk$set(
 # Content
 
 .large[
-- Introducing Tidyverse 
+- Beyond ggplot2 Themes 
 
-- *ggplot2*, The Layered Grammar of Graphics
-    - The Essential Grammatical Elements in ggplot2
-    - Designing Analytical Graphics with ggplot2
-- ggplot Wizardry 
+- Beyond ggplot2 Annotation
+
+- Beyond ggplot2 facet 
 ]
 
 ---
@@ -43,14 +42,16 @@ knitr::opts_chunk$set(
 
 .pull-left[
 .large[
-- Before we get started, it is important for us to ensure that the required R packages have been installed.  If yes, we will load the R pacakges.  If they have yet to be installed, we will install the R packages and load them onto R environment.
+- Before we get started, it is important for us to ensure that the required R packages have been installed.  If yes, we will load the R packages.  If they have yet to be installed, we will install the R packages and load them onto R environment.
 
 - The chunk code on the right will do the trick.
 ]] 
 
 .pull-right[
 ```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
-packages = c('tidyverse', 'ggdist', 'gghalves', 'ggridges')
+packages = c('tidyverse', 'ggdist', 'ggridges',
+             'patchwork', 'ggthemes', 'hrbrthemes',
+             'ggrepel', 'ggforce')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -85,354 +86,354 @@ exam_data <- read_csv("data/Exam_data.csv")
 ]]
 
 ---
-## Beyond Basic Statistical Graphic
-### Split violin plots
-
-This hands-on exercise introduces [**introdataviz**](https://github.com/PsyTeachR/introdataviz) package.  You will learn how to plot split violin plots shown on [Slide 22](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1: Choosing the Right Visualisation by using `geom_split_violin()` of **introdataviz** package .
-
-```{r echo=FALSE, fig.width=10, fig.height=5}
-ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
-  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) + 
-  geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
-  stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
-               position = position_dodge(.175)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) +
-  scale_fill_brewer(palette = "Dark2", name = "Language group") +
-  theme_minimal()
-```
-
----
-## Beyond Basic Statistical Graphic
-### Split violin plots
-
-The steps and code chunks used:
-
-- Install **introdataviz** by using the code chunk below.
-
-```{r eval=FALSE}
-devtools::install_github("psyteachr/introdataviz")
-```
-
-- Code chunk used to create the split violin plots
-
-```{r eval=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS, fill = GENDER)) +
-  introdataviz::geom_split_violin(alpha = .4, trim = FALSE) + #<<
-  geom_boxplot(width = .2, alpha = .6, fatten = NULL, show.legend = FALSE) +
-  stat_summary(fun.data = "mean_se", geom = "pointrange", show.legend = F, 
-               position = position_dodge(.175)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) +
-  scale_fill_brewer(palette = "Dark2", name = "Language group")
-```
-
-.small[
-Credit: I learned this trick from [6.1 Split-violin plots](https://psyteachr.github.io/introdataviz/advanced-plots.html#split-violin-plots) of **Data visualisation using R, for researchers who don’t use R**.]
-
----
-## Beyond Basic Statistical Graphic: rainclound plots
+## Beyond ggplot2 Annotation
 
 .pull-left[
-This hands-on exercise introduces [**ggdist**](https://mjskay.github.io/ggdist/index.html) package. You will learn how to create raincloud plots as shown on [Slide 23](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#20) of Lesson 1.
-
-- First, [`stat_halfeye()`](https://mjskay.github.io/ggdist/reference/stat_halfeye.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create a half violin plot on the right of the vertical axis.
+One of the challenge in plotting statistical graph is annotation, especially with large number of data points.
 
 ```{r eval=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, #<<
-               width = .67,  #<<
-               color = NA,   #<<
-               justification = -0.01, #<<
-               position = position_nudge(   #<<
-                 x = .15)  #<<
-  ) #<<
-```
-]
-
-.pull-left[
-```{r echo=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(x = .15)
-  ) 
-```
-]
-
----
-## Beyond Basic Statistical Graphic: rainclound plots
-
-.pull-left[
-Next, [`stat_dots()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of [**ggdist**](https://mjskay.github.io/ggdist/index.html) package is used to create the dot plots on the left.
-
-```{r eval=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  stat_dots(side = "left",  #<<   
-            justification = 1.1, #<< 
-            binwidth = .25,  #<<
-            dotsize = 5)  #<<
-  
-```
-]
-
-.pull-right[
-```{r echo=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  stat_dots(side = "left", 
-            justification = 1.1, 
-            binwidth = .25,
-            dotsize = 5) 
-```
-]
-
----
-## Beyond Basic Statistical Graphic: rainclound plots
-
-.pull-left[
-Lastly, [`coord_flip()`](https://mjskay.github.io/ggdist/reference/geom_dotsinterval.html) of **ggplot2** is used to rotate the vertical raincloud plots into horizontal raincloud plots.
-
-```{r eval=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  stat_dots(side = "left", 
-            justification = 1.1, 
-            binwidth = .25,
-            dotsize = 5) +
-  coord_flip() #<<
-  
-```
-]
-
-.pull-right[
-```{r echo=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  stat_dots(side = "left", 
-            justification = 1.1, 
-            binwidth = .25,
-            dotsize = 5) +
-  coord_flip()
-```
-]
-
----
-## Beyond Basic Statistical Graphic: rainclound plots
-
-.pull-left[
-In this alternative design, boxplots are added by using [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) of ggplot2.
-
-```{r eval=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  geom_boxplot(          #<<
-    width = .25,         #<<
-    outlier.shape = NA   #<<
-  ) +                    #<<     
-  stat_dots(side = "left", 
-            justification = 1.2, 
-            binwidth = .25,
-            dotsize = 5) +
-  coord_flip()
-  
-```
-]
-
-.pull-right[
-```{r echo=FALSE}
-ggplot(exam_data, aes(x = RACE, y = MATHS)) +
-  scale_y_continuous(breaks = seq(0, 100, 20), 
-                     limits = c(0, 100)) + 
-  stat_halfeye(adjust = .33, 
-               width = .67, 
-               color = NA,
-               justification = -.01,
-               position = position_nudge(
-                 x = .15)
-  ) + 
-  geom_boxplot(
-    width = .25, 
-    outlier.shape = NA
-  ) +
-  stat_dots(side = "left", 
-            justification = 1.2, 
-            binwidth = .25,
-            dotsize = 5) +
-  coord_flip()
-```
-]
-
----
-## Beyond Basic Statistical Graphic: ridge plot
-
-.pull-left[
-This hands-on exercise introduces [**ggridge**](https://wilkelab.org/ggridges/index.html), an ggplot2 extension specially designed to create [ridge plot](https://isss608-ay2021-22april.netlify.app/lesson/lesson01/lesson01a-choosing-the-right-visualisation#17).
-
-ggridges package provides two main geoms, namely: `geom_ridgeline` and `geom_density_ridges`. The former takes height values directly to draw ridgelines, and the latter first estimates data densities and then draws those using ridgelines.
-
-The code chunk below uses [`geom_density_ridges()`](https://wilkelab.org/ggridges/reference/geom_density_ridges.html) to create a basic ridge density plot. 
-
-```{r eval=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges() #<<
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  geom_label(aes(label = ID), 
+             hjust = .5, 
+             vjust = -.5) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  ggtitle("English scores versus Maths scores for Primary 3")
 ```
 ]
 
 .pull-right[
 
 ```{r echo=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges()
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  geom_label(aes(label = ID), 
+             hjust = .5, 
+             vjust = -.5) +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  ggtitle("English scores versus Maths scores for Primary 3")
 ```
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridge plot
+### Working with ggrepel
 
 .pull-left[
-- Trailing tails can be cut off using the `rel_min_height` aesthetic. This aesthetic sets a percent cutoff relative to the highest point of any of the density curves. A value of 0.01 usually works well, but you may have to modify this parameter for different datasets.
+[**ggrepel**](https://ggrepel.slowkow.com/index.html) is an extension of **ggplot2** package which provides `geoms` for **ggplot2** to repel overlapping text as in our examples on the right. We simply replace `geom_text()` by [`geom_text_repel()`](https://ggrepel.slowkow.com/reference/geom_text_repel.html) and `geom_label()` by [`geom_label_repel`](https://ggrepel.slowkow.com/reference/geom_text_repel.html).
 
 ```{r eval=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges(rel_min_height = 0.01) #<<
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  geom_label_repel(aes(label = ID), 
+                   fontface = "bold") +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  ggtitle("English scores versus Maths scores for Primary 3")
 ```
+]
+
+```{r echo=FALSE}
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  geom_label_repel(aes(label = ID), 
+                   fontface = "bold") +
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  ggtitle("English scores versus Maths scores for Primary 3")
+```
+
+---
+## Beyond ggplot2 Themes
+
+.pull-left[
+ggplot2 comes with eight [built-in themes](https://ggplot2.tidyverse.org/reference/ggtheme.html), they are: `theme_gray()`, `theme_bw()`, `theme_classic()`, `theme_dark()`, `theme_light()`, `theme_linedraw()`, `theme_minimal()`, and `theme_void()`.
+
+```{r eval=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  theme_gray() +  #<<
+  ggtitle("Distribution of Maths scores") 
+
+```
+
+Refer to this [link](https://ggplot2.tidyverse.org/reference/index.html#themes) to learn more about ggplot2 `Themes`,
 ]
 
 .pull-right[
 
 ```{r echo=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges(rel_min_height = 0.01)
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  theme_gray() +
+  ggtitle("Distribution of Maths scores") 
+
 ```
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridge plot
+### Working with ggtheme package
 
 .pull-left[
-- The `scale` parameter control the extent to which the different densities overlap. A setting of *scale=1* for example, means the tallest density curve just touches the baseline of the next higher one. Smaller values create a separation between the curves, and larger values create more overlap.
+[**ggthemes**](https://cran.r-project.org/web/packages/ggthemes/index.html) provides ['ggplot2' themes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) that replicate the look of plots by Edward Tufte, Stephen Few, [Fivethirtyeight](https://fivethirtyeight.com/), [The Economist](https://www.economist.com/graphic-detail), 'Stata', 'Excel', and [The Wall Street Journal](https://www.pinterest.com/wsjgraphics/wsj-graphics/), among others.
 
 ```{r eval=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges(rel_min_height = 0.01,
-                      scale = 1) #<<
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_economist() #<<
+```
+
+It also provides some extra geoms and scales for 'ggplot2'.  Consult [this vignette](https://mran.microsoft.com/snapshot/2016-12-28/web/packages/ggthemes/vignettes/ggthemes.html) to learn more. 
+]
+
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_economist()
+```
+]
+
+---
+### Working with hrbthems package
+
+.pull-left[
+[**hrbrthemes**]() package provides a base theme that focuses on typographic elements, including where various labels are placed as well as the fonts that are used. 
+
+```{r eval=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_ipsum() #<<
+```
+
+- The second goal centers around productivity for a production workflow. In fact, this “production workflow” is the context for where the elements of hrbrthemes should be used. Consult [this vignette](https://cran.r-project.org/web/packages/hrbrthemes/vignettes/why_hrbrthemes.html) to learn more.
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_ipsum()
+```
+]
+
+---
+### Working with hrbthems package
+
+.pull-left[
+What can we learn from the code chunk below? 
+
+```{r eval=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_ipsum(axis_title_size = 18, #<<
+              base_size = 15, #<<
+              grid = "Y") #<<
+```
+
+- `axis_title_size` argument is used to increase the font size of the axis title to 18,
+- `base_size` argument is used to increase the default axis label to 15, and
+- `grid` argument is used to remove the x-axis grid lines.
+
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
+  theme_ipsum(axis_title_size = 18,
+              base_size = 15,
+              grid = "Y")
+```
+]
+
+---
+## Beyond ggplot2 facet
+
+.pull-left[
+In this section, you will learn how to create composite plot by combining multiple graphs.  First, let us create three statistical graphics.  
+
+
+```{r}
+p1 <- ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") + 
+  coord_cartesian(xlim=c(0,100)) +
+  ggtitle("Distribution of Maths scores")
+```
+
+
+```{r}
+p2 <- ggplot(data=exam_data, 
+             aes(x = ENGLISH)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  coord_cartesian(xlim=c(0,100)) +
+  ggtitle("Distribution of English scores")
 ```
 ]
 
 .pull-right[
 
-```{r echo=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS)) + 
-  geom_density_ridges(rel_min_height = 0.01,
-                      scale = 1)
+```{r}
+p3 <- ggplot(data=exam_data, 
+             aes(x= MATHS, 
+                 y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  coord_cartesian(xlim=c(0,100),
+                  ylim=c(0,100)) +
+  ggtitle("English scores versus Maths scores for Primary 3")
 ```
 ]
 
 ---
-## Beyond Basic Statistical Graphic: ridge plot
+### Creating Composite Graphics
 
 .pull-left[
-- ggridges package provides a stat [`stat_density_ridges`](https://wilkelab.org/ggridges/reference/stat_density_ridges.html) that replaces stat_density in the context of ridgeline plots.
+It is not unusual that multiple graphs are required to tell a compelling visual story.  There are several ggplot2 extensions provide functions to compose figure with multiple graphs.  In this section, I am going to shared with you [**patchwork**](https://patchwork.data-imaginist.com/index.html).  
 
-In the code chunk below, `stat_density_ridges()` is used to create probability ridge plot.
+Patchwork package has a very simple syntax where we can create layouts super easily. Here's the general syntax that combines:
+- Two-Column Layout using the Plus Sign +.
+- Parenthesis () to create a subplot group.
+- Two-Row Layout using the Division Sign `\`
+]
+
+---
+### Working with patchwork
+
+.center[
+```{r fig.width=12, fig.height=6.5}
+p1 + p2 / p3
+```
+]
+
+---
+### Working with patchwork
+
+ | will place the plots beside each other, while / will stack them.
+
+.center[
+```{r fig.width=12, fig.height=6}
+(p1 / p2) | p3
+```
+]
+
+To learn more about, refer to [Plot Assembly](https://patchwork.data-imaginist.com/articles/guides/assembly.html).
+---
+### Working with patchword
+
+**patchwork** also provides auto-tagging capabilities, in order to identify subplots in text:
+
+.center[
+```{r fig.width=12, fig.height=6}
+((p1 / p2) | p3) + 
+  plot_annotation(tag_levels = 'I') #<<
+```
+]
+
+---
+### Working with patchwork
+
+.center[
+```{r fig.width=12, fig.height=6}
+patchwork <- (p1 / p2) | p3
+patchwork & theme_economist()
+```
+]
+
+---
+### Working with patchwork
+
+.pull-left[
+Beside providing functions to place plots next to each other based on the provided layout. With [`inset_element()`](https://patchwork.data-imaginist.com/reference/inset_element.html) of **patchwork**, we can place one or several plots or graphic elements freely on top or below another plot. 
 
 ```{r eval=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS,
-           fill = 0.5 - abs(0.5 - stat(ecdf)))) + #<<
-  stat_density_ridges(                            #<<
-    geom = "density_ridges_gradient",             #<<
-    calc_ecdf = TRUE,                             #<< 
-    rel_min_height = 0.001) +                      
-  scale_fill_viridis_c(name = "Tail probability", #<<
-                       direction = -1)            #<<  
-
+p3 + inset_element(p2, 
+                   left = 0.02, 
+                   bottom = 0.7, 
+                   right = 0.5, 
+                   top = 1)
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE}
-ggplot(exam_data, 
-       aes(x = MATHS, y = CLASS,
-           fill = 0.5 - abs(0.5 - stat(ecdf)))) + 
-  stat_density_ridges(                            
-    geom = "density_ridges_gradient",             
-    calc_ecdf = TRUE,                              
-    rel_min_height = 0.001) +                      
-  scale_fill_viridis_c(name = "Tail probability", 
-                       direction = -1)
+p12 <- p1|p2
+p3 + inset_element(p2, 
+                   left = 0.02, 
+                   bottom = 0.7, 
+                   right = 0.5, 
+                   top = 1)
 ```
 ]
-
----
-## Creating Composite Graphics
-
-In this section, you will learn how to use functions provided by patchwork,  
-
-
 
 ---
 ## Reference
 
-+ [ggridge](https://wilkelab.org/ggridges/index.html): An ggplot2 extension specially designed for creating ridge plot.
-
-+ [ggdist](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty.
-    + [Introduction to ggridges](https://wilkelab.org/ggridges/articles/introduction.html)
-    + [Gallery of ggridges examples](https://wilkelab.org/ggridges/articles/gallery.html)
+- [A ggplot2 Tutorial for Beautiful Plotting in R](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#text)
 
 
 ```{r echo=FALSE, eval=FALSE}
