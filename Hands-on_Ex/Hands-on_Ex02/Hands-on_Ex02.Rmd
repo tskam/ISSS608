@@ -433,7 +433,6 @@ p3 + inset_element(p2,
 ---
 ## Reference
 
-- [A ggplot2 Tutorial for Beautiful Plotting in R](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#text)
 - [Patchwork R package goes nerd viral](https://www.littlemissdata.com/blog/patchwork)
 - [ggplot tips: Arranging plots](https://albert-rapp.de/post/2021-10-28-extend-plot-variety/)
 
