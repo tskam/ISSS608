@@ -388,7 +388,7 @@ To learn more about, refer to [Plot Assembly](https://patchwork.data-imaginist.c
 **patchwork** also provides auto-tagging capabilities, in order to identify subplots in text:
 
 .center[
-```{r fig.width=12, fig.height=6}
+```{r fig.width=12, fig.height=5.5}
 ((p1 / p2) | p3) + 
   plot_annotation(tag_levels = 'I') #<<
 ```
