@@ -435,7 +435,8 @@ p3 + inset_element(p2,
 
 - [Patchwork R package goes nerd viral](https://www.littlemissdata.com/blog/patchwork)
 - [ggplot tips: Arranging plots](https://albert-rapp.de/post/2021-10-28-extend-plot-variety/)
-
+- [ggplot2 Theme Elements Demonstration](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+- [ggplot2 Theme Elements Reference Sheet](https://isabella-b.com/blog/ggplot2-theme-elements-reference/)
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
