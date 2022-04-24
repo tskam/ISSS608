@@ -18,8 +18,8 @@ knitr::opts_chunk$set(echo = FALSE)
 In this take-home exercise, you are required to:
 
 - select one of the Take-home Exercise 1 prepared by your classmate, 
-- critic the submission in term clarity and aesthetics, and 
-- remake the original design by using the data visualisation principles and best practice you had learn in Lesson 1 and 2.
+- critic the submission in terms of clarity and aesthetics, and 
+- remake the original design by using the data visualisation principles and best practice you had learned in Lesson 1 and 2.
 
 # Submission Instructions 
 
