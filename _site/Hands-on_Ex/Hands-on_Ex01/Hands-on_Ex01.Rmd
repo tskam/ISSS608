@@ -1826,18 +1826,17 @@ ggplot(exam_data,
 ## Reference
 
 + Hadley Wickham (2011) **ggplot2: Elegant Graphics for Data Analysis**, Springer.
-
 + Winston Chang (2013) **R Graphics Cookbook 2nd edition**. (Online version https://r-graphics.org/).
-
 + [ggplot2](https://ggplot2.tidyverse.org/index.html): A system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
-
 + Healy, Kieran (2019) **Data Visualization: A practical introduction** (online version https://socviz.co/)
-
++ [Learning ggplot2 on Paper – Components](https://henrywang.nl/learning-ggplot2-on-paper-components/)
++ [Learning ggplot2 on Paper – Layer](https://henrywang.nl/learning-ggplot2-on-paper-layer/)
++ [Learning ggplot2 on Paper – Scale](https://henrywang.nl/tag/learning-ggplot2-on-paper/)
 + [ggridge](https://wilkelab.org/ggridges/index.html): An ggplot2 extension specially designed for creating ridge plot.
-
-+ [ggdist](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty.
     + [Introduction to ggridges](https://wilkelab.org/ggridges/articles/introduction.html)
     + [Gallery of ggridges examples](https://wilkelab.org/ggridges/articles/gallery.html)
++ [ggdist](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty.
+
 
 
 ```{r echo=FALSE, eval=FALSE}

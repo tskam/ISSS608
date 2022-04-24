@@ -3,7 +3,10 @@ title: "Take-home Exercise 1"
 description: |
   Creating data visualisation beyond default
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
