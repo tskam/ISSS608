@@ -39,6 +39,40 @@ Your completed take-home exercise is due on **24th April 2022, by 11:59pm evenin
 
 # Peer Learning
 
+- [ALOYSIUS TENG](https://visual-analytics-course.netlify.app/th_ex/th_ex1.html)
+- [ANTONIUS HANDY](https://isss608-hhhandy.netlify.app/th_ex/th_ex1.html)
+- [CHE XUAN](https://r4dsa4va.netlify.app/th_ex/th_ex1.html)
+- [CHU YI-NING](https://yn-isss608.netlify.app/take-home_ex/th_ex1.html)
+- [CUI  JIARUI](https://jiarui-cui-isss608.netlify.app/th_ex/th_ex01)
+- [DAVID KWOK WEI XIANG](https://dkwx1234.netlify.app/th_ex/takehomeex1.html)
+- [DING YANMU](https://dingyanmu.netlify.app/th_ex/th_ex1.html)
+- [HERANSHAN SO SUBRAMANIAM](https://heranshan-isss608.netlify.app/th_ex/th_ex1.html)
+- [HUANG ANNI](https://master--huanganni.netlify.app/th_ex/th_ex1.html)
+- [HUANG YAPING](https://vast-challenge-2022-th-ex-1.netlify.app/th_ex/th_ex1.html)
+- [HULWANA BINTE SAIFULZAMAN](https://hulwana-va.netlify.app/th_ex/th_ex1.html)
+- KIM BOMIN
+- [LAM KUO JIAN JEREMIAH](https://jeremiahlam.netlify.app/th_ex/th_ex1.html)
+- [LEE XIAO QI](https://tiffanylxq.netlify.app/takehomeex/th_ex1)
+- [LI HONGYI](https://jessielee.netlify.app/th_ex/th_ex1.html)
+- [LI HUAN](https://katherine-isss608.netlify.app/th_ex/th_ex1.html)
+- [LI MINQI](https://isss608-visualization-liminqi.netlify.app/th_ex/th_ex1)
+- [LIU ZHENGLIN](https://zhenglinliuvisual.netlify.app/th_ex/th_ex1.html)
+- [LONG NU](https://leslielong-da.netlify.app/posts/2022-04-18-takehome1/)
+- [NI JUNQIU](https://isss-608-junqiuni.netlify.app/takehome_ex/takehome_ex01.html)
+- [ONG ZHI RONG JORDAN](https://isss608-jordan-va.netlify.app/th_ex1/the_1)
+- [RAKENDU RAMESH](https://rakendu-mitb2021.netlify.app/th_ex/th_ex01.html)
+- [RAO NINGZHEN](https://jeanrao.netlify.app/th_ex/th1.html)
+- [RAUNAK KAPUR]()
+- [RAVEENA CHAKRAPANI](https://isss608-raunakkapur.netlify.app/th_ex/the1)
+- [SHACHI ANIRUDHA RAODEO](https://visualanalytics.netlify.app/th_ex/th_ex1.html)
+- [SUI TIANYUE](https://vickysui-va.netlify.app/take_home_exercise/ex_1.html)
+- [TAY CHENG WEI CLARENCE](https://clarencetay.netlify.app/th_ex/th_ex1.html)
+- [TSENG CHIA-YI](https://mitb-va-joycetseng.netlify.app/posts/2022-04-18-takehome1/)
+- [WANG TIANQI](https://wtqmitbva.netlify.app/takehome1)
+- XIAO YUHE
+- [YEO KIM SIANG](https://kimsiang-va.netlify.app/takehome_exercise/takehome_exercise_1.html)
+- [YU DI](https://yudiva.netlify.app/exe1)
+
 
 
 ```{r echo=FALSE, eval=FALSE}

@@ -238,6 +238,36 @@ girafe(
 ```
 ]
 
+---
+### Displaying statistics on tooltip
+
+.pull-right[
+```{r echo=FALSE}
+tooltip <- function(y, ymax, accuracy = .01) {
+  mean <- scales::number(y, accuracy = accuracy)
+  sem <- scales::number(ymax - y, accuracy = accuracy)
+  paste("Mean maths scores:", mean, "+/-", sem)
+}
+
+gg_point <- ggplot(data=exam_data, 
+                   aes(x = RACE),
+) +
+  stat_summary(aes(y = MATHS, 
+                   tooltip = after_stat(
+                     tooltip(y, ymax))),
+    fun.data = "mean_se", 
+    geom = ggiraph:::GeomInteractiveCol
+  ) +
+  stat_summary(aes(y = MATHS),
+    fun.data = mean_se,
+    geom = "errorbar", width = 0.2, size = 0.2
+  )
+
+girafe(ggobj = gg_point,
+       width_svg = 8,
+       height_svg = 8*0.618)
+```
+]
 
 ---
 ### Hover effect with *data_id* aesthetic
@@ -431,6 +461,8 @@ girafe(code = print(p1 / p2),
        )                                        
 ```
 ]
+
+
 
 ---
 ### Coordinated Multiple Views with **ggiraph**
