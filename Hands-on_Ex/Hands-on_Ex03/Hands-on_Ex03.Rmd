@@ -35,10 +35,9 @@ style_duo_accent(
 )
 ```
 
-# Interactive Data Visualisation with R
-## A tile of Two Packages
+## Interactive Data Visualisation with R
 
-.vlarge[
+.large[
 In this hands-on exercise, you will learn how to create:
 
 - interactive data visualisation by using ggiraph and plotlyr packages,
@@ -55,8 +54,8 @@ First, write a code chunk to check, install and launch the following R packages:
 + [**plotly**](https://plotly.com/r/), R library for plotting interactive statistical graphs. 
 + [**gganimate**](https://gganimate.com/), an ggplot extension for creating animated statistical graphs. 
 + [**patchwork**](https://patchwork.data-imaginist.com/index.html), an ggplot extension for combining multiple ggplot objects into a single figure.
-+ [**DT**](https://rstudio.github.io/DT/) provides an R interface to the JavaScript library [DataTables]()https://datatables.net/ that create interactive table on html page. 
-+ [**tidyverse**], a family of modern R packages specially designed to support data science, analysis and communication task including creating static statistical graphs. 
++ [**DT**](https://rstudio.github.io/DT/) provides an R interface to the JavaScript library [DataTables](https://datatables.net/) that create interactive table on html page. 
++ [**tidyverse**](https://www.tidyverse.org/), a family of modern R packages specially designed to support data science, analysis and communication task including creating static statistical graphs. 
 ]
 
 --
@@ -80,16 +79,21 @@ for (p in packages){
 ---
 ## Importing Data
 
+.pull-left[
 .large[
 Using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) of **readr** package, import *Exam_data.csv* into R.
-]
+]]
 
 --
+
+.pull-left[
+.large[
 The solution:
 
 ```{r}
 exam_data <- read_csv("data/Exam_data.csv")
 ```
+]]
 
 ---
 ## Interactive Data Visualisation - ggiraph methods![:scale 6%](img/image7-1.jpg)
@@ -189,16 +193,18 @@ girafe(                                  #<<
   height_svg = 6*0.618                   #<<   
 )                                        #<<
 ```
-]
 
 A complete list of geometries supported by ggiraph and their corresponding command syntax can be found [here](https://davidgohel.github.io/ggiraph/reference/index.html).                     
+]
 
 ---
 ### Displaying multiple information on tooltip
 
 .pull-left[
 ```{r eval=FALSE}
-exam_data$tooltip <- c(paste0("Name = ", exam_data$ID, "\n Class = ", exam_data$CLASS)) #<<
+exam_data$tooltip <- c(paste0(     #<<
+  "Name = ", exam_data$ID,         #<<
+  "\n Class = ", exam_data$CLASS)) #<<
 
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
