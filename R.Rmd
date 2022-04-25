@@ -38,6 +38,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Zuguang Gu [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/). Last visit: 27/12/2020.
 * Zach Bogart & Joyce Robbins (2020) [Exploratory Data Analysis & Visualization](https://edav.info/)
 * [BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/)
+* Nordmann, E., McAleer, P., Toivo, W., Paterson, H. & DeBruine, L. [Data visualisation using R, for researchers who don’t use R](https://psyteachr.github.io/introdataviz/index.html)
 
 ### Articles/Blog posts
 * [How to make any plot in ggplot2?](http://r-statistics.co/ggplot2-Tutorial-With-R.html)

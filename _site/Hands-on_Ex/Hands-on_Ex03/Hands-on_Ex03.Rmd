@@ -39,25 +39,25 @@ style_duo_accent(
 ## A tile of Two Packages
 
 .vlarge[
-- ggiraph
+In this hands-on exercise, you will learn how to create:
 
-- plotlyr
+- interactive data visualisation by using ggiraph and plotlyr packages,
 
-- gganimate
-
+- animated data visualisation by using gganimate and plotlyr packages.
 ]
 
 ---
 ## Getting Started
 
 .pull-left[
-Write a code chunk to check, install and launch the following R packages:
-+ **ggiraph**, 
-+ **plotly**, 
-+ **gganimate**, 
-+ **patchwork**,
-+ **DT**, and 
-+ **tidyverse**]
+First, write a code chunk to check, install and launch the following R packages:
++ [**ggiraph**](https://davidgohel.github.io/ggiraph/) for making ‘ggplot’ graphics interactive. 
++ [**plotly**](https://plotly.com/r/), R library for plotting interactive statistical graphs. 
++ [**gganimate**](https://gganimate.com/), an ggplot extension for creating animated statistical graphs. 
++ [**patchwork**](https://patchwork.data-imaginist.com/index.html), an ggplot extension for combining multiple ggplot objects into a single figure.
++ [**DT**](https://rstudio.github.io/DT/) provides an R interface to the JavaScript library [DataTables]()https://datatables.net/ that create interactive table on html page. 
++ [**tidyverse**], a family of modern R packages specially designed to support data science, analysis and communication task including creating static statistical graphs. 
+]
 
 --
 .pull-right[
