@@ -81,6 +81,7 @@ for (p in packages){
 
 .pull-left[
 .large[
+In this section, Exam_data.csv provided will be used.
 Using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) of **readr** package, import *Exam_data.csv* into R.
 ]]
 
@@ -117,6 +118,8 @@ Reference: [ggiraph](https://davidgohel.github.io/ggiraph/index.html) package
 ### Tooltip effect with *tooltip* aesthetic
 
 .pull-left[
+Below shows a typical code chunk to plot an interactive statistical graph by using **ggiraph** package.  Notice that the code chunk consists of two parts. First, an ggplot object will be created. Next, [`girafe()`](https://davidgohel.github.io/ggiraph/reference/girafe.html) of **ggiraph** will be used to create an interactive svg object.
+
 ```{r echo=TRUE, eval=FALSE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -136,6 +139,9 @@ girafe(
 ]
 
 .pull-right[
+Interactivity: 
+By hovering the mouse pointer on an data point of interest, the student's ID will be displayed.
+
 ```{r echo=FALSE, eval=TRUE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -152,9 +158,6 @@ girafe(
   height_svg = 6*0.618
 )
 ```
-
-Interactivity: 
-hovering displays student's ID
 ]
 
 ---
@@ -201,6 +204,8 @@ A complete list of geometries supported by ggiraph and their corresponding comma
 ### Displaying multiple information on tooltip
 
 .pull-left[
+The content of the tooltip can be customised by including a list object as shown in the code chunk below. 
+
 ```{r eval=FALSE}
 exam_data$tooltip <- c(paste0(     #<<
   "Name = ", exam_data$ID,         #<<
@@ -224,6 +229,9 @@ girafe(
 ]
 
 .pull-right[
+Interactivity: 
+By hovering the mouse pointer on an data point of interest, the student's ID and Class will be displayed.
+
 ```{r echo=FALSE}
 exam_data$tooltip <- c(paste0("Name = ", exam_data$ID, "\n Class = ", exam_data$CLASS)) #<<
 
@@ -245,24 +253,83 @@ girafe(
 ]
 
 ---
+### Customising Tooltip style
+
+.pull-left[
+Code chunk below uses [`opts_tooltip()`](https://davidgohel.github.io/ggiraph/reference/opts_tooltip.html) of **ggiraph** to customize tooltip rendering by add css declarations.
+
+```{r eval=FALSE}
+tooltip_css <- "background-color:white; #<<
+font-style:bold; color:black;" #<<
+
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(              
+    aes(tooltip = ID),                   
+    stackgroups = TRUE,                  
+    binwidth = 1,                        
+    method = "histodot") +               
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(                                  
+  ggobj = p,                             
+  width_svg = 6,                         
+  height_svg = 6*0.618,
+  options = list(    #<<
+    opts_tooltip(    #<<
+      css = tooltip_css)) #<<
+)                                        
+```
+]
+
+.pull-right[
+Notice that the background colour of the tooltip is black and the font colour is white and bold.
+
+```{r echo=FALSE}
+tooltip_css <- "background-color:white;
+font-style:bold; color:black;"
+
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(              
+    aes(tooltip = ID),                   
+    stackgroups = TRUE,                  
+    binwidth = 1,                        
+    method = "histodot") +               
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(                                  
+  ggobj = p,                             
+  width_svg = 6,                         
+  height_svg = 6*0.618,
+  options = list(    
+    opts_tooltip(    
+      css = tooltip_css))
+)                                        
+```
+
+- Refer to [Customizing girafe objects](https://davidgohel.github.io/ggiraph/articles/offcran/customizing.html) to learn more about how to customise ggiraph objects.
+]
+
+---
 ### Displaying statistics on tooltip
 
 .pull-left[
 ```{r eval=FALSE}
-tooltip <- function(y, ymax, accuracy = .01) {
-  mean <- scales::number(y, accuracy = accuracy)
-  sem <- scales::number(ymax - y, accuracy = accuracy)
-  paste("Mean maths scores:", mean, "+/-", sem)
-}
+tooltip <- function(y, ymax, accuracy = .01) {   #<<
+  mean <- scales::number(y, accuracy = accuracy) #<<
+  sem <- scales::number(ymax - y, accuracy = accuracy) #<<
+  paste("Mean maths scores:", mean, "+/-", sem) #<<
+} #<<
 
 gg_point <- ggplot(data=exam_data, 
                    aes(x = RACE),
 ) +
   stat_summary(aes(y = MATHS, 
-                   tooltip = after_stat(
-                     tooltip(y, ymax))),
+                   tooltip = after_stat(  #<<
+                     tooltip(y, ymax))),  #<<
     fun.data = "mean_se", 
-    geom = GeomInteractiveCol,
+    geom = GeomInteractiveCol,  #<<
     fill = "light blue"
   ) +
   stat_summary(aes(y = MATHS),
@@ -277,6 +344,8 @@ girafe(ggobj = gg_point,
 ]
 
 .pull-right[
+Code chunk on the left shows an advanced way to customise tooltip.  In this example, a function is used to compute 90% confident interval of the mean.  The derived statistics are then displayed in the tooltip.  
+
 ```{r echo=FALSE}
 tooltip <- function(y, ymax, accuracy = .01) {
   mean <- scales::number(y, accuracy = accuracy)
@@ -284,9 +353,7 @@ tooltip <- function(y, ymax, accuracy = .01) {
   paste("Mean maths scores:", mean, "+/-", sem)
 }
 
-gg_point <- ggplot(data=exam_data, 
-                   aes(x = RACE),
-) +
+p <- ggplot(data=exam_data, aes(x = RACE),) +
   stat_summary(aes(y = MATHS, 
                    tooltip = after_stat(
                      tooltip(y, ymax))),
@@ -299,22 +366,18 @@ gg_point <- ggplot(data=exam_data,
     geom = "errorbar", width = 0.2, size = 0.2
   )
 
-girafe(ggobj = gg_point,
+girafe(ggobj = p,
        width_svg = 8,
        height_svg = 8*0.618)
 ```
 ]
 
-
-
-
-
-
-
 ---
 ### Hover effect with *data_id* aesthetic
 
 .pull-left[
+Code chunk below show the second interactive feature of ggiraph, namely `data_id`.   
+
 ```{r echo=TRUE, eval=FALSE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -334,6 +397,9 @@ girafe(
 ]
 
 .pull-right[
+Interactivity:
+Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over.
+
 ```{r echo=FALSE, eval=TRUE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -351,11 +417,7 @@ girafe(
 )                                        
 ```
 
-Interactivity:
-Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over.
-
-Note that the default value of the hover css is *hover_css = "fill:orange;"*
-.
+Note that the default value of the hover css is *hover_css = "fill:orange;"*.
 ]
 
 ---
@@ -387,6 +449,9 @@ girafe(
 ]
 
 .pull-right[
+Interactivity:
+Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over.
+
 ```{r echo=FALSE, eval=TRUE}
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -408,17 +473,76 @@ girafe(
 )                                        
 ```
 
+Note: Different from Slide 9, in this example the ccs customisation request are encoded directly. 
+]
+
+---
+### Combining tooltip and hover effect
+
+.pull-left[
+There are time that we want to combine tooltip and hover effect on the interactive statistical graph as shown in the code chunk below. 
+
+```{r echo=TRUE, eval=FALSE}
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(              
+    aes(tooltip = CLASS, #<<
+        data_id = CLASS),#<<              
+    stackgroups = TRUE,                  
+    binwidth = 1,                        
+    method = "histodot") +               
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(                                  
+  ggobj = p,                             
+  width_svg = 6,                         
+  height_svg = 6*0.618,
+  options = list(                        
+    opts_hover(css = "fill: #202020;"),  
+    opts_hover_inv(css = "opacity:0.2;") 
+  )                                        
+)                                        
+```
+]
+
+.pull-right[
 Interactivity:
-Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over.
+Elements associated with a *data_id* (i.e CLASS) will be highlighted upon mouse over.  At the same time, the tooltip will show the CLASS.
+
+```{r echo=FALSE, eval=TRUE}
+p <- ggplot(data=exam_data, 
+       aes(x = MATHS)) +
+  geom_dotplot_interactive(              
+    aes(tooltip = CLASS,
+        data_id = CLASS),              
+    stackgroups = TRUE,                  
+    binwidth = 1,                        
+    method = "histodot") +               
+  scale_y_continuous(NULL,               
+                     breaks = NULL)
+girafe(                                  
+  ggobj = p,                             
+  width_svg = 6,                         
+  height_svg = 6*0.618,
+  options = list(                         
+    opts_hover(css = "fill: #202020;"),  
+    opts_hover_inv(css = "opacity:0.2;")
+  )
+)                                        
+```
 ]
 
 ---
 ### Click effect with **onclick**
 
 .pull-left[
+`onclick` argument of ggiraph provides hotlink interactivity on ther web.  
+
+The code chunk below shown an example of `onclick`.
+
 ```{r echo=TRUE, eval=FALSE}
 exam_data$onclick <- sprintf("window.open(\"%s%s\")",
-"https://www.moe.gov.sg/schoolfinder?journey=Primary%20school", as.character(exam_data$ID) )
+"https://www.moe.gov.sg/schoolfinder?journey=Primary%20school", as.character(exam_data$ID)) #<<
 
 p <- ggplot(data=exam_data, 
        aes(x = MATHS)) +
@@ -437,6 +561,9 @@ girafe(
 ]
 
 .pull-right[
+Interactivity:
+Web document link with a data object will be displayed on the web browser upon mouse click.
+
 ```{r echo=FALSE, eval=TRUE}
 exam_data$onclick <- sprintf("window.open(\"%s%s\")",
 "https://www.moe.gov.sg/schoolfinder?journey=Primary%20school", as.character(exam_data$ID) )
@@ -456,8 +583,7 @@ girafe(
   height_svg = 6*0.618)
 ```
 
-Interactivity:
-Web document link with a data object will be displayed on the web browser upon mouse click.
+Note that click actions must be a string column in the dataset containing valid javascript instructions. 
 ]
 
 ---
@@ -970,10 +1096,11 @@ Things to learn from the code chunk:
 
 .pull-left[
 .large[
-+ Add the following packages in the packages list:
-    + gganimate
-    + [**gifski**](https://cran.r-project.org/web/packages/gifski/index.html) converts video frames to GIF animations using pngquant's fancy features for efficient cross-frame palettes and temporal dithering. It produces animated GIFs that use thousands of colors per frame.
-    + [**gapminder**](https://cran.r-project.org/web/packages/gapminder/index.html): An excerpt of the data available at Gapminder.org. We just want to use its *country_colors* scheme.
+Add the following packages in the packages list:
+
++ [**gganimate**](https://gganimate.com/index.html): An ggplot extension for creating animated statistical graphs.
++ [**gifski**](https://cran.r-project.org/web/packages/gifski/index.html) converts video frames to GIF animations using pngquant's fancy features for efficient cross-frame palettes and temporal dithering. It produces animated GIFs that use thousands of colors per frame.
++ [**gapminder**](https://cran.r-project.org/web/packages/gapminder/index.html): An excerpt of the data available at Gapminder.org. We just want to use its *country_colors* scheme.
 ]]
 
 --
@@ -1065,7 +1192,6 @@ ggplot(globalPop, aes(x = Old, y = Young,
 ```
 ]
 
-
 ---
 ## Reference
 
@@ -1086,6 +1212,8 @@ This [link](https://davidgohel.github.io/ggiraph/index.html) provides online ver
 - [Plotly R Figure Reference](https://plotly.com/r/reference/index/) provides a comprehensive discussion of each visual representations.
 - [Plotly R Library Fundamentals](https://plotly.com/r/plotly-fundamentals/) is a good place to learn the fundamental features of Plotly's R API. 
 
+---
+## Reference
 ### gganimate
 
 - [Getting Started](https://gganimate.com/articles/gganimate.html)
