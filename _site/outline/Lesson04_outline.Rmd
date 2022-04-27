@@ -68,7 +68,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 + [performance](https://easystats.github.io/performance/): An R package provides utilities for computing indices of model quality and goodness of fit including provides many functions to check model assumptions visually.
 
-+ [infer](): An R package specially designed to perform statistical inference using an expressive statistical grammar that coheres with the tidyverse design framework. The library also includes functions for visualising the distribution of the simulation-based inferential statistics or the theoretical distribution (or both). 
++ [infer](https://infer.netlify.app/index.html): An R package specially designed to perform statistical inference using an expressive statistical grammar that coheres with the tidyverse design framework. The library also includes functions for visualising the distribution of the simulation-based inferential statistics or the theoretical distribution (or both). 
 
 
 
