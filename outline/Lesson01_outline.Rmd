@@ -56,14 +56,30 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Statistical Graphics Methods
 
-### Bar chart and boxplot
+### Boxplot
+- [Understanding Boxplots](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51)
+- Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. ![](img/new1.jpg)
 
+### Violin Plots
+- [Violin Plot-wikipedia](https://en.wikipedia.org/wiki/Violin_plot)
+- Hintze, Jerry L.; Nelson, Ray D. (1998). "[Violin Plots: A Box Plot-Density Trace Synergism](https://search.proquest.com/openview/dcd68eb137d2d6b08aa23f37e34e0b01/1?pq-origsite=gscholar)". *The American Statistician*. 52 (2): 181–4
+- [Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA. ![](img/new1.jpg)
+
+### Notched Box Plots
+- [Notched Box Plots](https://sites.google.com/site/davidsstatistics/home/notched-box-plots)
+
+### Dot Plots
+- [Dot plots](https://search-proquest-com.libproxy.smu.edu.sg/docview/228429978?rfr_id=info%3Axri%2Fsid%3Aprimo)
+- [Dot Plots: A Useful Alternative to Bar Charts](http://www.b-eye-network.com/view/2468)
+- [The dot plot: A graphical tool for data analysis and presentation](https://d-nb.info/1151959243/34)
+- Leland Wilkinson (1999) ["Dot Plot"](http://moderngraphics11.pbworks.com/f/wilkinson_1999.DotPlots.pdf), *Statistical Computing and Graphics*, Vol. 53, No. 3, pp. 276-281. ![](img/new1.jpg)
+
+### Pie chart and Bar chart 
 * [Understanding Pie Charts](https://eagereyes.org/techniques/pie-charts)
-* Regina L. Nuzzo (2016) ["The Box Plots Alternative for Visualizing Quantitative Data"](https://onlinelibrary.wiley.com/doi/pdf/10.1016/j.pmrj.2016.02.001), *PR&M*, Volume8, Issue3, pp. 268-272. ![](img/new1.jpg)
 * Tracey L. Weissgerber et. al. (2015) ["Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm"](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128), *PLoS Biology*. ![](img/new1.jpg)
-* [Violin Plot](https://www.londonsoda.com/articles/violin-plots) by LondonSODA. ![](img/new1.jpg)
-* Leland Wilkinson (1999) ["Dot Plot"](http://moderngraphics11.pbworks.com/f/wilkinson_1999.DotPlots.pdf), *Statistical Computing and Graphics*, Vol. 53, No. 3, pp. 276-281. ![](img/new1.jpg)
-* Allen M, Poggiali D, Whitaker K et al. ["Raincloud plots: a multi-platform tool for robust data. visualization"](https://wellcomeopenresearch.org/articles/4-63) [version 2; peer review: 2 approved]. *Wellcome Open Res* 2021, pp. 4:63. ![](img/new1.jpg)
+
+### Raincloud Plots
+* Allen M, Poggiali D, Whitaker K et al. ["Raincloud plots: a multi-platform tool for robust data. visualization"](https://wellcomeopenresearch.org/articles/4-63) [version 2; peer review: 2 approved]. *Welcome Open Res* 2021, pp. 4:63. ![](img/new1.jpg)
 
 ### Trellis Display
 
