@@ -14,22 +14,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Lesson Outline
 
-- Visualising Amounts
-    - Bar chart
-    - Pareto chart
-    - Grouped and stacked bars
-    - Dot plot
-- Visualising Distribution
-    - Histogram
-    - Density plot
-    - Boxplot
-    - Notched boxplot
-    - Violin plot
-    - Q-Q plot
-- Visualising Relationships Among Two Continuous Variables
-    - Scatter plot
-- Visualising Associations Among Two Categorical Variables
-    - Mosaic plot
+- Visual Analytics for Knowledge Discovery
+- Visual Analytics Approach for Statistical Testing
+- Visual Analytics for Building Better Models
 - Visualising Uncertainty
     - Why Visualising Uncertainty?
     - Basic Statistical Concepts Related to Uncertainty
@@ -38,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
         - Confidence strips
         - Ridge plot
     - Bivariate Graphical Methods for Visuaising Uncertainty
+- Variation and Its Discontents
 
 ## Lesson Slides and Hands-on Notes 
 
@@ -48,25 +36,6 @@ knitr::opts_chunk$set(echo = FALSE)
     + [Hands-on Exercise 4: Building Funnel Plot with R](../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04-FunnelPlot.html)
 
 
-## Core Readings
-- Claus O. Wilke [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). Chapter 6-12 and 16. 
-
-## Readings on Statistical Graphics
-### Boxplot
-- [Understanding Boxplots](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51)
-
-### Violin Plots
-- [Violin Plot-wikipedia](https://en.wikipedia.org/wiki/Violin_plot)
-- Hintze, Jerry L.; Nelson, Ray D. (1998). "[Violin Plots: A Box Plot-Density Trace Synergism](https://search.proquest.com/openview/dcd68eb137d2d6b08aa23f37e34e0b01/1?pq-origsite=gscholar)". *The American Statistician*. 52 (2): 181–4
-
-### Notched Box Plots
-- [Notched Box Plots](https://sites.google.com/site/davidsstatistics/home/notched-box-plots)
-
-### Dot Plots
-- [Dot plots](https://search-proquest-com.libproxy.smu.edu.sg/docview/228429978?rfr_id=info%3Axri%2Fsid%3Aprimo)
-- [Dot Plots: A Useful Alternative to Bar Charts](http://www.b-eye-network.com/view/2468)
-- [ The dot plot: A graphical tool for data analysis and presentation](https://d-nb.info/1151959243/34)
-
 ## Readings on Visualising Uncertainty
 - [Why It’s So Hard for Us to Visualize Uncertainty](https://hbr.org/2016/11/why-its-so-hard-for-us-to-visualize-uncertainty)
 - [Visualizing the Uncertainty in Data](https://flowingdata.com/2018/01/08/visualizing-the-uncertainty-in-data/)
@@ -74,7 +43,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Error Plots
 - [Error bar](https://en.wikipedia.org/wiki/Error_bar)
-
 
 ### Funnel Plots
 - [Variation and Its Discontents: Funnel Plots for Fair Comparisons](https://www.perceptualedge.com/articles/visual_business_intelligence/variation_and_its_discontents.pdf)
@@ -91,4 +59,16 @@ knitr::opts_chunk$set(echo = FALSE)
 - [Funnel Plot in Tableau](https://www.youtube.com/watch?v=HgYzplb5XAU)
 - [Creating Error Bars or CI Bars](https://kb.tableau.com/articles/howto/creating-error-bars)
 - [Standard errors and confidence intervals in Tableau](https://www.theinformationlab.co.uk/2019/10/25/standard-errors-and-confidence-intervals-in-tableau/)
+
+## All about R
+
++ [ggstatsplot](https://indrajeetpatil.github.io/ggstatsplot/): An extension of **ggplot2** package for creating statistical graphics with details from statistical tests.
+
++ [**ggdist**](https://mjskay.github.io/ggdist/index.html): An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualising distributions and uncertainty.
+
++ [performance](https://easystats.github.io/performance/): An R package provides utilities for computing indices of model quality and goodness of fit including provides many functions to check model assumptions visually.
+
++ [infer](): An R package specially designed to perform statistical inference using an expressive statistical grammar that coheres with the tidyverse design framework. The library also includes functions for visualising the distribution of the simulation-based inferential statistics or the theoretical distribution (or both). 
+
+
 

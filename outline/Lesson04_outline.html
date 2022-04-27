@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-02-15" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-02-15" />
+  <meta property="article:published" itemprop="datePublished" content="2022-04-27" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-04-27" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Lesson 4: Fundamentals of Visual Analytics" />
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson 4: Fundamentals of Visual Analytics"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2022-02-15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Lesson 4: Fundamentals of Visual Analytics"]},{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["2022-04-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1458,7 +1458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lesson 4: Fundamentals of Visual Analytics","description":"","authors":[],"publishedDate":"2022-02-15T00:00:00.000+08:00"}
+{"title":"Lesson 4: Fundamentals of Visual Analytics","description":"","authors":[],"publishedDate":"2022-04-27T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1482,14 +1482,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#lesson-outline">Lesson Outline</a></li>
 <li><a href="#lesson-slides-and-hands-on-notes">Lesson Slides and Hands-on Notes</a></li>
-<li><a href="#core-readings">Core Readings</a></li>
-<li><a href="#readings-on-statistical-graphics">Readings on Statistical Graphics</a>
-<ul>
-<li><a href="#boxplot">Boxplot</a></li>
-<li><a href="#violin-plots">Violin Plots</a></li>
-<li><a href="#notched-box-plots">Notched Box Plots</a></li>
-<li><a href="#dot-plots">Dot Plots</a></li>
-</ul></li>
 <li><a href="#readings-on-visualising-uncertainty">Readings on Visualising Uncertainty</a>
 <ul>
 <li><a href="#error-plots">Error Plots</a></li>
@@ -1499,35 +1491,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#visualising-uncertainty">Visualising Uncertainty</a></li>
 </ul></li>
+<li><a href="#all-about-r">All about R</a></li>
 </ul>
 </nav>
 </div>
 <h2 id="lesson-outline">Lesson Outline</h2>
 <ul>
-<li>Visualising Amounts
-<ul>
-<li>Bar chart</li>
-<li>Pareto chart</li>
-<li>Grouped and stacked bars</li>
-<li>Dot plot</li>
-</ul></li>
-<li>Visualising Distribution
-<ul>
-<li>Histogram</li>
-<li>Density plot</li>
-<li>Boxplot</li>
-<li>Notched boxplot</li>
-<li>Violin plot</li>
-<li>Q-Q plot</li>
-</ul></li>
-<li>Visualising Relationships Among Two Continuous Variables
-<ul>
-<li>Scatter plot</li>
-</ul></li>
-<li>Visualising Associations Among Two Categorical Variables
-<ul>
-<li>Mosaic plot</li>
-</ul></li>
+<li>Visual Analytics for Knowledge Discovery</li>
+<li>Visual Analytics Approach for Statistical Testing</li>
+<li>Visual Analytics for Building Better Models</li>
 <li>Visualising Uncertainty
 <ul>
 <li>Why Visualising Uncertainty?</li>
@@ -1540,6 +1512,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul></li>
 <li>Bivariate Graphical Methods for Visuaising Uncertainty</li>
 </ul></li>
+<li>Variation and Its Discontents</li>
 </ul>
 <h2 id="lesson-slides-and-hands-on-notes">Lesson Slides and Hands-on Notes</h2>
 <ul>
@@ -1549,30 +1522,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04.html">Hands-on Exercise 4</a>.</li>
 <li><a href="../Hands-on_Ex/Hands-on_Ex04/Hands-on_Ex04-FunnelPlot.html">Hands-on Exercise 4: Building Funnel Plot with R</a></li>
 </ul></li>
-</ul>
-<h2 id="core-readings">Core Readings</h2>
-<ul>
-<li>Claus O. Wilke <a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a>. Chapter 6-12 and 16.</li>
-</ul>
-<h2 id="readings-on-statistical-graphics">Readings on Statistical Graphics</h2>
-<h3 id="boxplot">Boxplot</h3>
-<ul>
-<li><a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51">Understanding Boxplots</a></li>
-</ul>
-<h3 id="violin-plots">Violin Plots</h3>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Violin_plot">Violin Plot-wikipedia</a></li>
-<li>Hintze, Jerry L.; Nelson, Ray D. (1998). “<a href="https://search.proquest.com/openview/dcd68eb137d2d6b08aa23f37e34e0b01/1?pq-origsite=gscholar">Violin Plots: A Box Plot-Density Trace Synergism</a>”. <em>The American Statistician</em>. 52 (2): 181–4</li>
-</ul>
-<h3 id="notched-box-plots">Notched Box Plots</h3>
-<ul>
-<li><a href="https://sites.google.com/site/davidsstatistics/home/notched-box-plots">Notched Box Plots</a></li>
-</ul>
-<h3 id="dot-plots">Dot Plots</h3>
-<ul>
-<li><a href="https://search-proquest-com.libproxy.smu.edu.sg/docview/228429978?rfr_id=info%3Axri%2Fsid%3Aprimo">Dot plots</a></li>
-<li><a href="http://www.b-eye-network.com/view/2468">Dot Plots: A Useful Alternative to Bar Charts</a></li>
-<li><a href="https://d-nb.info/1151959243/34">The dot plot: A graphical tool for data analysis and presentation</a></li>
 </ul>
 <h2 id="readings-on-visualising-uncertainty">Readings on Visualising Uncertainty</h2>
 <ul>
@@ -1601,6 +1550,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="https://www.youtube.com/watch?v=HgYzplb5XAU">Funnel Plot in Tableau</a></li>
 <li><a href="https://kb.tableau.com/articles/howto/creating-error-bars">Creating Error Bars or CI Bars</a></li>
 <li><a href="https://www.theinformationlab.co.uk/2019/10/25/standard-errors-and-confidence-intervals-in-tableau/">Standard errors and confidence intervals in Tableau</a></li>
+</ul>
+<h2 id="all-about-r">All about R</h2>
+<ul>
+<li><p><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a>: An extension of <strong>ggplot2</strong> package for creating statistical graphics with details from statistical tests.</p></li>
+<li><p><a href="https://mjskay.github.io/ggdist/index.html"><strong>ggdist</strong></a>: An R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualising distributions and uncertainty.</p></li>
+<li><p><a href="https://easystats.github.io/performance/">performance</a>: An R package provides utilities for computing indices of model quality and goodness of fit including provides many functions to check model assumptions visually.</p></li>
+<li><p><a href>infer</a>: An R package specially designed to perform statistical inference using an expressive statistical grammar that coheres with the tidyverse design framework. The library also includes functions for visualising the distribution of the simulation-based inferential statistics or the theoretical distribution (or both).</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
