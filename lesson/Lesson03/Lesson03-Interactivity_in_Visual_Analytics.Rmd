@@ -196,15 +196,18 @@ Source:https://public.tableau.com/profile/yifei2012#!/vizhome/Updated1/VASTChall
 ## Process and Provenance
 
 .large[
-- Record analysis histories for revisitation, review and sharing.
+- **Record** analysis histories for revisitation, review and sharing.
 
-- Annotate patterns to determine findings.
+- **Annotate** patterns to determine findings.
 
-- Share views and annotations to enable collaboration.
+- **Share** views and annotations to enable collaboration.
 
-- Guide users through analysis tasks or stories.
+- **Guide** users through analysis tasks or stories.
 
 ]
+
+???
+Visual analytics is not limited to the generation and manipulation of visualizations—it involves a process of iterative data exploration and interpretation. As a result, visual analytics tools that provide facilities for scaffolding the analysis process will be more widely adopted. Tools should preserve analytic provenance by keeping a record of analyst actions and insights so that the history of work can be reviewed and refined. 
 
 
 ---
