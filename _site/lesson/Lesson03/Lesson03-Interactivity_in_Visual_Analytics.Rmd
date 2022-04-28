@@ -23,13 +23,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ## What will you learn from this lesson?
 
 .large[
-- Different types of interaction techniques
+- Typology of Interactive Techniques
+    - Data & view specification
+    - View Manipulation
+    - Process and Provenance
 
-- The role of Interaction in visual analytics
+- Interactive Design Primitive
 
-- The concept of linked multiple views
-
-- Interactive analytics best practices
+- Animation: Principles and Best Practices
 ]
 
 ---
@@ -59,7 +60,7 @@ Source: Heer, J. & Shneiderman, B. (2012) "[Interactive Dynamics for Visual Anal
 - **Polaris** of Tableau
 
 .center[
-![:scale 45%](img/image3-5.jpg)]
+![:scale 60%](img/image3-5.jpg)]
 
 ---
 ### Data & view specification
@@ -190,6 +191,21 @@ Source:https://public.tableau.com/profile/yifei2012#!/vizhome/Updated1/VASTChall
 
 .center[
 ![:scale 35%](img/image3-20.jpg)]
+
+---
+## Process and Provenance
+
+.large[
+- Record analysis histories for revisitation, review and sharing.
+
+- Annotate patterns to determine findings.
+
+- Share views and annotations to enable collaboration.
+
+- Guide users through analysis tasks or stories.
+
+]
+
 
 ---
 ## Interactive Design Primitive
