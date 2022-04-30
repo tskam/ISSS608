@@ -66,7 +66,9 @@ The solution:
 packages = c('ggiraph', 'plotly', 
              'DT', 'patchwork',
              'gganimate', 'tidyverse',
-             'readxl', 'gifski', 'gapminder')
+             'readxl', 'gifski', 'gapminder',
+             'treemap', 'treemapify',
+             'rPackedBar')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -86,7 +88,6 @@ Using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) of *
 ]]
 
 --
-
 .pull-left[
 .large[
 The solution:
@@ -1193,6 +1194,242 @@ ggplot(globalPop, aes(x = Old, y = Young,
 ]
 
 ---
+## Visualising Large Data Interactively
+
+.pull-left[
+In this hands-on exercise you will learn how to visualise large data by using treemap and packed bar methods.  For the purpose of this hands-on exercise, two data sets will be used.  They are:
+
+- *GDP.csv* provides GDP, GDP per capita and GDP PPP data for world countries from 2000 to 2020.  The data was extracted from [World Development Indicators Database](https://databank.worldbank.org/source/world-development-indicators) of World Bank. 
+- *WorldCountry.csv* provides a list of country names and the continent they belong to extracted from [Statistics Times](https://statisticstimes.com/geography/countries-by-continents.php). 
+]
+
+.pull-right[
+- Write a code chunk to import both data sets by using `read_csv()` of **readr** package.
+
+The solution:
+
+```{r}
+GDP <- read_csv("data/GDP.csv")
+WorldCountry <- read_csv("data/WorldCountry.csv")
+```
+
+Note: In it always a good practice to check the data structure and examine data values in RStudio.
+]
+
+---
+### Data preparetion
+
+Code chunk below performs following tasks:
+
+- `mutate()` of dplyr package is used to convert all values in the 202 field into numeric data type.
+- `select()` of dplyr package is used to extract column 1 to 3 and Values field.
+- `pivot_wider()` of tidyr package is used to split the values in Series Name field into columns.
+- `left_join()` of dplyr package is used to perform a left-join by using Country Code of GDP_selected and ISO-alpha3 Code of WorldCountry tibble data tables as unique identifier.
+
+```{r}
+GDP_selected <- GDP %>%
+  mutate(Values = as.numeric(`2020`)) %>%
+  select(1:3, Values) %>%
+  pivot_wider(names_from = `Series Name`,
+              values_from = `Values`) %>%
+  left_join(y=WorldCountry, by = c("Country Code" = "ISO-alpha3 Code"))
+```
+
+---
+## Visualising Large Data Interactively - treemap method
+
+.pull-left[
+The code chunk below designed a static treemap by using three core arguments of `treemap()` of [treemap](https://cran.r-project.org/web/packages/treemap/index.html) package, namely: `index`, `vSize` and `vColor`.
+
+
+```{r eval=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP (current US$)",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP (current US$)",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+
+```
+]
+
+---
+### Working with vColor and type arguments
+
+.pull-left[
+In the code chunk below, `type` argument is define as `value`.
+
+
+```{r eval=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+```
+]
+
+---
+### Working with three layout
+
+.pull-left[
+treemap() supports two popular treemap layouts, namely: “squarified” and “pivotSize”. The default is “pivotSize”.
+
+The squarified treemap algorithm (Bruls et al., 2000) produces good aspect ratios, but ignores the sorting order of the rectangles (sortID). The ordered treemap, pivot-by-size, algorithm (Bederson et al., 2002) takes the sorting order (sortID) into account while aspect ratios are still acceptable.
+
+```{r eval=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value",
+        algorithm = "squarified",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value",
+        algorithm = "squarified",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+```
+]
+
+---
+## Designing Interactive Treemap using d3treeR
+
+.pull-left[
+d3treeR package is not in Cran, you will load the devtools library and install the package found in github by using the codes below.
+
+```{r eval=FALSE}
+library(devtools)
+install_github("timelyportfolio/d3treeR")
+```
+
+Next, you are ready to launch d3treeR package
+
+```{r}
+library(d3treeR)
+```
+]
+
+---
+### Designing An Interactive Treemap
+
+Step 1: Create a statistic treemap by using treemap().
+
+```{r echo=FALSE}
+tm <- treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value",
+        title="GDP (current US$) , 2020",
+        title.legend = "GDP per capita (current US$)"
+        )
+```
+
+---
+### Designing An Interactive Treemap
+Step 2: Using d3tree() to create an interactive treemap.
+
+```{r fig.width=12}
+d3tree(tm, rootname = "World" )
+```
+
+---
+## Visualising Large Data Interactively - packed bar method
+### Data Preparation
+
+Step 1: Prepare the data by using the code chunk below.
+
+```{r}
+GDP_selected <- GDP %>%
+  mutate(GDP = as.numeric(`2020`)) %>%
+  filter(`Series Name` == "GDP (current US$)") %>%
+  select(1:2, GDP) %>%
+  na.omit()
+```
+
+---
+## Visualising Large Data Interactively - packed bar method
+
+.pull-left[
+In the code chunk below, `plotly_packed_bar()` of [rPackedBar](https://cran.r-project.org/web/packages/rPackedBar/index.html) package is used to create an intertactive packed bar. 
+
+```{r eval=FALSE}
+p = plotly_packed_bar(
+  input_data = GDP_selected,
+  label_column = "Country Name",
+  value_column = "GDP",
+  number_rows = 10,
+  plot_title = "Tweet Interactions",
+  xaxis_label = "Favorites & RTs",
+  hover_label = "GDP",
+  min_label_width = 0.018,
+  color_bar_color = "#00aced",
+  label_color = "white")
+plotly::config(p, displayModeBar = FALSE)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+p = plotly_packed_bar(
+  input_data = GDP_selected,
+  label_column = "Country Name",
+  value_column = "GDP",
+  number_rows = 10,
+  plot_title = "Tweet Interactions",
+  xaxis_label = "Favorites & RTs",
+  hover_label = "GDP",
+  min_label_width = 0.018,
+  color_bar_color = "#00aced",
+  label_color = "white")
+plotly::config(p, displayModeBar = FALSE)
+```
+]
+
+---
 ## Reference
 
 ### ggiraph
@@ -1218,7 +1455,8 @@ This [link](https://davidgohel.github.io/ggiraph/index.html) provides online ver
 
 - [Getting Started](https://gganimate.com/articles/gganimate.html)
 - Visit this [link](https://rpubs.com/raymondteo/dataviz8) for a very interesting implementation of gganimate by your senior.
-
+- [Building an animation step-by-step with gganimate](https://www.alexcookson.com/post/2020-10-18-building-an-animation-step-by-step-with-gganimate/). 
+- [Creating a composite gif with multiple gganimate panels](https://solarchemist.se/2021/08/02/composite-gif-gganimate/)
 
 
 ```{r echo=FALSE, eval=FALSE}
