@@ -102,7 +102,7 @@ style_duo_accent(
 ## Development of RIA
 
 .pull-left[
-### First generation RIA data visualisation
+### First generation RIA data visualisation (2000~)
 
 .large[
 - Adobe Flex Builder
@@ -112,7 +112,7 @@ style_duo_accent(
 
 --
 .pull-right[
-### Second generation RIA data visualisation
+### Second generation RIA data visualisation (2010~)
 
 .large[
 - HTML 5 + JavaScript + SVG + CSS 
@@ -253,18 +253,6 @@ runExample("01_hello")
 
 .center[
 ![:scale 70%](img/image8.jpg)]
-
----
-## Building a Shiny app
-### Survival Tips
-
-.large[
-- Always run the entire script, not just up to the point where you’re developing code.
-
-- Sometimes the best way to see what’s wrong is to run the app and review the error.
-
-- Watch out for commas!
-]
 
 ---
 ## Building a Shiny app
@@ -676,7 +664,17 @@ shinyApp(ui = ui, server = server) #<<
 ![:scale 80%](img/image24.jpg)]
 
 ---
+## Survival Tips
 
+.large[
+- Always run the entire script, not just up to the point where you’re developing code.
+
+- Sometimes the best way to see what’s wrong is to run the app and review the error.
+
+- Watch out for commas!
+]
+
+---
 # References
 
 * Hadley Wickham (2021) ['''Mastering Shiny'''](https://mastering-shiny.org/index.html), O’Reilly Media.  This is a highly recommended book. 

@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Building Web-enabled Visual Analytics Application with R Shiny: R Shiny basic
+]
+.author[
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+]
+.institute[
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2019/11/25 (updated: 2022-03-01)
+]
+.date[
+### 2019/11/25 (updated: 2022-05-02)
+]
 
 ---
 
@@ -90,7 +98,7 @@ class: center, middle, inverse, title-slide
 ## Development of RIA
 
 .pull-left[
-### First generation RIA data visualisation
+### First generation RIA data visualisation (2000~)
 
 .large[
 - Adobe Flex Builder
@@ -100,7 +108,7 @@ class: center, middle, inverse, title-slide
 
 --
 .pull-right[
-### Second generation RIA data visualisation
+### Second generation RIA data visualisation (2010~)
 
 .large[
 - HTML 5 + JavaScript + SVG + CSS 
@@ -242,18 +250,6 @@ runExample("01_hello")
 
 .center[
 ![:scale 70%](img/image8.jpg)]
-
----
-## Building a Shiny app
-### Survival Tips
-
-.large[
-- Always run the entire script, not just up to the point where you’re developing code.
-
-- Sometimes the best way to see what’s wrong is to run the app and review the error.
-
-- Watch out for commas!
-]
 
 ---
 ## Building a Shiny app
@@ -672,7 +668,17 @@ server &lt;- function(input, output){
 ![:scale 80%](img/image24.jpg)]
 
 ---
+## Survival Tips
 
+.large[
+- Always run the entire script, not just up to the point where you’re developing code.
+
+- Sometimes the best way to see what’s wrong is to run the app and review the error.
+
+- Watch out for commas!
+]
+
+---
 # References
 
 * Hadley Wickham (2021) ['''Mastering Shiny'''](https://mastering-shiny.org/index.html), O’Reilly Media.  This is a highly recommended book. 
@@ -748,6 +754,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
