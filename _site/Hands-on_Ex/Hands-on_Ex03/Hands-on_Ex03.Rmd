@@ -43,6 +43,14 @@ In this hands-on exercise, you will learn how to create:
 - interactive data visualisation by using ggiraph and plotlyr packages,
 
 - animated data visualisation by using gganimate and plotlyr packages.
+
+- Visualising univariate data with large number of categories by using rPackedBar package.
+
+At the same time, you will also learn how to:
+
+- reshape data by using tidyr package, and
+
+- process, wrangle and transform data by using dplyr package.
 ]
 
 ---
@@ -85,23 +93,20 @@ for (p in packages){
 .large[
 In this section, Exam_data.csv provided will be used.
 Using [*read_csv()*](https://readr.tidyverse.org/reference/read_delim.html) of **readr** package, import *Exam_data.csv* into R.
-]]
 
---
-.pull-left[
-.large[
 The solution:
 
 ```{r}
 exam_data <- read_csv("data/Exam_data.csv")
 ```
+
 ]]
 
 ---
 ## Interactive Data Visualisation - ggiraph methods![:scale 6%](img/image7-1.jpg)
 
 .large[
-- An htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
+- [ggiraph](https://davidgohel.github.io/ggiraph/index.html) is an htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
 
 - Interactive is made with ggplot geometries that can understand three arguments:
     - **Tooltip**: a column of data-sets that contain tooltips to be displayed when the mouse is over elements.
@@ -1029,7 +1034,7 @@ Thing to learn from the code chunk:
 
 - Data objects in R can be rendered as HTML tables using the JavaScript library 'DataTables' (typically via R Markdown or Shiny). 
 
-```{r}
+```{r out.width = "80%", out.height = "50px"}
 DT::datatable(exam_data)
 ```
 
@@ -1096,31 +1101,37 @@ Things to learn from the code chunk:
 ### Getting started
 
 .pull-left[
-.large[
 Add the following packages in the packages list:
 
 + [**gganimate**](https://gganimate.com/index.html): An ggplot extension for creating animated statistical graphs.
 + [**gifski**](https://cran.r-project.org/web/packages/gifski/index.html) converts video frames to GIF animations using pngquant's fancy features for efficient cross-frame palettes and temporal dithering. It produces animated GIFs that use thousands of colors per frame.
 + [**gapminder**](https://cran.r-project.org/web/packages/gapminder/index.html): An excerpt of the data available at Gapminder.org. We just want to use its *country_colors* scheme.
-]]
+]
 
 --
 .pull-right[
-.large[
-+ Import the *Data* worksheet from *GlobalPopulation* Excel workbook.  
-]]
+Import the *Data* worksheet from *GlobalPopulation* Excel workbook.
+
+```{r}
+col <- c("Country", "Continent")
+globalPop <- read_xls("data/GlobalPopulation.xls",
+                      sheet="Data") %>%
+  mutate_each_(funs(factor(.)), col) %>%
+  mutate(Year = as.integer(Year))
+```
+
+Things to learn from the code chunk above:
+
+- [`read_xls()`](https://readxl.tidyverse.org/reference/read_excel.html) of **readxl** package is used to import the Excel worksheet.
+- `mutate_each_()` of dplyr package is used to convert all character data type into factor.
+- `mutate` of dplyr package is used to convert data values of Year field into integer.
+]
 
 ---
 ### Building a static population bubble plot
 
 .pull-left[
-
-```{r echo=FALSE}
-col <- c("Country", "Continent")
-globalPop <- read_xls("data/GlobalPopulation.xls", sheet="Data") %>%
-  mutate_each_(funs(factor(.)), col) %>%
-  mutate(Year = as.integer(Year))
-```
+In the code chunk below, the basic ggplot2 functions are used to create a static bubble plot.
 
 ```{r eval=FALSE}
 ggplot(globalPop, aes(x = Old, y = Young, 
@@ -1156,9 +1167,13 @@ ggplot(globalPop, aes(x = Old, y = Young,
 ### Building the animated bubble plot
 
 .pull-left[
-The code chunk:
+In the code chunk below, 
 
-```{r eval=FALSE}
+- [`transition_time()`](https://gganimate.com/reference/transition_time.html) of **gganimate** is used to create transition through distinct states in time (i.e. Year).
+- `ease_aes()` is used to control easing of aesthetics.  The default is `linear`.  Other methods are: quadratic, cubic, quartic, quintic, sine, circular, exponential, elastic, back, and bounce.
+
+
+```{r eval=FALSE} 
 ggplot(globalPop, aes(x = Old, y = Young, 
                       size = Population, 
                       colour = Country)) +
@@ -1213,18 +1228,20 @@ GDP <- read_csv("data/GDP.csv")
 WorldCountry <- read_csv("data/WorldCountry.csv")
 ```
 
-Note: In it always a good practice to check the data structure and examine data values in RStudio.
+Note: It is always a good practice to check the data structure and examine data values in RStudio.
 ]
 
 ---
 ### Data preparetion
 
+Before programming the data visualisation, it is important for us to reshape, wrangle and transform the raw data to meet the data visualisation need.  
+
 Code chunk below performs following tasks:
 
-- `mutate()` of dplyr package is used to convert all values in the 202 field into numeric data type.
-- `select()` of dplyr package is used to extract column 1 to 3 and Values field.
-- `pivot_wider()` of tidyr package is used to split the values in Series Name field into columns.
-- `left_join()` of dplyr package is used to perform a left-join by using Country Code of GDP_selected and ISO-alpha3 Code of WorldCountry tibble data tables as unique identifier.
+- [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) of dplyr package is used to convert all values in the 202 field into numeric data type.
+- [`select()`](https://dplyr.tidyverse.org/reference/select.html) of dplyr package is used to extract column 1 to 3 and Values field.
+- [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) of tidyr package is used to split the values in Series Name field into columns.
+- [`left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) of dplyr package is used to perform a left-join by using Country Code of GDP_selected and ISO-alpha3 Code of WorldCountry tibble data tables as unique identifier.
 
 ```{r}
 GDP_selected <- GDP %>%
@@ -1236,9 +1253,11 @@ GDP_selected <- GDP %>%
 ```
 
 ---
-## Visualising Large Data Interactively - treemap method
+### Building static treemap using treemap package
 
 .pull-left[
+[treemap](https://cran.r-project.org/web/packages/treemap/index.html) is an R package specially designed to plot treemap.  It provides many functions to customise a treemap.  
+
 The code chunk below designed a static treemap by using three core arguments of `treemap()` of [treemap](https://cran.r-project.org/web/packages/treemap/index.html) package, namely: `index`, `vSize` and `vColor`.
 
 
@@ -1273,7 +1292,6 @@ treemap(GDP_selected,
 .pull-left[
 In the code chunk below, `type` argument is define as `value`.
 
-
 ```{r eval=FALSE}
 treemap(GDP_selected,
         index=c("Continent", "Country Name"),
@@ -1284,6 +1302,12 @@ treemap(GDP_selected,
         title.legend = "GDP per capita (current US$)"
         )
 ```
+
+Things to learn from the code chunk above:
+
+- the size of the rectangle is mapped to *GDP (current US$)* by using `vSize` argument.
+- the colour of the rectangle is now mapped to *GDP per capita (current US$)* by using `vColor` argument.
+
 ]
 
 .pull-right[
@@ -1335,17 +1359,21 @@ treemap(GDP_selected,
 ]
 
 ---
-## Designing Interactive Treemap using d3treeR
+### Building an interactive treemap using d3treeR package
 
-.pull-left[
-d3treeR package is not in Cran, you will load the devtools library and install the package found in github by using the codes below.
+.pull-left[ 
+[**d3treeR**](https://github.com/d3treeR/d3treeR) is an R htmlwidget for d3.js treemaps. It is designed to integrate seamlessly with the R treemap package.
+
+**d3treeR** package is not in RCran, you will load the devtools library and install the package found in github by using the codes below.
 
 ```{r eval=FALSE}
 library(devtools)
 install_github("timelyportfolio/d3treeR")
 ```
 
-Next, you are ready to launch d3treeR package
+Note: You should only run the code chunk above once.
+
+Next, you will launch d3treeR package by using the `library()`
 
 ```{r}
 library(d3treeR)
@@ -1353,23 +1381,39 @@ library(d3treeR)
 ]
 
 ---
-### Designing An Interactive Treemap
+### Building an interactive treemap using d3treeR package
 
+.pull-left[
 Step 1: Create a statistic treemap by using treemap().
 
+Before you can build an interactive treemap by using d3treeR package, you need to build a static treemap by using `treemap()` as shown in the code chunk below.
+
+```{r eval=FALSE}
+tm <- treemap(GDP_selected,
+        index=c("Continent", "Country Name"),
+        vSize="GDP (current US$)",
+        vColor="GDP per capita (current US$)",
+        type = "value")
+```
+
+Things to learn from the code chunk above:
+
+- Only index, vSize, vColor and type arguments are used because d3treeR only support these four arguments.
+- The output treemap is save as an object called *tm*.]
+
+.pull-right[
 ```{r echo=FALSE}
 tm <- treemap(GDP_selected,
         index=c("Continent", "Country Name"),
         vSize="GDP (current US$)",
         vColor="GDP per capita (current US$)",
-        type = "value",
-        title="GDP (current US$) , 2020",
-        title.legend = "GDP per capita (current US$)"
-        )
+        type = "value")
 ```
+]
 
 ---
-### Designing An Interactive Treemap
+### Building an interactive treemap using d3treeR package
+
 Step 2: Using d3tree() to create an interactive treemap.
 
 ```{r fig.width=12}
@@ -1378,9 +1422,26 @@ d3tree(tm, rootname = "World" )
 
 ---
 ## Visualising Large Data Interactively - packed bar method
+
+.pull-left[
+.large[
+- **packed bar** is a relatively new data visualisation method introduced by Xan Gregg from JMP.  
+- It aims to support the need of visualising skewed data over hundreds of categories.  
+- The idea is to support the [Focus+Context](https://infovis-wiki.net/wiki/Focus-plus-Context) data visualization principle.
+- Visit this [JMP Blog](https://community.jmp.com/t5/JMP-Blog/Introducing-packed-bars-a-new-chart-form/ba-p/39972) to learn more about the design principles of packed bar. 
+]]
+
+.pull-right[
+
+![](img/image3-4.png)
+]
+
+---
 ### Data Preparation
 
 Step 1: Prepare the data by using the code chunk below.
+
+As usual, we need to prepare the data before building the packed bar.  
 
 ```{r}
 GDP_selected <- GDP %>%
@@ -1390,11 +1451,15 @@ GDP_selected <- GDP %>%
   na.omit()
 ```
 
+Thing to learn from the code chunk above:
+
+- `na.omit()` is used to exclude rows with missing values.  This is because rPackedBar package does not support missing values.  
+
 ---
-## Visualising Large Data Interactively - packed bar method
+### Building a packed bar by using rPackedBar package.
 
 .pull-left[
-In the code chunk below, `plotly_packed_bar()` of [rPackedBar](https://cran.r-project.org/web/packages/rPackedBar/index.html) package is used to create an intertactive packed bar. 
+In the code chunk below, `plotly_packed_bar()` of [rPackedBar](https://cran.r-project.org/web/packages/rPackedBar/index.html) package is used to create an interactive packed bar. 
 
 ```{r eval=FALSE}
 p = plotly_packed_bar(
@@ -1402,25 +1467,29 @@ p = plotly_packed_bar(
   label_column = "Country Name",
   value_column = "GDP",
   number_rows = 10,
-  plot_title = "Tweet Interactions",
-  xaxis_label = "Favorites & RTs",
+  plot_title = "Top 10 countries by GDP, 2020",
+  xaxis_label = "GDP (US$)",
   hover_label = "GDP",
   min_label_width = 0.018,
   color_bar_color = "#00aced",
   label_color = "white")
 plotly::config(p, displayModeBar = FALSE)
 ```
+
+- Read this [Vignettes](https://cran.r-project.org/web/packages/rPackedBar/vignettes/Visualizing_Twitter_Data_with_a_Packed_Barchart.html) and the [user guide](https://cran.r-project.org/web/packages/rPackedBar/rPackedBar.pdf) to learn more about the package.
 ]
 
 .pull-right[
+The output packed bar:
+
 ```{r echo=FALSE}
 p = plotly_packed_bar(
   input_data = GDP_selected,
   label_column = "Country Name",
   value_column = "GDP",
   number_rows = 10,
-  plot_title = "Tweet Interactions",
-  xaxis_label = "Favorites & RTs",
+  plot_title = "Top 10 countries by GDP, 2020",
+  xaxis_label = "GDP (US$)",
   hover_label = "GDP",
   min_label_width = 0.018,
   color_bar_color = "#00aced",
@@ -1457,6 +1526,12 @@ This [link](https://davidgohel.github.io/ggiraph/index.html) provides online ver
 - Visit this [link](https://rpubs.com/raymondteo/dataviz8) for a very interesting implementation of gganimate by your senior.
 - [Building an animation step-by-step with gganimate](https://www.alexcookson.com/post/2020-10-18-building-an-animation-step-by-step-with-gganimate/). 
 - [Creating a composite gif with multiple gganimate panels](https://solarchemist.se/2021/08/02/composite-gif-gganimate/)
+
+### Packed Bar
+
+[rPackedBar](https://cran.r-project.org/web/packages/rPackedBar/index.html): Packed Bar Charts with 'plotly'
+
+- [Visualizing Twitter Data with a Packed Barchart](https://cran.r-project.org/web/packages/rPackedBar/vignettes/Visualizing_Twitter_Data_with_a_Packed_Barchart.html)
 
 
 ```{r echo=FALSE, eval=FALSE}
