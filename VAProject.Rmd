@@ -15,13 +15,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview 
 
-The purpose of the project is to provide students first hand experience on building web-enabled visual analytics application by using R Shiny.  It aims to *democratize data and analytics*.  Hence, the application focuses and emphasises on *interactivity* and effective integration of techniques from *data analytics* and *data visualization*.   
+The purpose of the project is to provide students first hand experience on building web-enabled visual analytics application by using R Shiny.  It aims to **democratize data and analytics**.  Hence, the application focuses and emphasises on **interactivity** and effective integration of techniques from **data analytics** and **data visualization**.   
 
 A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains.  Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment.  Students are encouraged to focus on research topics that are relevant to their field of study.  It should address a concrete visual analytics problem and should propose a novel and creative solution.
 
 ## Project Topic
 
-This term the topic of Visual Analytics Project will be based on [VAST Challenge 2022](https://vast-challenge.github.io/2022/).  Teams are required to choose one of the Challenge and build a Shiny Application to answer the questions of the Challenge.
+This term the topic of Visual Analytics Project will be based on [VAST Challenge 2022](https://vast-challenge.github.io/2022/).  The are three challenges provided. Teams are required to choose **one** of the Challenge and build a Shiny Application to answer the questions of the Challenge.
 
 ## Project Management
 
@@ -63,11 +63,11 @@ As a first step, you should create a project summary at the project website that
 
 ### Project proposal
 
-Each project teams must start thinking about their project ideas after the first lesson.  They are expected to discuss their project topic and scope of works with the instructor during the recess week.  A project proposal in the form website edited using [**distill for RMarkdown**](https://rstudio.github.io/distill/) on [**Netfily**](https://www.netlify.com/) will be prepared and the link must be provided on eLearn by **6th March 2022**.
+Each project teams must start thinking about their project ideas after the first lesson.  They are expected to discuss their project topic and scope of works with the instructor during the recess week.  A project proposal in the form website edited using [**distill for RMarkdown**](https://rstudio.github.io/distill/) on [**Netfily**](https://www.netlify.com/) will be prepared and the link must be provided on eLearn by **15th May 2022**.
 
 The project proposal should describe the motivation of the project, problems or issues that the project will address, the relevant related work, the approach the team plans to take to solve the problem, and early prototypes or storyboards.  The project teams should take advantage of this proposal as a chance to get feedback on the direction of the project from their peers.
 
-Students are required to update their project websites with all the details including the final application, user guide and poster by **3rd April 2022**.
+Students are required to update their project websites with all the details including the final application, user guide and poster by **3rd July 2022**.
 
 ### Poster
 The project poster should provide an overview of your project.  It should include, but not limited to the following information: 
