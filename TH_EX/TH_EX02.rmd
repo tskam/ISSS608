@@ -34,6 +34,38 @@ Your completed take-home exercise is due on **1st May 2022, by 11:59pm evening**
 
 # Peer Learning
 
+- [ALOYSIUS TENG]()
+- [ANTONIUS HANDY]()
+- [CHE XUAN]()
+- [CHU YI-NING]()
+- [CUI  JIARUI]()
+- [DAVID KWOK WEI XIANG]()
+- [DING YANMU]()
+- [HERANSHAN SO SUBRAMANIAM]()
+- [HUANG ANNI]()
+- [HUANG YAPING]()
+- [HULWANA BINTE SAIFULZAMAN]()
+- [KIM BOMIN]()
+- [LAM KUO JIAN JEREMIAH]()
+- [LEE XIAO QI]()
+- [LI HONGYI]()
+- [LI HUAN]()
+- [LI MINQI]()
+- [LIU ZHENGLIN]()
+- [LONG NU]() 
+- [NI JUNQIU]()
+- [ONG ZHI RONG JORDAN]()
+- [RAKENDU RAMESH]()
+- [RAO NINGZHEN]()
+- [RAUNAK KAPUR]()
+- [RAVEENA CHAKRAPANI]()
+- [SHACHI ANIRUDHA RAODEO]()
+- [SUI TIANYUE]()
+- [TAY CHENG WEI CLARENCE]()
+- [TSENG CHIA-YI]()
+- [WANG TIANQI]()
+- [YEO KIM SIANG]()
+- [YU DI]()
    
 
 ```{r echo=FALSE, eval=FALSE}
