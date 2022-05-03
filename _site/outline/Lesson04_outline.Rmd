@@ -24,7 +24,8 @@ knitr::opts_chunk$set(echo = FALSE)
         - Error bars
         - Confidence strips
         - Ridge plot
-    - Bivariate Graphical Methods for Visuaising Uncertainty
+    - Bivariate Graphical Methods for Visualising Uncertainty
+        - Funnel plot
 - Variation and Its Discontents
 
 ## Lesson Slides and Hands-on Notes 

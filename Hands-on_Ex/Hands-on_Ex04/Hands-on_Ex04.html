@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Hands-on Exercise 4: Visual Analytics with R
+]
+.author[
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+]
+.institute[
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-02-15)
+]
+.date[
+### 2020-2-15 (updated: 2022-05-03)
+]
 
 ---
 
@@ -29,11 +37,12 @@ class: center, middle, inverse, title-slide
 .vlarge[
 In this hands-on exercise, you will gain hands-on experience on using:
 
-+ ggstatsplot to create visual graphics with reach statistical information,
++ ggstatsplot to create visual graphics with rich statistical information,
 
 + ggdist to visualise uncertainty on data, and 
 
-+ FunnelPlotR to visualise variation and its discontents
++ ungeviz to build hypothetical outcome plots (HOPs).
+
 ]
 
 
@@ -45,7 +54,8 @@ In this exercise, **infer**, **ggstatsplot** and **tidyverse** will be used.
 
 ```r
 packages = c('ggstatsplot', 'ggside', 'knitr',
-             'tidyverse', 'broom', 'ggdist')
+             'tidyverse', 'broom', 'ggdist',
+             'ungeviz', 'gganimate')
 for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -379,10 +389,6 @@ In the code chunk, [*check_normality()*](https://easystats.github.io/performance
 ```r
 check_n &lt;- check_normality(model1)
 ```
-
-```
-## Warning: Non-normality of residuals detected (p &lt; .001).
-```
 ]
 
 .pull-right[
@@ -402,10 +408,6 @@ In the code chunk, [*check_heteroscedasticity()*](https://easystats.github.io/pe
 
 ```r
 check_h &lt;- check_heteroscedasticity(model1)
-```
-
-```
-## Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).
 ```
 ]
 
@@ -633,6 +635,33 @@ Gentle advice: This function comes with many arguments, students are advised to 
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-37-1.png" width="504" /&gt;
 ]
 
+---
+## Visualising Uncertainty with Hypothetical Outcome Plots (HOPs)
+
+.pull-left[
+Step 1: Installing ungeviz package
+
+
+```r
+devtools::install_github("wilkelab/ungeviz")
+```
+
+Note: You only need to perform this step once.
+
+Step 2: Launch the application in R
+
+
+```r
+library(ungeviz)
+```
+
+]
+
+.pull-right[
+![](Hands-on_Ex04_files/figure-html/unnamed-chunk-40-1.gif)&lt;!-- --&gt;
+]
+
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -683,6 +712,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
