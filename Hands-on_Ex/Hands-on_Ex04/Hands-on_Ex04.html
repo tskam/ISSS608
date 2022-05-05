@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 ### School of Computing and Information Systems,<br/>Singapore Management University
 ]
 .date[
-### 2020-2-15 (updated: 2022-05-03)
+### 2020-2-15 (updated: 2022-05-05)
 ]
 
 ---
@@ -482,7 +482,11 @@ ggcoefstats(model1,
 ### Visualizing the uncertainty of point estimates: ggplot2 methods
 
 .pull-left[
-The code chubk below computes the count of observations, mean, standard deviation and standard error of a variable.  
+The code chunk below performs the followings:
+
+- group the observation by RACE, 
+- computes the count of observations, mean, standard deviation and standard error of Maths by RACE, and
+- save the output as a tibble data table called `my_sum`.
 
 
 ```r
@@ -497,6 +501,58 @@ my_sum &lt;- exam %&gt;%
 ```
 
 Note: For the mathematical explanation, please refer to Slide 20 of Lesson 4. ]
+
+--
+.pull-right[
+Next, the code chunk below will 
+
+
+```r
+knitr::kable(head(my_sum), format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; RACE &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; n &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mean &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sd &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; se &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chinese &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 193 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 76.50777 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15.69040 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.132357 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Indian &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60.66667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.35237 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.041005 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Malay &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 108 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57.44444 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21.13478 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.043177 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Others &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69.66667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.72381 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.791438 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
 
 ---
 ### Visualizing the uncertainty of point estimates: ggplot2 methods
@@ -529,41 +585,22 @@ ggplot(my_sum) +
 
 .pull-right[
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-31-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-32-1.png" width="504" /&gt;
 ]
 
 ---
 ### Visualizing the uncertainty of point estimates: **ggplot2** methods
 
 .pull-left[
-To plot the 95% confidence interval of mean maths score by race, we just need to modify the codes highlighted in the code chunk below.
+**Exercise:** Plot the 95% confidence interval of mean maths score by race.
 
 
-```r
-ggplot(my_sum) +
-  geom_errorbar(
-    aes(x=RACE, 
-*       ymin=mean-1.98*se,
-*       ymax=mean+1.98*se),
-    width=0.2, 
-    colour="black", 
-    alpha=0.9, 
-    size=0.5) +
-  geom_point(aes
-           (x=RACE, 
-            y=mean), 
-           stat="identity", 
-           color="red",
-           size = 1.5,
-           alpha=1) +
-  ggtitle("95% confidence interval 
-          of mean maths score by race")
-```
 ]
 
 .pull-right[
+The solution:
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-33-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-34-1.png" width="504" /&gt;
 ]
 
 ---
@@ -604,7 +641,7 @@ Gentle advice: This function comes with many arguments, students are advised to 
 
 .pull-right[
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-35-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-36-1.png" width="504" /&gt;
 ]
 
 ---
@@ -632,7 +669,7 @@ Gentle advice: This function comes with many arguments, students are advised to 
 
 .pull-right[
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-37-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-38-1.png" width="504" /&gt;
 ]
 
 ---
@@ -657,8 +694,9 @@ library(ungeviz)
 
 ]
 
+
 .pull-right[
-![](Hands-on_Ex04_files/figure-html/unnamed-chunk-40-1.gif)&lt;!-- --&gt;
+![](Hands-on_Ex04_files/figure-html/unnamed-chunk-41-1.gif)&lt;!-- --&gt;
 ]
 
 
