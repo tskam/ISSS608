@@ -592,7 +592,10 @@ ggplot(my_sum) +
 ### Visualizing the uncertainty of point estimates: **ggplot2** methods
 
 .pull-left[
-**Exercise:** Plot the 95% confidence interval of mean maths score by race.
+**Exercise:** Plot the 95% confidence interval of mean maths score by race.  The error bars should be sorted by the average maths scores. 
+
+
+x=reorder(company_location,-meanR,)
 
 
 ]
@@ -601,6 +604,21 @@ ggplot(my_sum) +
 The solution:
 
 &lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-34-1.png" width="504" /&gt;
+]
+
+---
+### Visualizing the uncertainty of point estimates: **ggplot2** methods
+
+.pull-left[
+**Exercise:** Plot interactive errorbars for the 99% confidence interval of mean maths score by race.
+
+
+]
+
+.pull-right[
+The solution:
+
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-36-1.png" width="504" /&gt;
 ]
 
 ---
@@ -641,7 +659,7 @@ Gentle advice: This function comes with many arguments, students are advised to 
 
 .pull-right[
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-36-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-38-1.png" width="504" /&gt;
 ]
 
 ---
@@ -669,7 +687,7 @@ Gentle advice: This function comes with many arguments, students are advised to 
 
 .pull-right[
 
-&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-38-1.png" width="504" /&gt;
+&lt;img src="Hands-on_Ex04_files/figure-html/unnamed-chunk-40-1.png" width="504" /&gt;
 ]
 
 ---
@@ -696,7 +714,7 @@ library(ungeviz)
 
 
 .pull-right[
-![](Hands-on_Ex04_files/figure-html/unnamed-chunk-41-1.gif)&lt;!-- --&gt;
+![](Hands-on_Ex04_files/figure-html/unnamed-chunk-43-1.gif)&lt;!-- --&gt;
 ]
 
 

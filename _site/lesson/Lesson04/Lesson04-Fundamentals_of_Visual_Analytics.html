@@ -4,7 +4,7 @@
     <title>Lesson 4: Fundamantals of Visual Analytics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Kam Tin Seong Assoc. Professor of Information Systems" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/text.css" type="text/css" />
   </head>
@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Lesson 4: Fundamantals of Visual Analytics
+]
+.author[
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+]
+.institute[
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-01-20 (updated: 2022-02-04)
+]
+.date[
+### 2020-01-20 (updated: 2022-05-04)
+]
 
 ---
 
@@ -176,12 +184,16 @@ The bar chart on the right is a visual analytic approach to show the same report
 ![](img/image8a.png)
 ]
 
---
 .pull-right[
 .vlarge[Model Diagnostic: Checking model for homogeneity of variances]
 
 ![](img/image8b.png)
 ]
+
+???
+The analytical histogram of the left is specially designed for normality assumption test.  When the residual histogram (in cyan colour) is not closed to the theretical histogram (i.e in green), then we will reject the Null hypotehsis and infer that the model residual failed to conform to normality assumption.
+
+The analytical scatter plot on the right is used to perform homogeneity of Variance assumption test.  A constant variance distribution should be flat and horizontal and the data points should be scattered around the fit line.  The chart on the right shows clear sign of heteroscedasticity. 
 
 ---
 ## Visual Analytics Appraoch for Building Exploratory Models
@@ -315,8 +327,14 @@ If the distribution of heights in the population is roughly normal (and, again, 
 ---
 ## The standard error
 
-.center[
-![:scale 40%](img/image5-8.jpg)]
+.pull-left[
+The formulas of standard deviation and standard error
+
+![:scale 75%](img/image5-8a.jpg)
+]
+
+.pull-right[
+![:scale 80%](img/image5-8.jpg)]
 .small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
 
 ???
@@ -344,7 +362,7 @@ Let us begin with the confidence interval for the mean of a sample.  The average
 ## Calculating the confidence interval of a percentage
 
 .center[
-![:scale 75%](img/image5-11.jpg)]
+![:scale 60%](img/image5-11.jpg)]
 
 .small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
 
@@ -495,6 +513,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

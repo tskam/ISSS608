@@ -477,7 +477,11 @@ ggcoefstats(model1,
 ### Visualizing the uncertainty of point estimates: ggplot2 methods
 
 .pull-left[
-The code chubk below computes the count of observations, mean, standard deviation and standard error of a variable.  
+The code chunk below performs the followings:
+
+- group the observation by RACE, 
+- computes the count of observations, mean, standard deviation and standard error of Maths by RACE, and
+- save the output as a tibble data table called `my_sum`.
 
 ```{r}
 my_sum <- exam %>%
@@ -491,6 +495,16 @@ my_sum <- exam %>%
 ```
 
 Note: For the mathematical explanation, please refer to Slide 20 of Lesson 4. ]
+
+--
+.pull-right[
+Next, the code chunk below will 
+
+```{r}
+knitr::kable(head(my_sum), format = 'html')
+
+```
+]
 
 ---
 ### Visualizing the uncertainty of point estimates: ggplot2 methods
@@ -547,14 +561,14 @@ ggplot(my_sum) +
 ### Visualizing the uncertainty of point estimates: **ggplot2** methods
 
 .pull-left[
-To plot the 95% confidence interval of mean maths score by race, we just need to modify the codes highlighted in the code chunk below.
+**Exercise:** Plot the 95% confidence interval of mean maths score by race.  The error bars should be sorted by the average maths scores. 
 
-```{r eval=FALSE}
+```{r echo = FALSE, eval=FALSE}
 ggplot(my_sum) +
   geom_errorbar(
-    aes(x=RACE, 
-        ymin=mean-1.98*se,   #<<
-        ymax=mean+1.98*se),  #<<
+    aes(x=reorder(RACE, -mean), 
+        ymin=mean-1.96*se,   #<<
+        ymax=mean+1.96*se),  #<<
     width=0.2, 
     colour="black", 
     alpha=0.9, 
@@ -572,13 +586,66 @@ ggplot(my_sum) +
 ]
 
 .pull-right[
+The solution:
+
+```{r echo=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=reorder(RACE, -mean), 
+        ymin=mean-1.96*se, 
+        ymax=mean+1.96*se), 
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("95% confidence interval of mean maths score by race")
+```
+]
+
+---
+### Visualizing the uncertainty of point estimates: **ggplot2** methods
+
+.pull-left[
+**Exercise:** Plot interactive error bars for the 99% confidence interval of mean maths score by race.
+
+```{r echo = FALSE, eval=FALSE}
+ggplot(my_sum) +
+  geom_errorbar(
+    aes(x=RACE, 
+        ymin=mean-1.96*se,   #<<
+        ymax=mean+1.96*se),  #<<
+    width=0.2, 
+    colour="black", 
+    alpha=0.9, 
+    size=0.5) +
+  geom_point(aes
+           (x=RACE, 
+            y=mean), 
+           stat="identity", 
+           color="red",
+           size = 1.5,
+           alpha=1) +
+  ggtitle("95% confidence interval 
+          of mean maths score by race")
+```
+]
+
+.pull-right[
+The solution:
 
 ```{r echo=FALSE}
 ggplot(my_sum) +
   geom_errorbar(
     aes(x=RACE, 
-        ymin=mean-1.98*se, 
-        ymax=mean+1.98*se), 
+        ymin=mean-1.96*se, 
+        ymax=mean+1.96*se), 
     width=0.2, 
     colour="black", 
     alpha=0.9, 
@@ -700,14 +767,16 @@ library(ungeviz)
 
 ]
 
+
 .pull-right[
 ```{r echo=FALSE}
 ggplot(data = exam, 
-       (aes(x = RACE, y = MATHS))) +
+       (aes(x = factor(RACE), y = MATHS))) +
+#  geom_violin() +
   geom_point(position = position_jitter(
     height = 0.3, width = 0.05), 
     size = 0.4, color = "#0072B2", alpha = 1/2) +
-  geom_vpline(data = sampler(25, group = RACE), height = 0.6, color = "#D55E00") +
+  geom_hpline(data = sampler(25, group = RACE), height = 0.6, color = "#D55E00") +
   theme_bw() + 
   # `.draw` is a generated column indicating the sample draw
   transition_states(.draw, 1, 3)

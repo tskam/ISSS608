@@ -317,8 +317,14 @@ If the distribution of heights in the population is roughly normal (and, again, 
 ---
 ## The standard error
 
-.center[
-![:scale 40%](img/image5-8.jpg)]
+.pull-left[
+The formulas of standard deviation and standard error
+
+![:scale 75%](img/image5-8a.jpg)
+]
+
+.pull-right[
+![:scale 80%](img/image5-8.jpg)]
 .small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
 
 ???
@@ -346,7 +352,7 @@ Let us begin with the confidence interval for the mean of a sample.  The average
 ## Calculating the confidence interval of a percentage
 
 .center[
-![:scale 75%](img/image5-11.jpg)]
+![:scale 60%](img/image5-11.jpg)]
 
 .small[Reference: Cairo, A. (2016) The Truthful Art, Chapter 11, New Riders]
 
