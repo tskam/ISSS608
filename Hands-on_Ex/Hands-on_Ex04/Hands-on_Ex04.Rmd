@@ -178,6 +178,7 @@ ggbetweenstats(
   data = exam,
   x = GENDER, 
   y = MATHS,
+  type = "np",
   messages = FALSE
 )
 ```
@@ -801,15 +802,12 @@ Step 2: Launch the application in R
 ```{r}
 library(ungeviz)
 ```
-
 ]
 
-
 .pull-right[
-```{r echo=FALSE}
+```{r echo=FALSE, fig.height=6}
 ggplot(data = exam, 
        (aes(x = factor(RACE), y = MATHS))) +
-#  geom_violin() +
   geom_point(position = position_jitter(
     height = 0.3, width = 0.05), 
     size = 0.4, color = "#0072B2", alpha = 1/2) +
@@ -818,6 +816,31 @@ ggplot(data = exam,
   # `.draw` is a generated column indicating the sample draw
   transition_states(.draw, 1, 3)
 
+```
+]
+
+---
+## Visualising Uncertainty with Hypothetical Outcome Plots (HOPs)
+
+.pull-left[
+The code chunk:
+
+```{r eval=FALSE}
+ggplot(data = exam, 
+       (aes(x = factor(RACE), 
+            y = MATHS))) +
+  geom_point(position = position_jitter(
+    height = 0.3, 
+    width = 0.05), 
+    size = 0.4, 
+    color = "#0072B2", 
+    alpha = 1/2) +
+  geom_hpline(data = sampler(25, 
+                             group = RACE), 
+              height = 0.6, 
+              color = "#D55E00") +
+  theme_bw() + 
+  transition_states(.draw, 1, 3)
 ```
 ]
 
