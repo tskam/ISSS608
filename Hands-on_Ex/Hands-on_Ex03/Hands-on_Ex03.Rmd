@@ -108,12 +108,12 @@ exam_data <- read_csv("data/Exam_data.csv")
 .large[
 - [ggiraph](https://davidgohel.github.io/ggiraph/index.html) is an htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
 
-- Interactive is made with ggplot geometries that can understand three arguments:
+- Interactive is made with [**ggplot geometries**](https://davidgohel.github.io/ggiraph/reference/index.html#section-interactive-geometries) that can understand three arguments:
     - **Tooltip**: a column of data-sets that contain tooltips to be displayed when the mouse is over elements.
     - **Onclick**: a column of data-sets that contain a JavaScript function to be executed when elements are clicked.
     - **Data_id**: a column of data-sets that contain an id to be associated with elements.
 
-- If it used within a shiny application, elements associated with an id (data_id) can be selected and manipulated on client and server sides.
+- If it used within a shiny application, elements associated with an id (data_id) can be selected and manipulated on client and server sides.  Refer to this [article](https://davidgohel.github.io/ggiraph/articles/offcran/shiny.html) for more detail explanation.
 ]
 
 .small[
@@ -203,7 +203,7 @@ girafe(                                  #<<
 )                                        #<<
 ```
 
-A complete list of geometries supported by ggiraph and their corresponding command syntax can be found [here](https://davidgohel.github.io/ggiraph/reference/index.html).                     
+Notice that two steps are involved.  First, an interactive version of ggplot2 geom (i.e. [`geom_dotplot_interactive()`](https://davidgohel.github.io/ggiraph/reference/geom_dotplot_interactive.html)) will be used to create the basic graph.  Then, [`girafe()`](https://davidgohel.github.io/ggiraph/reference/girafe.html) will be used to generate an svg object to be displayed on an html page.
 ]
 
 ---
@@ -256,6 +256,8 @@ girafe(
   height_svg = 8*0.618
 )
 ```
+
+The first three lines of codes in the code chunk create a new field called *tooltip*. At the same time, it populates text in ID and CLASS fields into the newly created field.  Next, this newly created field is used as tooltip field as shown in the code of line 7.
 ]
 
 ---
@@ -975,8 +977,7 @@ Notice that these two scatter plots are not linked.
 ### Coordinated Multiple Views with **plotly**
 
 .pull-left[
-
-To create a coordinated scatterplots, *highlight_key()* of **plotly** package is used.
+To create a coordinated scatterplots, [`highlight_key()`](https://www.rdocumentation.org/packages/plotly/versions/4.9.2/topics/highlight_key) of **plotly** package is used.
 
 ```{r echo=TRUE, eval=FALSE}
 d <- highlight_key(exam_data)  #<<
@@ -1022,7 +1023,7 @@ subplot(ggplotly(p1),
 
 Thing to learn from the code chunk:
 
-- *highlight_key()* simply creates an object of class crosstalk::SharedData.  
+- `highlight_key()` simply creates an object of class [crosstalk::SharedData](https://rdrr.io/cran/crosstalk/man/SharedData.html).  
 - Visit this [link](https://rstudio.github.io/crosstalk/) to learn more about crosstalk, 
 
 ]
@@ -1035,7 +1036,7 @@ Thing to learn from the code chunk:
 - Data objects in R can be rendered as HTML tables using the JavaScript library 'DataTables' (typically via R Markdown or Shiny). 
 
 ```{r out.width = "80%", out.height = "50px"}
-DT::datatable(exam_data)
+DT::datatable(exam_data, class= "compact")
 ```
 
 ---
