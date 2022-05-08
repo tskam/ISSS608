@@ -512,7 +512,7 @@ knitr::kable(head(my_sum), format = 'html')
 ### Visualizing the uncertainty of point estimates: ggplot2 methods
 
 .pull-left[
-The code chunk below is used to reveal the standard error of mean maths score by race .
+The code chunk below is used to reveal the standard error of mean maths score by race.
 
 ```{r eval=FALSE}
 ggplot(my_sum) +
@@ -565,7 +565,7 @@ ggplot(my_sum) +
 .pull-left[
 **Exercise:** Plot the 95% confidence interval of mean maths score by race.  The error bars should be sorted by the average maths scores. 
 
-```{r echo = FALSE, eval=FALSE}
+```{r eval=FALSE}
 ggplot(my_sum) +
   geom_errorbar(
     aes(x=reorder(RACE, -mean), 
@@ -634,7 +634,7 @@ ggplotly((ggplot(shared_df) +
 
 The code chunk:
 
-```{r echo= FALSE, eval=FALSE}
+```{r eval=FALSE}
 shared_df = SharedData$new(my_sum)
 
 bscols(widths = c(4,8),
@@ -660,9 +660,6 @@ DT::datatable(shared_df, rownames = FALSE, class="compact", width="100%", option
 )
 ```
 
-
-
-  
 ---
 ## Visualising Uncertainty: **ggdist** package 
 
