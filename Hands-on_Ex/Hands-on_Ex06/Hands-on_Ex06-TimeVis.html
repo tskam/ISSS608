@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Hands-on Exercise 6: Visualising and Analysing Time-oriented Data with R
+]
+.author[
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+]
+.institute[
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-02-18)
+]
+.date[
+### 2020-2-15 (updated: 2022-05-13)
+]
 
 ---
 
@@ -76,10 +84,27 @@ for (p in packages){
 ## Calendar Heatmap
 
 .pull-left[
-In this section, you will learn how to create a calender heatmap using ggplot2 function.  For the purpose of this hands-on exercise, *eventlog.csv* file will be used.
+In this section, you will learn how to plot a calender heatmap programmetically with R.  
+
+![](img/image01.png)
+
+By the end of this section, you will be able to:
+
+- plot a calender heatmap by using ggplot2 functions and extension, 
+- to write function using R programming,
+- to derive specific date and time related field by using base R and lubridate packages 
+- to perform data preparation task by using tidyr and dplyr packages.  
+
+
+]
 
 --
-### Importing Data
+.pull-right[
+### The Data
+
+For the purpose of this hands-on exercise, *eventlog.csv* file will be used.  This data file consists of 199,999 rows of time-series cyber attack records by country.  
+
+#### Importing the data
 
 First, you will use the code chunk below to import ***eventlog.csv*** file into R environment and called the data frame as ***attacks***. 
 
@@ -101,6 +126,12 @@ For example, *kable()* can be used to review the structure of the imported data 
 ```r
 kable(head(attacks))
 ```
+
+There are three columns, namely  *timestamp*, *source_country* and *tz*.  
+
+- *timestamp* field stores date-time values in POSIXct format.
+- *source_country* field stores the source of the attack.  It is in *ISO 3166-1 alpha-2* country code.  
+- *tz* field stores time zone of the source IP address.
 ]
 
 .pull-right[
@@ -116,11 +147,11 @@ kable(head(attacks))
 ]
 
 ---
-### Deriving the *day of the week* and *hour of the day* variables 
+### Data Preparation
 
-A quick exploratory data analysis on this attacker data is what were the "working hours" by country, and we can visualize this with a calendar heatmap. To create the heatmap, we'll need the weekday and hour of each event, or as granular as you want to get.
+Step 1: Deriving *weekday* and *hour of day* fields 
 
-The function below converts each time with the appropriate timezone, the timezone parameter, tz, only takes a single value, then extract its weekdays and hour
+Before we can plot the calender heatmap, two new fields namely *wkday* and *hour* need to be derived.  In this step, we will write a function to perform the task.
 
 
 ```r
@@ -135,31 +166,39 @@ make_hr_wkday &lt;- function(ts, sc, tz) {
   }
 ```
 
+Note: [`ymd_hms()`](https://lubridate.tidyverse.org/reference/ymd_hms.html) and [`hour()`](https://lubridate.tidyverse.org/reference/hour.html) are from [**lubridate**](https://lubridate.tidyverse.org/) package and [`weekdays()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/weekdays) is a **base** R function.
 
 ---
-##  Converting weekday and hour into factor so they'll be ordered when plotting
+###  Data Preparation
 
+Step 2: Deriving the attacks tibble data frame
+
+.pull-left[
 
 ```r
-wkday_levels &lt;- c('Sunday', 'Monday', 
-                  'Tuesday', 'Wednesday', 
-                  'Thursday', 'Friday', 
-                  'Saturday')
+wkday_levels &lt;- c('Saturday', 'Friday', 
+                  'Thursday', 'Wednesday', 
+                  'Tuesday', 'Monday', 
+                  'Sunday')
 
 attacks &lt;- attacks %&gt;%
   group_by(tz) %&gt;%
   do(make_hr_wkday(.$timestamp, 
                    .$source_country, 
-                   .$tz ) ) %&gt;% 
+                   .$tz)) %&gt;% 
   ungroup() %&gt;% 
-  mutate(wkday = factor(wkday, 
-                        levels = wkday_levels),
-         hour  = factor(hour, 
-                        levels = 0:23))
+  mutate(wkday = factor(
+    wkday, levels = wkday_levels),
+    hour  = factor(
+      hour, levels = 0:23))
 ```
 
----
-## The tidy data
+Note: Beside extracting the necessary data into *attacks* data frame, `mutate()` of **dplyr** package is used to convert *wkday* and *hour* fields into **factor** so they'll be ordered when plotting
+]
+
+--
+.pull-right[
+Table below shows the tidy tibble table after processing.
 
 .pull-left[
 
@@ -171,18 +210,18 @@ attacks &lt;- attacks %&gt;%
 |Africa/Cairo |CN             |Sunday   |11   |
 |Africa/Cairo |US             |Sunday   |15   |
 |Africa/Cairo |CA             |Monday   |11   |
-]
+]]
 
 ---
-## The Calendar Heatmaps
+### Building the Calendar Heatmaps
 
 .pull-left[
-
 
 ```r
 grouped &lt;- attacks %&gt;% 
   count(wkday, hour) %&gt;% 
-  ungroup()
+  ungroup() %&gt;%
+  na.omit()
 
 ggplot(grouped, 
        aes(hour, 
@@ -191,12 +230,13 @@ ggplot(grouped,
 geom_tile(color = "white", 
           size = 0.1) + 
 theme_tufte(base_family = "Helvetica") + 
-coord_equal() + 
-scale_fill_viridis(name = "# of Events", 
-                   label = comma) + 
+coord_equal() +
+scale_fill_gradient(name = "# of attacks",
+                    low = "sky blue", 
+                    high = "dark blue") +
 labs(x = NULL, 
      y = NULL, 
-     title = "Events per day of week &amp; time of day") +
+     title = "Attacks by weekday and time of day") +
 theme(axis.ticks = element_blank(),
       plot.title = element_text(hjust = 0.5),
       legend.title = element_text(size = 8),
@@ -205,6 +245,14 @@ theme(axis.ticks = element_blank(),
 ]
 
 .pull-right[
+Things to learn from the code chunk:
+- a tibble data table called *grouped* is derived by aggregating the attack by *wkday* and *hour* fields.
+- a new field called *n* is derived by using `group_by()` and `count()` functions.
+- `na.omit()` is used to exclude missing value.
+- `geom_tile()` is used to plot tiles (grids) at each x and y position.  `color` and `size` arguments are used to specify the border color and line size of the tiles.
+- [`theme_tufte()`](https://jrnold.github.io/ggthemes/reference/theme_tufte.html) of  [**ggthemes**](https://jrnold.github.io/ggthemes/reference/index.html) package is used to remove unnecessary chart junk.  To learn which visual components of default ggplot2 have been excluded, you are encouraged to comment out this line to examine the default plot. 
+- `coord_equal()` is used to ensure the plot will have an aspect ratio of 1:1.
+- `scale_fill_gradient()` function is used to creates a two colour gradient (low-high).
 
 &lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-9-1.png" width="504" /&gt;
 ]
@@ -213,15 +261,62 @@ theme(axis.ticks = element_blank(),
 Then we can simply group the count by hour and wkday and plot it, since we know that we have values for every combination there's no need to further preprocess the data.
 
 ---
+### Building Multiple Calendar Heatmaps
+
+**Challenge:** Building multiple heatmaps for the top four countries with the highest number of attacks.
+
+.center[
+![:scale 125%](img/image02.png)
+]
+
+
+
+---
+### Plotting Multiple Calendar Heatmaps
+
+.pull-left[
+Step 1: Deriving attack by country object
+
+In order to identify the top 4 countries with the highest number of attacks, you are required to do the followings:
+
+- count the number of attacks by country, 
+- calculate the percent of attackes by country, and
+- save the results in a tibble data frame.
+
+
+]
+
+.pull-right[
+Step 2: Preparing the tidy data frame
+
+In this step, you are required to extract the attack records of the top 4 countries from *attacks* data frame and save the data in a new tibble data frame (i.e. *top4_attacks*).
+
+
+]
+
+---
+### Plotting Multiple Calendar Heatmaps
+
+Step 3: Plotting the Multiple Calender Heatmap by using ggplot2 package.
+
+&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-12-1.png" width="864" /&gt;
+
+---
 ## Cycle Plot
 
-In this session, you will learn how to create a cycle plot using ggplot2 function.  For the purpose of this hands-on exercise, *arrivals_by_air.xlsx* will be used.  
+In this section, you will learn how to plot a cycle plot showing the time-series patterns and trend of visitor arrivals from Vietnam programmatically by using ggplot2 functions.    
 
---
+![](img/image03.png)
+
+---
+### Data Preparation
+
 .pull-left[
-### Data Import
+#### Step 1: Data Import
 
-The code chunk below imports *arrivals_by_air.xlsx* by using `read_excel()` of **readxl** packag and save it as a tibble data frame called *air*.  
+For the purpose of this hands-on exercise, *arrivals_by_air.xlsx* will be used.
+
+The code chunk below imports *arrivals_by_air.xlsx* by using `read_excel()` of **readxl** package and save it as a tibble data frame called *air*.  
 
 
 ```r
@@ -231,7 +326,7 @@ air &lt;- read_excel("data/arrivals_by_air.xlsx")
 
 --
 .pull-right[
-### Deriving month and year fields
+#### Step 2: Deriving month and year fields
 
 Next, two new fields called *month* and *year* are derived from *Month-Year* field.
 
@@ -246,32 +341,34 @@ air$year &lt;- year(ymd(air$`Month-Year`))
 ]
 
 ---
-### Extracting the target country
+### Data Preparation
 
 .pull-left[
-Next, the code chunk below is use the necessary data
+#### Step 4: Extracting the target country
+
+Next, the code chunk below is use to extract data for the target country (i.e. Vietnam)
 
 
 ```r
-New_Zealand &lt;- air %&gt;% 
-  select(`New Zealand`, 
+Vietnam &lt;- air %&gt;% 
+  select(`Vietnam`, 
          month, 
          year) %&gt;%
   filter(year &gt;= 2010)
 ```
 ]
 
----
-### Computing year average arrivals by month
+--
+.pull-right[
+#### Step 5: Computing year average arrivals by month
 
-.pull-left[
 The code chunk below uses `group-by()` and `summarise()` of **dplyr** to compute year average arrivals by month.
 
 
 ```r
-hline.data &lt;- New_Zealand %&gt;% 
+hline.data &lt;- Vietnam %&gt;% 
   group_by(month) %&gt;%
-  summarise(avgvalue = mean(`New Zealand`))
+  summarise(avgvalue = mean(`Vietnam`))
 ```
 ]
 
@@ -284,9 +381,9 @@ The code chunk below is used to plot the cycle plot.
 
 ```r
 ggplot() + 
-  geom_line(data=New_Zealand,
+  geom_line(data=Vietnam,
             aes(x=year, 
-                y=`New Zealand`, 
+                y=`Vietnam`, 
                 group=month), 
             colour="black") +
   geom_hline(aes(yintercept=avgvalue), 
@@ -295,16 +392,17 @@ ggplot() +
              colour="red", 
              size=0.5) + 
   facet_grid(~month) +
-  labs(axis.text.x = element_blank()) +
+  labs(axis.text.x = element_blank(),
+       title = "Visitor arrivals from Vietnam by air, Jan 2010-Dec 2019") +
   xlab("") +
   ylab("No. of Visitors")
 ```
 ]
 
 ---
-### The cycle plot
 
-&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-15-1.png" width="1080" /&gt;
+
+
 
 
     </textarea>
@@ -356,6 +454,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
