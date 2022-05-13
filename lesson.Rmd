@@ -32,6 +32,6 @@ R.   28/5  [Recess]()
 
 9.   18/6  [Information Dashboard Design](outline/Lesson10_outline.html)
 
-10.  25/6  [Text Data Visualisation and Analysis](outline/Lesson09_outline.html)
+10.  25/6  [Visualising Financial Data](outline/Lesson09_outline.html)
 
 -------------------------------------------------------------------------------------------------------------
