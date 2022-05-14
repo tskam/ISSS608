@@ -71,7 +71,7 @@ packages = c('scales', 'viridis',
              'lubridate', 'ggthemes', 
              'gridExtra', 'tidyverse', 
              'readxl', 'knitr',
-             'data.table')
+             'data.table', 'ViSiElse')
 
 for (p in packages){
   if(!require(p, character.only = T)){
@@ -438,8 +438,172 @@ ggplot() +
 ]
 
 ---
+## Visulising Daily Life 
+
+.pull-left[
+In this section, you will learn how to visual daily life by using [**ViSiElse**](https://cran.r-project.org/web/packages/ViSiElse/index.html) package.  It is specially designed for visualising behavioral observation over time.
+
+- To get started, install **ViSiElse** package.
+- Add ViSiElse in the packages list and re-run the code chunk.
+]
+
+---
+### Data preparation
+
+.pull-left[
+For the purpose of this hands-on exercise, *typDay* data set includes together with **ViSiElse** package will be used.
+
+- Loading *typDay* dataset
+
+```{r}
+data("typDay")
+```
+
+- Examine the data table in RStudio
+
+]
+
+--
+.pull-right[
+This data set shows the actions usually performed during a typical day. The simulated dataset of 100 subjects correspond to the timestamps (in min) of each action of the day, from midnight to midnight. Each value is the time elapse between the beginning of the day (midnight) and the execution of the action.
+]
+
+---
+### Working with visielse()
+
+.pull-left[
+Using the default
+
+```{r fig.height=6}
+visielse(typDay)
+```
+]
+
+.pull-right[
+- On the graph, actions are organized one under the other (y-axis) and their executions are distributed along the time axis (x-axis). 
+- A drawn rectangle means that at least one subject has done the action in the interval of time. 
+- The size of the time interval is set by the breaks of the time axis (here every 30 min from midnight to midnight). 
+- The color’s intensity of the rectangles is proportional to the number of individuals who realized the action during the time interval.
+]
+
+---
+### Working with visielse()
+
+.pull-left[
+- excluding the default summary statistics by using `informer` argument.
+
+```{r fig.height=5.5}
+visielse(typDay, informer = NULL)
+```
+]
+
+--
+.pull-right[
+- displaying mean as summary statistics .
+
+```{r fig.height=6}
+visielse(typDay, informer = "mean")
+```
+]
+
+---
+### Punctual and long actions
+
+.pull-left[
+ViSiElse differentiate two type of actions, namely: *punctual* and **long**. 
+
+- A punctual action is an action with no duration, or not lasting long enough to be measured regarding the time scale of the studied behavior. 
+- A long action is an action having duration defined by two punctual actions, one for its beginning, and one for its ending. For example, the action “sleep” is long — it lasts at least a few hours which is substantial in the scale of a day - while the action “wake up” is punctual — it usually only takes seconds or a few minutes and its duration is not relevant in the scale of a day.
+]
+
+.pull-right[
+For the typical day example, the list of actions can then be transformed to:
+
+.small[
+1 - Sleeping — long
+
+2 - Wake up — punctual
+
+3 - Take a shower — punctual
+
+4 - Eat breakfast — punctual
+
+5 - Start working — punctual
+
+6 - Working — long
+
+7 - Stop working — punctual
+
+8 - Lunch break — long
+
+9 - Pick up the kids — punctual
+
+10 - Cook and eat dinner — long
+
+11 - Go to sleep — punctual
+
+12 - First coffee — punctual
+]]
+
+---
+### Working with ViSibook
+
+.pull-left[
+While the dataset contains the raw time data of the studied behavior, the ViSibook contains its structure. Mainly, it is a table consisting of the characteristics of every action.
+
+When running visielse() function with only the dataset as argument, the ViSibook is automatically generated and can then be extracted from the visielse object. Then, we can use the ConvertFromViSibook() function to transform the ViSibook into a data.frame and modify it.
+]
+
+.pull-right[
+Let’s see what the ViSibook from our first plot looks like !
+
+```{r eval=TRUE}
+p1 <- visielse(typDay, informer = NULL)
+b1 <- ConvertFromViSibook(p1@book)
+```
+
+The minimum structure of a ViSibook is :
+
+- vars: name of the actions. It must be identical to the action names in the dataset
+- label: label of the actions
+- typeA: type of the actions. Either “p” for punctual or “l” for long actions.
+- showorder: action plotted order in the graph. Set to “NA”, the action is not displayed.
+- deb: for long action only, the name of the punctual action that delimit the beginning of the long one
+- fin: for long action only, the name of the punctual action that delimit the end of the long one
+]
+
+---
+### Editing the labels and add long actions
+
+```{r}
+b1 <- b1[order(as.numeric(b1$showorder)), ] # order the data.frame 
+b1$label <- c("Sleep", "Stop sleeping", "Wake up", "Take a shower", "Eat breakfast", 
+              "Start working", "Start eating lunch", "End of lunch", 
+              "Stop working", "Pick up the kids", "Start cooking", 
+              "End of dinner", "Go to sleep", "First coffee")
+
+b1[15,] <- c("sleep", "Sleeping", "l", 1, "start_sleep", "stop_sleep")
+b1[16,] <- c("work", "Working", "l", 5, "start_work", "stop_work")
+b1[17,] <- c("lunch", "Lunch break", "l", 6, "start_lunch", "stop_lunch")
+b1[18,] <- c("cook", "Cook and eat dinner", "l", 8, "start_cook", "stop_cook")
+
+b1$showorder <- c(NA, NA, 2, 3, 4, 5, NA, NA, 7, 9, NA, NA, 11, 12, 1, 6, 8, 10) 
+b1 <- b1[order(as.numeric(b1$showorder)), ]
 
 
+```
+
+---
+### Visualising the long action
+
+```{r}
+v2 <- visielse(typDay, book = b1, informer = NULL, doplot = F, pixel = 30)
+plot(v2, vp0w = 0.7, unit.tps = "min", scal.unit.tps = 30, main = "Typical day") 
+```
 
 
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("Hands-on_Ex06-TimeVis.html")
+```
 
