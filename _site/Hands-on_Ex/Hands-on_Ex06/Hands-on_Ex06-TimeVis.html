@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 ### School of Computing and Information Systems,<br/>Singapore Management University
 ]
 .date[
-### 2020-2-15 (updated: 2022-05-14)
+### 2020-2-15 (updated: 2022-05-15)
 ]
 
 ---
@@ -106,7 +106,7 @@ For the purpose of this hands-on exercise, *eventlog.csv* file will be used.  Th
 
 #### Importing the data
 
-First, you will use the code chunk below to import ***eventlog.csv*** file into R environment and called the data frame as ***attacks***. 
+First, you will use the code chunk below to import *eventlog.csv* file into R environment and called the data frame as *attacks*. 
 
 
 ```r
@@ -269,8 +269,6 @@ Then we can simply group the count by hour and wkday and plot it, since we know 
 ![:scale 125%](img/image02.png)
 ]
 
-
-
 ---
 ### Plotting Multiple Calendar Heatmaps
 
@@ -284,6 +282,12 @@ In order to identify the top 4 countries with the highest number of attacks, you
 - save the results in a tibble data frame.
 
 
+```r
+attacks_by_country &lt;- count(
+  attacks, source_country) %&gt;%
+  mutate(percent = percent(n/sum(n))) %&gt;%
+  arrange(desc(n))
+```
 ]
 
 .pull-right[
@@ -292,12 +296,45 @@ Step 2: Preparing the tidy data frame
 In this step, you are required to extract the attack records of the top 4 countries from *attacks* data frame and save the data in a new tibble data frame (i.e. *top4_attacks*).
 
 
+```r
+top4 &lt;- attacks_by_country$source_country[1:4]
+top4_attacks &lt;- attacks %&gt;%
+  filter(source_country %in% top4) %&gt;%
+  count(source_country, wkday, hour) %&gt;%
+  ungroup() %&gt;%
+  mutate(source_country = factor(
+    source_country, levels = top4)) %&gt;%
+  na.omit()
+```
 ]
 
 ---
 ### Plotting Multiple Calendar Heatmaps
 
 Step 3: Plotting the Multiple Calender Heatmap by using ggplot2 package.
+
+
+```r
+ggplot(top4_attacks, 
+       aes(hour, 
+           wkday, 
+           fill = n)) + 
+  geom_tile(color = "white", 
+          size = 0.1) + 
+  theme_tufte(base_family = "Helvetica") + 
+  coord_equal() +
+  scale_fill_gradient(name = "# of attacks",
+                    low = "sky blue", 
+                    high = "dark blue") +
+  facet_wrap(~source_country, ncol = 2) +
+  labs(x = NULL, y = NULL, 
+     title = "Attacks on top 4 countries by weekday and time of day") +
+  theme(axis.ticks = element_blank(),
+        axis.text.x = element_text(size = 7),
+        plot.title = element_text(hjust = 0.5),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6) )
+```
 
 &lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-12-1.png" width="864" /&gt;
 
@@ -362,7 +399,7 @@ Vietnam &lt;- air %&gt;%
 .pull-right[
 #### Step 5: Computing year average arrivals by month
 
-The code chunk below uses `group-by()` and `summarise()` of **dplyr** to compute year average arrivals by month.
+The code chunk below uses `group_by()` and `summarise()` of **dplyr** to compute year average arrivals by month.
 
 
 ```r
@@ -375,8 +412,7 @@ hline.data &lt;- Vietnam %&gt;%
 ---
 ### Plotting the cycle plot
 
-.pull-left[
-The code chunk below is used to plot the cycle plot.
+The code chunk below is used to plot the cycle plot as shown in Slide 12/23.
 
 
 ```r
@@ -397,7 +433,7 @@ ggplot() +
   xlab("") +
   ylab("No. of Visitors")
 ```
-]
+
 
 ---
 ## Visulising Daily Life 
@@ -428,6 +464,9 @@ data("typDay")
 
 --
 .pull-right[
+![](img/image04.jpg)
+
+
 This data set shows the actions usually performed during a typical day. The simulated dataset of 100 subjects correspond to the timestamps (in min) of each action of the day, from midnight to midnight. Each value is the time elapse between the beginning of the day (midnight) and the execution of the action.
 ]
 
@@ -598,23 +637,27 @@ For the typical day example, the list of actions can then be transformed to:
 .pull-left[
 While the dataset contains the raw time data of the studied behavior, the ViSibook contains its structure. Mainly, it is a table consisting of the characteristics of every action.
 
-When running visielse() function with only the dataset as argument, the ViSibook is automatically generated and can then be extracted from the visielse object. Then, we can use the ConvertFromViSibook() function to transform the ViSibook into a data.frame and modify it.
-]
-
-.pull-right[
-Let’s see what the ViSibook from our first plot looks like !
+When running `visielse()` function with only the dataset as argument, the ViSibook is automatically generated and can then be extracted from the visielse object. Then, we can use the `ConvertFromViSibook()` function to transform the ViSibook into a data.frame and modify it.
 
 
 ```r
 p1 &lt;- visielse(typDay, informer = NULL)
-```
-
-&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-22-1.png" width="504" /&gt;
-
-```r
 b1 &lt;- ConvertFromViSibook(p1@book)
 ```
+]
 
+&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+
+---
+### Working with ViSibook
+
+.pull-left[
+Let’s see what the ViSibook from our first plot looks like !
+
+![](img/image05.jpg)
+]
+
+.pull-right[
 The minimum structure of a ViSibook is :
 
 - vars: name of the actions. It must be identical to the action names in the dataset
@@ -627,6 +670,8 @@ The minimum structure of a ViSibook is :
 
 ---
 ### Editing the labels and add long actions
+
+Code chunk below changes the labels and add long actions to the graph.
 
 
 ```r
@@ -645,17 +690,65 @@ b1$showorder &lt;- c(NA, NA, 2, 3, 4, 5, NA, NA, 7, 9, NA, NA, 11, 12, 1, 6, 8, 
 b1 &lt;- b1[order(as.numeric(b1$showorder)), ]
 ```
 
+Things to learn from the code chunk:
+
+- Line 1 orders the data.frame.
+- Line 2 changes the Labels of the Punctual actions.
+- Line 3-6 define the Long actions.
+- Line 7 defines which actions should be plotted and in which order.
+- Line 8 re-orders the ViSibook according to the action order.
+
+---
+### Editing the labels and add long actions
+
+Let's take a look at the revised ViSibook.
+
+.pull-left[
+![](img/image06.jpg)
+]
+
+.pull-right[
+Notice that the long action sleep is defined by the two punctual actions: *start_sleep* (beginning) and *stop_sleep* (ending). The punctual actions used to define long actions do not need to be displayed so their order is set to *NA*.
+]
+
 ---
 ### Visualising the long action
 
+.pull-left[
 
 ```r
-v2 &lt;- visielse(typDay, book = b1, informer = NULL, doplot = F, pixel = 30)
-plot(v2, vp0w = 0.7, unit.tps = "min", scal.unit.tps = 30, main = "Typical day") 
+v2 &lt;- visielse(typDay, 
+               book = b1, 
+               informer = NULL, 
+               doplot = F, 
+               pixel = 30)
+plot(v2, 
+     vp0w = 0.7, 
+     unit.tps = "min", 
+     scal.unit.tps = 30, 
+     main = "Typical day") 
 ```
 
-&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-24-1.png" width="504" /&gt;
+.small[
+Long actions are displayed by one line per subject with a size proportional to the duration of the action and the lines are sorted by their starting time.
 
+NB1: As long actions are delimited by punctual actions, no additional data are required in the dataset. `visielse()` automatically computes the duration of long actions.
+
+NB2: In the `visielse()` function, doplot is set to FALSE as the ViSiElse graph is displayed by the `plot()` function. Using `plot()` allows the access to more formatting options. For example, changing the units of the x-axis (in s by default) or the name of the graph.]
+]
+
+.pull-left[
+&lt;img src="Hands-on_Ex06-TimeVis_files/figure-html/unnamed-chunk-26-1.png" width="504" /&gt;
+]
+
+---
+## References
+### ViSiElse 
+
+- [ViSIElse reference guide](https://cran.r-project.org/web/packages/ViSiElse/ViSiElse.pdf)
+- [ViSiElSe Step by Step](https://cran.r-project.org/web/packages/ViSiElse/vignettes/ViSiElSe_Step_by_Step.html)
+- [ViSiElSe paper: R code walkthrough](https://cran.r-project.org/web/packages/ViSiElse/vignettes/ViSiElSe_Paper_Walkthrough.html)
+- [ViSiElse: an innovative R-package to visualize raw behavioral data over time](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7003689/pdf/peerj-08-8341.pdf)
 
 
 
