@@ -1,0 +1,74 @@
+---
+title: "Importing Multiple Files"
+description: |
+  This article describes methods to import multiple files.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE)
+```
+
+# The scenario
+
+In the datasets folder of VAST Challenge 2022, there is a sub-folder called **Activity Logs**.  In this sub-folder, there are a collection 72 csv files.  All these csv files have a similar data structure and naming convention.  
+
+This article aims to share with you how we can import these multiple files into R and at the same time we will combine these files into a single tibble data table.  
+
+# Getting started
+
+Two different R packages will be used to accomplish the task, they are: [readr](https://readr.tidyverse.org/) and [data.table](https://rdatatable.gitlab.io/data.table/index.html).  
+
+The code chunk below will be used to load both packages into RStudio.
+
+```{r}
+packages = c('tidyverse', 'data.table')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+# Importing Data
+
+## readr method
+
+The code chunk below consists of two parts.
+
+- `list.files()` is used to define the path where the data files reside at as well as the files' extension.
+- `map_df()` of **purrr** package is used to apply a function to elements of a list, and then bind the dataframes together (assuming they can be combined). It also allows us to specify additional columns for our final dataframe which takes the names of the elements of the list.  
+
+```{r eval=FALSE}
+logs <- list.files(path = "./Datasets/ActivityLogs/",
+                   pattern = "*.csv", 
+                   full.names = T) %>% 
+  map_df(~read_csv(., 
+                   col_types = cols(.default = "c"))) 
+```
+
+**Note:** It is a good practice to avoid having spaces between folder or file name.  In view of this, I have renamed *Activity Logs* to *ActivityLogs*  
+
+**Be warn:** Each data file consists of many records, hence it is computational very intensive.  Please do give at least 5-10 minutes to complete the process.
+
+## data.table method
+
+The code chunk below is rather similar to the one we shared above.  The only different is [`fread()`](https://rdatatable.gitlab.io/data.table/reference/fread.html) of data.table package is used.  For very large data sets, `fread()` is must faster than `read_csv()`.  
+
+```{r eval=FALSE}
+logs_fread <- list.files(path = "./Datasets/ActivityLogs/",
+                  pattern = "*.csv", 
+                  full.names = T) %>% 
+  map_df(~fread(.))
+```
+
+**Gentle reminder:** Both methods shared above are time consuming.  Hence, it is wiser to save the output tibble data.frame into an output file either in rds or csv formats.  In future, you just need to read the saved data file into R instead of performing the process again.
+
+
+

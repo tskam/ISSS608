@@ -255,9 +255,6 @@ tm_shape(schools) +
 ```
 ]
 
-
-
-
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
 pagedown::chrome_print("Hands-on_Ex07.html")
