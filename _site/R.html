@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-05-08"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-05-08"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-05-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-16"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="ISSS608: R Resources"/>
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Resources"]},{"type":"character","attributes":{},"value":["This page provides links to useful R packages and references.\n"]},{"type":"character","attributes":{},"value":["2022-05-08"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Resources"]},{"type":"character","attributes":{},"value":["This page provides links to useful R packages and references.\n"]},{"type":"character","attributes":{},"value":["2022-05-16"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2060,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Resources","description":"This page provides links to useful R packages and references.","authors":[],"publishedDate":"2022-05-08T00:00:00.000+08:00"}
+{"title":"R Resources","description":"This page provides links to useful R packages and references.","authors":[],"publishedDate":"2022-05-16T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2089,7 +2089,17 @@ Shiny Workshop
 </div>
 </div>
 <a href="Tableau.html">Tableau Resources</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+All About R
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
 <a href="R.html">R Resouces</a>
+<a href="Rt.html">R tips &amp; tricks</a>
+</div>
+</div>
 <a href="index.html">Home</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2103,7 +2113,8 @@ Shiny Workshop
 <h1>R Resources</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>This page provides links to useful R packages and references.</p></p>
+<p><p>This page provides links to useful R packages and
+references.</p></p>
 </div>
 
 
@@ -2121,13 +2132,17 @@ Shiny Workshop
 <li><a href="#webminers">Webminers</a></li>
 <li><a href="#ggplots-extension">ggplots Extension</a></li>
 </ul></li>
-<li><a href="#interactive-data-visualisation-with-r">Interactive Data Visualisation with R</a>
+<li><a href="#interactive-data-visualisation-with-r">Interactive Data
+Visualisation with R</a>
 <ul>
 <li><a href="#plotly-r">plotly R</a></li>
 <li><a href="#ggigraph">ggigraph</a></li>
 </ul></li>
-<li><a href="#other-r-graphics-packages">Other R graphics packages</a></li>
-<li><a href="#shiny-web-based-visual-analytics-development-tool-in-r">Shiny: Web-based Visual Analytics Development tool in R</a>
+<li><a href="#other-r-graphics-packages">Other R graphics
+packages</a></li>
+<li><a
+href="#shiny-web-based-visual-analytics-development-tool-in-r">Shiny:
+Web-based Visual Analytics Development tool in R</a>
 <ul>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#shiny-applications">Shiny Applications</a></li>
@@ -2144,152 +2159,349 @@ Shiny Workshop
 </div>
 <h2 id="getting-started-with-r">Getting Started with R</h2>
 <ul>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a> by Garrett Grolemund and Hadley Wickham.</li>
-<li><a href="https://b-rodrigues.github.io/modern_R/">Modern R with the tidyverse</a> by Bruno Rodrigues. <a href="https://b-rodrigues.github.io/modern_R/objects-types-and-useful-r-functions-to-get-started.html">Chapter 2</a> provides a detail discussion on R data objects.</li>
-<li>Brendan R. E. Ansell <a href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/">Introduction to R - tidyverse</a></li>
-<li><a href="https://thomasadventure.blog/posts/install-r-packages/">The Comprehensive Guide to Installing R Packages from CRAN, Bioconductor, GitHub and Co.</a>. This article provides useful tips on how to install R packages from different sources.</li>
+<li><a href="https://r4ds.had.co.nz/">R for Data Science</a> by Garrett
+Grolemund and Hadley Wickham.</li>
+<li><a href="https://b-rodrigues.github.io/modern_R/">Modern R with the
+tidyverse</a> by Bruno Rodrigues. <a
+href="https://b-rodrigues.github.io/modern_R/objects-types-and-useful-r-functions-to-get-started.html">Chapter
+2</a> provides a detail discussion on R data objects.</li>
+<li>Brendan R. E. Ansell <a
+href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/">Introduction
+to R - tidyverse</a></li>
+<li><a href="https://thomasadventure.blog/posts/install-r-packages/">The
+Comprehensive Guide to Installing R Packages from CRAN, Bioconductor,
+GitHub and Co.</a>. This article provides useful tips on how to install
+R packages from different sources.</li>
 </ul>
 <h2 id="ggplot2">ggplot2</h2>
 <h3 id="ggplot2-core">ggplot2 Core</h3>
 <ul>
 <li><a href="https://ggplot2.tidyverse.org//">ggplot2</a></li>
-<li><a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2 – The R graph Gallery</a></li>
-<li><a href="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html#org93999d8">Introduction to R Graphics with ggplot2</a></li>
-<li><a href="http://r-statistics.co/ggplot2-Tutorial-With-R.html">ggplot2 - A Short Tutorial</a></li>
-<li><a href="https://bookdown.org/tpemartin/minicourse_ggplot2/">ggplot2 介紹</a></li>
+<li><a
+href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2
+– The R graph Gallery</a></li>
+<li><a
+href="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html#org93999d8">Introduction
+to R Graphics with ggplot2</a></li>
+<li><a
+href="http://r-statistics.co/ggplot2-Tutorial-With-R.html">ggplot2 - A
+Short Tutorial</a></li>
+<li><a href="https://bookdown.org/tpemartin/minicourse_ggplot2/">ggplot2
+介紹</a></li>
 </ul>
 <h3 id="books">Books</h3>
 <ul>
-<li>Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen (2020)<a href="https://ggplot2-book.org/index.html">ggplot2: Elegant Graphics for Data Analysis</a> (3rd Edition, online version).</li>
-<li>Kieran Healy (2019) <a href="https://socviz.co/">Data Visualization: A practical introduction</a>. This is the online version.</li>
-<li>Aravind Hebbali (2020) <a href="https://viz-ggplot2.rsquaredacademy.com/index.html">Data Visualization with ggplot2</a></li>
-<li>Winston Chang (2020) <a href="https://r-graphics.org/">R Graphics Cookbook</a> (2nd edition, online version)</li>
-<li>Rob Kabacoff (2020) <a href="https://rkabacoff.github.io/datavis/">Data Visualization with R</a></li>
-<li>Zuguang Gu <a href="https://jokergoo.github.io/circlize_book/book/">Circular Visualization in R</a>. Last visit: 27/12/2020.</li>
-<li>Zach Bogart &amp; Joyce Robbins (2020) <a href="https://edav.info/">Exploratory Data Analysis &amp; Visualization</a></li>
-<li><a href="https://bbc.github.io/rcookbook/">BBC Visual and Data Journalism cookbook for R graphics</a></li>
-<li>Nordmann, E., McAleer, P., Toivo, W., Paterson, H. &amp; DeBruine, L. <a href="https://psyteachr.github.io/introdataviz/index.html">Data visualisation using R, for researchers who don’t use R</a></li>
+<li>Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen (2020)<a
+href="https://ggplot2-book.org/index.html">ggplot2: Elegant Graphics for
+Data Analysis</a> (3rd Edition, online version).</li>
+<li>Kieran Healy (2019) <a href="https://socviz.co/">Data Visualization:
+A practical introduction</a>. This is the online version.</li>
+<li>Aravind Hebbali (2020) <a
+href="https://viz-ggplot2.rsquaredacademy.com/index.html">Data
+Visualization with ggplot2</a></li>
+<li>Winston Chang (2020) <a href="https://r-graphics.org/">R Graphics
+Cookbook</a> (2nd edition, online version)</li>
+<li>Rob Kabacoff (2020) <a
+href="https://rkabacoff.github.io/datavis/">Data Visualization with
+R</a></li>
+<li>Zuguang Gu <a
+href="https://jokergoo.github.io/circlize_book/book/">Circular
+Visualization in R</a>. Last visit: 27/12/2020.</li>
+<li>Zach Bogart &amp; Joyce Robbins (2020) <a
+href="https://edav.info/">Exploratory Data Analysis &amp;
+Visualization</a></li>
+<li><a href="https://bbc.github.io/rcookbook/">BBC Visual and Data
+Journalism cookbook for R graphics</a></li>
+<li>Nordmann, E., McAleer, P., Toivo, W., Paterson, H. &amp; DeBruine,
+L. <a href="https://psyteachr.github.io/introdataviz/index.html">Data
+visualisation using R, for researchers who don’t use R</a></li>
 </ul>
 <h3 id="articlesblog-posts">Articles/Blog posts</h3>
 <ul>
-<li><a href="http://r-statistics.co/ggplot2-Tutorial-With-R.html">How to make any plot in ggplot2?</a></li>
-<li><a href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html">The Complete ggplot2 Tutorial - Part1 | Introduction To ggplot2 (Full R code)</a></li>
-<li><a href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html">The Complete ggplot2 Tutorial - Part 2 | How To Customize ggplot2 (Full R code)</a></li>
-<li><a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top 50 ggplot2 Visualizations - The Master List (With Full R Code)</a></li>
-<li><a href="http://r-statistics.co/ggplot2-cheatsheet.html">ggplot2 Quickref</a></li>
-<li><a href="https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html">Data visualization with ggplot2</a></li>
-<li><a href="https://www.cedricscherer.com/slides/useR-2021_ggplot-wizardry-extended.pdf">ggplot Wizardary</a></li>
+<li><a href="http://r-statistics.co/ggplot2-Tutorial-With-R.html">How to
+make any plot in ggplot2?</a></li>
+<li><a
+href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html">The
+Complete ggplot2 Tutorial - Part1 | Introduction To ggplot2 (Full R
+code)</a></li>
+<li><a
+href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html">The
+Complete ggplot2 Tutorial - Part 2 | How To Customize ggplot2 (Full R
+code)</a></li>
+<li><a
+href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html">Top
+50 ggplot2 Visualizations - The Master List (With Full R Code)</a></li>
+<li><a href="http://r-statistics.co/ggplot2-cheatsheet.html">ggplot2
+Quickref</a></li>
+<li><a
+href="https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html">Data
+visualization with ggplot2</a></li>
+<li><a
+href="https://www.cedricscherer.com/slides/useR-2021_ggplot-wizardry-extended.pdf">ggplot
+Wizardary</a></li>
 </ul>
 <h3 id="webminers">Webminers</h3>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=h29g21z0a68">ggplot2 workshop part 1</a></li>
-<li><a href="https://www.youtube.com/watch?v=0m4yywqNPVY">ggplot2 workshop part 2</a></li>
-<li><a href="https://www.youtube.com/watch?v=qnw1xDnt_Ec">Make Beautiful Graphs in R: 5 Quick Ways to Improve ggplot2 Graphs</a></li>
-<li><a href="https://www.youtube.com/watch?v=7UjA_5gNvdw&amp;list=PLAm5TIX-yz7IkKOUcStM_vl8AD0S9v0co&amp;index=34">Outlier 2021—ggplot wizardy: my favorite tricks and secrets for beautiful plots in R</a> by Cédric Scherer</li>
+<li><a href="https://www.youtube.com/watch?v=h29g21z0a68">ggplot2
+workshop part 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=0m4yywqNPVY">ggplot2
+workshop part 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=qnw1xDnt_Ec">Make Beautiful
+Graphs in R: 5 Quick Ways to Improve ggplot2 Graphs</a></li>
+<li><a
+href="https://www.youtube.com/watch?v=7UjA_5gNvdw&amp;list=PLAm5TIX-yz7IkKOUcStM_vl8AD0S9v0co&amp;index=34">Outlier
+2021—ggplot wizardy: my favorite tricks and secrets for beautiful plots
+in R</a> by Cédric Scherer</li>
 </ul>
 <h3 id="ggplots-extension">ggplots Extension</h3>
 <ul>
 <li>ggVis</li>
 <li>ggmap</li>
-<li><a href="http://www.ggtern.com/">ggtern</a>, an extension to ggplot2 specifically for the plotting of ternary diagrams.</li>
-<li><a href="https://github.com/daattali/ggExtra">ggExtra</a>, a collection of functions and layers to enhance ggplot2. The main function is ggMarginal, which can be used to add marginal histograms/boxplots/density plots to ggplot2 scatterplots.</li>
-<li><a href="https://cran.r-project.org/web/packages/ggthemes/index.html">ggthemes</a>, some extra themes, geoms, and scales for ‘ggplot2’. Provides ‘ggplot2’ themes and scales that replicate the look of plots by Edward Tufte, Stephen Few, ‘Fivethirtyeight’, ‘The Economist’, ‘Stata’, ‘Excel’, and ‘The Wall Street Journal’, among others. Provides ‘geoms’ for Tufte’s box plot and range frame.</li>
-<li><a href="http://ggobi.github.io/ggally/">GGally</a> extends ‘ggplot2’ by adding several functions to reduce the complexity of combining geometric objects with transformed data. Some of these functions include a pairwise plot matrix, a two group pairwise plot matrix, a parallel coordinates plot, a survival plot, and several functions to plot networks.</li>
-<li><a href="http://www.strengejacke.de/sjPlot/">sjPlot</a>:Data Visualization for Statistics in Social Science</li>
-<li><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> is an extension of ggplot2 package for creating graphics with details from statistical tests included in the plots themselves and targeted primarily at behavioral sciences community to provide a one-line code to produce information-rich plots.</li>
-<li><a href="https://cran.r-project.org/web/packages/ggside/index.html">ggside</a> allows the user to add graphical information about one of the main panel’s axis. This is particularly useful for metadata for discrete axis, or summary graphics on a continuous axis such as a boxplot or a density distribution. These <a href="https://cran.r-project.org/web/packages/ggside/vignettes/ggside_basic_usage.html">vignette</a> and <a href="https://finnstats.com/index.php/2021/05/12/visualization-graphs/">article</a> provide useful introduction.</li>
-<li><a href="https://patchwork.data-imaginist.com/index.html">Patchwork</a> is a package designed to make plot composition in R extremely simple and powerful. It is mainly intended for users of ggplot2 and goes to great lengths to make sure ggplots are properly aligned no matter the complexity of your composition. The <a href="https://patchwork.data-imaginist.com/articles/patchwork.html">Getting Started</a> page explains the main features of the package.</li>
-<li><a href="https://gganimate.com/index.html">gganimate</a> extends the grammar of graphics as implemented by ggplot2 to include the description of animation. It does this by providing a range of new grammar classes that can be added to the plot object in order to customise how it should change with time.</li>
-<li><a href="https://mjskay.github.io/ggdist/index.html">ggdist</a> is an R package that provides a flexible set of ggplot2 geoms and stats designed especially for visualizing distributions and uncertainty. It is designed for both <a href="https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html">frequentist</a> and [<a href="https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html" class="uri">https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html</a>] visualization, taking the view that uncertainty visualization can be unified through the perspective of distribution visualization: for frequentist models, one visualizes confidence distributions or bootstrap distributions (see vignette(“freq-uncertainty-vis”)); for Bayesian models, one visualizes probability distributions (see the tidybayes package, which builds on top of ggdist).</li>
+<li><a href="http://www.ggtern.com/">ggtern</a>, an extension to ggplot2
+specifically for the plotting of ternary diagrams.</li>
+<li><a href="https://github.com/daattali/ggExtra">ggExtra</a>, a
+collection of functions and layers to enhance ggplot2. The main function
+is ggMarginal, which can be used to add marginal
+histograms/boxplots/density plots to ggplot2 scatterplots.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/ggthemes/index.html">ggthemes</a>,
+some extra themes, geoms, and scales for ‘ggplot2’. Provides ‘ggplot2’
+themes and scales that replicate the look of plots by Edward Tufte,
+Stephen Few, ‘Fivethirtyeight’, ‘The Economist’, ‘Stata’, ‘Excel’, and
+‘The Wall Street Journal’, among others. Provides ‘geoms’ for Tufte’s
+box plot and range frame.</li>
+<li><a href="http://ggobi.github.io/ggally/">GGally</a> extends
+‘ggplot2’ by adding several functions to reduce the complexity of
+combining geometric objects with transformed data. Some of these
+functions include a pairwise plot matrix, a two group pairwise plot
+matrix, a parallel coordinates plot, a survival plot, and several
+functions to plot networks.</li>
+<li><a href="http://www.strengejacke.de/sjPlot/">sjPlot</a>:Data
+Visualization for Statistics in Social Science</li>
+<li><a
+href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a> is
+an extension of ggplot2 package for creating graphics with details from
+statistical tests included in the plots themselves and targeted
+primarily at behavioral sciences community to provide a one-line code to
+produce information-rich plots.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/ggside/index.html">ggside</a>
+allows the user to add graphical information about one of the main
+panel’s axis. This is particularly useful for metadata for discrete
+axis, or summary graphics on a continuous axis such as a boxplot or a
+density distribution. These <a
+href="https://cran.r-project.org/web/packages/ggside/vignettes/ggside_basic_usage.html">vignette</a>
+and <a
+href="https://finnstats.com/index.php/2021/05/12/visualization-graphs/">article</a>
+provide useful introduction.</li>
+<li><a
+href="https://patchwork.data-imaginist.com/index.html">Patchwork</a> is
+a package designed to make plot composition in R extremely simple and
+powerful. It is mainly intended for users of ggplot2 and goes to great
+lengths to make sure ggplots are properly aligned no matter the
+complexity of your composition. The <a
+href="https://patchwork.data-imaginist.com/articles/patchwork.html">Getting
+Started</a> page explains the main features of the package.</li>
+<li><a href="https://gganimate.com/index.html">gganimate</a> extends the
+grammar of graphics as implemented by ggplot2 to include the description
+of animation. It does this by providing a range of new grammar classes
+that can be added to the plot object in order to customise how it should
+change with time.</li>
+<li><a href="https://mjskay.github.io/ggdist/index.html">ggdist</a> is
+an R package that provides a flexible set of ggplot2 geoms and stats
+designed especially for visualizing distributions and uncertainty. It is
+designed for both <a
+href="https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html">frequentist</a>
+and [<a
+href="https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html"
+class="uri">https://mjskay.github.io/ggdist/articles/freq-uncertainty-vis.html</a>]
+visualization, taking the view that uncertainty visualization can be
+unified through the perspective of distribution visualization: for
+frequentist models, one visualizes confidence distributions or bootstrap
+distributions (see vignette(“freq-uncertainty-vis”)); for Bayesian
+models, one visualizes probability distributions (see the tidybayes
+package, which builds on top of ggdist).</li>
 </ul>
-<h2 id="interactive-data-visualisation-with-r">Interactive Data Visualisation with R</h2>
+<h2 id="interactive-data-visualisation-with-r">Interactive Data
+Visualisation with R</h2>
 <h3 id="plotly-r">plotly R</h3>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/plotly/index.html">plotly</a>: Create Interactive Web Graphics via ‘plotly.js’</li>
-<li><a href="https://plotly-r.com/">Interactive web-based data visualization with R, plotly, and shiny</a></li>
-<li><a href="https://plot.ly/r/">Plotly R Open Source Graphing Library</a></li>
-<li><a href="https://plot.ly/ggplot2/getting-started/">Getting Started with Plotly and ggplot2</a></li>
+<li><a
+href="https://cran.r-project.org/web/packages/plotly/index.html">plotly</a>:
+Create Interactive Web Graphics via ‘plotly.js’</li>
+<li><a href="https://plotly-r.com/">Interactive web-based data
+visualization with R, plotly, and shiny</a></li>
+<li><a href="https://plot.ly/r/">Plotly R Open Source Graphing
+Library</a></li>
+<li><a href="https://plot.ly/ggplot2/getting-started/">Getting Started
+with Plotly and ggplot2</a></li>
 </ul>
 <h3 id="ggigraph">ggigraph</h3>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/ggiraph/vignettes/an_introduction.html">ggigraph</a> lets R users to make ggplot interactive.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/ggiraph/vignettes/an_introduction.html">ggigraph</a>
+lets R users to make ggplot interactive.</li>
 </ul>
 <h2 id="other-r-graphics-packages">Other R graphics packages</h2>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">corrplot</a>. A graphical display of a correlation matrix or general matrix. It also contains some algorithms to do matrix reordering. In addition, corrplot is good at details, including choosing color, text labels, color labels, layout, etc.</li>
-<li><a href="https://cran.r-project.org/web/packages/corrgram/index.html">corrgram</a> calculates correlation of variables and displays the results graphically. Included panel functions can display points, shading, ellipses, and correlation values with confidence intervals. [<a href="https://cran.r-project.org/web/packages/corrgram/index.html" class="uri">https://cran.r-project.org/web/packages/corrgram/index.html</a>]</li>
-<li><a href="https://cran.r-project.org/web/packages/vcd/index.html">vcd</a>, Visualization techniques, data sets, summary and inference procedures aimed particularly at categorical data. Special emphasis is given to highly extensible grid graphics.</li>
-<li><a href="https://cran.r-project.org/web/packages/tmap/index.html">tmap</a> offers a flexible, layer-based, and easy to use approach to create thematic maps, such as choropleths and bubble maps.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">corrplot</a>.
+A graphical display of a correlation matrix or general matrix. It also
+contains some algorithms to do matrix reordering. In addition, corrplot
+is good at details, including choosing color, text labels, color labels,
+layout, etc.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/corrgram/index.html">corrgram</a>
+calculates correlation of variables and displays the results
+graphically. Included panel functions can display points, shading,
+ellipses, and correlation values with confidence intervals. [<a
+href="https://cran.r-project.org/web/packages/corrgram/index.html"
+class="uri">https://cran.r-project.org/web/packages/corrgram/index.html</a>]</li>
+<li><a
+href="https://cran.r-project.org/web/packages/vcd/index.html">vcd</a>,
+Visualization techniques, data sets, summary and inference procedures
+aimed particularly at categorical data. Special emphasis is given to
+highly extensible grid graphics.</li>
+<li><a
+href="https://cran.r-project.org/web/packages/tmap/index.html">tmap</a>
+offers a flexible, layer-based, and easy to use approach to create
+thematic maps, such as choropleths and bubble maps.</li>
 </ul>
-<h2 id="shiny-web-based-visual-analytics-development-tool-in-r">Shiny: Web-based Visual Analytics Development tool in R</h2>
+<h2 id="shiny-web-based-visual-analytics-development-tool-in-r">Shiny:
+Web-based Visual Analytics Development tool in R</h2>
 <h3 id="getting-started">Getting Started</h3>
 <ul>
-<li>Hadley Wickham (2020) <a href="https://mastering-shiny.org/">Mastering Shiny</a>. Everything you need to know about Shiny can be found here. It is not an easy to read book but worth investing time and effort to read.</li>
+<li>Hadley Wickham (2020) <a
+href="https://mastering-shiny.org/">Mastering Shiny</a>. Everything you
+need to know about Shiny can be found here. It is not an easy to read
+book but worth investing time and effort to read.</li>
 <li><a href="https://shiny.rstudio.com/">Shiny from R Studio</a></li>
 <li><a href="https://shiny.rstudio.com/tutorial/">Learn Shiny</a></li>
-<li><a href="http://shiny.rstudio.com/reference/shiny/latest/">Function reference</a></li>
-<li><a href="https://shiny.rstudio.com/images/shiny-cheatsheet.pdf">The Shiny Cheat sheet</a></li>
-<li>Colin Fay, Sébastien Rochette, Vincent Guyader, Cervan Girard (2020) <a href="https://engineering-shiny.org/">Engineering Production-Grade Shiny Apps</a></li>
-<li>David Granjon (2020) <a href="https://divadnojnarg.github.io/outstanding-shiny-ui/index.html">Outstanding User Interfaces with Shiny</a></li>
-<li><a href="https://bookdown.org/hadrien/how_to_build_a_shiny_app_from_scratch/">How to Build a Shiny Application from Scratch</a></li>
-<li><a href="https://bookdown.org/tpemartin/shiny_intro/shiny-part-i.html">Shiny 入門</a></li>
+<li><a href="http://shiny.rstudio.com/reference/shiny/latest/">Function
+reference</a></li>
+<li><a href="https://shiny.rstudio.com/images/shiny-cheatsheet.pdf">The
+Shiny Cheat sheet</a></li>
+<li>Colin Fay, Sébastien Rochette, Vincent Guyader, Cervan Girard (2020)
+<a href="https://engineering-shiny.org/">Engineering Production-Grade
+Shiny Apps</a></li>
+<li>David Granjon (2020) <a
+href="https://divadnojnarg.github.io/outstanding-shiny-ui/index.html">Outstanding
+User Interfaces with Shiny</a></li>
+<li><a
+href="https://bookdown.org/hadrien/how_to_build_a_shiny_app_from_scratch/">How
+to Build a Shiny Application from Scratch</a></li>
+<li><a
+href="https://bookdown.org/tpemartin/shiny_intro/shiny-part-i.html">Shiny
+入門</a></li>
 </ul>
 <h3 id="shiny-applications">Shiny Applications</h3>
 <ul>
 <li><a href="https://shiny.rstudio.com/gallery/">Gallery</a></li>
-<li><a href="https://community.rstudio.com/t/shiny-contest-winners-2019-full-list/36347">Shiny Contest Winners 2019 - Full List</a></li>
-<li><a href="http://freerangestats.info/blog/2018/05/13/nz-govt-shinyapps">Fifteen New Zealand government Shiny web apps</a></li>
-<li><a href="https://nzprimarysectortrade.w%20ordpress.com/2018/10/15/introducing-the-new-zealand-trade-intelligence-dashboard/">Introducing the New Zealand Trade Intelligence Dashboard</a></li>
+<li><a
+href="https://community.rstudio.com/t/shiny-contest-winners-2019-full-list/36347">Shiny
+Contest Winners 2019 - Full List</a></li>
+<li><a
+href="http://freerangestats.info/blog/2018/05/13/nz-govt-shinyapps">Fifteen
+New Zealand government Shiny web apps</a></li>
+<li><a
+href="https://nzprimarysectortrade.w%20ordpress.com/2018/10/15/introducing-the-new-zealand-trade-intelligence-dashboard/">Introducing
+the New Zealand Trade Intelligence Dashboard</a></li>
 </ul>
 <h2 id="r-markdown">R Markdown</h2>
 <ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>. Highly recommended to beginners.</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html%20R">Markdown from R Studio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a></li>
-<li><a href="https://rmd4sci.njtierney.com/">RMarkdown for Scientists</a></li>
-<li><a href="https://towardsdatascience.com/ten-awesome-r-markdown-tricks-56ef6d41098">Ten awesome R Markdown tricks</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a>. Highly recommended to beginners.</li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html%20R">Markdown
+from R Studio</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown
+Cookbook</a></li>
+<li><a href="https://rmd4sci.njtierney.com/">RMarkdown for
+Scientists</a></li>
+<li><a
+href="https://towardsdatascience.com/ten-awesome-r-markdown-tricks-56ef6d41098">Ten
+awesome R Markdown tricks</a></li>
 </ul>
 <h2 id="creating-coursework-blog">Creating coursework blog</h2>
 <h3 id="distill">Distill</h3>
 <ul>
-<li><a href="https://pkgs.rstudio.com/distill/index.html">distill for R Markdown</a></li>
-<li>The <a href="https://rstudio.github.io/distill/">distill for R Markdown</a> website gives a live demonstration of the usage of distill’s features and functions.</li>
-<li><a href="https://pkgs.rstudio.com/distill/articles/examples.html">Example websites</a></li>
-<li><a href="https://blog.rstudio.com/2020/12/07/distill/">(Re-)introducing Distill for R Markdown</a></li>
-<li><a href="https://rstudio.github.io/distill/blog.html">Creating a Blog</a></li>
-<li><a href="https://rstudio.github.io/distill/blog_workflow.html">Blog Post Workflow</a></li>
-<li><a href="https://rstudio.github.io/distill/publish_website.html">Publishing Websites</a></li>
+<li><a href="https://pkgs.rstudio.com/distill/index.html">distill for R
+Markdown</a></li>
+<li>The <a href="https://rstudio.github.io/distill/">distill for R
+Markdown</a> website gives a live demonstration of the usage of
+distill’s features and functions.</li>
+<li><a
+href="https://pkgs.rstudio.com/distill/articles/examples.html">Example
+websites</a></li>
+<li><a
+href="https://blog.rstudio.com/2020/12/07/distill/">(Re-)introducing
+Distill for R Markdown</a></li>
+<li><a href="https://rstudio.github.io/distill/blog.html">Creating a
+Blog</a></li>
+<li><a href="https://rstudio.github.io/distill/blog_workflow.html">Blog
+Post Workflow</a></li>
+<li><a
+href="https://rstudio.github.io/distill/publish_website.html">Publishing
+Websites</a></li>
 </ul>
 <h3 id="blogdown">Blogdown</h3>
 <h4 id="book">Book</h4>
 <ul>
-<li><a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a>. Highly recommended to beginners.</li>
+<li><a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating
+Websites with R Markdown</a>. Highly recommended to beginners.</li>
 <li><a href="https://github.com/rstudio/blogdown">blogdown</a></li>
-<li><a href="https://bookdown.org/yihui/blogdown/netlify.html">3.1 Netlify</a></li>
+<li><a href="https://bookdown.org/yihui/blogdown/netlify.html">3.1
+Netlify</a></li>
 </ul>
 <h4 id="blog-articles">blog articles</h4>
 <ul>
-<li><a href="https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/">Up &amp; Running with blogdown</a></li>
-<li><a href="https://alison.rbind.io/post/2019-02-19-hugo-netlify-toml/">A Spoonful of Hugo: The netlify.toml File</a></li>
-<li><a href="https://alison.rbind.io/post/2019-02-19-hugo-archetypes/">A Spoonful of Hugo: Archetypes</a></li>
-<li><a href="https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/">A Spoonful of Hugo: Page Bundles</a></li>
-<li><a href="https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/">A Spoonful of Hugo: Troubleshooting Your Build</a></li>
-<li><a href="https://alison.rbind.io/post/2020-12-12-how-much-hugo/">A Spoonful of Hugo: How much Hugo do I need to know?</a></li>
-<li><a href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">How to build a website with Blogdown in R</a></li>
-<li><a href="http://estebanmoro.org/post/2019-02-02-setting-up-your-blog-with-rstudio-and-blogdown-i-creating-the-blog/">Setting up our blog with RStudio and blogdown I: Creating the blog</a></li>
-<li><a href="http://estebanmoro.org/post/2019-02-01-setting-up-your-blog-with-rstudio-and-blogdown/">Setting up your blog with RStudio and blogdown II: Workflow</a></li>
-<li><a href="http://estebanmoro.org/post/2019-02-04-setting-up-your-blog-with-rstudio-and-blogdown-iii-modify-your-theme/">Setting up your blog with RStudio and blogdown III: modify your theme</a></li>
+<li><a
+href="https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/">Up
+&amp; Running with blogdown</a></li>
+<li><a
+href="https://alison.rbind.io/post/2019-02-19-hugo-netlify-toml/">A
+Spoonful of Hugo: The netlify.toml File</a></li>
+<li><a href="https://alison.rbind.io/post/2019-02-19-hugo-archetypes/">A
+Spoonful of Hugo: Archetypes</a></li>
+<li><a
+href="https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/">A
+Spoonful of Hugo: Page Bundles</a></li>
+<li><a
+href="https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/">A
+Spoonful of Hugo: Troubleshooting Your Build</a></li>
+<li><a href="https://alison.rbind.io/post/2020-12-12-how-much-hugo/">A
+Spoonful of Hugo: How much Hugo do I need to know?</a></li>
+<li><a
+href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">How
+to build a website with Blogdown in R</a></li>
+<li><a
+href="http://estebanmoro.org/post/2019-02-02-setting-up-your-blog-with-rstudio-and-blogdown-i-creating-the-blog/">Setting
+up our blog with RStudio and blogdown I: Creating the blog</a></li>
+<li><a
+href="http://estebanmoro.org/post/2019-02-01-setting-up-your-blog-with-rstudio-and-blogdown/">Setting
+up your blog with RStudio and blogdown II: Workflow</a></li>
+<li><a
+href="http://estebanmoro.org/post/2019-02-04-setting-up-your-blog-with-rstudio-and-blogdown-iii-modify-your-theme/">Setting
+up your blog with RStudio and blogdown III: modify your theme</a></li>
 </ul>
 <h2 id="github">github</h2>
 <ul>
-<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>. Highly recommended to beginners.</li>
-<li><a href="https://resources.github.com/whitepapers/github-and-rstudio/">GitHub and RStudio</a></li>
-<li><a href="https://nceas.github.io/training-git-intro/getting-started-with-git-rstudio.html">Getting starting with git and GitHub using RStudio</a></li>
-<li><a href="https://cfss.uchicago.edu/setup/git-with-rstudio/">Using Git within RStudio</a></li>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the
+useR</a>. Highly recommended to beginners.</li>
+<li><a
+href="https://resources.github.com/whitepapers/github-and-rstudio/">GitHub
+and RStudio</a></li>
+<li><a
+href="https://nceas.github.io/training-git-intro/getting-started-with-git-rstudio.html">Getting
+starting with git and GitHub using RStudio</a></li>
+<li><a href="https://cfss.uchicago.edu/setup/git-with-rstudio/">Using
+Git within RStudio</a></li>
 <li><a href="https://docs.github.com/en">github doc</a></li>
-<li><a href="https://rtask.thinkr.fr/transform-a-folder-as-git-project-synchronized-on-github-or-gitlab/">Transform a folder as git project synchronized on Github or Gitlab</a></li>
+<li><a
+href="https://rtask.thinkr.fr/transform-a-folder-as-git-project-synchronized-on-github-or-gitlab/">Transform
+a folder as git project synchronized on Github or Gitlab</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
