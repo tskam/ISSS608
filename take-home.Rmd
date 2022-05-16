@@ -22,7 +22,7 @@ The exercise is not a repetition of the in-class exercise but it requires studen
 - [Take-home Exercise 1](TH_EX/TH_EX01.html)
 - [Take-home Exercise 2](TH_EX/TH_EX02.html)
 - [Take-home Exercise 3](TH_EX/TH_EX03.html)
-- [Take-home Exercise 4]()
+- [Take-home Exercise 4](TH_EX/TH_EX04.html)
 - [Take-home Exercise 5]()
 
 ## Submission Instructions 
