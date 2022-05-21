@@ -1,7 +1,7 @@
 ---
-title: "Take-home Exercise 4: Visualising and Analysing Time-series Financial Data"
+title: "Take-home Exercise 4: Visualising and Analysing Daily Routines"
 description: |
-  In this take-home exercise, you are going reveal the impact of COVID-19 on the stock prices of top 40 companies in Singapore by market capitalisation.
+  Putting Visual Analytics into Practical Use
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
@@ -12,14 +12,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # The Task
 
-In this take-home exercise, you are required to perform the tasks below:  
+With reference to bullet point 3 of Challenge 2 of VAST Challenge 2022, you are required to reveal the daily routines of **two** selected participant of the [city of Engagement, Ohio USA](https://vast-challenge.github.io/2022/).  For the purpose of this take-home exercise, you are required to use [**ViSIElse**](https://cran.r-project.org/web/packages/ViSiElse/index.html) and other appropriate visual analytics methods.
 
-1.  Script stock prices of [top 40 companies in Singapore by market capitalisation](https://companiesmarketcap.com/singapore/largest-companies-in-singapore-by-market-cap/) between 1st January 2020 - 31st December 2021 by using [tidyquant](https://business-science.github.io/tidyquant/index.html) R package.  
-    + For how to script historical stock price from Yahoo Finance by using tidyquant package, you can refer to [this article](https://giniceseah.netlify.app/posts/2021-06-18-scraping-of-financial-dataset/#tidyquant-package). 
-
-2.  Using either calender heatmap or horizon graph, prepare a data visualisation showing the historical stock prices by the top 40 companies by market capitalisation.
-    + For horizon graph, you can refer to [ggHoriPlot](https://rivasiker.github.io/ggHoriPlot/index.html), a ggplot2 based R package specially designed for plotting horizon graph.
-    + For calender heatmap, you can refer to [ggTimeSeries](https://cran.r-project.org/web/packages/ggTimeSeries/index.html), a ggplot2 extension provides additional display mediums for time series visualisations.
+![](img/TH_ex04.jpg)
 
 # Submission Instructions 
 
@@ -30,40 +25,42 @@ This is an individual assignment. You are required to work on the take-home exer
  
 ### Submission date 
  
-Your completed take-home exercise is due on **27th February 2022, by 11:59pm evening**.
+Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening**.
 
 # Peer Learning
 
-+ [ANG BI LIAN](https://bilian-mitb2021.netlify.app/th_ex/th_ex04/take-home_ex04)
-+ [ANNIE CHAN WA LAM](https://anniecwl.netlify.app/takehomeex4/takehome-ex4)
-+ [CLEMENT ONG SHI QI](https://isss608cosq.netlify.app/th_ex/th_ex04/th_ex04)
-+ [FEI JIAHUI]()
-+ [FOO LI JING FARAH]() 
-+ [GONG SHUFEN](https://va2022.netlify.app/th_ex/th_ex04/th_ex04_distill)
-+ [HE QIYUN]()
-+ [JIANG MINGJUN]()
-+ [KARISHMA YADAV](https://karishma-smu.netlify.app/th_exercise/th_ex04/th_ex04)
-+ [KWONG MEI LIN](https://kml-va.netlify.app/th_ex/th_ex04/th_ex04)
-+ [LIN SHUYAN](https://lins-92-isss608.netlify.app/th_ex/th_ex04/th_ex04)
-+ [LIU CHENTAO]()
-+ [MAK HAN REN](https://makhanren.netlify.app/th_ex/th_ex04/th_ex04)
-+ [MIN XIAOQI]()
-+ [NG JIANYUAN CAINE](https://ngcaine.netlify.app/takehomeexercise/ex04/takehomeexercise04)
-+ [REYNARD LAM KUAN TING](https://reynard.netlify.app/th_ex/th_ex04/th_ex04)
-+ [SEAH XING XIAN](https://sxingxian-va.netlify.app/TH_ex/th_ex04)
-+ [SEAN SAMUEL PRAJS](https://myanalyticsartgallery2.netlify.app/takehomeex/4/thex4)
-+ [SIA HENG GUANG](https://hengguang-608.netlify.app/takehome_exercise/ex004/ex004)
-+ [SUN SHENGMEI](https://isss608visualanalyticssun.netlify.app/th_ex/th_ex04/take_home_ex04)
-+ [TAN HUI QI RANICE](https://isss608-ranice.netlify.app/th_ex/th_ex04/th_ex04)
-+ [TAN JIT KAI]()
-+ [TAN MAY HUA MELISSA  MELISSA XU](https://mviz.netlify.app/takehome_ex04/takehome_ex04)
-+ [TAN YAN RU](https://yanrutanfirstsite.netlify.app/th_ex/take-home%20ex04/take-home-ex04)
-+ [TING PEILING](https://eloquent-va.netlify.app/th_ex/th_ex04/th_ex04_stock_price)
-+ [TING YEN-HSIN](https://yhting2021.netlify.app/th_ex/th_ex05/th_ex05)
-+ [YANG NENGJIE BENNIE](https://isss608bennie.netlify.app/takehomeex/thex4/thex4)
-+ [ZHANG JIEYUAN](https://jyvisualanalytics.netlify.app/takehomeex/takehomeex4/ex4)
-+ [ZHANG YI]()
-+ [ZHOU YIOU](https://isss608-2022-yiou.netlify.app/th_ex/takehome_ex04/th4)
+- [ALOYSIUS TENG]()
+- [ANTONIUS HANDY]()
+- [CHE XUAN]()
+- [CHU YI-NING]()
+- [CUI JIARUI]()
+- [DAVID KWOK WEI XIANG]()
+- [DING YANMU]()
+- [HERANSHAN SO SUBRAMANIAM]()
+- [HUANG ANNI]()
+- [HUANG YAPING]()
+- [HULWANA BINTE SAIFULZAMAN]()
+- [KIM BOMIN]()
+- [LAM KUO JIAN JEREMIAH]()
+- [LEE XIAO QI]()
+- [LI HONGYI]()
+- [LI HUAN]()
+- [LI MINQI]()
+- [LIU ZHENGLIN]()
+- [LONG NU]() 
+- [NI JUNQIU]()
+- [ONG ZHI RONG JORDAN]()
+- [RAKENDU RAMESH]()
+- [RAO NINGZHEN]()
+- [RAUNAK KAPUR]()
+- [RAVEENA CHAKRAPANI]()
+- [SHACHI ANIRUDHA RAODEO]()
+- [SUI TIANYUE]()
+- [TAY CHENG WEI CLARENCE]()
+- [TSENG CHIA-YI]()
+- [WANG TIANQI]()
+- [YEO KIM SIANG]()
+- [YU DI]()
    
 
 ```{r echo=FALSE, eval=FALSE}

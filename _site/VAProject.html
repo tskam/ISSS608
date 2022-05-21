@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-05-08"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-05-08"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-05-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-21"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="ISSS608: Visual Analytics Project"/>
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visual Analytics Project"]},{"type":"character","attributes":{},"value":["Building visually driven web-enabled Shiny application for democratising data and analytics.\n"]},{"type":"character","attributes":{},"value":["2022-05-08"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Visual Analytics Project"]},{"type":"character","attributes":{},"value":["Building visually driven web-enabled Shiny application for democratising data and analytics.\n"]},{"type":"character","attributes":{},"value":["2022-05-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2060,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Visual Analytics Project","description":"Building visually driven web-enabled Shiny application for democratising data and analytics.","authors":[],"publishedDate":"2022-05-08T00:00:00.000+08:00"}
+{"title":"Visual Analytics Project","description":"Building visually driven web-enabled Shiny application for democratising data and analytics.","authors":[],"publishedDate":"2022-05-21T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2089,7 +2089,17 @@ Shiny Workshop
 </div>
 </div>
 <a href="Tableau.html">Tableau Resources</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+All About R
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
 <a href="R.html">R Resouces</a>
+<a href="Rt.html">R tips &amp; tricks</a>
+</div>
+</div>
 <a href="index.html">Home</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2103,7 +2113,8 @@ Shiny Workshop
 <h1>Visual Analytics Project</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Building visually driven web-enabled Shiny application for democratising data and analytics.</p></p>
+<p><p>Building visually driven web-enabled Shiny application for
+democratising data and analytics.</p></p>
 </div>
 
 
@@ -2124,7 +2135,8 @@ Shiny Workshop
 </ul></li>
 <li><a href="#grading">Grading</a>
 <ul>
-<li><a href="#grading-criteria-for-poster">Grading criteria for poster</a></li>
+<li><a href="#grading-criteria-for-poster">Grading criteria for
+poster</a></li>
 </ul></li>
 <li><a href="#sample-projects">Sample Projects</a>
 <ul>
@@ -2135,76 +2147,164 @@ Shiny Workshop
 </nav>
 </div>
 <h2 id="overview">Overview</h2>
-<p>The purpose of the project is to provide students first hand experience on building web-enabled visual analytics application by using R Shiny. It aims to <strong>democratize data and analytics</strong>. Hence, the application focuses and emphasises on <strong>interactivity</strong> and effective integration of techniques from <strong>data analytics</strong> and <strong>data visualization</strong>.</p>
-<p>A project may involve developing new methods or implementing visual analytics system to support analytic tasks in specific domains. Alternatively, a project may be in the form of application development by integrating analytical tools within a visual analytics environment. Students are encouraged to focus on research topics that are relevant to their field of study. It should address a concrete visual analytics problem and should propose a novel and creative solution.</p>
+<p>The purpose of the project is to provide students first hand
+experience on building web-enabled visual analytics application by using
+R Shiny. It aims to <strong>democratize data and analytics</strong>.
+Hence, the application focuses and emphasises on
+<strong>interactivity</strong> and effective integration of techniques
+from <strong>data analytics</strong> and <strong>data
+visualization</strong>.</p>
+<p>A project may involve developing new methods or implementing visual
+analytics system to support analytic tasks in specific domains.
+Alternatively, a project may be in the form of application development
+by integrating analytical tools within a visual analytics environment.
+Students are encouraged to focus on research topics that are relevant to
+their field of study. It should address a concrete visual analytics
+problem and should propose a novel and creative solution.</p>
 <h2 id="project-topic">Project Topic</h2>
-<p>This term the topic of Visual Analytics Project will be based on <a href="https://vast-challenge.github.io/2022/">VAST Challenge 2022</a>. The are three challenges provided. Teams are required to choose <strong>one</strong> of the Challenge and build a Shiny Application to answer the questions of the Challenge.</p>
+<p>This term the topic of Visual Analytics Project will be based on <a
+href="https://vast-challenge.github.io/2022/">VAST Challenge 2022</a>.
+The are three challenges provided. Teams are required to choose
+<strong>one</strong> of the Challenge and build a Shiny Application to
+answer the questions of the Challenge.</p>
 <h2 id="project-management">Project Management</h2>
-<p>The project is team work. Students are required to form a project team of <strong>2-3</strong> members by the first week of the academic term.</p>
-<p>A good group project is a system consisting of a collection of well defined sub-modules. Each sub-module should be the responsibility of one person and be clearly identified as their project. A good criteria for whether you should work in a group is whether the system as a whole is greater than the sum of its parts!</p>
-<p>Each project team are required to maintain a comprehensive <em>Minutes of Meeting</em> from the beginning of the project until the end of the project. Each minutes of meeting should include but not limit to the discussion, disagreements, and consensus made and action items agreed within the team. The Minutes of Meeting should also record the division of labour and the considerations involved in the decision made.</p>
-<p>The following links provided useful guides on how to prepare the minutes of a meeting:</p>
+<p>The project is team work. Students are required to form a project
+team of <strong>2-3</strong> members by the first week of the academic
+term.</p>
+<p>A good group project is a system consisting of a collection of well
+defined sub-modules. Each sub-module should be the responsibility of one
+person and be clearly identified as their project. A good criteria for
+whether you should work in a group is whether the system as a whole is
+greater than the sum of its parts!</p>
+<p>Each project team are required to maintain a comprehensive
+<em>Minutes of Meeting</em> from the beginning of the project until the
+end of the project. Each minutes of meeting should include but not limit
+to the discussion, disagreements, and consensus made and action items
+agreed within the team. The Minutes of Meeting should also record the
+division of labour and the considerations involved in the decision
+made.</p>
+<p>The following links provided useful guides on how to prepare the
+minutes of a meeting:</p>
 <ol type="1">
-<li><a href="https://fellow.app/blog/meetings/meeting-minutes-example-and-best-practices/">How to Write Meeting Minutes: Examples + Best Practices</a></li>
-<li><a href="https://www.wildapricot.com/blog/how-to-write-meeting-minutes">How To Write Effective Meeting Minutes(with Templates and Samples)</a></li>
+<li><a
+href="https://fellow.app/blog/meetings/meeting-minutes-example-and-best-practices/">How
+to Write Meeting Minutes: Examples + Best Practices</a></li>
+<li><a
+href="https://www.wildapricot.com/blog/how-to-write-meeting-minutes">How
+To Write Effective Meeting Minutes(with Templates and Samples)</a></li>
 </ol>
-<p>The Minutes of Meeting must be uploaded on eLearn within 24hrs after the meeting ended.</p>
+<p>The Minutes of Meeting must be uploaded on eLearn within 24hrs after
+the meeting ended.</p>
 <h2 id="project-milestone">Project Milestone</h2>
 <ul>
-<li>Brainstorming project ideas and consulting with course instructor anytime from week 1 onward.</li>
-<li>Editing and publishing project proposal latest by the end of the <strong>recess week</strong>.</li>
-<li>Submission of final application, user guide, project poster and artifacts: <strong>3rd July 2022 by 11:59pm (mid-night)</strong></li>
+<li>Brainstorming project ideas and consulting with course instructor
+anytime from week 1 onward.</li>
+<li>Editing and publishing project proposal latest by the end of the
+<strong>recess week</strong>.</li>
+<li>Submission of final application, user guide, project poster and
+artifacts: <strong>3rd July 2022 by 11:59pm (mid-night)</strong></li>
 </ul>
 <h2 id="project-deliverables">Project Deliverables</h2>
 <h4 id="project-github">Project Github</h4>
-<p>At the beginning of the project, project teams are required to create a project Github. The project Github should include all the materials used to develop the project and the written materials such as proposal, poster and practice research paper. It must be used to maintain a complete project version control including the application and project documents. The Github link must be included in the project proposal. By the end of the project, the project team must pack the final version of the Github repository and upload onto eLearn for final submission. The Github link also must be provided on eLearn.</p>
+<p>At the beginning of the project, project teams are required to create
+a project Github. The project Github should include all the materials
+used to develop the project and the written materials such as proposal,
+poster and practice research paper. It must be used to maintain a
+complete project version control including the application and project
+documents. The Github link must be included in the project proposal. By
+the end of the project, the project team must pack the final version of
+the Github repository and upload onto eLearn for final submission. The
+Github link also must be provided on eLearn.</p>
 <h4 id="project-website">Project Website</h4>
-<p>Each project team are required to create the project website by using <a href="https://rstudio.github.io/distill/">distill for RMarkdown</a>. It will be disseminated by using webserver such as <a href="https://www.netlify.com/">Netfity</a>.</p>
-<p>As a first step, you should create a project summary at the project website that includes:</p>
+<p>Each project team are required to create the project website by using
+<a href="https://rstudio.github.io/distill/">distill for RMarkdown</a>.
+It will be disseminated by using webserver such as <a
+href="https://www.netlify.com/">Netfity</a>.</p>
+<p>As a first step, you should create a project summary at the project
+website that includes:</p>
 <ul>
 <li>The title of your project,</li>
-<li>A short description of not more than 350 word summarising the motivation, objectives, main features of the application your team are going to build, and</li>
-<li>The project proposal. This should in a webpage (remember to provide a link at the wiki).</li>
+<li>A short description of not more than 350 word summarising the
+motivation, objectives, main features of the application your team are
+going to build, and</li>
+<li>The project proposal. This should in a webpage (remember to provide
+a link at the wiki).</li>
 </ul>
 <h3 id="project-proposal">Project proposal</h3>
-<p>Each project teams must start thinking about their project ideas after the first lesson. They are expected to discuss their project topic and scope of works with the instructor during the recess week. A project proposal in the form website edited using <a href="https://rstudio.github.io/distill/"><strong>distill for RMarkdown</strong></a> on <a href="https://www.netlify.com/"><strong>Netfily</strong></a> will be prepared and the link must be provided on eLearn by <strong>15th May 2022</strong>.</p>
-<p>The project proposal should describe the motivation of the project, problems or issues that the project will address, the relevant related work, the approach the team plans to take to solve the problem, and early prototypes or storyboards. The project teams should take advantage of this proposal as a chance to get feedback on the direction of the project from their peers.</p>
-<p>Students are required to update their project websites with all the details including the final application, user guide and poster by <strong>3rd July 2022</strong>.</p>
+<p>Each project teams must start thinking about their project ideas
+after the first lesson. They are expected to discuss their project topic
+and scope of works with the instructor during the recess week. A project
+proposal in the form website edited using <a
+href="https://rstudio.github.io/distill/"><strong>distill for
+RMarkdown</strong></a> on <a
+href="https://www.netlify.com/"><strong>Netfily</strong></a> will be
+prepared and the link must be provided on eLearn by <strong>15th May
+2022</strong>.</p>
+<p>The project proposal should describe the motivation of the project,
+problems or issues that the project will address, the relevant related
+work, the approach the team plans to take to solve the problem, and
+early prototypes or storyboards. The project teams should take advantage
+of this proposal as a chance to get feedback on the direction of the
+project from their peers.</p>
+<p>Students are required to update their project websites with all the
+details including the final application, user guide and poster by
+<strong>3rd July 2022</strong>.</p>
 <h3 id="poster">Poster</h3>
-<p>The project poster should provide an overview of your project. It should include, but not limited to the following information:</p>
+<p>The project poster should provide an overview of your project. It
+should include, but not limited to the following information:</p>
 <ul>
-<li><p>Issues and problems - A clear statement of the issues or/and problems your project addresses.</p></li>
-<li><p>Motivation - An explanation of why the issues and/or problems are interesting and what make them difficult to solve.</p></li>
-<li><p>Approach - A description of the techniques or algorithms you used to solve the problem.</p></li>
-<li><p>Results - Screenshots and a working demo of the system you built.</p></li>
-<li><p>Future Work - An explanation of how the work could be extended.</p></li>
+<li><p>Issues and problems - A clear statement of the issues or/and
+problems your project addresses.</p></li>
+<li><p>Motivation - An explanation of why the issues and/or problems are
+interesting and what make them difficult to solve.</p></li>
+<li><p>Approach - A description of the techniques or algorithms you used
+to solve the problem.</p></li>
+<li><p>Results - Screenshots and a working demo of the system you
+built.</p></li>
+<li><p>Future Work - An explanation of how the work could be
+extended.</p></li>
 </ul>
-<p>The dimensions for the poster must conform to the International Standards Organization (ISO) poster size format (A1).</p>
+<p>The dimensions for the poster must conform to the International
+Standards Organization (ISO) poster size format (A1).</p>
 <ul>
 <li>Size = ISO A1 (594 × 841mm or 23.39 × 33.11inci)</li>
 <li>Resolution = 300dpi or above</li>
 <li>File format = jpeg or pdf</li>
 </ul>
 <p>Please ensure that the poster is in high resolution.</p>
-<p>Project teams are encouraged to use <a href="https://github.com/brentthorne/posterdown/wiki">posterdown</a> to design your poster.</p>
-<p><strong>Note:</strong> The poster will be considered a final deliverable, so don’t forget to apply good visual design and data visualisation principles and best practice to your poster.</p>
+<p>Project teams are encouraged to use <a
+href="https://github.com/brentthorne/posterdown/wiki">posterdown</a> to
+design your poster.</p>
+<p><strong>Note:</strong> The poster will be considered a final
+deliverable, so don’t forget to apply good visual design and data
+visualisation principles and best practice to your poster.</p>
 <h3 id="final-deliverables">Final Deliverables</h3>
 <p>The final deliverable will include:</p>
 <ul>
-<li>Deployment of the Web-enabled Visual Analytics Application on <a href="https://www.shinyapps.io/?_ga=2.66761195.475946033.1646029532-851903384.1642396379">shinyapps.io</a> by RStudio.</li>
+<li>Deployment of the Web-enabled Visual Analytics Application on <a
+href="https://www.shinyapps.io/?_ga=2.66761195.475946033.1646029532-851903384.1642396379">shinyapps.io</a>
+by RStudio.</li>
 <li>artifact including the ShinyApp codes, data and all r modules.<br />
 </li>
-<li>User Guide - Step-by-step guide on how to use the data visualisation functions designed.
+<li>User Guide - Step-by-step guide on how to use the data visualisation
+functions designed.
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1920t2isss608/Group11_user_guide">Sample UserGuide 1</a></li>
-<li><a href="https://wiki.smu.edu.sg/1920t2isss608/img_auth.php/0/02/ISSS608_Group02_UserGuide.pdf">Sample UserGuide 2</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1920t2isss608/Group11_user_guide">Sample
+UserGuide 1</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1920t2isss608/img_auth.php/0/02/ISSS608_Group02_UserGuide.pdf">Sample
+UserGuide 2</a></li>
 </ul></li>
 <li>project poster</li>
 <li>Minutes of Meeting</li>
 </ul>
-<p>The final deliverable must be uploaded into the Dropbox of e-Learn (e.g. LMS). It must in a <strong>single zip</strong> file format.</p>
+<p>The final deliverable must be uploaded into the Dropbox of e-Learn
+(e.g. LMS). It must in a <strong>single zip</strong> file format.</p>
 <h2 id="grading">Grading</h2>
-<p>The visual analytics project will account for 30% of your final grade in the course. The distribution of marks for each stage of the project are as follows:</p>
+<p>The visual analytics project will account for 30% of your final grade
+in the course. The distribution of marks for each stage of the project
+are as follows:</p>
 <ul>
 <li>Project website 20%</li>
 <li>Poster 15%</li>
@@ -2212,7 +2312,10 @@ Shiny Workshop
 </li>
 <li>ShinyApp 50%</li>
 </ul>
-<p>The course instructor will consider strongly the novelty of the idea (If it has never been done before, you will get lots of credit!), how it addresses the problem at hand, the methodology you employ in doing the research, and your technical skill in implementing the idea.</p>
+<p>The course instructor will consider strongly the novelty of the idea
+(If it has never been done before, you will get lots of credit!), how it
+addresses the problem at hand, the methodology you employ in doing the
+research, and your technical skill in implementing the idea.</p>
 <h3 id="grading-criteria-for-poster">Grading criteria for poster</h3>
 <p>The poster will be graded based on the following criteria:</p>
 <ul>
@@ -2222,58 +2325,115 @@ Shiny Workshop
 <li>Craft quality of the solution</li>
 </ul>
 <h2 id="sample-projects">Sample Projects</h2>
-<p>Note that the following examples are for references purposes. You are urge to use your own creativity and innovation to design the application</p>
+<p>Note that the following examples are for references purposes. You are
+urge to use your own creativity and innovation to design the
+application</p>
 <h3 id="mitb-analytics">MITB (Analytics)</h3>
 <ul>
-<li><p><a href="https://wiki.smu.edu.sg/1314t3bisss606/Project_Groups">ISSS608 Year 2013-14 Term 3B</a></p></li>
-<li><p><a href="https://wiki.smu.edu.sg/1516t3isss608g1/Project_Groups">ISSS608 Year 2014-15 Term 3B</a></p></li>
-<li><p><a href="https://wiki.smu.edu.sg/1516t1isss608g1/Project_Groups">ISSS608 Year 2015-16 Term 1</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1314t3bisss606/Project_Groups">ISSS608
+Year 2013-14 Term 3B</a></p></li>
+<li><p><a
+href="https://wiki.smu.edu.sg/1516t3isss608g1/Project_Groups">ISSS608
+Year 2014-15 Term 3B</a></p></li>
+<li><p><a
+href="https://wiki.smu.edu.sg/1516t1isss608g1/Project_Groups">ISSS608
+Year 2015-16 Term 1</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group1_Proposal">Oooh Shiny!</a></li>
-<li><a href="https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group2_Proposal">Kong Simi - A visual earpiece into the Singapore Parliament</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group1_Proposal">Oooh
+Shiny!</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1516t1isss608g1/ISSS608_2015_16T1_Group2_Proposal">Kong
+Simi - A visual earpiece into the Singapore Parliament</a></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/1617t1ISSS608g1/Project_Groups">ISSS608 Year 2016-17 Term 1</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1617t1ISSS608g1/Project_Groups">ISSS608
+Year 2016-17 Term 1</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Project_Team_11">Project A - The Non-Conventional Sales Dashboard for Company A</a></li>
-<li><a href="https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016_17T1_Group5_Report">DashboardViz</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016-17_T1_Project_Team_11">Project
+A - The Non-Conventional Sales Dashboard for Company A</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1617t1ISSS608g1/ISSS608_2016_17T1_Group5_Report">DashboardViz</a></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/1617t3isss608g1/Project_Groups">ISSS608 Year 2016-17 Term 3</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1617t3isss608g1/Project_Groups">ISSS608
+Year 2016-17 Term 3</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Group8_Arules_Project_Proposal">VRshiny: An Application for better business decision making - Visualizing Association Rules with Network Diagram in Shiny</a></li>
-<li><a href="https://wiki.smu.edu.sg/1617t3isss608g1/Group1_Introduction">Discovering traffic patterns by using network graph visualisations</a>. In this project, the students developed their project by using VAST Challenge data sets and scenario. However, the project was not a direct replicate of their assignments. <img src="img/must_read.jpg" style="width:5.0%" /></li>
+<li><a
+href="https://wiki.smu.edu.sg/1617t3isss608g1/ISSS608_2016-17_T3_Group8_Arules_Project_Proposal">VRshiny:
+An Application for better business decision making - Visualizing
+Association Rules with Network Diagram in Shiny</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1617t3isss608g1/Group1_Introduction">Discovering
+traffic patterns by using network graph visualisations</a>. In this
+project, the students developed their project by using VAST Challenge
+data sets and scenario. However, the project was not a direct replicate
+of their assignments. <img src="img/must_read.jpg"
+style="width:5.0%" /></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/1718t1isss608g1/Project_Groups">ISSS608 Year 2017-18 Term 1</a></p></li>
-<li><p><a href="https://wiki.smu.edu.sg/1718t3isss608/Project_Groups">ISSS608 Year 2017-18 Term 3</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1718t1isss608g1/Project_Groups">ISSS608
+Year 2017-18 Term 1</a></p></li>
+<li><p><a
+href="https://wiki.smu.edu.sg/1718t3isss608/Project_Groups">ISSS608 Year
+2017-18 Term 3</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1718t3isss608/Group07_Overview">Singapore Property Market Watch - Your new tool to visualize SG Property Trend</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1718t3isss608/Group07_Overview">Singapore
+Property Market Watch - Your new tool to visualize SG Property
+Trend</a></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/18191isss608g1/Project_Groups">ISSS608 Year 2018-19 Term 1</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/18191isss608g1/Project_Groups">ISSS608
+Year 2018-19 Term 1</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/18191isss608g1/ISSS608_Group07_Proposal">Corn: The A-maize-ing Crop</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/18191isss608g1/ISSS608_Group07_Proposal">Corn:
+The A-maize-ing Crop</a></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/1819t3isss608/Project_Groups">ISSS608 Year 2018-19 Term 3</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1819t3isss608/Project_Groups">ISSS608 Year
+2018-19 Term 3</a></p>
 <ul>
-<li><a href="https://sindhu-ramesh.shinyapps.io/Visual_Analytics_project1/">How healthy is your neighbourhood?</a></li>
-<li><a href="https://wiki.smu.edu.sg/1819t3isss608/Group03_Overview">An Interactive Shiny web Application to study the past trends and forecast of tourists to Singapore</a></li>
+<li><a
+href="https://sindhu-ramesh.shinyapps.io/Visual_Analytics_project1/">How
+healthy is your neighbourhood?</a></li>
+<li><a href="https://wiki.smu.edu.sg/1819t3isss608/Group03_Overview">An
+Interactive Shiny web Application to study the past trends and forecast
+of tourists to Singapore</a></li>
 </ul></li>
-<li><p><a href="https://wiki.smu.edu.sg/1920t2isss608/Project_Groups">ISSS608 Year 2019-20 Term 2</a></p>
+<li><p><a
+href="https://wiki.smu.edu.sg/1920t2isss608/Project_Groups">ISSS608 Year
+2019-20 Term 2</a></p>
 <ul>
-<li><a href="https://wiki.smu.edu.sg/1920t2isss608/Group11_proposal">SGSAS: Simple Geo-Spatial Analysis using R-Shiny</a></li>
-<li><a href="https://wiki.smu.edu.sg/1920t2isss608/Group02_proposal">A Visual Exploration of Media Consumption in Singapore</a></li>
+<li><a
+href="https://wiki.smu.edu.sg/1920t2isss608/Group11_proposal">SGSAS:
+Simple Geo-Spatial Analysis using R-Shiny</a></li>
+<li><a href="https://wiki.smu.edu.sg/1920t2isss608/Group02_proposal">A
+Visual Exploration of Media Consumption in Singapore</a></li>
 </ul></li>
-<li><p><a href="VAProject/VAProject-AY2020-21T2.html">ISSS608 Year 2020-21 Term 2</a></p></li>
-<li><p><a href="VAProject/VAProject-AY2020-21T2.html">ISSS608 Year 2021-22 January Term</a></p>
+<li><p><a href="VAProject/VAProject-AY2020-21T2.html">ISSS608 Year
+2020-21 Term 2</a></p></li>
+<li><p><a href="VAProject/VAProject-AY2020-21T2.html">ISSS608 Year
+2021-22 January Term</a></p>
 <ul>
-<li>Group 1: <a href="https://moneynoenough.netlify.app/">Money Not Enough: A Deep Dive into Singapore’s Shopping Basket</a></li>
-<li>Group 5: <a href="https://singaporegoldengoose.netlify.app/index.html">How to spot a Golden Goose (a.k.a. Profitable Rental Property) in Singapore</a></li>
-<li>Group 6: <a href="https://shinycoin.netlify.app/">ShinyCoin</a>.</li>
+<li>Group 1: <a href="https://moneynoenough.netlify.app/">Money Not
+Enough: A Deep Dive into Singapore’s Shopping Basket</a></li>
+<li>Group 5: <a
+href="https://singaporegoldengoose.netlify.app/index.html">How to spot a
+Golden Goose (a.k.a. Profitable Rental Property) in Singapore</a></li>
+<li>Group 6: <a
+href="https://shinycoin.netlify.app/">ShinyCoin</a>.</li>
 </ul></li>
 </ul>
 <h1 id="q-a">Q &amp; A</h1>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

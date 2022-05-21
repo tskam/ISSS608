@@ -1,0 +1,21 @@
+---
+title: "R Tips & Tricks"
+description: |
+  This pages contains a collection of survival tips and trick working with R.
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# [Importing multiple files into R](tt/tt01-Importing_multiple_files.html)
+
+
+
+
+

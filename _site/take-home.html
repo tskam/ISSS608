@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-05-08"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-05-08"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-05-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-21"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="ISSS608: Take-home Exercise"/>
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise"]},{"type":"character","attributes":{},"value":["The only way to learn a new programming language is by writing programs in it. *- Dennis Ritchie*"]},{"type":"character","attributes":{},"value":["2022-05-08"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise"]},{"type":"character","attributes":{},"value":["The only way to learn a new programming language is by writing programs in it. *- Dennis Ritchie*"]},{"type":"character","attributes":{},"value":["2022-05-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2060,7 +2060,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Take-home Exercise","description":"The only way to learn a new programming language is by writing programs in it. *- Dennis Ritchie*","authors":[],"publishedDate":"2022-05-08T00:00:00.000+08:00"}
+{"title":"Take-home Exercise","description":"The only way to learn a new programming language is by writing programs in it. *- Dennis Ritchie*","authors":[],"publishedDate":"2022-05-21T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2089,7 +2089,17 @@ Shiny Workshop
 </div>
 </div>
 <a href="Tableau.html">Tableau Resources</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+All About R
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
 <a href="R.html">R Resouces</a>
+<a href="Rt.html">R tips &amp; tricks</a>
+</div>
+</div>
 <a href="index.html">Home</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2103,7 +2113,8 @@ Shiny Workshop
 <h1>Take-home Exercise</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>The only way to learn a new programming language is by writing programs in it. <em>- Dennis Ritchie</em></p>
+<p>The only way to learn a new programming language is by writing
+programs in it. <em>- Dennis Ritchie</em></p>
 </div>
 
 
@@ -2124,35 +2135,59 @@ Shiny Workshop
 </nav>
 </div>
 <h2 id="overview">Overview</h2>
-<p>The take-home exercise provides students the opportunity to revise and practice the R packages and programming skills they learnt in-class at home. It is a weekly exercise. Students are expected to spend not more than an hour a day to work of the exercise instead of complete the exercise at one go.</p>
-<p>The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative by applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes. Students are encouraged to create multiple data visualisation and compare their pros and cons before finalising the best design.</p>
+<p>The take-home exercise provides students the opportunity to revise
+and practice the R packages and programming skills they learnt in-class
+at home. It is a weekly exercise. Students are expected to spend not
+more than an hour a day to work of the exercise instead of complete the
+exercise at one go.</p>
+<p>The exercise is not a repetition of the in-class exercise but it
+requires students to be innovative and creative by applying appropriate
+R packages to design enlightening and yet functional data visualisation
+for analytics purposes. Students are encouraged to create multiple data
+visualisation and compare their pros and cons before finalising the best
+design.</p>
 <h2 id="take-home-exercises">Take-home Exercises</h2>
 <ul>
 <li><a href="TH_EX/TH_EX01.html">Take-home Exercise 1</a></li>
 <li><a href="TH_EX/TH_EX02.html">Take-home Exercise 2</a></li>
 <li><a href="TH_EX/TH_EX03.html">Take-home Exercise 3</a></li>
-<li><a href="">Take-home Exercise 4</a></li>
+<li><a href="TH_EX/TH_EX04.html">Take-home Exercise 4</a></li>
 <li><a href="">Take-home Exercise 5</a></li>
 </ul>
 <h2 id="submission-instructions">Submission Instructions</h2>
-<p>This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually.</p>
+<p>This is an individual assignment. You are required to work on the
+take-home exercises and prepare submission individually.</p>
 <ul>
-<li>The take-home exercise submission must be written by using <strong>distill for R Markdown</strong>. It can be in either <a href="https://distill.pub/guide/">distill article</a> or <a href="https://rstudio.github.io/distill/blog.html">distill blog</a> format. You are required to publish the assignment report on <a href="https://www.netlify.com/">Netlify</a> and provide the link on the take-home exercise submission page on elearn.</li>
-<li>You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.</li>
+<li>The take-home exercise submission must be written by using
+<strong>distill for R Markdown</strong>. It can be in either <a
+href="https://distill.pub/guide/">distill article</a> or <a
+href="https://rstudio.github.io/distill/blog.html">distill blog</a>
+format. You are required to publish the assignment report on <a
+href="https://www.netlify.com/">Netlify</a> and provide the link on the
+take-home exercise submission page on elearn.</li>
+<li>You are also required to push the take-home exercise folder and data
+onto your individual Github repository and provide the link on the
+take-home exercise submission page on eLearn.</li>
 </ul>
 <h2 id="submission-date">Submission date</h2>
-<p>Your completed take-home exercise is due at <strong>11:59pm on every Friday</strong>.</p>
+<p>Your completed take-home exercise is due at <strong>11:59pm on every
+Friday</strong>.</p>
 <h2 id="learning-from-seniors">Learning from seniors</h2>
 <h3 id="ay2021-22-april-term">AY2021-22 April Term</h3>
 <h4 id="take-home-exercise-1">Take-home Exercise 1</h4>
 <ul>
-<li><a href="https://bilian-mitb2021.netlify.app/th_ex/th_ex01/take-home_ex01">Ang Bi Lian</a></li>
-<li><a href="https://isss608-ranice.netlify.app/th_ex/th_ex01/th_ex01">TAN HUI QI RANICE</a></li>
+<li><a
+href="https://bilian-mitb2021.netlify.app/th_ex/th_ex01/take-home_ex01">Ang
+Bi Lian</a></li>
+<li><a
+href="https://isss608-ranice.netlify.app/th_ex/th_ex01/th_ex01">TAN HUI
+QI RANICE</a></li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

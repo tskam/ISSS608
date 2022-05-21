@@ -27,8 +27,12 @@ navbar:
           href: "ShinyWorkshop/Shiny3/Shiny3.html"
     - text: "Tableau Resources"
       href: Tableau.html
-    - text: "R Resouces"
-      href: R.html      
+    - text: "All About R"
+      menu: 
+        - text: "R Resouces"
+          href: R.html
+        - text: "R tips & tricks"
+          href: Rt.html
     - text: "Home"
       href: index.html
     
