@@ -132,7 +132,7 @@ print(buildings)
 ```
 
 ---
-### Ploting the building footprint map: tmap methods
+### Plotting the building footprint map: tmap methods
 
 .pull-left[
 The code chunk below plots the building polygon features by using `tm_polygon()`.
@@ -167,7 +167,7 @@ tmap_mode("plot")
 ]
 
 ---
-### Ploting a composite map: tmap methods
+### Plotting a composite map: tmap methods
 
 .pull-left[
 The code chunk below is used to plot a composite map by combining the buildings and employers simple feature data.frames.
@@ -199,7 +199,7 @@ tm_shape(employers) +
 ]
 
 ---
-### DIY: Ploting a composite map
+### DIY: Plotting a composite map
 
 .pull-left[
 The Task: Plot a composite map by combining *buildings*, *apartments*, *employers*, *pubs*, *restaurants*, and *schools*. 
@@ -303,7 +303,7 @@ logs_selected <- logs %>%
 write_rds(logs_selected, "data/rds/logs_selected.rds")
 ```
 
-```{r echo=FALSE, eval=FALSE}
+```{r echo=FALSE}
 logs_selected <- read_rds("data/rds/logs_selected.rds")
 ```
 
@@ -340,118 +340,34 @@ tmap_mode("plot")
 ```
 ]
 
-
-
-
-
 ---
-## Visualising Geospatial Data: ggplot2 methods
+## Hexagon Binning Map
 
 .pull-left[
-.large[
-In this section of the hands-on exercise, you will learn how to visualise geographical data by using by using ggplot2 package.
+In this section, you will learn how to create a [hexagon binning map](https://think.design/services/data-visualization-data-design/hexbin/) by using R.
 
-
-]]
+![:scale 85%](img/image7.png)
+]
 
 ---
-### Plotting movement point: ggplot2 methods
+### Computing the haxegons
 
 .pull-left[
+In the code chunk below, [`st_make_grid()`]() of sf package is used to create haxegons
+
+
 ```{r eval=FALSE}
-ggplot(logs_selected) + 
-  geom_sf(color = 'orangered4', 
-          size = .1) +
-  geom_sf(alpha = .03, 
-          color = 'white', 
-          size = .1) + 
-  theme_void() + 
-  theme(panel.background = element_rect(
-    fill = 'black'))
+hex <- st_make_grid(buildings, 
+                    cellsize=100, 
+                    square=FALSE) %>%
+  st_sf() %>%
+  rowid_to_column('hex_id')
+plot(hex)
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE}
-ggplot(logs_selected) + 
-  geom_sf(color = 'orangered4', size = .1) +
-  geom_sf(alpha = .03, color = 'white', size = .1) + 
-  theme_void() + 
-  theme(panel.background = element_rect(fill = 'black'))
-```
-]
-
----
-### Plot 1
-
-.pull-left[
-```{r eval=FALSE}
-ggplot(logs_selected) +
-  geom_sf() + 
-  coord_sf()
-```
-]
-
-.pull-right[
-```{r echo=FALSE}
-ggplot(logs_selected) +
-  geom_sf() + 
-#  coord_sf() +
-  xlab("Longitude") + ylab("Latitude")
-```
-]
-
----
-### 
-
-.pull-right[
-```{r echo=FALSE}
-ggplot(logs_selected) +
-  geom_sf(size = 0.5,
-          color = 'orangered4',
-          alpha = 0.01) + 
-#  coord_sf() +
-  xlab("Longitude") + ylab("Latitude")
-```
-]
-
----
-### qwre
-
-
-
-
-
----
-## Working with sftime package
-
-```{r}
-logs_sttime <- st_as_sftime(
-  logs_selected,
-  sf_column_name = "currentLocation",
-  time_column_name = "Timestamp",
-  time_column_last = FALSE)
-```
-
-```{r}
-print(logs_sttime)
-```
-
-```{r}
-ggplot() + 
-  geom_sf(data = logs_sttime, 
-          aes()) + 
-  facet_wrap(~ cut_number(Timestamp, n = 6)) +
-  theme(
-    panel.spacing.x = unit(4, "mm"), 
-    panel.spacing.y = unit(4, "mm")
-  )
-```
-
----
-### Hexagon Binning Map
-
-```{r}
 hex <- st_make_grid(buildings, 
                     cellsize=100, 
                     square=FALSE) %>%
@@ -460,13 +376,27 @@ hex <- st_make_grid(buildings,
 plot(hex)
 ```
 
+]
+
+---
+### Performing point in polygon overlay
+
+.pull-left[
+The code chunk below perform point in polygon overlay by using [`st_join()`] of sf package.
+
 ```{r}
 points_in_hex <- st_join(logs_selected, 
                          hex, 
                          join=st_within)
-plot(points_in_hex, pch='.')
-
+#plot(points_in_hex, pch='.')
 ```
+]
+
+---
+### Performing point in polygon count
+
+.pull-left[
+In the code chunk below, `st_join()` of sf package is used to count the number of event points in the hexagons.
 
 ```{r}
 points_in_hex <- st_join(logs_selected, 
@@ -476,6 +406,13 @@ points_in_hex <- st_join(logs_selected,
   count(name='pointCount', hex_id)
 head(points_in_hex)
 ```
+]
+
+---
+### Performing relational join
+
+.pull-left[
+In the code chunk below, left_join() of dplyr package is used to perform a left-join by using *hex* as the target table and *points_in_hex* as the join table.  The join ID is *hex_id*. 
 
 
 ```{r}
@@ -484,22 +421,16 @@ hex_combined <- hex %>%
             by = 'hex_id') %>%
   replace(is.na(.), 0)
 ```
+]
 
-```{r}
-tm_shape(hex_combined %>%
-           filter(pointCount > 0)) +
-  tm_polygons(col = "pointCount",
-           size = 1,
-           border.col = "black",
-           border.lwd = 1)
-
-
-```
 
 ---
-###
+### Plotting the hexagon binning mapp
 
-```{r}
+.pull-left[
+In the code chunk below, tmap package is used to create the hexagon binning map.
+
+```{r eval=FALSE}
 tm_shape(hex_combined %>%
            filter(pointCount > 0))+
   tm_fill("pointCount",
@@ -507,11 +438,31 @@ tm_shape(hex_combined %>%
           style = "quantile") +
   tm_borders(alpha = 0.1)
 ```
+]
+
+.pull-right[
+```{r echo=FALSE}
+tm_shape(hex_combined %>%
+           filter(pointCount > 0))+
+  tm_fill("pointCount",
+          n = 8,
+          style = "quantile") +
+  tm_borders(alpha = 0.1)
+```
+]
 
 ---
-### Creating Movement Path from GPS Points
+## Plotting Movement Path using R
 
-Code chunk below joins the gps points into movement paths by using the drivers' IDs as unique identifiers. 
+.pull-left[
+In this section, you will learn how to plot movement path using R.   
+]
+
+---
+### Creating movement path from event points
+
+.pull-left[
+Code chunk below joins the event points into movement paths by using the participants' IDs as unique identifiers. 
 
 ```{r}
 logs_path <- logs_selected %>%
@@ -520,19 +471,18 @@ logs_path <- logs_selected %>%
             do_union=FALSE) %>%
   st_cast("LINESTRING")
 ```  
+]
 
+.pull-right[
 ```{r}
 print(logs_path)
 ```
-
-
-
-
+]
 
 ---
-## Plotting the Movement Paths
+### Plotting the Movement Paths
 
-Write a code chunk to overplot the gps path of driver ID 1 onto the background tourist map.
+Write a code chunk to overplot the gps path of participant ID = 0 onto the background building footprint map.
 
 ```{r echo=FALSE}
 logs_path_selected <- logs_path %>%
@@ -549,26 +499,9 @@ tmap_mode("plot")
 ```
 
 
----
-## Creating animated map
-
-In the code chunk below, `tmap_animation()` of **tmap** package is used to create an animated gif for drivers' paths.
-
-```{r eval=FALSE}
-m <- tm_shape(buildings) +
-tm_polygons(col = "grey60",
-           size = 1,
-           border.col = "black",
-           border.lwd = 1) +
-  tm_shape(logs_path) +
-  tm_lines(col = "blue")
-m
-```
-
-
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Hands-on_Ex07.html")
+pagedown::chrome_print("Hands-on_Ex07-MovementVis.html")
 ```
 
 
