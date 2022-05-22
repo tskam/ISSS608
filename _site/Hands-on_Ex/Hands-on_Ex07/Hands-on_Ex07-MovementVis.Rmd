@@ -63,7 +63,7 @@ In this Hands-on Exercise, the following R packages will be used:
 .large[
 Write a code chunk to check, install and launch  **readr**, **sf** and **tmap** packages of R
 
-```{r echo=FALSE, eval=TRUE}
+```{r}
 packages = c('sf', 'tmap', 'tidyverse', 
              'lubridate', 'clock', 
              'sftime', 'rmarkdown')
@@ -87,19 +87,15 @@ for (p in packages){
 ![](img/image01.jpg)
 ]
 
---
-.pull-right[
+---
+## Visualising Geographical Data
+### Importing wkt data
 
-In the code chunk below, [`read_sf()`]() of **sf** package is used to parse *School.csv* into R as an sf data.frame.
+In the code chunk below, [`read_sf()`]() of **sf** package is used to parse *School.csv* *Pubs.csv*, *Apartments.csv*, *Buildings.csv*, *Employer.csv*, and *Restaurants.csv* into R as sf data.frames.
 
 ```{r}
 schools <- read_sf("data/wkt/Schools.csv", 
                    options = "GEOM_POSSIBLE_NAMES=location")  
-```
-
-**DIY:**  Using the code you had learned, parses *Pubs.csv*, *Apartments.csv*, *Buildings.csv*, *Employer.csv*, and *Restaurants.csv* into R 
-
-```{r echo=FALSE}
 pubs <- read_sf("data/wkt/Pubs.csv", 
                    options = "GEOM_POSSIBLE_NAMES=location")
 apartments <- read_sf("data/wkt/Apartments.csv", 
@@ -111,7 +107,7 @@ employers <- read_sf("data/wkt/Employers.csv",
 restaurants <- read_sf("data/wkt/Restaurants.csv", 
                    options = "GEOM_POSSIBLE_NAMES=location")
 ```
-]
+
 
 ---
 ### Structure of a simple point feature data.frame
@@ -204,7 +200,7 @@ tm_shape(employers) +
 .pull-left[
 The Task: Plot a composite map by combining *buildings*, *apartments*, *employers*, *pubs*, *restaurants*, and *schools*. 
 
-```{r echo=FALSE, eval=FALSE}
+```{r eval=FALSE}
 tmap_mode("plot")
 tm_shape(buildings)+
 tm_polygons(col = "grey60",
@@ -289,7 +285,7 @@ To process the movement data, the following steps will be performed:
 .pull-right[
 DIY: Write a code chunk to perform the tasks described on the left.  
 
-```{r echo=FALSE, eval=FALSE}
+```{r eval=FALSE}
 logs_selected <- logs %>%
   mutate(Timestamp = date_time_parse(timestamp,
                 zone = "",
@@ -313,7 +309,7 @@ logs_selected <- read_rds("data/rds/logs_selected.rds")
 .pull-left[
 - Using appropriate tmap functions to create a map look similar to the figure on the left.
 
-```{r echo=FALSE, eval=FALSE}
+```{r eval=FALSE}
 tmap_mode("plot")
 tm_shape(buildings)+
 tm_polygons(col = "grey60",
@@ -482,8 +478,25 @@ print(logs_path)
 ---
 ### Plotting the Movement Paths
 
+.pull-left[
 Write a code chunk to overplot the gps path of participant ID = 0 onto the background building footprint map.
 
+```{r eval=FALSE}
+logs_path_selected <- logs_path %>%
+  filter(participantId==0)
+tmap_mode("plot")
+tm_shape(buildings)+
+tm_polygons(col = "grey60",
+           size = 1,
+           border.col = "black",
+           border.lwd = 1) +
+  tm_shape(logs_path_selected) +
+  tm_lines(col = "blue")
+tmap_mode("plot")
+```
+]
+
+.pull-right[
 ```{r echo=FALSE}
 logs_path_selected <- logs_path %>%
   filter(participantId==0)
@@ -497,6 +510,30 @@ tm_polygons(col = "grey60",
   tm_lines(col = "blue")
 tmap_mode("plot")
 ```
+]
+
+---
+## References
+
+### sf Package
+
++ sf package [main page](https://r-spatial.github.io/sf/index.html)
+    + [1. Simple Features for R](https://r-spatial.github.io/sf/articles/sf1.html)
+    + [2. Reading, Writing and Converting Simple Features](https://r-spatial.github.io/sf/articles/sf2.html)
+    + [3. Manipulating Simple Feature Geometries](https://r-spatial.github.io/sf/articles/sf3.html)
+    + [4. Manipulating Simple Features](https://r-spatial.github.io/sf/articles/sf4.html)
+
+### tmap
+
++ tmap package [main page](https://r-tmap.github.io/tmap/index.html)
+    + [tmap: get started!](https://r-tmap.github.io/tmap/articles/tmap-getstarted.html)
+    + [tmap: JSS article reproduction code](https://r-tmap.github.io/tmap/articles/tmap-JSS-code.html)
+
+### Hexagon binning map
+
++ [Hexagonal Binning – a new method of visualization for data analysis](https://www.meccanismocomplesso.org/en/hexagonal-binning-a-new-method-of-visualization-for-data-analysis/)
++ [Hexbin](https://think.design/services/data-visualization-data-design/hexbin/)
+
 
 
 ```{r echo=FALSE, eval=FALSE}
