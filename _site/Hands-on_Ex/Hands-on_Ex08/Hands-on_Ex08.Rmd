@@ -1,5 +1,5 @@
 ---
-title: "Hands-on Exercise 8: Modelling, Visualising and Analysing Network Data with R"
+title: "Hands-on Exercise 7: Modelling, Visualising and Analysing Network Data with R"
 subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
