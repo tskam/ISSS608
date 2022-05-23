@@ -1,5 +1,5 @@
 ---
-title: "Lesswon 8: NetworkVis: Network Data Visualisation and Analysis"
+title: "Lesswon 8: NetVA: Network Data Visualisation and Analysis"
 description: ""
 date: "`r Sys.Date()`"
 output:
