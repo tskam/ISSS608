@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Lesson 8: NetworkVA: Network Data Visualisation and Analysis
+]
+.author[
 ### Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems
+]
+.institute[
 ### School of Computing and Information Systems,<br/>Singapore Management University
-### 2020-2-15 (updated: 2022-01-03)
+]
+.date[
+### 2020-2-15 (updated: 2022-05-23)
+]
 
 ---
 
@@ -998,15 +1006,6 @@ This [site](https://geonetworks.github.io/) provides an outstanding overview and
 
 
 
-
-
-
-
-
-
-
-
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -1056,6 +1055,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
