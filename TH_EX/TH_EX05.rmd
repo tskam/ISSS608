@@ -1,5 +1,5 @@
 ---
-title: "Take-home Exercise 4: Visualising and Analysing Daily Routines"
+title: "Take-home Exercise 5: Visualising and Analysing Geographic and Movement Data"
 description: |
   Putting Visual Analytics into Practical Use
 date: "`r Sys.Date()`"
@@ -12,9 +12,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # The Task
 
-With reference to bullet point 3 of Challenge 2 of VAST Challenge 2022, you are required to reveal the daily routines of **two** selected participant of the [city of Engagement, Ohio USA](https://vast-challenge.github.io/2022/).  For the purpose of this take-home exercise, you are required to use [**ViSIElse**](https://cran.r-project.org/web/packages/ViSiElse/index.html) and other appropriate visual analytics methods.
+With reference to bullet point 1 and 2 of Challenge 2 of VAST Challenge 2022, you are required to reveal:
 
-![](img/TH_ex04.jpg)
+- social areas of the [city of Engagement, Ohio USA](https://vast-challenge.github.io/2022/).  
+- visualising and analysing locations with traffic bottleneck of the [city of Engagement, Ohio USA](https://vast-challenge.github.io/2022/).  
+
+![](img/TH_ex05.jpg)
 
 # Submission Instructions 
 
@@ -25,7 +28,7 @@ This is an individual assignment. You are required to work on the take-home exer
  
 ### Submission date 
  
-Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening**.
+Your completed take-home exercise is due on **29th May 2022, by 11:59pm evening**.
 
 # Peer Learning
 
@@ -65,7 +68,7 @@ Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening*
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("_site/take-home.html")
+pagedown::chrome_print("TH_EX05.html")
 ```
 
 
