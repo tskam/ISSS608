@@ -53,7 +53,7 @@ The code chunk:
 packages = c('igraph', 'tidygraph', 
              'ggraph', 'visNetwork', 
              'lubridate', 'clock',
-             'tidyverse', 'ggmap')
+             'tidyverse', 'graphlayouts')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -92,7 +92,7 @@ The data sets used in this hands-on exercise is from an oil exploration and extr
 In this step, you will import GAStech_email_node.csv and GAStech_email_edges.csv into RStudio environment by using *read_csv()* of **readr** package. 
 ]
 
-```{r, echo=TRUE, eval=TRUE}
+```{r}
 GAStech_nodes <- read_csv("data/GAStech_email_node.csv")
 GAStech_edges <- read_csv("data/GAStech_email_edge-v2.csv")
 ```
@@ -113,11 +113,19 @@ glimpse(GAStech_edges)
 
 The code chunk below will be used to perform the changes.
 
-```{r echo=TRUE, eval=TRUE}
+```{r echo=FALSE, eval=FALSE}
 GAStech_edges$SentDate  = dmy(GAStech_edges$SentDate)
 GAStech_edges$Weekday = wday(GAStech_edges$SentDate, 
                              label = TRUE, 
                              abbr = FALSE)
+```
+
+```{r}
+GAStech_edges <- GAStech_edges %>%
+  mutate(SendDate = dmy(SentDate)) %>%
+  mutate(Weekday = wday(SentDate,
+                        label = TRUE,
+                        abbr = FALSE))
 ```
 
 Things to learn from the code chunk above:
@@ -178,20 +186,24 @@ glimpse(GAStech_edges_aggregated)
 ## Creating network objects using **tidygraph**
 
 .large[
-Two functions of **tidygraph** package can be used to create network objects, they are:
+In this section, you will learn how to create a graph data model by using **tidygraph** package.  It provides a tidy API for graph/network manipulation. 
+While network data itself is not tidy, it can be envisioned as two tidy tables, one for node data and one for edge data. tidygraph provides a way to switch between the two tables and provides dplyr verbs for manipulating them. 
+Furthermore it provides access to a lot of graph algorithms with return values that facilitate their use in a tidy workflow.
 
-- *tbl_graph()* creates a network object from nodes and edges data.
-- *as_tbl_graph()* converts network data and objects to a tbl_graph network.
+Before getting started, you are advised to read these two articles:
+
+- [Introducing tidygraph](https://www.data-imaginist.com/2017/introducing-tidygraph/)
+- [tidygraph 1.1 – A tidy hope](https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/)
 ]
 
 ---
 ### The **tbl_graph** object
 
 .large[
-- **tbl_graph** objects can be created directly using the *tbl_graph()* function.
+Two functions of **tidygraph** package can be used to create network objects, they are:
 
-- *as_tbl_graph()* function can be used to convert r objects below into **tbl_graph** objects.
-
+- [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) creates a **tbl_graph** network object from nodes and edges data.
+- [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) converts network data and objects to a **tbl_graph** network.
     - a node data.frame and an edge data.frame,
     - data.frame, list, matrix from base, 
     - igraph from igraph,
@@ -264,7 +276,7 @@ Visit the reference guide of [*activate()*](https://tidygraph.data-imaginist.com
 ## Plotting Network Data with **ggraph** package 
 
 .large[
-**ggraph** is an extension of **ggplot2**, making it easier to carry over basic ggplot skills to the design of network graphs.  
+[**ggraph**](https://ggraph.data-imaginist.com/index.html) is an extension of **ggplot2**, making it easier to carry over basic ggplot skills to the design of network graphs.  
 
 As in all network graph, there are three main aspects to a **ggraph**'s network graph, they are: 
 
@@ -380,7 +392,7 @@ The code chunks below will be used to plot the network graph using Fruchterman a
 
 ```{r, echo=TRUE, eval=FALSE}
 g <- ggraph(GAStech_graph, 
-            layout = "dh") +
+            layout = "fr") +
   geom_edge_link(aes()) +
   geom_node_point(aes())
 
@@ -694,7 +706,7 @@ g + theme_graph()
 ---
 ###  Visualising network metrics
 
-It is important to note that from **ggraph v2.0** onwards tidygraph algorithms such as centrality measures can be accessed directly in ggraph calls.  This means that it is no longer necessary to precompute and store derived node and edge centrality measures on the graph in order to use them in a plot.
+It is important to note that from **ggraph v2.0** onward tidygraph algorithms such as centrality measures can be accessed directly in ggraph calls.  This means that it is no longer necessary to precompute and store derived node and edge centrality measures on the graph in order to use them in a plot.
 
 ```{r, echo=TRUE, eval=FALSE}
 g <- GAStech_graph %>%
