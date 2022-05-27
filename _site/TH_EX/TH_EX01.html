@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -93,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-04-25"/>
-  <meta property="article:created" itemprop="dateCreated" content="2022-04-25"/>
+  <meta property="article:published" itemprop="datePublished" content="2022-05-27"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-27"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Take-home Exercise 1"/>
@@ -111,12 +112,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 1"]},{"type":"character","attributes":{},"value":["Creating data visualisation beyond default\n"]},{"type":"character","attributes":{},"value":["2022-04-25"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 1"]},{"type":"character","attributes":{},"value":["Creating data visualisation beyond default\n"]},{"type":"character","attributes":{},"value":["2022-05-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["img/thumbup.jpg","img/thumbup1.jpg","TH_EX01_files/anchor-4.2.2/anchor.min.js","TH_EX01_files/bowser-1.9.3/bowser.min.js","TH_EX01_files/distill-2.2.21/template.v2.js","TH_EX01_files/header-attrs-2.13/header-attrs.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.min.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.min.map","TH_EX01_files/popper-2.6.0/popper.min.js","TH_EX01_files/tippy-6.2.7/tippy-bundle.umd.min.js","TH_EX01_files/tippy-6.2.7/tippy-light-border.css","TH_EX01_files/tippy-6.2.7/tippy.css","TH_EX01_files/tippy-6.2.7/tippy.umd.min.js","TH_EX01_files/webcomponents-2.0.0/webcomponents.js","TH_EX02.html","TH_EX02_files/anchor-4.2.2/anchor.min.js","TH_EX02_files/bowser-1.9.3/bowser.min.js","TH_EX02_files/distill-2.2.21/template.v2.js","TH_EX02_files/header-attrs-2.13/header-attrs.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.min.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.min.map","TH_EX02_files/popper-2.6.0/popper.min.js","TH_EX02_files/tippy-6.2.7/tippy-bundle.umd.min.js","TH_EX02_files/tippy-6.2.7/tippy-light-border.css","TH_EX02_files/tippy-6.2.7/tippy.css","TH_EX02_files/tippy-6.2.7/tippy.umd.min.js","TH_EX02_files/webcomponents-2.0.0/webcomponents.js","TH_EX03.html","TH_EX04.html"]}
+  {"type":"character","attributes":{},"value":["img/TH_ex03.jpg","img/TH_ex04.jpg","img/TH_ex05.jpg","img/TH_ex06.jpg","img/thumbup.jpg","img/thumbup1.jpg","TH_EX01_files/anchor-4.2.2/anchor.min.js","TH_EX01_files/bowser-1.9.3/bowser.min.js","TH_EX01_files/distill-2.2.21/template.v2.js","TH_EX01_files/header-attrs-2.13/header-attrs.js","TH_EX01_files/header-attrs-2.14/header-attrs.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.min.js","TH_EX01_files/jquery-3.6.0/jquery-3.6.0.min.map","TH_EX01_files/popper-2.6.0/popper.min.js","TH_EX01_files/tippy-6.2.7/tippy-bundle.umd.min.js","TH_EX01_files/tippy-6.2.7/tippy-light-border.css","TH_EX01_files/tippy-6.2.7/tippy.css","TH_EX01_files/tippy-6.2.7/tippy.umd.min.js","TH_EX01_files/webcomponents-2.0.0/webcomponents.js","TH_EX02.html","TH_EX02_files/anchor-4.2.2/anchor.min.js","TH_EX02_files/bowser-1.9.3/bowser.min.js","TH_EX02_files/distill-2.2.21/template.v2.js","TH_EX02_files/header-attrs-2.13/header-attrs.js","TH_EX02_files/header-attrs-2.14/header-attrs.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.min.js","TH_EX02_files/jquery-3.6.0/jquery-3.6.0.min.map","TH_EX02_files/popper-2.6.0/popper.min.js","TH_EX02_files/tippy-6.2.7/tippy-bundle.umd.min.js","TH_EX02_files/tippy-6.2.7/tippy-light-border.css","TH_EX02_files/tippy-6.2.7/tippy.css","TH_EX02_files/tippy-6.2.7/tippy.umd.min.js","TH_EX02_files/webcomponents-2.0.0/webcomponents.js","TH_EX03.html","TH_EX04.html","TH_EX05.html","TH_EX06.html"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -428,10 +429,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1263,6 +1260,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1277,6 +1280,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1376,6 +1404,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1398,7 +1428,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -1437,7 +1467,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="TH_EX01_files/header-attrs-2.13/header-attrs.js"></script>
+  <script src="TH_EX01_files/header-attrs-2.14/header-attrs.js"></script>
   <script src="TH_EX01_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="TH_EX01_files/popper-2.6.0/popper.min.js"></script>
   <link href="TH_EX01_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1458,7 +1488,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Take-home Exercise 1","description":"Creating data visualisation beyond default","authors":[],"publishedDate":"2022-04-25T00:00:00.000+08:00"}
+{"title":"Take-home Exercise 1","description":"Creating data visualisation beyond default","authors":[],"publishedDate":"2022-05-27T00:00:00.000+08:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1487,69 +1517,140 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#submission-instructions">Submission Instructions</a>
 <ul>
 <li><a href="#submission-date">Submission date</a></li>
-<li><a href="#learning-from-the-senior">Learning from the senior</a></li>
+<li><a href="#learning-from-the-senior">Learning from the
+senior</a></li>
 </ul></li>
 <li><a href="#peer-learning">Peer Learning</a></li>
 </ul>
 </nav>
 </div>
 <h1 id="the-task">The Task</h1>
-<p>In this take-home exercise, you are required to apply the skills you had learned in Lesson 1 and Hands-on Exercise 1 to reveal the demographic of the <a href="https://vast-challenge.github.io/2022/">city of Engagement, Ohio USA</a> by using appropriate static statistical graphics methods. The data should be processed by using appropriate <strong>tidyverse</strong> family of packages and the statistical graphics must be prepared using <strong>ggplot2</strong> and its extensions.</p>
+<p>In this take-home exercise, you are required to apply the skills you
+had learned in Lesson 1 and Hands-on Exercise 1 to reveal the
+demographic of the <a href="https://vast-challenge.github.io/2022/">city
+of Engagement, Ohio USA</a> by using appropriate static statistical
+graphics methods. The data should be processed by using appropriate
+<strong>tidyverse</strong> family of packages and the statistical
+graphics must be prepared using <strong>ggplot2</strong> and its
+extensions.</p>
 <h3 id="survival-tip">Survival Tip</h3>
-<p>Start with <em>Participant</em>s data file in the Attributes folder.</p>
+<p>Start with <em>Participant</em>s data file in the Attributes
+folder.</p>
 <h1 id="submission-instructions">Submission Instructions</h1>
-<p>This is an individual assignment. You are required to work on the take-home exercises and prepare submission individually.</p>
+<p>This is an individual assignment. You are required to work on the
+take-home exercises and prepare submission individually.</p>
 <ul>
-<li>The take-home exercise submission must be written by using <strong>distill for R Markdown</strong>. It can be in either <a href="https://distill.pub/guide/">distill article</a> or <a href="https://rstudio.github.io/distill/blog.html">distill blog</a> format. You are required to publish the exercise on <a href="https://www.netlify.com/">Netlify</a> and provide the link on the take-home exercise submission page on elearn.</li>
-<li>You are also required to push the take-home exercise folder and data onto your individual Github repository and provide the link on the take-home exercise submission page on eLearn.</li>
+<li>The take-home exercise submission must be written by using
+<strong>distill for R Markdown</strong>. It can be in either <a
+href="https://distill.pub/guide/">distill article</a> or <a
+href="https://rstudio.github.io/distill/blog.html">distill blog</a>
+format. You are required to publish the exercise on <a
+href="https://www.netlify.com/">Netlify</a> and provide the link on the
+take-home exercise submission page on elearn.</li>
+<li>You are also required to push the take-home exercise folder and data
+onto your individual Github repository and provide the link on the
+take-home exercise submission page on eLearn.</li>
 </ul>
 <h3 id="submission-date">Submission date</h3>
-<p>Your completed take-home exercise is due on <strong>24th April 2022, by 11:59pm evening</strong>.</p>
+<p>Your completed take-home exercise is due on <strong>24th April 2022,
+by 11:59pm evening</strong>.</p>
 <h3 id="learning-from-the-senior">Learning from the senior</h3>
 <ul>
-<li><a href="https://rpubs.com/deniseadele/584423">Singapore’s Demographic Composition Across Time</a></li>
+<li><a href="https://rpubs.com/deniseadele/584423">Singapore’s
+Demographic Composition Across Time</a></li>
 </ul>
 <h1 id="peer-learning">Peer Learning</h1>
 <ul>
-<li><a href="https://visual-analytics-course.netlify.app/th_ex/th_ex1.html">ALOYSIUS TENG</a></li>
-<li><a href="https://isss608-hhhandy.netlify.app/th_ex/th_ex1.html">ANTONIUS HANDY</a></li>
-<li><a href="https://r4dsa4va.netlify.app/th_ex/th_ex1.html">CHE XUAN</a></li>
-<li><a href="https://yn-isss608.netlify.app/take-home_ex/th_ex1.html">CHU YI-NING</a></li>
-<li><a href="https://jiarui-cui-isss608.netlify.app/th_ex/th_ex01">CUI JIARUI</a></li>
-<li><a href="https://dkwx1234.netlify.app/th_ex/takehomeex1.html">DAVID KWOK WEI XIANG</a></li>
-<li><a href="https://dingyanmu.netlify.app/th_ex/th_ex1.html">DING YANMU</a></li>
-<li><a href="https://heranshan-isss608.netlify.app/th_ex/th_ex1.html">HERANSHAN SO SUBRAMANIAM</a></li>
-<li><a href="https://master--huanganni.netlify.app/th_ex/th_ex1.html">HUANG ANNI</a></li>
-<li><a href="https://vast-challenge-2022-th-ex-1.netlify.app/th_ex/th_ex1.html">HUANG YAPING</a></li>
-<li><a href="https://hulwana-va.netlify.app/th_ex/th_ex1.html">HULWANA BINTE SAIFULZAMAN</a></li>
-<li><a href="https://bominie.netlify.app/posts/2022-04-25-hw1/">KIM BOMIN</a></li>
-<li><a href="https://jeremiahlam.netlify.app/th_ex/th_ex1.html">LAM KUO JIAN JEREMIAH</a></li>
-<li><a href="https://tiffanylxq.netlify.app/takehomeex/th_ex1">LEE XIAO QI</a></li>
-<li><a href="https://jessielee.netlify.app/th_ex/th_ex1.html">LI HONGYI</a></li>
-<li><a href="https://katherine-isss608.netlify.app/th_ex/th_ex1.html">LI HUAN</a></li>
-<li><a href="https://isss608-visualization-liminqi.netlify.app/th_ex/th_ex1">LI MINQI</a></li>
-<li><a href="https://zhenglinliuvisual.netlify.app/th_ex/th_ex1.html">LIU ZHENGLIN</a></li>
-<li><a href="https://leslielong-da.netlify.app/posts/2022-04-18-takehome1/">LONG NU</a>. A good example on using appropriate ggplot2’s functions to build enlightening statistical graphics. Section 2.3 Data Wrangling shows how to use appropriate functions of <strong>dplyr</strong> package and <code>%&gt;%</code> to perform data wrangling. <img src="img/thumbup1.jpg" /><br />
+<li><a
+href="https://visual-analytics-course.netlify.app/th_ex/th_ex1.html">ALOYSIUS
+TENG</a></li>
+<li><a
+href="https://isss608-hhhandy.netlify.app/th_ex/th_ex1.html">ANTONIUS
+HANDY</a></li>
+<li><a href="https://r4dsa4va.netlify.app/th_ex/th_ex1.html">CHE
+XUAN</a></li>
+<li><a
+href="https://yn-isss608.netlify.app/take-home_ex/th_ex1.html">CHU
+YI-NING</a></li>
+<li><a href="https://jiarui-cui-isss608.netlify.app/th_ex/th_ex01">CUI
+JIARUI</a></li>
+<li><a href="https://dkwx1234.netlify.app/th_ex/takehomeex1.html">DAVID
+KWOK WEI XIANG</a></li>
+<li><a href="https://dingyanmu.netlify.app/th_ex/th_ex1.html">DING
+YANMU</a></li>
+<li><a
+href="https://heranshan-isss608.netlify.app/th_ex/th_ex1.html">HERANSHAN
+SO SUBRAMANIAM</a></li>
+<li><a
+href="https://master--huanganni.netlify.app/th_ex/th_ex1.html">HUANG
+ANNI</a></li>
+<li><a
+href="https://vast-challenge-2022-th-ex-1.netlify.app/th_ex/th_ex1.html">HUANG
+YAPING</a></li>
+<li><a href="https://hulwana-va.netlify.app/th_ex/th_ex1.html">HULWANA
+BINTE SAIFULZAMAN</a></li>
+<li><a href="https://bominie.netlify.app/posts/2022-04-25-hw1/">KIM
+BOMIN</a></li>
+<li><a href="https://jeremiahlam.netlify.app/th_ex/th_ex1.html">LAM KUO
+JIAN JEREMIAH</a></li>
+<li><a href="https://tiffanylxq.netlify.app/takehomeex/th_ex1">LEE XIAO
+QI</a></li>
+<li><a href="https://jessielee.netlify.app/th_ex/th_ex1.html">LI
+HONGYI</a></li>
+<li><a href="https://katherine-isss608.netlify.app/th_ex/th_ex1.html">LI
+HUAN</a></li>
+<li><a
+href="https://isss608-visualization-liminqi.netlify.app/th_ex/th_ex1">LI
+MINQI</a></li>
+<li><a
+href="https://zhenglinliuvisual.netlify.app/th_ex/th_ex1.html">LIU
+ZHENGLIN</a></li>
+<li><a
+href="https://leslielong-da.netlify.app/posts/2022-04-18-takehome1/">LONG
+NU</a>. A good example on using appropriate ggplot2’s functions to build
+enlightening statistical graphics. Section 2.3 Data Wrangling shows how
+to use appropriate functions of <strong>dplyr</strong> package and
+<code>%&gt;%</code> to perform data wrangling. <img
+src="img/thumbup1.jpg" /><br />
 </li>
-<li><a href="https://isss-608-junqiuni.netlify.app/takehome_ex/takehome_ex01.html">NI JUNQIU</a></li>
-<li><a href="https://isss608-jordan-va.netlify.app/th_ex1/the_1">ONG ZHI RONG JORDAN</a></li>
-<li><a href="https://rakendu-mitb2021.netlify.app/th_ex/th_ex01.html">RAKENDU RAMESH</a></li>
-<li><a href="https://jeanrao.netlify.app/th_ex/th1.html">RAO NINGZHEN</a></li>
-<li><a href="https://isss608-raunakkapur.netlify.app/th_ex/the1">RAUNAK KAPUR</a></li>
-<li><a href="https://raveenaclr.netlify.app/th_ex/th_ex1.html">RAVEENA CHAKRAPANI</a></li>
-<li><a href="https://visualanalytics.netlify.app/th_ex/th_ex1.html">SHACHI ANIRUDHA RAODEO</a></li>
-<li><a href="https://vickysui-va.netlify.app/take_home_exercise/ex_1.html">SUI TIANYUE</a></li>
-<li><a href="https://clarencetay.netlify.app/th_ex/th_ex1.html">TAY CHENG WEI CLARENCE</a></li>
-<li><a href="https://mitb-va-joycetseng.netlify.app/posts/2022-04-18-takehome1/">TSENG CHIA-YI</a></li>
-<li><a href="https://wtqmitbva.netlify.app/takehome1">WANG TIANQI</a></li>
+<li><a
+href="https://isss-608-junqiuni.netlify.app/takehome_ex/takehome_ex01.html">NI
+JUNQIU</a></li>
+<li><a href="https://isss608-jordan-va.netlify.app/th_ex1/the_1">ONG ZHI
+RONG JORDAN</a></li>
+<li><a
+href="https://rakendu-mitb2021.netlify.app/th_ex/th_ex01.html">RAKENDU
+RAMESH</a></li>
+<li><a href="https://jeanrao.netlify.app/th_ex/th1.html">RAO
+NINGZHEN</a></li>
+<li><a href="https://isss608-raunakkapur.netlify.app/th_ex/the1">RAUNAK
+KAPUR</a></li>
+<li><a href="https://raveenaclr.netlify.app/th_ex/th_ex1.html">RAVEENA
+CHAKRAPANI</a></li>
+<li><a
+href="https://visualanalytics.netlify.app/th_ex/th_ex1.html">SHACHI
+ANIRUDHA RAODEO</a></li>
+<li><a
+href="https://isss608totallynew.netlify.app/take_home_exercise/ex_1.html">SUI
+TIANYUE</a></li>
+<li><a href="https://clarencetay.netlify.app/th_ex/th_ex1.html">TAY
+CHENG WEI CLARENCE</a></li>
+<li><a
+href="https://mitb-va-joycetseng.netlify.app/posts/2022-04-18-takehome1/">TSENG
+CHIA-YI</a></li>
+<li><a href="https://wtqmitbva.netlify.app/takehome1">WANG
+TIANQI</a></li>
 <li>XIAO YUHE</li>
-<li><a href="https://kimsiang-va.netlify.app/takehome_exercise/takehome_exercise_1.html">YEO KIM SIANG</a></li>
+<li><a
+href="https://kimsiang-va.netlify.app/takehome_exercise/takehome_exercise_1.html">YEO
+KIM SIANG</a></li>
 <li><a href="https://yudiva.netlify.app/exe1">YU DI</a></li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
