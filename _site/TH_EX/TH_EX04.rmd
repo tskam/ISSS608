@@ -36,8 +36,8 @@ Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening*
 - [CUI JIARUI](https://jiarui-cui-isss608.netlify.app/th_ex/th_ex04)
 - [DAVID KWOK WEI XIANG]()
 - [DING YANMU](https://dingyanmu.netlify.app/th_ex/th_ex4.html)
-- [HERANSHAN SO SUBRAMANIAM](https://heranshan-isss608.netlify.app/th_ex/th_ex4.html)
-- [HUANG ANNI](https://huanganni.netlify.app/th_ex/th_ex4.html)
+- [HERANSHAN SO SUBRAMANIAM](https://heranshan-isss608.netlify.app/th_ex/th_ex4.html)![](img/thumbup1.jpg) This submission provides an excellence work of preparing the data that conform to ViSiElse requirement, including ViSiBook for the complete study period. 
+- [HUANG ANNI](https://huanganni.netlify.app/th_ex/th_ex4.html)![](img/thumbup1.jpg). Figure 1 is an example of well graphical design using ggplot2.
 - [HUANG YAPING](https://analytics-homework.netlify.app/th_ex/th_ex4.html)
 - [HULWANA BINTE SAIFULZAMAN](https://hulwana-va.netlify.app/th_ex/th_ex4.html)
 - [KIM BOMIN]()
@@ -47,7 +47,7 @@ Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening*
 - [LI HUAN](https://katherine-isss608.netlify.app/th_ex/th_ex4.html)
 - [LI MINQI](https://isss608-visualization-liminqi.netlify.app/th_ex/th_ex4)
 - [LIU ZHENGLIN](https://zhenglinliuvisual.netlify.app/th_ex/th_ex4.html)
-- [LONG NU](https://leslielong-da.netlify.app/posts/2022-05-16-takehome4/) 
+- [LONG NU](https://leslielong-da.netlify.app/posts/2022-05-16-takehome4/)![](img/thumbup1.jpg) Insights section of this submission provides a good example of visual storytelling. 
 - [NI JUNQIU](https://isss-608-junqiuni.netlify.app/takehome_ex/takehome_ex04.html)
 - [ONG ZHI RONG JORDAN](https://isss608-jordan-va.netlify.app/th_ex4/th_ex4.html)
 - [RAKENDU RAMESH](https://rakendu-mitb2021.netlify.app/th_ex/th_ex04.html)
@@ -55,7 +55,7 @@ Your completed take-home exercise is due on **22nd May 2022, by 11:59pm evening*
 - [RAUNAK KAPUR](https://isss608-raunakkapur.netlify.app/th_ex/the4)
 - [RAVEENA CHAKRAPANI](https://raveenaclr.netlify.app/th_ex/th_ex4.html)
 - [SHACHI ANIRUDHA RAODEO](https://visualanalytics.netlify.app/th_ex/th_ex4.html)
-- [SUI TIANYUE](https://isss608visualjourney.netlify.app/take_home_exercise/ex_4.html)
+- [SUI TIANYUE](https://isss608totallynew.netlify.app/take_home_exercise/ex_4.html)
 - [TAY CHENG WEI CLARENCE](https://clarencetay.netlify.app/th_ex/th_ex4.html)
 - [TSENG CHIA-YI](https://mitb-va-joycetseng.netlify.app/posts/2022-05-19-takehome4/)
 - [WANG TIANQI](https://wtqmitbva.netlify.app/takehome4)
