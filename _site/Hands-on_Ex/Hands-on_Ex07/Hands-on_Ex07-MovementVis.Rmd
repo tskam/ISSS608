@@ -108,14 +108,27 @@ restaurants <- read_sf("data/wkt/Restaurants.csv",
                    options = "GEOM_POSSIBLE_NAMES=location")
 ```
 
-
 ---
 ### Structure of a simple point feature data.frame
 
 - After importing the data file into R, it is important for us to review the data object.
 
 ```{r}
-print(schools)
+print(apartments)
+```
+
+---
+### Structure of a simple point feature data.frame
+
+Notice that *rentalCost*, *maxOccupancy* and *numberOfRooms* fields are not in the correct data type.
+
+**DIY:** Convert these three fields into the correct data type by using appropriate tidyverse functions.  
+
+```{r echo=FALSE}
+apartments <- apartments %>%
+  mutate(rentalCost = as.numeric(rentalCost),
+         maxOccupancy = as.numeric(maxOccupancy),
+         numberOfRooms = as.numeric(numberOfRooms))
 ```
 
 ---
@@ -241,6 +254,74 @@ tm_shape(restaurants) +
 tm_shape(schools) +
   tm_dots(col = "yellow")
 tmap_mode("plot")
+```
+]
+
+---
+### Qualitative thematic map by building type
+
+.pull-left[
+In the code chunk below, the building footprints are coloured by buildingType field.
+
+```{r eval=FALSE}
+tmap_mode("plot")
+tm_shape(buildings)+
+tm_polygons(col = "buildingType", #<<
+           palette="Accent", #<<
+           border.col = "black",
+           border.alpha = .5, #<<
+           border.lwd = 0.5) #<<
+tmap_mode("plot")
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+tmap_mode("plot")
+tm_shape(buildings)+
+tm_polygons(col = "buildingType", #<<
+           palette="Accent", #<<
+           border.col = "black",
+           border.alpha = .5, #<<
+           border.lwd = 0.5) #<<
+tmap_mode("plot")
+```
+]
+
+---
+### Quantitative thematic map
+
+.pull-left[
+Code chunk below plot a proportional symbol map showing the geographical distribution of apartment rental in the study area.
+
+```{r eval=FALSE}
+tm_shape(apartments)+
+tm_bubbles(col = "rentalCost",
+           alpha = 0.8,
+           n = 6,
+           style = "jenks",
+           palette="OrRd",
+           size = "numberOfRooms",
+           scale = 0.8,
+           border.col = "black",
+           border.lwd = 0.5)
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+tm_shape(apartments)+
+tm_bubbles(col = "rentalCost",
+           alpha = 0.8,
+           n = 6,
+           style = "jenks",
+           palette="OrRd",
+           size = "numberOfRooms",
+           scale = 0.8,
+           border.col = "black",
+           border.lwd = 0.5)
 ```
 ]
 
@@ -430,7 +511,7 @@ In the code chunk below, tmap package is used to create the hexagon binning map.
 tm_shape(hex_combined %>%
            filter(pointCount > 0))+
   tm_fill("pointCount",
-          n = 8,
+          n = 10,
           style = "quantile") +
   tm_borders(alpha = 0.1)
 ```
@@ -441,11 +522,46 @@ tm_shape(hex_combined %>%
 tm_shape(hex_combined %>%
            filter(pointCount > 0))+
   tm_fill("pointCount",
-          n = 8,
+          n = 10,
           style = "quantile") +
   tm_borders(alpha = 0.1)
 ```
 ]
+
+---
+### Mapping outliers
+
+```{r}
+Q <- hex_combined %>%
+  st_drop_geometry() %>%
+  filter(pointCount > 0) %>%
+  arrange(desc(pointCount)) 
+```
+
+
+```{r}
+quantile(Q$pointCount, 
+         probs=c(.25, .75), 
+         na.rm = FALSE)
+```
+
+```{r}
+iqr <- IQR(Q$pointCount)
+```
+
+```{r}
+upperOutlier <-  215.75+3*iqr 
+```
+
+```{r}
+tm_shape(buildings) +
+  tm_polygons() +
+tm_shape(hex_combined %>%
+           filter(pointCount > upperOutlier))+
+  tm_fill(col = "red") +
+  tm_borders(alpha = 0.1)
+```
+
 
 ---
 ## Plotting Movement Path using R
