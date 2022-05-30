@@ -152,7 +152,8 @@ tm_shape(buildings)+
 tm_polygons(col = "grey60",
            size = 1,
            border.col = "black",
-           border.lwd = 1)
+           border.lwd = 1) +
+tm_basemap(NULL)
 tmap_mode("plot")
 ```
 
@@ -160,6 +161,7 @@ Things to learn from the code chunk:
 - `tmap_mode()` is used to switch the display from static mode (i.e. "plot") to interactive mode (i.e. "view").
 - `tm_shape()` is used to create a **tmap-element** that specifies a spatial data object (i.e. buildings).
 - `tm_polygon()` is used to create a **tmap-element** that draws polygon feature.
+- `tm_basemap()` is used to turn-off the default basemap provided by leaflet.  By default, three basemap namely: *Esri.WorldGrayCanvas*, *OpenStreetMap* and *Esri.WorldTopoMap* are provided. 
 ]
 
 .pull-right[
@@ -550,7 +552,7 @@ iqr <- IQR(Q$pointCount)
 ```
 
 ```{r}
-upperOutlier <-  215.75+3*iqr 
+upperOutlier <-  215.75+1.5*iqr 
 ```
 
 ```{r}
