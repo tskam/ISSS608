@@ -161,6 +161,23 @@ Note that the following examples are for references purposes.  You are urge to u
     - Group 5: [How to spot a Golden Goose (a.k.a. Profitable Rental Property) in Singapore](https://singaporegoldengoose.netlify.app/index.html)
     - Group 6: [ShinyCoin](https://shinycoin.netlify.app/).
 
+# AY2021-2022 April Term: Project Grouping
+
+- [Group 1]()
+- [Group 2](https://dingyanmu.netlify.app/gp/proposal.html)
+- [Group 3](https://va-group3.netlify.app/)
+- [Group 4](https://isss608group4.netlify.app/proposal/proposal)
+- [Group 5](https://isss608-project-group5.netlify.app/)
+- [Group 6](https://isss608-group06.netlify.app/)
+- [Group 7](https://isss608group7.netlify.app/proposal/proposal-v1)
+- Group 8
+- [Group 9](https://vaprojectgroup9.netlify.app/)
+- Group 10
+- [Group 11](https://projectgroup11.netlify.app/)
+- [Group 12](https://group12-va-project.netlify.app/)
+
+
+
 # Q & A
 
 
