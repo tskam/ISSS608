@@ -79,13 +79,6 @@ A strict requirement for each class meeting is to complete the assigned readings
 
 During lesson, students are required to complete a series of hands-on exercises using either Tableau or R.  In general, these exercises are guided if Tableau is used.  For R programming session, hands-on guides will be shared on RPubs before lesson starts.  By the end of each lesson, students are required to upload their in-class exercise onto eLearn for reviewing.  The exercises will be briefly reviewed after collection. Students will be given 10 points for correctly completing the exercise, 7-9 points for partially completed and correct work, and 0 points if absent. Up to 100 points can be accumulated during the term.
   
-
-### DataViz Makeover
-
-There are two dataviz makeover exercises that are due throughout the term. I will post one or two data visualisation and you are required to critic, suggest ways for improvement and rework the data visualisation.  Maybe you will be able to retell the story more effectively, or find a new story in the data. I am curious to see the different approaches all of you take.
-
-The purpose of the makeover is to improve on the original visualisation. Focus on what works, what doesn’t work, why those things don’t work, and how you can make it better. You should try stick to the fields in the data set provided and improve upon the original visualisation. However, if supplementing the data helps you tell a better story, go for it!
-
 ### Take-home Exercise
 
 The take-home exercise provides students with the opportunity to revise and practice the R packages and programming skills they had learned in class at home.  It is a weekly exercise.  Each exercise is designed to be completed within 1.5-2 hours.  The exercise is not a repetition of the in-class exercise but it requires students to be innovative and creative in applying appropriate R packages to design enlightening and yet functional data visualisation for analytics purposes.
@@ -104,8 +97,7 @@ For more details please refer to [Visual Analytics Project](_site/VAProject.html
 The grading distribution of this course is as follows:
 
 - In-class Exercise and Class Participation 20%
-- DataViz Makeover 30%
-- Take-home Exercise 20%
+- Take-home Exercise 50%
 - Visual Analytics Project 30%
     - Project blog 15%
     - Poster 10%
