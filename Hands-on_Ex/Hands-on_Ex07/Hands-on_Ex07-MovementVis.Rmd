@@ -150,7 +150,6 @@ The code chunk below plots the building polygon features by using `tm_polygon()`
 tmap_mode("view")
 tm_shape(buildings)+
 tm_polygons(col = "grey60",
-           size = 1,
            border.col = "black",
            border.lwd = 1) +
 tm_basemap(NULL)
@@ -170,9 +169,9 @@ Things to learn from the code chunk:
 tmap_mode("view")
 tm_shape(buildings)+
   tm_polygons(col = "grey60",
-             size = 1,
              border.col = "black",
-             border.lwd = 1)
+             border.lwd = 0.1) +
+  tm_basemap(NULL)
 tmap_mode("plot")
 ```
 ]
