@@ -156,12 +156,13 @@ tm_basemap(NULL)
 tmap_mode("plot")
 ```
 
+.small[
 Things to learn from the code chunk:
 - `tmap_mode()` is used to switch the display from static mode (i.e. "plot") to interactive mode (i.e. "view").
 - `tm_shape()` is used to create a **tmap-element** that specifies a spatial data object (i.e. buildings).
 - `tm_polygon()` is used to create a **tmap-element** that draws polygon feature.
 - `tm_basemap()` is used to turn-off the default basemap provided by leaflet.  By default, three basemap namely: *Esri.WorldGrayCanvas*, *OpenStreetMap* and *Esri.WorldTopoMap* are provided. 
-]
+]]
 
 .pull-right[
 
@@ -532,6 +533,9 @@ tm_shape(hex_combined %>%
 ---
 ### Mapping outliers
 
+.pull-left[
+Code chunk below sort the hexagons by values of pointCount field. 
+
 ```{r}
 Q <- hex_combined %>%
   st_drop_geometry() %>%
@@ -539,22 +543,38 @@ Q <- hex_combined %>%
   arrange(desc(pointCount)) 
 ```
 
+Then, quantile() is used to determine the cut-off values of lower and upper 25 percentile.
 
 ```{r}
 quantile(Q$pointCount, 
          probs=c(.25, .75), 
          na.rm = FALSE)
 ```
+]
+
+.pull-right[
+
+In the code chunk below, IQR() is used to calculate the Interquartile range .
 
 ```{r}
 iqr <- IQR(Q$pointCount)
 ```
 
+Then, the upper outlier can be conputed using the code chunk below.
+
 ```{r}
 upperOutlier <-  215.75+1.5*iqr 
 ```
+]
 
-```{r}
+---
+### Mapping outliers
+
+.pull-left[
+The code chunk below is used to create the outlier hexagon binning map.
+
+
+```{r eval=FALSE}
 tm_shape(buildings) +
   tm_polygons() +
 tm_shape(hex_combined %>%
@@ -562,7 +582,21 @@ tm_shape(hex_combined %>%
   tm_fill(col = "red") +
   tm_borders(alpha = 0.1)
 ```
+]
 
+.pull-right[
+The hexagons colour in are location with relatively higher intencity of traffic count.
+
+
+```{r echo=FALSE}
+tm_shape(buildings) +
+  tm_polygons() +
+tm_shape(hex_combined %>%
+           filter(pointCount > upperOutlier))+
+  tm_fill(col = "red") +
+  tm_borders(alpha = 0.1)
+```
+]
 
 ---
 ## Plotting Movement Path using R
@@ -628,6 +662,41 @@ tm_polygons(col = "grey60",
 tmap_mode("plot")
 ```
 ]
+
+---
+## Geographic Data Visualisation: ggplot2 methods
+
+In this section, you will learn how to use ggplot2 to visualise geographic data.
+
+---
+### Import the buildings shapefile into R
+
+```{r}
+buildings_shp <- st_read(dsn = "data/geospatial",
+                         layer = "buildings")
+```
+
+---
+### Plotting buildings 
+
+```{r}
+ggplot(buildings_shp) + 
+  geom_sf() + 
+  coord_sf()
+```
+
+```{r}
+ggplot(buildings_shp) + 
+  geom_sf(aes(fill = region),
+          color = "black", 
+          size = 0.1,
+          show.legend = TRUE) + 
+  coord_sf() +
+  theme_bw() +
+  labs(title="Geographical region of the study area")
+```
+
+
 
 ---
 ## References
