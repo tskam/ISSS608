@@ -111,6 +111,10 @@ The code chunk below is used to import *CoffeeChain.rds* into R.
 coffeechain <- read_rds("data/CoffeeChain.rds")
 ```
 
+```{r echo=FALSE, eval=FALSE}
+write_csv(coffeechain, "data/coffeechain.csv")
+```
+
 Note: This step is optional if *coffeechain* is already available in R.
 ]
 
