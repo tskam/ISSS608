@@ -1,0 +1,35 @@
+---
+title: "Lesson 10: FinVA: Financial Data Visualisation and Analysis"
+description: ""
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Content
+
++ Introduction Financial Data
+    + Time-series financial data
++ Financial Data Visualisation and Analysis Methods
+    + Treemap
+    + Horizon Graph
+    + Candlestick
+
+
+## Lesson Slides and Hands-on Notes 
+
+- Lesson slides in [html](../lesson/Lesson10/Lesson10a-FinVA.html) and [pdf](../lesson/Lesson10/Lesson10-FinVA.pdf) formats
+
+- Handout of Hands-on Exercise 10 in [html](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10a.html) and [pdf](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10a.pdf) formats.
+
+
+
+
+
+
