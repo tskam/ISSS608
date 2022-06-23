@@ -1,5 +1,5 @@
 ---
-title: "Lesson 10: Information Dashboard Design"
+title: "Lesson 10: FinVA: Financial Data Visualisation and Analysis"
 description: ""
 date: "`r Sys.Date()`"
 output:
@@ -14,40 +14,20 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Content
 
-+ Introducing information dashboard
-+ Information dashboard design best practices
-+ Common mistakes in dashboard design
-+ Ideal graphs for information dashboard
-    + Bullet graph
-    + Sparklines
-    + Bandlines
++ Introduction Financial Data
+    + Time-series financial data
++ Financial Data Visualisation and Analysis Methods
+    + Treemap
+    + Horizon Graph
+    + Candlestick
+
 
 ## Lesson Slides and Hands-on Notes 
 
-- Lesson slides in [html](../lesson/Lesson10/Lesson10.html) and [pdf](../lesson/Lesson10/Lesson10.pdf) formats
+- Lesson slides in [html](../lesson/Lesson10/Lesson10a-FinVA.html) and [pdf](../lesson/Lesson10/Lesson10-FinVA.pdf) formats
 
-- Handout of Hands-on Exercise 10 in [html](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10.html) and [pdf](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10.pdf) formats.
+- Handout of Hands-on Exercise 10 in [html](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10a.html) and [pdf](../Hands-on_Ex/Hands-on_Ex10/Hands-on_Ex10a.pdf) formats.
 
-
-## Reference
-
-### Core Readings
-
-+ [Bullet Graph Design Specification](http://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf)
-
-### Additional Readings
-
-+ [Dashboard Confusion](http://www.perceptualedge.com/articles/ie/dashboard_confusion.pdf)
-+ [Dashboard Confusion Revisited](http://www.perceptualedge.com/articles/visual_business_intelligen ce/dboard_confusion_revisited.pdf)
-+ [Dashboard Design for Rich and Rapid Monitoring](http://www.perceptualedge.com/articles/visual_business_intelligence/dd_for_rapid_monitoring.pdf)
-+ [Pervasive Hurdles to Effective Dashboard Design](http://www.perceptualedge.com/articles/visual_business_intelligence/pervasive_hurdles_to_dd.pdf)
-+ [Assessing the Effectiveness of a New Dashboard’s Design](http://www.perceptualedge.com/blog/?p=672)
-+ [Guide to Creating Dashboards People Love](https://static1.squarespace.com/static/52f42657e4b0b3416ff6b831/t/55b9117ae4b060a0d84fef15/1438191994754/Dashboards_People_Love_To_Use_Whitepaper_v2.pdf)
-+ [Dashboard Design: Taking a Metaphor Too Far](http://www.perceptualedge.com/articles/dmreview/dashboard_design.pdf)
-+ [Why Most Dashboards Fail](http://www.perceptualedge.com/articles/misc/WhyMostDashboardsFail.pdf) 
-+ [Patent Failure: The USPTO’s Oversized but Undernourished New Dashboard](http://www.perceptualedge.com/blog/?p=832)
-+ [Oracle-Have you no shame?](http://www.perceptualedge.com/blog/?p=784)
-+ [The Vicious Cycle of Data Impoverishment](http://www.perceptualedge.com/blog/?p=756)
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Hands-on Exercise 9: Text Visual Analytics with R"
-subtitle: ""  
+title: "Hands-on Exercise 9: Information Dashboard Design: R methods"
+subtitle: ""
 author: "Dr. Kam Tin Seong<br/>Assoc. Professor of Information Systems"
 institute: "School of Computing and Information Systems,<br/>Singapore Management University"
-date: "2020-7-4 (updated: `r Sys.Date()`)"
+Month: "2020-7-4 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     css: [xaringan-themer.css, "css/text.css"]
@@ -18,11 +18,15 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(fig.retina=3,
-                      echo = TRUE,
-                      eval = TRUE,
-                      message = FALSE,
-                      warning = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
@@ -37,672 +41,756 @@ style_duo_accent(
 ## Overview
 
 .large[
-In this hands-on exercise, you will learn how to visualise and analyse text data using R.
-
 By the end of this hands-on exercise, you will be able to:
 
-- understand tidytext framework for processing, analysing and visualising text data, 
-- write function for importing multiple files into R,
-- combine multiple files into a single data frame,
-- clean and wrangle text data by using tidyverse approach,
-- visualise words with Word Cloud, 
-- compute  term frequency–inverse document frequency (TF-IDF) using tidytext method, and
-- visualising texts and terms relationship. 
+- create bullet chart by using ggplot2,
+- create sparklines by using ggplot2  ,
+- build industry standard dashboard by using R Shiny. 
 ]
 
 ---
-## Getting Started
-### Installing and launching R packages
+## Importing Microsoft Access database
+
+### The data set
+For the purpose of this study, a personal database in Microsoft Access mdb format called *Coffee Chain* will be used.
+
+--
+### Importing database into R
+
+In the code chunk below, `odbcConnectAccess()` of [**RODBC**](https://cran.r-project.org/web/packages/RODBC/index.html) package is used used to import a database query table into R. 
+
+```{r eval=FALSE}
+library(RODBC)
+con <- odbcConnectAccess('data/Coffee Chain.mdb')
+coffeechain <- sqlFetch(con, 'CoffeeChain Query')
+write_rds(coffeechain, "data/CoffeeChain.rds")
+odbcClose(con)
+```
+
+Note: Before running the code chunk, you need to change the R system to 32bit version.  This is because the `odbcConnectAccess()` is based on 32bit and not 64bit 
+
+---
+## Getting started
 
 .pull-left[
-In this hands-on exercise, the following R packages for handling, processing, wrangling, analysing and visualising text data will be used:
+.large[
+For the purpose of this hands-on exercise, the following R packages will be used.
 
-- tidytext, tidyverse (mainly readr, purrr, stringr, ggplot2)
-- widyr, 
-- wordcloud and ggwordcloud,
-- textplot (required igraph, tidygraph and ggraph, )
-- DT,  
-- lubridate and hms.
-]
+```{r}
+packages = c('tidyverse', 'lubridate', 
+             'ggthemes', 'reactable', 
+             'reactablefmtr',
+             'gt', 'gtExtras')
 
-.pull-right[
-The code chunk:
-
-```{r, echo=TRUE, eval=TRUE}
-packages = c('tidytext', 
-             'widyr', 'wordcloud',
-             'DT', 'ggwordcloud', 
-             'textplot', 'lubridate', 
-             'hms','tidyverse', 
-             'tidygraph', 'ggraph',
-             'igraph')
-
-for(p in packages){
+for (p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
   }
-  library(p, character.only = T)
+  library(p,character.only = T)
 }
 ```
-]
-
----
-### Importing Multiple Text Files from Multiple Folders
-
-.pull-left[
-
-#### Step 1: Creating a folder list
-
-```{r}
-news20 <- "data/20news/"
-```
-
-#### Step 2: Define a function to read all files from a folder into a data frame
-
-```{r}
-read_folder <- function(infolder) {
-  tibble(file = dir(infolder, 
-                    full.names = TRUE)) %>%
-    mutate(text = map(file, 
-                      read_lines)) %>%
-    transmute(id = basename(file), 
-              text) %>%
-    unnest(text)
-}
-```
-]
-
----
-### Importing Multiple Text Files from Multiple Folders
-
-.pull-left[
-#### Step 3: Reading in all the messages from the 20news folder
-
-```{r eval=FALSE}
-raw_text <- tibble(folder = 
-                     dir(news20, 
-                         full.names = TRUE)) %>%
-  mutate(folder_out = map(folder, 
-                          read_folder)) %>%
-  unnest(cols = c(folder_out)) %>%
-  transmute(newsgroup = basename(folder), 
-            id, text)
-write_rds(raw_text, "data/rds/news20.rds")
-```
-]
+]]
 
 .pull-right[
-Things to learn from the code chunk above:
-- [*read_lines()*](https://readr.tidyverse.org/reference/read_lines.html) of [**readr**](https://readr.tidyverse.org/index.html) package is used to read up to n_max lines from a file.
-- [*map()*](https://purrr.tidyverse.org/reference/map.html) of [**purrr**](https://purrr.tidyverse.org/index.html) package is used to transform their input by applying a function to each element of a list and returning an object of the same length as the input.
-- [*unnest()*](https://tidyr.tidyverse.org/reference/nest.html) of **dplyr** package is used to flatten a list-column of data frames back out into regular columns.
-- [mutate()](https://dplyr.tidyverse.org/reference/mutate.html) of **dplyr** is used to add new variables and preserves existing ones; 
-- [transmute()](https://dplyr.tidyverse.org/reference/mutate.html) of **dplyr** is used to add new variables and drops existing ones.
-- [read_rds()](https://readr.tidyverse.org/reference/read_rds.html) is used to save the extracted and combined data frame as rds file for future use.
++ [tidyverse](https://www.tidyverse.org/) provides a collection of functions for performing data science task such as importing, tidying, wrangling data and visualising data.  It is not a single package but a collection of modern R packages including but not limited to [readr](https://readr.tidyverse.org/), [tidyr](https://tidyr.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/), [ggplot](https://ggplot2.tidyverse.org/), [tibble](https://tibble.tidyverse.org/), [stringr](https://stringr.tidyverse.org/), [forcats](https://forcats.tidyverse.org/) and [purrr](https://purrr.tidyverse.org/).
++ [lubridate]() provides functions to work with dates and times more efficiently.
++ [ggthemes]() is an extension of ggplot2. It provides additional [themes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) beyond the basic themes of ggplot2.
++ [gtExtras](https://jthomasmock.github.io/gtExtras/index.html) provides some additional helper functions to assist in creating beautiful tables with [gt](https://gt.rstudio.com/), an R package specially designed for anyone to make wonderful-looking tables using the R programming language. 
++ [reactablefmtr](https://kcuilla.github.io/reactablefmtr/index.html) provides various features to streamline and enhance the styling of interactive reactable tables with easy-to-use and highly-customizable functions and themes. 
 ]
 
-```{r echo=FALSE}
-news20 <- read_rds("data/rds/news20.rds")
-```
-
 ---
-### Initial EDA 
+### Data Preparation
 
 .pull-left[
-Figure below shows the frequency of messages by newsgroup.
+.large[Importing Data]
 
-```{r echo=FALSE}
-raw_text <- news20
-raw_text %>%
-  group_by(newsgroup) %>%
-  summarize(messages = n_distinct(id)) %>%
-  ggplot(aes(messages, newsgroup)) +
-  geom_col(fill = "lightblue") +
-  labs(y = NULL)
+The code chunk below is used to import *CoffeeChain.rds* into R. 
+
+```{r}
+coffeechain <- read_rds("data/CoffeeChain.rds")
+```
+
+```{r echo=FALSE, eval=FALSE}
+write_csv(coffeechain, "data/coffeechain.csv")
+```
+
+Note: This step is optional if *coffeechain* is already available in R.
+]
+
+--
+.pull-left[
+.large[Data wrangling]
+
+The code chunk below is used to aggregate Sales and Budgeted Sales at the Product level.
+
+```{r}
+product <- coffeechain %>%
+  group_by(`Product`) %>%
+  summarise(`target` = sum(`Budget Sales`),
+            `current` = sum(`Sales`)) %>%
+  ungroup()
+```
+]
+
+---
+### Bullet chart in ggplot2 
+
+.pull-left[
+The code chunk below is used to plot the bullet charts using ggplot2 functions.
+
+```{r eval=FALSE}
+ggplot(product, aes(Product, current)) + 
+  geom_col(aes(Product, max(target) * 1.01),
+           fill="grey85", width=0.85) +
+  geom_col(aes(Product, target * 0.75),
+           fill="grey60", width=0.85) +
+  geom_col(aes(Product, target * 0.5),
+           fill="grey50", width=0.85) +
+  geom_col(aes(Product, current), 
+           width=0.35,
+           fill = "black") + 
+  geom_errorbar(aes(y = target,
+                    x = Product, 
+                    ymin = target,
+                    ymax= target), 
+                width = .4,
+                colour = "red",
+                size = 1) +
+  coord_flip()
 ```
 ]
 
 --
 .pull-right[
-The code chunk:
-
-```{r eval=FALSE}
-raw_text <- news20
-raw_text %>%
-  group_by(newsgroup) %>%
-  summarize(messages = n_distinct(id)) %>%
-  ggplot(aes(messages, newsgroup)) +
-  geom_col(fill = "lightblue") +
-  labs(y = NULL)
+```{r echo=FALSE, fig.height=8}
+ggplot(product, aes(Product, current)) + 
+  geom_col(aes(Product, max(target) * 1.01),
+           fill="grey85", width=0.85) +
+  geom_col(aes(Product, target * 0.75),
+           fill="grey60", width=0.85) +
+  geom_col(aes(Product, target * 0.5),
+           fill="grey50", width=0.85) +
+  geom_col(aes(Product, current), 
+           width=0.35,
+           fill = "black") + 
+  geom_errorbar(aes(y = target,
+                    x = Product, 
+                    ymin = target,
+                    ymax= target), 
+                width = .4,
+                colour = "red",
+                size = 1) +
+  coord_flip()
 ```
 ]
 
-
 ---
-## Introducing tidytext
-
-- Using tidy data principles in processing, analysing and visualising text data.
-- Much of the infrastructure needed for text mining with tidy data frames already exists in packages like 'dplyr', 'broom', 'tidyr', and 'ggplot2'.
-
-Figure below shows the workflow using tidytext approach for processing and visualising text data.
-
-.center[
-![](img/image10-1.jpg)
-]
-
----
-### Cleaning Text Data
+## Plotting sparklines using ggplot2
 
 .pull-left[
-#### Step 1: Removing header and automated email signitures
+In this section, you will learn how to plot sparklines by using ggplot2.
 
-Notice that each message has some structure and extra text that we don’t want to include in our analysis. For example, every message has a header, containing field such as “from:” or “in_reply_to:” that describe the message. Some also have automated email signatures, which occur after a line like "--".
+Preparing the data
 
 ```{r}
-cleaned_text <- raw_text %>%
-  group_by(newsgroup, id) %>%
-  filter(cumsum(text == "") > 0,
-         cumsum(str_detect(
-           text, "^--")) == 0) %>%
-  ungroup()
+sales_report <- coffeechain %>%
+  filter(Date >= "2013-01-01") %>%
+  mutate(Month = month(Date)) %>%
+  group_by(Month, Product) %>%
+  summarise(Sales = sum(Sales)) %>%
+  ungroup() %>%
+  select(Month, Product, Sales)
 ```
 ]
 
 .pull-right[
-Things to learn from the code chunk:
-- [*cumsum()*](https://rdrr.io/r/base/cumsum.html) of base R is used to return a vector whose elements are the cumulative sums of the elements of the argument.  
-- [*str_detect()*](https://stringr.tidyverse.org/reference/str_detect.html) from **stringr** is used to detect the presence or absence of a pattern in a string.
+The code chunk below is used to compute the minimum, maximum and end othe the month sales.
+
+```{r}
+mins <- group_by(sales_report, Product) %>% 
+  slice(which.min(Sales))
+maxs <- group_by(sales_report, Product) %>% 
+  slice(which.max(Sales))
+ends <- group_by(sales_report, Product) %>% 
+  filter(Month == max(Month))
+
+```
+
+The code chunk below is used to compute the 25 and 75 quantiles.  
+
+```{r}
+quarts <- sales_report %>%
+  group_by(Product) %>%
+  summarise(quart1 = quantile(Sales, 
+                              0.25),
+            quart2 = quantile(Sales, 
+                              0.75)) %>%
+  right_join(sales_report)
+
+```
 ]
 
 ---
-### Cleaning Text Data
+### sparklines in ggplot2
+The code chunk used.
+
+```{r eval=FALSE, fig.height=3, fig.width=6}
+ggplot(sales_report, aes(x=Month, y=Sales)) + 
+  facet_grid(Product ~ ., scales = "free_y") + 
+  geom_ribbon(data = quarts, aes(ymin = quart1, max = quart2), 
+              fill = 'grey90') +
+  geom_line(size=0.3) +
+  geom_point(data = mins, col = 'red') +
+  geom_point(data = maxs, col = 'blue') +
+  geom_text(data = mins, aes(label = Sales), vjust = -1) +
+  geom_text(data = maxs, aes(label = Sales), vjust = 2.5) +
+  geom_text(data = ends, aes(label = Sales), hjust = 0, nudge_x = 0.5) +
+  geom_text(data = ends, aes(label = Product), hjust = 0, nudge_x = 1) +
+  expand_limits(x = max(sales_report$Month) + 
+                  (0.25 * (max(sales_report$Month) - min(sales_report$Month)))) +
+  scale_x_continuous(breaks = seq(1, 12, 1)) +
+  scale_y_continuous(expand = c(0.1, 0)) +
+  theme_tufte(base_size = 3, base_family = "Helvetica") +
+  theme(axis.title=element_blank(), axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), strip.text = element_blank())
+```
+
+---
+### sparklines in ggplot2
+The output
+
+```{r echo=FALSE, fig.height=4, fig.width=9}
+ggplot(sales_report, aes(x=Month, y=Sales)) + 
+  facet_grid(Product ~ ., scales = "free_y") + 
+  geom_ribbon(data = quarts, 
+              aes(ymin = quart1, 
+                  max = quart2), 
+              fill = 'grey90') +
+  geom_line(size=0.3) +
+  geom_point(data = mins, col = 'red') +
+  geom_point(data = maxs, col = 'blue') +
+  geom_text(data = mins, aes(label = Sales), size = 2.5, vjust = -1) +
+  geom_text(data = maxs, aes(label = Sales), size = 2.5, vjust = 2.5) +
+  geom_text(data = ends, aes(label = Sales), size = 2.5, hjust = 0, nudge_x = 0.5) +
+  geom_text(data = ends, aes(label = Product), size = 2.5, hjust = 0, nudge_x = 1) +
+  expand_limits(x = max(sales_report$Month) + (0.25 * (max(sales_report$Month) - min(sales_report$Month)))) +
+  scale_x_continuous(breaks = seq(1, 12, 1)) +
+  scale_y_continuous(expand = c(0.1, 0)) +
+  theme_tufte(base_size = 10, base_family = "Helvetica") +
+  theme(axis.title=element_blank(), axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), strip.text = element_blank())
+```
+
+---
+## Static Information Dashboard Design: gt and gtExtras methods
 
 .pull-left[
-#### Step 2: Removing lines with nested text representing quotes from other users. 
+In this section, you will learn how to create static information dashboard by using [gt](https://gt.rstudio.com/index.html) and [gtExtras](https://jthomasmock.github.io/gtExtras/index.html) packages.  Before getting started, it is highly recommended for you to visit the webpage of these two packages and review all the materials provided on the webpages at least once.  You done not have to understand and remember everything provided but at least have an overview of the purposes and functions provided by them.
+]
 
-In this code chunk below, regular expressions are used to remove with nested text representing quotes from other users. 
+---
+### Plotting a simple bullet chart
+
+.pull-left[
+In this section, you will learn how to prepare a bullet chart report by using functions of gt and gtExtras packages.   
+
+```{r eval=FALSE}
+product %>%
+  gt::gt() %>%
+  gt_plt_bullet(column = current, 
+              target = target, 
+              width = 60,
+              palette = c("lightblue", 
+                          "black")) %>%
+  gt_theme_538()
+```
+]
+.pull-right[
+```{r echo=FALSE}
+product %>%
+  gt::gt() %>%
+  gt_plt_bullet(column = current, 
+              target = target, 
+              width = 60,
+              palette = c("lightblue", 
+                          "black")) %>%
+  gt_theme_538()
+```
+]
+
+
+---
+## sparklines: gtExtras method
+
+.pull-left[
+Before we can prepare the sales report by product by using gtExtras functions, code chunk below will be used to prepare the data.
 
 ```{r}
-cleaned_text <- cleaned_text %>%
-  filter(str_detect(text, "^[^>]+[A-Za-z\\d]")
-         | text == "",
-         !str_detect(text, 
-                     "writes(:|\\.\\.\\.)$"),
-         !str_detect(text, 
-                     "^In article <")
+report <- coffeechain %>%
+  mutate(Year = year(Date)) %>%
+  filter(Year == "2013") %>%
+  mutate (Month = month(Date, 
+                        label = TRUE, 
+                        abbr = TRUE)) %>%
+  group_by(Product, Month) %>%
+  summarise(Sales = sum(Sales)) %>%
+  ungroup()
+
+```
+]
+
+.pull-right[
+It is important to note that one of the requirement of gtExtras functions is that almost exclusively they require you to pass data.frame with list columns. In view of this, code chunk below will be used to convert the report data.frame into list columns. 
+
+```{r}
+report %>%
+  group_by(Product) %>%
+  summarize('Monthly Sales' = list(Sales), 
+            .groups = "drop")
+```
+]
+
+---
+### Plotting Coffechain Sales report 
+
+.pull-left[
+
+```{r eval=FALSE}
+report %>%
+  group_by(Product) %>%
+  summarize('Monthly Sales' = list(Sales), 
+            .groups = "drop") %>%
+   gt() %>%
+   gt_plt_sparkline('Monthly Sales')
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+report %>%
+  group_by(Product) %>%
+  summarize('Monthly Sales' = list(Sales), 
+            .groups = "drop") %>%
+   gt() %>%
+   gt_plt_sparkline('Monthly Sales')
+```
+]
+
+---
+### Adding statistics
+
+.pull-left[
+First, calculate summary statistics by using the code chunk below.
+
+```{r eval=FALSE}
+report %>% 
+  group_by(Product) %>% 
+  summarise("Min" = min(Sales, na.rm = T),
+            "Max" = max(Sales, na.rm = T),
+            "Average" = mean(Sales, na.rm = T)
+            ) %>%
+  gt() %>%
+  fmt_number(columns = 4,
+    decimals = 2)
+```
+]
+
+pull-right[
+```{r eval=FALSE}
+report %>% 
+  group_by(Product) %>% 
+  summarise("Min" = min(Sales, na.rm = T),
+            "Max" = max(Sales, na.rm = T),
+            "Average" = mean(Sales, na.rm = T)
+            ) %>%
+  gt() %>%
+  fmt_number(columns = 4,
+    decimals = 2)
+```
+]
+
+---
+### Combining the data.frame
+
+.pull-left[
+Next, use the code chunk below to add the statistics on the table.
+
+```{r}
+spark <- report %>%
+  group_by(Product) %>%
+  summarize('Monthly Sales' = list(Sales), 
+            .groups = "drop")
+
+```
+
+
+```{r}
+sales <- report %>% 
+  group_by(Product) %>% 
+  summarise("Min" = min(Sales, na.rm = T),
+            "Max" = max(Sales, na.rm = T),
+            "Average" = mean(Sales, na.rm = T)
+            )
+```
+
+```{r}
+sales_data = left_join(sales, spark)
+```
+
+---
+### Plotting the updated data.table
+
+.pull-left[
+
+```{r eval=FALSE}
+sales_data %>%
+  gt() %>%
+  gt_plt_sparkline('Monthly Sales')
+```
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+sales_data %>%
+  gt() %>%
+  gt_plt_sparkline('Monthly Sales')
+```
+]
+
+---
+### Combining bullet chart and sparklines
+
+.pull-left[
+
+Similarly, we can combining the bullet chart and sparklines using the steps below.
+
+```{r}
+bullet <- coffeechain %>%
+  filter(Date >= "2013-01-01") %>%
+  group_by(`Product`) %>%
+  summarise(`Target` = sum(`Budget Sales`),
+            `Actual` = sum(`Sales`)) %>%
+  ungroup() 
+```
+
+```{r}
+sales_data = sales_data %>%
+  left_join(bullet)
+```
+
+```{r eval=FALSE}
+sales_data %>%
+  gt() %>%
+  gt_plt_sparkline('Monthly Sales') %>%
+  gt_plt_bullet(column = Actual, 
+                target = Target, 
+                width = 28,
+                palette = c("lightblue", 
+                          "black")) %>%
+  gt_theme_538()
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+sales_data %>%
+  gt() %>%
+  gt_plt_sparkline('Monthly Sales') %>%
+  gt_plt_bullet(column = Actual, 
+                target = Target, 
+                width = 28,
+                palette = c("lightblue", 
+                          "black")) %>%
+  gt_theme_538()
+```
+]
+
+---
+## Interactive Information Dashboard Design: reactable and reactablefmtr methods
+
+.pull-left[
+In this section, you will learn how to create interactive information dashboard by using [reactable](https://glin.github.io/reactable/index.html) and [reactablefmtr](https://kcuilla.github.io/reactablefmtr/index.html) packages.  Before getting started, it is highly recommended for you to visit the webpage of these two packages and review all the materials provided on the webpages at least once.  You done not have to understand and remember everything provided but at least have an overview of the purposes and functions provided by them.
+]
+
+--
+pull-right[
+In order to build an interactive sparklines, we need to install dataui R package by using the code chunk below.
+
+```{r}
+remotes::install_github("timelyportfolio/dataui")
+```
+
+Next, you all need to load the package onto R environment by using the code chunk below.
+
+```{r}
+library(dataui)
+```
+]
+
+---
+### Plotting interactive sparklines
+
+.pull-left[
+Similar to gtExtras, to plot an interactive sparklines by using reactablefmtr package we need to prepare the list field by using the code chunk below. 
+
+```{r}
+report <- report %>%
+  group_by(Product) %>%
+  summarize(`Monthly Sales` = list(Sales))
+```
+
+Next, [react_sparkline](https://kcuilla.github.io/reactablefmtr/reference/react_sparkline.html) will be to plot the sparklines as shown below. 
+
+```{r eval=FALSE}
+reactable(
+  report,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(report)
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(report)
+    )
+  )
+)
+```
+]
+
+---
+### Changing the pagesize
+
+.pull-left[
+By default the pagesize is 10.  In the code chunk below, arguments defaultPageSize is used to change the default setting.  
+```{r eval=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(report)
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(report)
+    )
+  )
+)
+```
+]
+
+---
+### Adding points and labels
+
+.pull-left[
+In the code chunk below `highlight_points` argument is used to show the minimum and maximum values points and `label` argument is used to label first and last values.
+
+```{r eval=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        labels = c("first", "last")
+        )
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        labels = c("first", "last")
+        )
+    )
+  )
+)
+```
+]
+
+---
+### Adding reference line
+
+.pull-left[
+In the code chunk below `statline` argument is used to show the mean line.
+
+```{r eval=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        statline = "mean"
+        )
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        statline = "mean"
+        )
+    )
+  )
+)
+```
+]
+
+---
+### Adding bandline
+
+.pull-left[
+Instead adding reference line, bandline can be added by using the `bandline` argument.
+
+```{r eval=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        line_width = 1,
+        bandline = "innerquartiles",
+        bandline_color = "green"
+        )
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkline(
+        report,
+        highlight_points = highlight_points(
+          min = "red", max = "blue"),
+        line_width = 1,
+        bandline = "innerquartiles",
+        bandline_color = "green"
+        )
+    )
+  )
+)
+```
+]
+
+---
+### Changing from sparkline to sparkbar
+
+.pull-left[
+Instead of displaying the values as sparklines, we can display them as sparkbars as shiwn below.
+
+```{r eval=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkbar(
+        report,
+        highlight_bars = highlight_bars(
+          min = "red", max = "blue"),
+        bandline = "innerquartiles",
+        statline = "mean")
+    )
+  )
+)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+reactable(
+  report,
+  defaultPageSize = 13,
+  columns = list(
+    Product = colDef(maxWidth = 200),
+    `Monthly Sales` = colDef(
+      cell = react_sparkbar(
+        report,
+        highlight_bars = highlight_bars(
+          min = "red", max = "blue"),
+        bandline = "innerquartiles",
+        statline = "mean")
+        )
+    )
   )
 ```
 ]
 
-.pull-right[
-Things to learn from the code chunk: 
-
-- [*str_detect()*](https://stringr.tidyverse.org/reference/str_detect.html) from **stringr** is used to detect the presence or absence of a pattern in a string.
-- [*filter()*](https://dplyr.tidyverse.org/reference/filter.html) of **dplyr** package is used to subset a data frame, retaining all rows that satisfy the specified conditions.
-]
-
----
-### Text Data Processing
-
-.pull-left[
-In this code chunk below, [*unnest_tokens()*](https://www.rdocumentation.org/packages/tidytext/versions/0.3.1/topics/unnest_tokens) of **tidytext** package is used to split the dataset into tokens, while [*stop_words()*](https://rdrr.io/cran/tidytext/man/stop_words.html) is used to remove stop-words. 
-
-```{r}
-usenet_words <- cleaned_text %>%
-  unnest_tokens(word, text) %>%
-  filter(str_detect(word, "[a-z']$"),
-         !word %in% stop_words$word)
-```
-]
-
----
-### Text Data Processing
-
-.pull-left[
-Now that we’ve removed the headers, signatures, and formatting, we can start exploring common words. For starters, we could find the most common words in the entire dataset, or within particular newsgroups.
-
-```{r}
-usenet_words %>%
-  count(word, sort = TRUE)
-```
-]
-
---
-
-.pull-right[
-Instead of counting individual word, you can also count words within by newsgroup by using the code chunk below.
-
-
-```{r}
-words_by_newsgroup <- usenet_words %>%
-  count(newsgroup, word, sort = TRUE) %>%
-  ungroup()
-```
-]
-
----
-### Visualising Words in newsgroups
-
-.pull-left[
-In this code chunk below, *wordcloud()* of **wordcloud** package is used to plot a static wordcloud.
-
-```{r fig.height=4}
-wordcloud(words_by_newsgroup$word,
-          words_by_newsgroup$n,
-          max.words = 300)
-
-```
-]
-
-.pull-right[
-A DT table can be used to complement the visual discovery.
-
-```{r echo=FALSE}
-DT::datatable(words_by_newsgroup, 
-              filter = 'top') %>% 
-  formatStyle(0, target = 'row', 
-              lineHeight='25%')
-```
-]
-
----
-### Visualising Words in newsgroups
-
-.pull-left[
-The wordcloud below is plotted by using [**ggwordcloud**](https://lepennec.github.io/ggwordcloud/) package.
-
-```{r echo=FALSE}
-set.seed(1234)
-
-words_by_newsgroup %>%
-  filter(n > 5) %>%
-ggplot(aes(label = word,
-           size = n)) +
-  geom_text_wordcloud() +
-  theme_minimal() +
-  facet_wrap(~newsgroup)
-```
-]
-
---
-.pull-left[
-The code chunk used:
-
-```{r eval=FALSE}
-set.seed(1234)
-
-words_by_newsgroup %>%
-  filter(n > 0) %>%
-ggplot(aes(label = word,
-           size = n)) +
-  geom_text_wordcloud() +
-  theme_minimal() +
-  facet_wrap(~newsgroup)
-```
-]
-
----
-## Basic Concept of TF-IDF
-
-- [tf–idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf), short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection of [corpus](https://en.wikipedia.org/wiki/Text_corpus). 
-
-.center[
-![:scale 60%](img/image10-4.jpg)
-]
-
----
-### Computing tf-idf within newsgroups
-
-.pull-left[
-The code chunk below uses *bind_tf_idf()* of tidytext to compute and bind the term frequency, inverse document frequency and ti-idf of a tidy text dataset to the dataset.   
-
-```{r}
-tf_idf <- words_by_newsgroup %>%
-  bind_tf_idf(word, newsgroup, n) %>%
-  arrange(desc(tf_idf))
-```
-]
-
----
-### Visualising tf-idf as interactive table
-
-Table below is an interactive table created by using *datatable()*.
-
-```{r echo=FALSE}
-DT::datatable(tf_idf, filter = 'top') %>% 
-  formatRound(columns = c('tf', 'idf', 'tf_idf'), 
-              digits = 3) %>%
-  formatStyle(0, 
-              target = 'row', 
-              lineHeight='25%')
-```
-
----
-### Visualising tf-idf as interactive table
-
-.pull-left[
-The code chunk below uses *datatable()* of DT package to create a html table that allows pagination of rows and columns.
-
-```{r eval=FALSE}
-DT::datatable(tf_idf, filter = 'top') %>% 
-  formatRound(columns = c('tf', 'idf', 
-                          'tf_idf'), 
-              digits = 3) %>%
-  formatStyle(0, 
-              target = 'row', 
-              lineHeight='25%')
-```
-]
-
-.pull-right[
-Things to learn from the code chunk:
-- *filter* argument is used to turn control the filter UI.
-- *formatRound()* is used to customise the values format.  The argument *digits* define the number of decimal places.
-- *formatStyle()* is used to customise the output table.  In this example, the arguments *target* and *lineHeight* are used to reduce the line height by 25%.
-
-To learn more about customising DT's table, visit this [link](https://rstudio.github.io/DT/functions.html).
-]
-
----
-### Visualising tf-idf within newsgroups
-
-.pull-left[
-Facet bar charts technique is used to visualise the tf-idf values of science related newsgroup.
-
-```{r echo=FALSE}
-tf_idf %>%
-  filter(str_detect(newsgroup, "^sci\\.")) %>%
-  group_by(newsgroup) %>%
-  slice_max(tf_idf, n = 12) %>%
-  ungroup() %>%
-  mutate(word = reorder(word, tf_idf)) %>%
-  ggplot(aes(tf_idf, word, fill = newsgroup)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ newsgroup, scales = "free") +
-  labs(x = "tf-idf", y = NULL)
-```
-]
-
---
-.pull-right[
-The code chunk used to prepare the plot.
-
-```{r eval=FALSE}
-tf_idf %>%
-  filter(str_detect(newsgroup, "^sci\\.")) %>%
-  group_by(newsgroup) %>%
-  slice_max(tf_idf, 
-            n = 12) %>%
-  ungroup() %>%
-  mutate(word = reorder(word, 
-                        tf_idf)) %>%
-  ggplot(aes(tf_idf, 
-             word, 
-             fill = newsgroup)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ newsgroup, 
-             scales = "free") +
-  labs(x = "tf-idf", 
-       y = NULL)
-```
-]
-
----
-### Counting and correlating pairs of words with the widyr package
-
-- To count the number of times that two words appear within the same document, or to see how correlated they are. 
-- Most operations for finding pairwise counts or correlations need to turn the data into a wide matrix first.
-- [**widyr**](https://cran.r-project.org/web/packages/widyr/index.html) package first ‘casts’ a tidy dataset into a wide matrix, performs an operation such as a correlation on it, then re-tidies the result. 
-
-.pull-left[
-![](img/image10-2.jpg)
-]
-
---
-.pull-right[
-In this code chunk below, *pairwise_cor()* of **widyr** package is used to compute the correlation between newsgroup based on the common words found. 
-
-```{r}
-newsgroup_cors <- words_by_newsgroup %>%
-  pairwise_cor(newsgroup, 
-               word, 
-               n, 
-               sort = TRUE)
-```
-]
-
----
-### Visualising correlation as a network
-
-.pull-left[
-Now, we can visualise the relationship between newgroups in network graph as shown below. 
-
-```{r echo=FALSE}
-set.seed(2017)
-
-newsgroup_cors %>%
-  filter(correlation > .025) %>%
-  graph_from_data_frame() %>%
-  ggraph(layout = "fr") +
-  geom_edge_link(aes(alpha = correlation, 
-                     width = correlation)) +
-  geom_node_point(size = 6, 
-                  color = "lightblue") +
-  geom_node_text(aes(label = name),
-                 color = "red",
-                 repel = TRUE) +
-  theme_void()
-```
-]
-
---
-.pull-right[
-The code chunk:
-
-```{r eval=FALSE}
-set.seed(2017)
-
-newsgroup_cors %>%
-  filter(correlation > .025) %>%
-  graph_from_data_frame() %>%
-  ggraph(layout = "fr") +
-  geom_edge_link(aes(alpha = correlation, 
-                     width = correlation)) +
-  geom_node_point(size = 6, 
-                  color = "lightblue") +
-  geom_node_text(aes(label = name),
-                 color = "red",
-                 repel = TRUE) +
-  theme_void()
-```
-]
-
----
-### Bigram
-
-.pull-left[
-In this code chunk below, a bigram data frame is created by using unnest_tokens() of tidytext.
-
-```{r}
-bigrams <- cleaned_text %>%
-  unnest_tokens(bigram, 
-                text, 
-                token = "ngrams", 
-                n = 2)
-
-```
-]
-
-.pull-right[
-```{r}
-bigrams
-```
-]
-
----
-### Counting bigrams
-
-.pull-left[
-The code chunk is used to count and sort the bigram data frame ascendingly.
-
-```{r}
-bigrams_count <- bigrams %>%
-  filter(bigram != 'NA') %>%
-  count(bigram, sort = TRUE)
-```
-]
-
-.pull-right
-```{r}
-bigrams_count
-```
-
----
-### Cleaning bigram
-
-.pull-left[
-The code chunk below is used to seperate the bigram into two words.
-
-```{r}
-bigrams_separated <- bigrams %>%
-  filter(bigram != 'NA') %>%
-  separate(bigram, c("word1", "word2"), 
-           sep = " ")
-
-bigrams_filtered <- bigrams_separated %>%
-  filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word)
-```
-]
-
-.pull-right[
-```{r}
-bigrams_filtered
-```
-]
-
----
-### Counting the bigram again
-
-```{r}
-bigram_counts <- bigrams_filtered %>% 
-  count(word1, word2, sort = TRUE)
-```
-
----
-### Create a network graph from bigram data frame
-
-In the code chunk below, a network graph is created by using *graph_from_data_frame()* of igraph. 
-
-```{r}
-bigram_graph <- bigram_counts %>%
-  filter(n > 3) %>%
-  graph_from_data_frame()
-bigram_graph
-```
-
----
-### Visualizing a network of bigrams with ggraph
-
-.pull-left[
-
-In this code chunk below, ggraph package is used to plot the bigram.
-
-```{r echo=FALSE}
-set.seed(1234)
-
-ggraph(bigram_graph, layout = "fr") +
-  geom_edge_link() +
-  geom_node_point() +
-  geom_node_text(aes(label = name), 
-                 vjust = 1, 
-                 hjust = 1)
-```
-]
-
---
-.pull-right[
-
-The code chunk used to plot the network graph:
-
-```{r eval=FALSE}
-set.seed(1234)
-
-ggraph(bigram_graph, layout = "fr") +
-  geom_edge_link() +
-  geom_node_point() +
-  geom_node_text(aes(label = name), 
-                 vjust = 1, 
-                 hjust = 1)
-```
-]
-
----
-### Revised version
-
-.pull-left[
-
-```{r echo=FALSE}
-set.seed(1234)
-
-a <- grid::arrow(type = "closed", 
-                 length = unit(.15,
-                               "inches"))
-
-ggraph(bigram_graph, 
-       layout = "fr") +
-  geom_edge_link(aes(edge_alpha = n), 
-                 show.legend = FALSE,
-                 arrow = a, 
-                 end_cap = circle(.07,
-                                  'inches')) +
-  geom_node_point(color = "lightblue", 
-                  size = 5) +
-  geom_node_text(aes(label = name), 
-                 vjust = 1, 
-                 hjust = 1) +
-  theme_void()
-```
-]
-
---
-.pull-right[
-
-The code chunl used to plot the network graph.
-
-```{r eval=FALSE}
-set.seed(1234)
-
-a <- grid::arrow(type = "closed", 
-                 length = unit(.15,
-                               "inches"))
-
-ggraph(bigram_graph, 
-       layout = "fr") +
-  geom_edge_link(aes(edge_alpha = n), 
-                 show.legend = FALSE,
-                 arrow = a, 
-                 end_cap = circle(.07,
-                                  'inches')) +
-  geom_node_point(color = "lightblue", 
-                  size = 5) +
-  geom_node_text(aes(label = name), 
-                 vjust = 1, 
-                 hjust = 1) +
-  theme_void()
-```
-]
-
----
-## References
-
-#### widyr
-
-- Reference guide
-    - [widyr: Widen, process, and re-tidy a dataset](https://cran.r-project.org/web/packages/widyr/vignettes/intro.html)
-    - [United Nations Voting Correlations](https://cran.r-project.org/web/packages/widyr/vignettes/united_nations.html)
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
-pagedown::chrome_print("Hands-on_Ex09.html")
+pagedown::chrome_print("Hands-on_Ex10.html")
 ```
