@@ -606,7 +606,7 @@ reactable(
 ]
 
 ---
-### Adding pointa and labels
+### Adding points and labels
 
 .pull-left[
 In the code chunk below `highlight_points` argument is used to show the minimum and maximum values points and `label` argument is used to label first and last values.
