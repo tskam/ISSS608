@@ -390,7 +390,7 @@ Stock40_daily %>%
     open = open, high = high, 
     low = low, close = close)) +
   geom_line(size = 0.5)+
-  geom_ma(color = "darkgreen") +
+  geom_ma(color = "darkgreen", n = 20) +
   geom_ma(color = "lightgreen", n = 5) + 
     coord_x_date(xlim = c(end - weeks(12), 
                           end),
