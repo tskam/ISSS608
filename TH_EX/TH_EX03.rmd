@@ -59,7 +59,7 @@ Your completed take-home exercise is due on **8th May 2022, by 11:59pm evening**
 - [RAO NINGZHEN](https://jeanrao.netlify.app/th_ex/th3.html)
 - [RAUNAK KAPUR](https://isss608-raunakkapur.netlify.app/th_ex/the3v3)
 - [RAVEENA CHAKRAPANI](https://raveenaclr.netlify.app/th_ex/th_ex3.html)
-- [SHACHI ANIRUDHA RAODEO]()
+- [SHACHI ANIRUDHA RAODEO](https://visualanalytics.netlify.app/th_ex/th_ex3.html)
 - [SUI TIANYUE](https://isss608totallynew.netlify.app/take_home_exercise/ex_3.html)
 - [TAY CHENG WEI CLARENCE](https://clarencetay.netlify.app/th_ex/th_ex3.html)
 - [TSENG CHIA-YI](https://mitb-va-joycetseng.netlify.app/posts/2022-05-05-takehome3/)

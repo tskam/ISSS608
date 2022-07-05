@@ -165,7 +165,7 @@ Note that the following examples are for references purposes.  You are urge to u
 
 - [Group 1](https://isss698-vast-challenge-group8.netlify.app/)
 - [Group 2](https://visual-analysis-project-g2.netlify.app/)
-- [Group 3](https://va-group3.netlify.app/)
+- [Group 3](https://wealthcheckup.netlify.app/)
 - [Group 4](https://isss608group4.netlify.app/)
 - [Group 5](https://isss608-project-group5.netlify.app/)
 - [Group 6](https://isss608-group06.netlify.app/)
